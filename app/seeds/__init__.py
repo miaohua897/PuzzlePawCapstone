@@ -2,6 +2,7 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .dogs import seed_dogs, undo_dogs
 from .notes import seed_notes, undo_notes
+from .photos import seed_photos,undo_photos
 from .health_records import seed_health_records,undo_health_records
 from .behavior_records import seed_behavior_records,undo_behavior_records
 from .training_records import seed_training_records,undo_training_records
@@ -24,12 +25,14 @@ def seed():
         undo_users()
         undo_dogs()
         undo_notes()
+        undo_photos()
         undo_health_records()
         undo_behavior_records()
         undo_training_records()
     seed_users()
     seed_dogs()
     seed_notes()
+    seed_photos()
     seed_health_records()
     seed_behavior_records()
     seed_training_records()
@@ -42,6 +45,7 @@ def undo():
     undo_users()
     undo_dogs()
     undo_notes()
+    undo_photos()
     undo_health_records()
     undo_behavior_records()
     undo_training_records()

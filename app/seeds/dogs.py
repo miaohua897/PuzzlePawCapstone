@@ -10,15 +10,15 @@ def seed_dogs():
         birth_date=date(2023, 5, 10),
         breed_name ='Siberian Husky',
         description='info brief',
-        medical_allergies='NA'
+        medical_allergies='NA',
         owner_phone_number='1234556435',
         owner_email='hello@gmail.com',
         owner_address_line_one='helloworld ln',
         owner_address_line_two='helloworld two ln',
         owner_address_city ='SD',
         owner_address_state='CA',
-        owner_address_zip_code = 92130
-        owner_country = "UK"
+        owner_address_zip_code = 92130,
+        owner_country = "UK",
         user_id =1)
        
     db.session.add(demo)

@@ -23,7 +23,7 @@ class Dog(db.Model):
     owner_address_line_two = db.Column(db.String(200),nullable=False)
     owner_address_city = db.Column(db.String(30),nullable=False)
     owner_address_state = db.Column(db.String(30),nullable=False)
-    owner_address_zip_code = db.Column(db.Integer(10),nullable=False)
+    owner_address_zip_code = db.Column(db.Integer,nullable=False)
     owner_country =db.Column(db.String(30),nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.today)
     updated_at = db.Column(db.DateTime, default=datetime.today, onupdate=datetime.today)

@@ -5,7 +5,7 @@ from datetime import date
 def seed_training_records():
     demo= Training_Record(
        training_date = date(2024,1,1),
-       note='helloworld',
+       notes='helloworld',
        training_type='helloworld',
        trainer_name='hi',
        dog_id=1 
