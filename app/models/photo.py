@@ -1,8 +1,8 @@
 from .db import db, environment, SCHEMA,add_prefix_for_prod
 from datetime import datetime
 
-class Note(db.Model):
-    __tablename__='notes'
+class Photo(db.Model):
+    __tablename__='photos'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
@@ -16,3 +16,6 @@ class Note(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.today, onupdate=datetime.today)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     dog_id = db.Column(db.Integer,db.ForeignKey(add_prefix_for_prod('dogs.id')))
+
+    owner = db.relationship("User", back_populates='photo')
+    dog =db.relationship("Dog",back_populates='photo')

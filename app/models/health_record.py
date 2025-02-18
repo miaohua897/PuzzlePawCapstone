@@ -15,4 +15,5 @@ class Health_Record(db.Model):
     dog_id = db.Column(db.Integer,db.ForeignKey(add_prefix_for_prod('dogs.id')))
     created_at = db.Column(db.DateTime, default=datetime.today)
     updated_at = db.Column(db.DateTime, default=datetime.today, onupdate=datetime.today)
+    
     dog =db.relationship("Dog",back_populates='health_record')
