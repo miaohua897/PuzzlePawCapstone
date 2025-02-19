@@ -1,0 +1,11 @@
+<form action="{{ url_for('photos.add_photo') }}"  method="POST" enctype="multipart/form-data">
+    {{form.hidden_tag()}}
+    {{form.image_url}}
+    {{form.title()}}
+    {{form.description()}}
+    {{form.photo_date()}}
+    {{form.dog_id()}}
+    {{form.user_id()}}
+    {{form.submit()}}
+</form>
+<h2>I am photo page</h2>

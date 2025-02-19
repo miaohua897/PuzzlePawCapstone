@@ -5,7 +5,10 @@ from datetime import date
 
 def seed_dogs():
     demo = Dog(
-        dog_name='paw',age =1,gender='female',color='white',weight=7.20,
+        dog_name='paw',age =1,color='white',weight=7.20,
+        gender='male',
+        neutered_spayed='spayed',
+        microchip=False,
         image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/Untitled+design+(20).png',
         birth_date=date(2023, 5, 10),
         breed_name ='Siberian Husky',
