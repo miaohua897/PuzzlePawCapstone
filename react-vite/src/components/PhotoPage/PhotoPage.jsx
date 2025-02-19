@@ -27,8 +27,7 @@ function PhotoPage(){
                            
                                 <div key={index} >
                                 <img src={photo.image_url} className='all-photoes'/>
-                                </div>
-                          
+                                </div>                        
                         )
                     })
                   }
