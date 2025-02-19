@@ -1,0 +1,26 @@
+<form action="{{ url_for('dogs.add_dog') }}"  method="POST" enctype="multipart/form-data">
+    {{form.hidden_tag()}}
+    {{form.image_url}}
+    {{form.dog_name()}}
+    {{form.age()}}
+    {{form.gender()}}
+    {{form.neutered_spayed()}}
+    {{form.color()}}
+    {{form.weight}}
+    {{form.birth_date}}
+    {{form.breed_name}}
+    {{form.description}}
+    {{form.medical_allergies}}
+    {{form.owner_phone_number}}
+    {{form.owner_email}}
+    {{form.owner_address_line_one}}
+    {{form.owner_address_line_two}}
+    {{form.owner_address_city}}
+    {{form.owner_address_state}}
+    {{form.owner_address_zip_code}}
+    {{form.owner_country}}
+    {{form.user_id()}}
+    {{form.dog_id()}}
+    {{form.submit()}}
+</form>
+<h2>I am dog page</h2>

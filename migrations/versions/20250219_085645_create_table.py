@@ -1,8 +1,8 @@
-"""add-tables
+"""create-table
 
-Revision ID: b06d8c92e36f
+Revision ID: 25e01e6c8b57
 Revises: 
-Create Date: 2025-02-18 14:04:26.567883
+Create Date: 2025-02-19 08:56:45.255034
 
 """
 from alembic import op
@@ -11,8 +11,9 @@ import sqlalchemy as sa
 import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
+
 # revision identifiers, used by Alembic.
-revision = 'b06d8c92e36f'
+revision = '25e01e6c8b57'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -34,6 +35,8 @@ def upgrade():
     sa.Column('dog_name', sa.String(length=30), nullable=False),
     sa.Column('age', sa.Integer(), nullable=False),
     sa.Column('gender', sa.String(length=30), nullable=False),
+    sa.Column('neutered_spayed', sa.String(length=30), nullable=False),
+    sa.Column('microchip', sa.Boolean(), nullable=True),
     sa.Column('color', sa.String(length=30), nullable=False),
     sa.Column('weight', sa.Numeric(precision=6, scale=2), nullable=False),
     sa.Column('image_url', sa.String(length=2000), nullable=False),
