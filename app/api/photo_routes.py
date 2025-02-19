@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request,render_template,redirect
-from flask_login import login_required
+from flask_login import login_required,current_user
 from app.models import User,Photo,db
 from app.forms.photo_form import PhotoForm
 from .aws_helpers import (
@@ -12,6 +12,11 @@ def get_all_photos():
     photos = Photo.query.all()
     return {photo.id: photo.to_dict() for photo in photos}
 
+@photo_routes.route('/current',methods=['GET'])
+@login_required
+def get_session_photos():
+    photos = Photo.query.filter_by(user_id=current_user.id).all()
+    return {photo.id: photo.to_dict() for photo in photos}
 
 @photo_routes.route('',methods=['POST'])
 @login_required
