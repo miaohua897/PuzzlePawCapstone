@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify,request,redirect,render_template
-from flask_login import login_required
+from flask_login import login_required,current_user
 from app.models import User,Dog,db
 from app.forms.dog_form import DogForm
 from .aws_helpers import (
@@ -12,6 +12,11 @@ def get_all_dogs():
     dogs = Dog.query.all()
     return {dog.id: dog.to_dict() for dog in dogs}
 
+@dog_routes.route('/current',methods=['GET'])
+def get_session_dogs():
+    dogs = Dog.query.filter_by(user_id=current_user.id).all()
+    return {dog.id: dog.to_dict() for dog in dogs}
+
 @dog_routes.route('',methods=['POST'])
 @login_required
 def add_dog():
@@ -19,9 +24,9 @@ def add_dog():
     form ['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
 
-        # image = form.data["image_url"]
-        # image.filename = get_unique_filename(image.filename)
-        # upload = upload_file_to_s3(image)
+        image = form.data["image_url"]
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
 
         new_dog = Dog(dog_name = form.data['dog_name'],
              age=form.data['age'],
@@ -41,8 +46,8 @@ def add_dog():
              owner_address_state=form.data['owner_address_state'],
              owner_address_zip_code=form.data['owner_address_zip_code'],
              owner_country=form.data['owner_country'],
-             image_url='http://hell.png',
-            #  image_url=upload['url'],
+            #  image_url='http://hell.png',
+             image_url=upload['url'],
              user_id= form.data['user_id'])
         db.session.add(new_dog)
         db.session.commit()
@@ -78,9 +83,9 @@ def update_dog(dog_id):
         })
     if form.validate_on_submit():
 
-        # image = form.data["image_url"]
-        # image.filename = get_unique_filename(image.filename)
-        # upload = upload_file_to_s3(image)
+        image = form.data["image_url"]
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
         dog.dog_name=form.data['dog_name']
         dog.age=form.data['age']
         dog.gender= form.data['gender']
@@ -99,8 +104,8 @@ def update_dog(dog_id):
         dog.owner_address_state=form.data['owner_address_state']
         dog.owner_address_zip_code=form.data['owner_address_zip_code']
         dog.owner_country=form.data['owner_country']
-        # dog.image_url=upload['url']
-        dog.image_url='http://hell.png'
+        dog.image_url=upload['url']
+        # dog.image_url='http://hell.png'
         dog.user_id= form.data['user_id']
       
         db.session.commit()
