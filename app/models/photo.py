@@ -19,3 +19,13 @@ class Photo(db.Model):
 
     owner = db.relationship("User", back_populates='photo')
     dog =db.relationship("Dog",back_populates='photo')
+
+    def to_dict(self):
+        return {
+            'photo_date':self.photo_date,
+            'title':self.title,
+            'description':self.description,
+            'image_url':self.image_url,
+            'owner':self.owner.to_dict(),
+            'dog':self.dog.to_dict()
+        }
