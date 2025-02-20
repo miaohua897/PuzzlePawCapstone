@@ -76,9 +76,9 @@
     border: none;
     background-color: transparent;
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 24px;
     position: absolute;
-    bottom:5px;
+    bottom:3px;
     left:5px;
     /* z-index: 20; */
 }
