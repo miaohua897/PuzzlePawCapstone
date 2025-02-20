@@ -5,11 +5,11 @@ from datetime import date
 
 def seed_dogs():
     demo = Dog(
-        dog_name='paw',age =1,color='white',weight=7.20,
+        dog_name='PawPaw',age =1,color='white',weight=7.20,
         gender='male',
         neutered_spayed='spayed',
         microchip=False,
-        image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-poodles2doodles.jpg',
+        image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-ohshineon-33273.jpg',
         birth_date=date(2023, 5, 10),
         breed_name ='Siberian Husky',
         description='info brief',
@@ -24,7 +24,7 @@ def seed_dogs():
         owner_country = "UK",
         user_id =1)
     demo_two = Dog(
-        dog_name='pawpaw',age =1,color='white',weight=7.20,
+        dog_name='Dog2',age =1,color='white',weight=7.20,
         gender='female',
         neutered_spayed='spayed',
         microchip=False,

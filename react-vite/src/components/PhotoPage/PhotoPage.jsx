@@ -2,10 +2,12 @@ import { useEffect } from "react"
 import {useDispatch, useSelector} from 'react-redux'
 import {thunkLoadPhotos} from '../../redux/photo';
 import './PhotoPage.css'
+import { useNavigate } from "react-router-dom";
 
 function PhotoPage(){
     
     const dispatch = useDispatch()
+    const navigator = useNavigate()
     useEffect(()=>{
           dispatch(thunkLoadPhotos())
     },[dispatch])
@@ -13,9 +15,20 @@ function PhotoPage(){
     const photos = useSelector(state=>state.photo.photo)
     let photos_arr =[]
     if (photos)  photos_arr = Object.values(photos);
-    // console.log('photos',photos,photos_arr)
+    const navToDogPage=(e)=>{
+        e.preventDefault()
+        navigator('/dog')
+    }
+    
     return (
         <div className='pictures-container'>
+             <div className="dog-page-nav-button">
+                <button onClick ={navToDogPage} >dogs</button>
+                <button>notes</button>
+                <button>photos</button>
+                <button>records</button>
+
+            </div>
         {
             photos_arr !==0?
             <div>

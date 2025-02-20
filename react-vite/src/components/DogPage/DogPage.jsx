@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
+import {useNavigate} from 'react-router-dom'
 import {thunkLoadDogs} from '../../redux/dog';
 import './DogPage.css'
 
 function DogPage(){
     const dispatch = useDispatch()
+    const navigator = useNavigate()
     const [selectId,setSelectId] = useState(0)
     useEffect(()=>{
             dispatch(thunkLoadDogs())
@@ -16,17 +18,31 @@ function DogPage(){
         dogsArr = Object.values(dogs);
   
     }
-    // console.log('i am from dog page',dogs,dogsArr,firstDog) 
+    const navToPhotoPage=(e)=>{
+        e.preventDefault()
+        navigator('/photo') 
+    }
    
     return (
-        <div>
+        <div className="dog-page-container">
+            <div className="dog-page-nav-button">
+                <button>dogs</button>
+                <button>notes</button>
+                <button onClick ={navToPhotoPage}>photos</button>
+                <button>records</button>
+
+            </div>
              <div>
             {
                 dogsArr.length !== 0 ?
-                <div>
+                <div className="showcase-container">
                 <p>Happy Doy</p>
-                <h3>{dogsArr[selectId].dog_name}</h3>
+                <div className="dog-info-container">
+                <div>
                 <img src={dogsArr[selectId].image_url} className="dog-info-image" />
+                </div>
+                <div className="dog-info">
+                <h3>{dogsArr[selectId].dog_name}</h3>
                 <p>{dogsArr[selectId].age}</p>
                 <p>{dogsArr[selectId].birth_date}</p>
                 <p>{dogsArr[selectId].color}</p>
@@ -36,11 +52,14 @@ function DogPage(){
                 <p>{dogsArr[selectId].gender}</p>
                 <p>{dogsArr[selectId].medical_allergies}</p>
                 <p>{dogsArr[selectId].owner.username}</p>
+                </div>          
+                </div>
                 </div>
                 :<h2>add your first dog</h2>
             }
         </div>
-        <div>
+        <p></p>
+        <div className="select-dog-container">
         {
             dogsArr.length !== 0 ?
             dogsArr.map((dog,index) =>(
