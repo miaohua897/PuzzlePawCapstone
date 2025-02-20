@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect,useState } from "react"
 import {useDispatch, useSelector} from 'react-redux'
 import {thunkLoadPhotos} from '../../redux/photo';
 import './PhotoPage.css'
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function PhotoPage(){
     
+    const [moreInfo, setMoreInfo]=useState(12);
     const dispatch = useDispatch()
     const navigator = useNavigate()
     useEffect(()=>{
@@ -34,8 +35,10 @@ function PhotoPage(){
             <div>
                   <h1>Photoes</h1>
                   <div className='photoes-container'>
+                    <div className="dog-photos-container">
+
                   {
-                    photos_arr.map((photo,index)=>{
+                    photos_arr.slice(0,moreInfo).map((photo,index)=>{
                         return (
                            
                                 <div key={index} >
@@ -44,7 +47,16 @@ function PhotoPage(){
                         )
                     })
                   }
+                  </div>
+                {
+                    moreInfo===12?
+                    <button className='showmore' onClick={()=>setMoreInfo(photos_arr.length)}> ... show more</button>
+                    :
+                    <button className='showmore' onClick={()=>setMoreInfo(12)}>show less</button>
+                  }
                 </div>
+     
+         
             </div>
             :<h1>Photoes</h1>
         }

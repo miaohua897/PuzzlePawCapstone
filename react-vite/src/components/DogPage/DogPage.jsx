@@ -36,7 +36,7 @@ function DogPage(){
             {
                 dogsArr.length !== 0 ?
                 <div className="showcase-container">
-                <p>Happy Doy</p>
+                <h1>Happy Doy</h1>
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
                 <img src={dogsArr[selectId].image_url} className="dog-info-image" />

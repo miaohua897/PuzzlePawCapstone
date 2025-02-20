@@ -59,6 +59,55 @@ def seed_photos():
        description='brief introduction8',
        image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-pixabay-65928.jpg', 
        user_id =1,
+       dog_id=1),
+        Photo(
+       photo_date = date(2024,1,1),
+       title='helloworld',
+       description='brief introduction9',
+       image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1562983.jpg', 
+       user_id =1,
+       dog_id=1),
+         Photo(
+       photo_date = date(2024,1,1),
+       title='helloworld',
+       description='brief introduction10',
+       image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-joey-marrone-709722-1559660.jpg', 
+       user_id =1,
+       dog_id=1),
+           Photo(
+       photo_date = date(2024,1,1),
+       title='helloworld',
+       description='brief introduction11',
+       image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-katlovessteve-551628.jpg', 
+       user_id =1,
+       dog_id=1),
+              Photo(
+       photo_date = date(2024,1,1),
+       title='helloworld',
+       description='brief introduction12',
+       image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-nietjuhart-612813.jpg', 
+       user_id =1,
+       dog_id=1),
+               Photo(
+       photo_date = date(2024,1,1),
+       title='helloworld',
+       description='brief introduction13',
+       image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-pixabay-160846.jpg', 
+       user_id =1,
+       dog_id=1),
+                  Photo(
+       photo_date = date(2024,1,1),
+       title='helloworld',
+       description='brief introduction14',
+       image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-pixabay-164186.jpg', 
+       user_id =1,
+       dog_id=1),
+        Photo(
+       photo_date = date(2024,1,1),
+       title='helloworld',
+       description='brief introduction15',
+       image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-simonakidric-2607544.jpg', 
+       user_id =1,
        dog_id=1)
     ]
     db.session.add_all(demo)
