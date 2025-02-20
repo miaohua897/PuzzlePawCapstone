@@ -38,7 +38,7 @@ function DogPage(){
                 <div className="showcase-container">
                 <p>Happy Doy</p>
                 <div className="dog-info-container">
-                <div>
+                <div className="showcase-dog-img-container">
                 <img src={dogsArr[selectId].image_url} className="dog-info-image" />
                 </div>
                 <div className="dog-info">
