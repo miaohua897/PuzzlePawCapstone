@@ -1,0 +1,120 @@
+import { useEffect, useState,useRef } from "react";
+import {useDispatch, useSelector} from 'react-redux';
+import {useNavigate} from 'react-router-dom'
+import {thunkLoadDogs} from '../../redux/dog';
+import './DogPage.css'
+
+function DogPage(){
+    const dispatch = useDispatch()
+    const navigator = useNavigate()
+    const [selectId,setSelectId] = useState(0)
+    const [showMenu, setShowMenu] = useState(false);
+    const [selectedDog,setSelectedDog] = useState(-1)
+    const ulRef = useRef();
+    useEffect(()=>{
+            dispatch(thunkLoadDogs())
+    },[dispatch])
+
+    useEffect(() => {
+        if (!showMenu) return;
+    
+        const closeMenu = (e) => {
+          if (ulRef.current && !ulRef.current.contains(e.target)) {
+            setShowMenu(false);
+          }
+        };
+    
+        document.addEventListener("click", closeMenu);
+    
+        return () => document.removeEventListener("click", closeMenu);
+      }, [showMenu]);
+
+    const dogs = useSelector(state=>state.dog.dog);
+    let dogsArr=[];
+    if(dogs) {
+        dogsArr = Object.values(dogs);
+  
+    }
+    const navToPhotoPage=(e)=>{
+        e.preventDefault()
+        navigator('/photo') 
+    }
+
+    // const closeMenu = (e) => {
+    //     if (ulRef.current && !ulRef.current.contains(e.target)) {
+    //       setShowMenu(false);
+    //     }
+    //   };
+   
+    return (
+        <div className="dog-page-container">
+            <div className="dog-page-nav-button">
+                <button>dogs</button>
+                <button>notes</button>
+                <button onClick ={navToPhotoPage}>photos</button>
+                <button>records</button>
+
+            </div>
+             <div>
+            {
+                dogsArr.length !== 0 ?
+                <div className="showcase-container">
+                <h1>My Beloved Dogs</h1>
+                <div className="dog-info-container">
+                <div className="showcase-dog-img-container">
+                <img src={dogsArr[selectId].image_url} className="dog-info-image" />
+                </div>
+                <div className="dog-info">
+                <h3>{dogsArr[selectId].dog_name}</h3>
+                <div className="dog-basic-info">
+                <p>{'age:  '+dogsArr[selectId].age}</p>
+                <p>{'weight:  '+dogsArr[selectId].weight}</p>
+                <p>{'breed:  '+dogsArr[selectId].breed_name}</p>
+                </div>
+                <p className="showcase-dog-bio">{'bio:  '+dogsArr[selectId].description}</p>
+              
+           
+                {/* <p>{dogsArr[selectId].gender}</p> */}
+                <p>{'medical/allergies:  '+dogsArr[selectId].medical_allergies}</p>
+                <p>{'owner:  '+dogsArr[selectId].owner.username}</p>
+                </div>          
+                </div>
+                </div>
+                :<h2>add your first dog</h2>
+            }
+        </div>
+        <p></p>
+        <div className="select-dog-container">
+        {
+            dogsArr.length !== 0 ?
+            dogsArr.map((dog,index) =>(
+                <div key={index} onClick={()=> setSelectId(dog.id-1)} className="dog-card">
+                    <img src={dog.image_url} className="dog-cards-image"></img>
+                    <p className="dog-cards-text" >{dog.dog_name}</p>
+                    <button onClick={
+                        (e)=>{
+                            e.stopPropagation(); 
+                            setShowMenu(!showMenu);
+                            setSelectedDog(dog.id)
+                        }
+                    } id='dog-cards-options'>...</button>
+                    {showMenu && selectedDog ===dog.id?
+                     <div
+                     className="dog-cards-menu"
+                      ref={ulRef}
+                     >
+                        <p>hello</p>
+                        <p>world</p>
+                     </div>
+                     :null
+                    }
+                </div>
+            )):null
+        }
+        </div>
+
+        </div>
+       
+    )
+}
+export default DogPage;
