@@ -3,6 +3,7 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import HomePage from '../components/HomePage';
 import PhotoPage from '../components/PhotoPage';
+import DogPage from '../components/DogPage';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "photo",
         element: <PhotoPage />,
+      },
+      {
+        path: "dog",
+        element: <DogPage />,
       },
     ],
   },
