@@ -66,3 +66,25 @@
             5px -5px 10px rgba(0, 0, 0, 0.2);
    
 }
+.dog-card{
+    position: relative;
+}
+.dog-cards-text {
+    visibility: hidden;
+    opacity: 0; 
+    position: absolute; 
+    bottom: 10px;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease, visibility 0.3s ease;  
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-size: 24px;
+    color: rgb(121, 181, 242);
+}
+.dog-card:hover .dog-cards-text{
+    visibility: visible;
+    opacity: 1;  
+
+}

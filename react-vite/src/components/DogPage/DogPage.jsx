@@ -63,9 +63,9 @@ function DogPage(){
         {
             dogsArr.length !== 0 ?
             dogsArr.map((dog,index) =>(
-                <div key={index} onClick={()=> setSelectId(dog.id-1)}>
+                <div key={index} onClick={()=> setSelectId(dog.id-1)} className="dog-card">
                     <img src={dog.image_url} className="dog-cards-image"></img>
-                    <p>{dog.dog_name}</p>
+                    <p className="dog-cards-text" >{dog.dog_name}</p>
                 </div>
             )):null
         }
