@@ -72,3 +72,19 @@
     opacity: 1;  
 
 }
+#photo-cards-options{
+    border: none;
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: 18px;
+    position: absolute;
+    bottom:5px;
+    left:5px;
+    z-index: 20;
+}
+
+.Photo-cards-menu{
+    position: absolute;
+    bottom:10px;
+    left:5px;
+}

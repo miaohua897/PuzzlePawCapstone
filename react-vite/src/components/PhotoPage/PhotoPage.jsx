@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react"
+import { useEffect,useState, useRef } from "react"
 import {useDispatch, useSelector} from 'react-redux'
 import {thunkLoadPhotos} from '../../redux/photo';
 import './PhotoPage.css'
@@ -7,11 +7,28 @@ import { useNavigate } from "react-router-dom";
 function PhotoPage(){
     
     const [moreInfo, setMoreInfo]=useState(12);
+    const [showMenu, setShowMenu] = useState(false);
+    const [selectedPhoto,setSelectedPhoto] = useState(-1);
+    const ulRef = useRef();
     const dispatch = useDispatch()
     const navigator = useNavigate()
     useEffect(()=>{
           dispatch(thunkLoadPhotos())
     },[dispatch])
+
+    useEffect(() => {
+      if (!showMenu) return;
+  
+      const closeMenu = (e) => {
+        if (ulRef.current && !ulRef.current.contains(e.target)) {
+          setShowMenu(false);
+        }
+      };
+  
+      document.addEventListener("click", closeMenu);
+  
+      return () => document.removeEventListener("click", closeMenu);
+    }, [showMenu]);
 
     const photos = useSelector(state=>state.photo.photo)
     let photos_arr =[]
@@ -44,12 +61,38 @@ function PhotoPage(){
                                 <div key={index} >
                                 <div className="photo-card">
                                 <img src={photo.image_url} className='all-photoes'/>
-                                <div className="photo-info">
-                                <h3>{photo.title}</h3>
-                                <p id='photo-info-description'>{photo.description}</p>
+                                {
+                                  showMenu && selectedPhoto === photo.id?
+                                  null:
+                                  <div className="photo-info">
+                                  <h3>{photo.title}</h3>
+                                  <p id='photo-info-description'>{photo.description}</p>
+                                  </div>
+
+                                }
+                              
+                        
+                                <button  onClick={
+                            (e)=>{
+                            e.stopPropagation(); 
+                            setShowMenu(!showMenu);
+                            setSelectedPhoto(photo.id)
+                             }
+                            } id='photo-cards-options' >
+                                  ...
+                                </button>
+                                {showMenu && selectedPhoto === photo.id?
+                                <div
+                                className="Photo-cards-menu"
+                                  ref={ulRef}
+                                >
+                                    <p>hello</p>
+                                    <p>world</p>
                                 </div>
-                                </div>
-                                </div>                        
+                                :null
+                                }
+                            </div>
+                            </div>                        
                         )
                     })
                   }

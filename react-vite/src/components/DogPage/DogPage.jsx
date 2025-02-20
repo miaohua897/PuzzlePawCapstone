@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 import {thunkLoadDogs} from '../../redux/dog';
@@ -8,9 +8,26 @@ function DogPage(){
     const dispatch = useDispatch()
     const navigator = useNavigate()
     const [selectId,setSelectId] = useState(0)
+    const [showMenu, setShowMenu] = useState(false);
+    const [selectedDog,setSelectedDog] = useState(-1)
+    const ulRef = useRef();
     useEffect(()=>{
             dispatch(thunkLoadDogs())
     },[dispatch])
+
+    useEffect(() => {
+        if (!showMenu) return;
+    
+        const closeMenu = (e) => {
+          if (ulRef.current && !ulRef.current.contains(e.target)) {
+            setShowMenu(false);
+          }
+        };
+    
+        document.addEventListener("click", closeMenu);
+    
+        return () => document.removeEventListener("click", closeMenu);
+      }, [showMenu]);
 
     const dogs = useSelector(state=>state.dog.dog);
     let dogsArr=[];
@@ -22,6 +39,12 @@ function DogPage(){
         e.preventDefault()
         navigator('/photo') 
     }
+
+    // const closeMenu = (e) => {
+    //     if (ulRef.current && !ulRef.current.contains(e.target)) {
+    //       setShowMenu(false);
+    //     }
+    //   };
    
     return (
         <div className="dog-page-container">
@@ -36,7 +59,7 @@ function DogPage(){
             {
                 dogsArr.length !== 0 ?
                 <div className="showcase-container">
-                <h1>Happy Doy</h1>
+                <h1>My Beloved Dogs</h1>
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
                 <img src={dogsArr[selectId].image_url} className="dog-info-image" />
@@ -68,6 +91,23 @@ function DogPage(){
                 <div key={index} onClick={()=> setSelectId(dog.id-1)} className="dog-card">
                     <img src={dog.image_url} className="dog-cards-image"></img>
                     <p className="dog-cards-text" >{dog.dog_name}</p>
+                    <button onClick={
+                        (e)=>{
+                            e.stopPropagation(); 
+                            setShowMenu(!showMenu);
+                            setSelectedDog(dog.id)
+                        }
+                    } id='dog-cards-options'>...</button>
+                    {showMenu && selectedDog ===dog.id?
+                     <div
+                     className="dog-cards-menu"
+                      ref={ulRef}
+                     >
+                        <p>hello</p>
+                        <p>world</p>
+                     </div>
+                     :null
+                    }
                 </div>
             )):null
         }

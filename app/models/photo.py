@@ -22,6 +22,7 @@ class Photo(db.Model):
 
     def to_dict(self):
         return {
+            'id': self.id,
             'photo_date':self.photo_date,
             'title':self.title,
             'description':self.description,
