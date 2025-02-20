@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
+import {useNavigate} from 'react-router-dom'
 import { FaUserCircle } from 'react-icons/fa';
 import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
@@ -8,6 +9,7 @@ import SignupFormModal from "../SignupFormModal";
 
 function ProfileButton() {
   const dispatch = useDispatch();
+  const navigator = useNavigate()
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
@@ -39,6 +41,11 @@ function ProfileButton() {
     closeMenu();
   };
 
+  const navToDogPage=(e)=>{
+    e.preventDefault()
+    navigator('/dog')
+  }
+
   return (
     <>
       <button onClick={toggleMenu}>
@@ -52,6 +59,9 @@ function ProfileButton() {
               <li>{user.email}</li>
               <li>
                 <button onClick={logout}>Log Out</button>
+              </li>
+              <li> 
+                <button onClick={navToDogPage}>got to dog page</button>
               </li>
             </>
           ) : (
