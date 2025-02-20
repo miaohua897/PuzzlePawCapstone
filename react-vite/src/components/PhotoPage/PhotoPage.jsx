@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import {thunkLoadPhotos} from '../../redux/photo';
 import './PhotoPage.css'
 import { useNavigate } from "react-router-dom";
+import OpenModalButton from '../OpenModalButton';
+import AddNewPhotoPage from '../AddNewPhotoPage';
 
 function PhotoPage(){
     
@@ -37,7 +39,9 @@ function PhotoPage(){
         e.preventDefault()
         navigator('/dog')
     }
-    
+
+    const closeMenu = () => setShowMenu(false);
+
     return (
         <div className='pictures-container'>
              <div className="dog-page-nav-button">
@@ -86,7 +90,13 @@ function PhotoPage(){
                                 className="Photo-cards-menu"
                                   ref={ulRef}
                                 >
-                                    <p>hello</p>
+                                    {/* <p>hello</p> */}
+                                    <OpenModalButton 
+                                              buttonText="Update A Photo"
+                                              onButtonClick={closeMenu}
+                                              className='photo-cards-update'
+                                              modalComponent={<AddNewPhotoPage />}
+                                    />
                                     <p>world</p>
                                 </div>
                                 :null
