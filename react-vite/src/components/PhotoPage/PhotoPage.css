@@ -61,6 +61,7 @@
     font-size: 24px;
     color: rgb(121, 181, 242);
     height: 80%;
+    width: 80%;
     overflow: scroll;
 }
 #photo-info-description{

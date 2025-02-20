@@ -43,15 +43,17 @@ function DogPage(){
                 </div>
                 <div className="dog-info">
                 <h3>{dogsArr[selectId].dog_name}</h3>
-                <p>{dogsArr[selectId].age}</p>
-                <p>{dogsArr[selectId].birth_date}</p>
-                <p>{dogsArr[selectId].color}</p>
-                <p>{dogsArr[selectId].weight}</p>
-                <p>{dogsArr[selectId].breed_name}</p>
-                <p>{dogsArr[selectId].description}</p>
-                <p>{dogsArr[selectId].gender}</p>
-                <p>{dogsArr[selectId].medical_allergies}</p>
-                <p>{dogsArr[selectId].owner.username}</p>
+                <div className="dog-basic-info">
+                <p>{'age:  '+dogsArr[selectId].age}</p>
+                <p>{'weight:  '+dogsArr[selectId].weight}</p>
+                <p>{'breed:  '+dogsArr[selectId].breed_name}</p>
+                </div>
+                <p className="showcase-dog-bio">{'bio:  '+dogsArr[selectId].description}</p>
+              
+           
+                {/* <p>{dogsArr[selectId].gender}</p> */}
+                <p>{'medical/allergies:  '+dogsArr[selectId].medical_allergies}</p>
+                <p>{'owner:  '+dogsArr[selectId].owner.username}</p>
                 </div>          
                 </div>
                 </div>
