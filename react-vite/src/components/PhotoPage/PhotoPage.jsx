@@ -42,7 +42,13 @@ function PhotoPage(){
                         return (
                            
                                 <div key={index} >
+                                <div className="photo-card">
                                 <img src={photo.image_url} className='all-photoes'/>
+                                <div className="photo-info">
+                                <h3>{photo.title}</h3>
+                                <p id='photo-info-description'>{photo.description}</p>
+                                </div>
+                                </div>
                                 </div>                        
                         )
                     })
