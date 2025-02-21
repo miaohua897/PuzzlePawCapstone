@@ -5,6 +5,8 @@ import './PhotoPage.css'
 import { useNavigate } from "react-router-dom";
 import OpenModalButton from '../OpenModalButton';
 import AddNewPhotoPage from '../AddNewPhotoPage';
+import DeletePhotoPage from '../DeletePhotoPage';
+import {MdArrowDropDown} from 'react-icons/md'
 
 function PhotoPage(){
     
@@ -83,21 +85,27 @@ function PhotoPage(){
                             setSelectedPhoto(photo.id)
                              }
                             } id='photo-cards-options' >
-                                  ...
+                               <MdArrowDropDown />
                                 </button>
                                 {showMenu && selectedPhoto === photo.id?
                                 <div
                                 className="Photo-cards-menu"
                                   ref={ulRef}
                                 >
-                                    {/* <p>hello</p> */}
+                                  
                                     <OpenModalButton 
                                               buttonText="Update A Photo"
                                               onButtonClick={closeMenu}
                                               className='photo-cards-update'
                                               modalComponent={<AddNewPhotoPage />}
                                     />
-                                    <p>world</p>
+                                    <OpenModalButton 
+                                              buttonText="Delete A Photo"
+                                              onButtonClick={closeMenu}
+                                              className='photo-cards-delete'
+                                              modalComponent={<DeletePhotoPage />}
+                                    />
+                             
                                 </div>
                                 :null
                                 }

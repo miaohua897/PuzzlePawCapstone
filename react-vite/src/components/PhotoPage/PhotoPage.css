@@ -53,7 +53,7 @@
     position: absolute; 
     bottom: 10px;
     left: 50%;
-    z-index: 10;
+    /* z-index: 10; */
     transform: translateX(-50%);
     transition: opacity 0.3s ease, visibility 0.3s ease;  
     font-family: 'Times New Roman', Times, serif;
@@ -62,6 +62,7 @@
     color: rgb(121, 181, 242);
     height: 80%;
     width: 80%;
+    padding-bottom: 5px;
     overflow: scroll;
 }
 #photo-info-description{
@@ -87,8 +88,29 @@
     position: absolute;
     bottom:10px;
     left:5px;
+    background-color: rgb(150, 166, 182);
+    width: 60%;
+    height: 25%;
+    border-radius: 10px;
+    padding: 3px;
+    margin:3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
 }
 .photo-cards-update{
     border: none;
     background-color: transparent;
+    color:aliceblue;
+    font-weight: bold;
+    padding: 3px;
+}
+.photo-cards-delete{
+    border: none;
+    background-color: transparent;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 3px;
 }
