@@ -104,10 +104,10 @@ function PhotoPage(){
                                 >
                                   
                                     <OpenModalButton 
-                                              buttonText="Add A Photo"
+                                              buttonText="Update A Photo"
                                               onButtonClick={closeMenu}
                                               className='photo-cards-update'
-                                              modalComponent={<UpdatePhotoPage />}
+                                              modalComponent={<UpdatePhotoPage photo_id={photo.id} />}
                                     />
                                     <OpenModalButton 
                                               buttonText="Delete A Photo"

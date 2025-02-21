@@ -8,7 +8,7 @@ const loadPhotos=(data)=>({
     type:LOAD_PHOTOS,
     payload:data
 })
-const deletePhotos=(photo_id)=>({
+const deletePhoto=(photo_id)=>({
     type:DELETE_PHOTOS,
     payload:photo_id
 })
@@ -16,7 +16,24 @@ const createPhoto=(data)=>({
     type:CREATE_PHOTOS,
     payload:data
 })
+const updatePhoto=(data)=>({
+    type:UPDATE_PHOTOS,
+    payload:data
+})
 
+export const thunkUpdatePhotos=(data,photo_id)=>async(dispatch)=>{
+    const res = await fetch(`/api/photos/${photo_id}`,{
+        method:"PUT",
+        body:data
+    });
+    if(res.ok){
+        const data = await res.json();
+        if(data.errors){
+            return;
+        }
+        dispatch(updatePhoto(data))
+    }
+}
 
 export const  thunkLoadPhotos=()=> async(dispatch)=>{
     const res = await fetch('/api/photos/');
@@ -54,7 +71,7 @@ export const thunkDeletePhotos=(photo_id)=>async(dispatch)=>{
         if(data.errors){
             return;
         }
-        dispatch(deletePhotos(photo_id))
+        dispatch(deletePhoto(photo_id))
     }
 }
 
@@ -72,7 +89,7 @@ function photoReducer(state=initialState,action){
         case DELETE_PHOTOS:
             {
                 let newObj={}
-                console.log('state.photo',state.photo)
+                // console.log('state.photo',state.photo)
                 Object.values(state.photo).map((el)=>{
                     if( el.id !== action.payload){
                         newObj[el.id] = el;  
@@ -80,6 +97,21 @@ function photoReducer(state=initialState,action){
                 })
             return {...state, photo:newObj} 
             }
+        case UPDATE_PHOTOS:
+                {
+                    let newObj={}
+                    // console.log('state.photo',state.photo)
+                    Object.values(state.photo).map((el)=>{
+                        if( el.id !== action.payload.id){
+                            newObj[el.id] = el;  
+                        }
+                        if( el.id === action.payload.id){
+                            newObj[el.id] = action.payload;  
+                        }
+
+                    })
+                return {...state, photo:newObj} 
+                }
         default:
             return state;
     }
