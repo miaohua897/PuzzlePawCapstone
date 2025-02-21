@@ -5,6 +5,7 @@ import {useDispatch} from 'react-redux'
 import { useModal } from '../../context/Modal';
 
 
+
 function AddNewPhotoPage(){
 
     const [image,setImage]=useState(null);

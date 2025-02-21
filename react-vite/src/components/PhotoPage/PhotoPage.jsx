@@ -7,6 +7,7 @@ import OpenModalButton from '../OpenModalButton';
 import AddNewPhotoPage from '../AddNewPhotoPage';
 import DeletePhotoPage from '../DeletePhotoPage';
 import {MdArrowDropDown} from 'react-icons/md'
+import UpdatePhotoPage from '../UpdatePhotoPage';
 
 function PhotoPage(){
     
@@ -106,7 +107,7 @@ function PhotoPage(){
                                               buttonText="Add A Photo"
                                               onButtonClick={closeMenu}
                                               className='photo-cards-update'
-                                              modalComponent={<AddNewPhotoPage />}
+                                              modalComponent={<UpdatePhotoPage />}
                                     />
                                     <OpenModalButton 
                                               buttonText="Delete A Photo"
