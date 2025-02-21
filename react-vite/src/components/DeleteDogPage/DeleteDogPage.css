@@ -1,0 +1,26 @@
+.delete-form-container{
+    border-radius: 20px;
+    background-color: rgb(203, 218, 233,0.9);
+    height: 200px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.delete-form-button{
+    margin-top: 10px;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    color:aliceblue;
+    background-color: darkgrey;
+    border: 1px solid rgb(83, 90, 98);
+}
+.delete-form-buttons-container{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

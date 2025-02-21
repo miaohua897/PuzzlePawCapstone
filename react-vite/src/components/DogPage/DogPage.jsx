@@ -2,15 +2,36 @@ import { useEffect, useState,useRef } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 import {thunkLoadDogs} from '../../redux/dog';
+import DeleteDogPage from '../DeleteDogPage';
+import OpenModalButton from '../OpenModalButton';
 import './DogPage.css'
 
 function DogPage(){
+
+    const dogs = useSelector(state=>state.dog.dog);
+    let dogsArr=[];
+    if(dogs) {
+        dogsArr = Object.values(dogs);
+    }
+    
+
+  
+
     const dispatch = useDispatch()
     const navigator = useNavigate()
-    const [selectId,setSelectId] = useState(0)
+    const [selectedId,setSelectedId] = useState(1)
     const [showMenu, setShowMenu] = useState(false);
     const [selectedDog,setSelectedDog] = useState(-1)
     const ulRef = useRef();
+    let existDog;
+    let showDog;
+    if(dogs)  {
+        existDog= dogs[selectedId]
+        showDog =  dogsArr[0];
+    }
+
+  
+
     useEffect(()=>{
             dispatch(thunkLoadDogs())
     },[dispatch])
@@ -29,16 +50,13 @@ function DogPage(){
         return () => document.removeEventListener("click", closeMenu);
       }, [showMenu]);
 
-    const dogs = useSelector(state=>state.dog.dog);
-    let dogsArr=[];
-    if(dogs) {
-        dogsArr = Object.values(dogs);
-  
-    }
+   
     const navToPhotoPage=(e)=>{
         e.preventDefault()
         navigator('/photo') 
     }
+
+    const closeMenu = () => setShowMenu(false);
 
     // const closeMenu = (e) => {
     //     if (ulRef.current && !ulRef.current.contains(e.target)) {
@@ -57,30 +75,56 @@ function DogPage(){
             </div>
              <div>
             {
-                dogsArr.length !== 0 ?
+                dogsArr.length !== 0?
+                existDog?
                 <div className="showcase-container">
                 <h1>My Beloved Dogs</h1>
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
-                <img src={dogsArr[selectId].image_url} className="dog-info-image" />
+                <img src={dogs[selectedId].image_url} className="dog-info-image" />
                 </div>
                 <div className="dog-info">
-                <h3>{dogsArr[selectId].dog_name}</h3>
+                <h3>{dogs[selectedId].dog_name}</h3>
                 <div className="dog-basic-info">
-                <p>{'age:  '+dogsArr[selectId].age}</p>
-                <p>{'weight:  '+dogsArr[selectId].weight}</p>
-                <p>{'breed:  '+dogsArr[selectId].breed_name}</p>
+                <p>{'age:  '+dogs[selectedId].age}</p>
+                <p>{'weight:  '+dogs[selectedId].weight}</p>
+                <p>{'breed:  '+dogs[selectedId].breed_name}</p>
                 </div>
-                <p className="showcase-dog-bio">{'bio:  '+dogsArr[selectId].description}</p>
+                <p className="showcase-dog-bio">{'bio:  '+dogs[selectedId].description}</p>
               
            
                 {/* <p>{dogsArr[selectId].gender}</p> */}
-                <p>{'medical/allergies:  '+dogsArr[selectId].medical_allergies}</p>
-                <p>{'owner:  '+dogsArr[selectId].owner.username}</p>
+                <p>{'medical/allergies:  '+dogs[selectedId].medical_allergies}</p>
+                <p>{'owner:  '+dogs[selectedId].owner.username}</p>
+                </div>          
+                </div>
+                </div>
+                :
+                <div className="showcase-container">
+                <h1>My Beloved Dogs</h1>
+                <div className="dog-info-container">
+                <div className="showcase-dog-img-container">
+                <img src={showDog.image_url} className="dog-info-image" />
+                </div>
+                <div className="dog-info">
+                <h3>{showDog.dog_name}</h3>
+                <div className="dog-basic-info">
+                <p>{'age:  '+showDog.age}</p>
+                <p>{'weight:  '+showDog.weight}</p>
+                <p>{'breed:  '+showDog.breed_name}</p>
+                </div>
+                <p className="showcase-dog-bio">{'bio:  '+showDog.description}</p>
+              
+           
+                {/* <p>{dogsArr[selectId].gender}</p> */}
+                <p>{'medical/allergies:  '+showDog.medical_allergies}</p>
+                <p>{'owner:  '+showDog.owner.username}</p>
                 </div>          
                 </div>
                 </div>
                 :<h2>add your first dog</h2>
+                
+
             }
         </div>
         <p></p>
@@ -88,7 +132,7 @@ function DogPage(){
         {
             dogsArr.length !== 0 ?
             dogsArr.map((dog,index) =>(
-                <div key={index} onClick={()=> setSelectId(dog.id-1)} className="dog-card">
+                <div key={index} onClick={()=> setSelectedId(dog.id)} className="dog-card">
                     <img src={dog.image_url} className="dog-cards-image"></img>
                     <p className="dog-cards-text" >{dog.dog_name}</p>
                     <button onClick={
@@ -105,10 +149,10 @@ function DogPage(){
                      >
                         <p>hello</p>
                         <OpenModalButton 
-                                              buttonText="Delete A Photo"
-                                              onButtonClick={closeMenu}
-                                              className='photo-cards-delete'
-                                              modalComponent={<DeletePhotoPage photo_id={photo.id}  />}
+                        buttonText="Delete A Photo"
+                        onButtonClick={closeMenu}
+                        className='photo-cards-delete'
+                        modalComponent={<DeleteDogPage dog_id={dog.id}  />}
                                     />
                      </div>
                      :null
