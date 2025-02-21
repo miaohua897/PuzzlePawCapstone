@@ -104,7 +104,12 @@ function DogPage(){
                       ref={ulRef}
                      >
                         <p>hello</p>
-                        <p>world</p>
+                        <OpenModalButton 
+                                              buttonText="Delete A Photo"
+                                              onButtonClick={closeMenu}
+                                              className='photo-cards-delete'
+                                              modalComponent={<DeletePhotoPage photo_id={photo.id}  />}
+                                    />
                      </div>
                      :null
                     }
