@@ -37,6 +37,9 @@ function PhotoPage(){
     const photos = useSelector(state=>state.photo.photo)
     let photos_arr =[]
     if (photos)  photos_arr = Object.values(photos);
+
+    // console.log('photos_arr',photos_arr)
+
     const navToDogPage=(e)=>{
         e.preventDefault()
         navigator('/dog')
@@ -103,7 +106,7 @@ function PhotoPage(){
                                               buttonText="Delete A Photo"
                                               onButtonClick={closeMenu}
                                               className='photo-cards-delete'
-                                              modalComponent={<DeletePhotoPage />}
+                                              modalComponent={<DeletePhotoPage photo_id={photo.id}  />}
                                     />
                              
                                 </div>
@@ -114,13 +117,16 @@ function PhotoPage(){
                         )
                     })
                   }
+                   {
+                    photos_arr.length !==0?                    
+                      moreInfo===12?
+                      <button className='showmore' onClick={()=>setMoreInfo(photos_arr.length)}> ... show more</button>
+                      :
+                      <button className='showmore' onClick={()=>setMoreInfo(12)}>show less</button>                   
+                    :null
+                   }
                   </div>
-                {
-                    moreInfo===12?
-                    <button className='showmore' onClick={()=>setMoreInfo(photos_arr.length)}> ... show more</button>
-                    :
-                    <button className='showmore' onClick={()=>setMoreInfo(12)}>show less</button>
-                  }
+            
                 </div>
      
          
