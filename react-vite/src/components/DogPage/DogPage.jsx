@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import {thunkLoadDogs} from '../../redux/dog';
 import DeleteDogPage from '../DeleteDogPage';
 import OpenModalButton from '../OpenModalButton';
+import AddNewDogPage from '../AddNewDogPage';
 import './DogPage.css'
 
 function DogPage(){
@@ -79,6 +80,14 @@ function DogPage(){
                 existDog?
                 <div className="showcase-container">
                 <h1>My Beloved Dogs</h1>
+
+                <OpenModalButton 
+                buttonText="Add a New Dog"
+                onButtonClick={closeMenu}
+                className='dog-add-new-dog'
+                modalComponent={<AddNewDogPage />}
+                />
+                
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
                 <img src={dogs[selectedId].image_url} className="dog-info-image" />
