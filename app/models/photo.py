@@ -10,7 +10,7 @@ class Photo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     photo_date = db.Column(db.Date,nullable=False)
     title = db.Column(db.String(30),nullable=False)
-    description = db.Column(db.Text, nullable=False, unique=True)
+    description = db.Column(db.Text, nullable=False)
     image_url = db.Column(db.String(2000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.today)
     updated_at = db.Column(db.DateTime, default=datetime.today, onupdate=datetime.today)

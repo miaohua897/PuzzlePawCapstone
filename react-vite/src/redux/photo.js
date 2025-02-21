@@ -12,6 +12,10 @@ const deletePhotos=(photo_id)=>({
     type:DELETE_PHOTOS,
     payload:photo_id
 })
+const createPhoto=(data)=>({
+    type:CREATE_PHOTOS,
+    payload:data
+})
 
 
 export const  thunkLoadPhotos=()=> async(dispatch)=>{
@@ -24,6 +28,20 @@ export const  thunkLoadPhotos=()=> async(dispatch)=>{
         dispatch(loadPhotos(data))
     }
 }
+export const thunkCreatePhotos=(data)=>async(dispatch)=>{
+    const res = await fetch(`/api/photos/`,{
+        method:"POST",
+        body:data
+    });
+    if(res.ok){
+        const data = await res.json();
+        if(data.errors){
+            return;
+        }
+        dispatch(createPhoto(data))
+    }
+}
+
 export const thunkDeletePhotos=(photo_id)=>async(dispatch)=>{
     const res = await fetch(`/api/photos/${photo_id}`,{
         method:"DELETE",
@@ -39,12 +57,18 @@ export const thunkDeletePhotos=(photo_id)=>async(dispatch)=>{
         dispatch(deletePhotos(photo_id))
     }
 }
+
 const initialState={photo:null}
 
 function photoReducer(state=initialState,action){
     switch(action.type){
         case LOAD_PHOTOS:
             return {...state, photo:action.payload}
+        case CREATE_PHOTOS:{
+            let newObj={...state.photo}
+            newObj[action.payload.id]=action.payload
+            return {...state, photo:newObj} 
+        }
         case DELETE_PHOTOS:
             {
                 let newObj={}

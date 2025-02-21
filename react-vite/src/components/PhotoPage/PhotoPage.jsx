@@ -60,6 +60,12 @@ function PhotoPage(){
             photos_arr !==0?
             <div>
                   <h1>Photoes</h1>
+                  <OpenModalButton 
+                  buttonText="Add A Photo"
+                  onButtonClick={closeMenu}
+                  className='photo-cards-add'
+                  modalComponent={<AddNewPhotoPage />}
+                  />
                   <div className='photoes-container'>
                     <div className="dog-photos-container">
 
@@ -97,7 +103,7 @@ function PhotoPage(){
                                 >
                                   
                                     <OpenModalButton 
-                                              buttonText="Update A Photo"
+                                              buttonText="Add A Photo"
                                               onButtonClick={closeMenu}
                                               className='photo-cards-update'
                                               modalComponent={<AddNewPhotoPage />}
