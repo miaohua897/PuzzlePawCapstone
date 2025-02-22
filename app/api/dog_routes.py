@@ -17,7 +17,7 @@ def get_session_dogs():
     dogs = Dog.query.filter_by(user_id=current_user.id).all()
     return {dog.id: dog.to_dict() for dog in dogs}
 
-@dog_routes.route('',methods=['POST'])
+@dog_routes.route('/',methods=['POST'])
 @login_required
 def add_dog():
     form = DogForm()
@@ -32,6 +32,7 @@ def add_dog():
              age=form.data['age'],
              gender= form.data['gender'],
              neutered_spayed= form.data['neutered_spayed'],
+             microchip=form.data['microchip'],
              color = form.data['color'],
              weight = form.data['weight'],
              birth_date = form.data['birth_date'],
