@@ -141,3 +141,21 @@
     font-weight: bolder;
     margin-bottom: 5%;
 }
+.dog-basic-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap:20%;
+}
+#dog-basic-label{
+    font-size: 18px;
+    font-weight: bolder;
+}
+#dog-basic-info-text{
+    font-size: 18px;
+}
+#showcase-info-dog-name{
+    font-size: 32px;
+    font-weight: bolder;
+}
