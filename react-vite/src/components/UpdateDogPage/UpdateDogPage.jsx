@@ -1,39 +1,42 @@
-import './AddNewDogPage.css';
+import './UpdateDogPage.css';
 import { useState } from 'react';
 import {useDispatch} from 'react-redux';
-import {thunkCreateDogs} from '../../redux/dog';
+import {thunkUpdateDogs} from '../../redux/dog';
 import { useModal } from '../../context/Modal';
 
-function AddNewDogPage(){
-    const {closeModal}=useModal()
-    const [dogName,setDogName]=useState('');
-    const [dogAge,setDogAge]=useState(-1);
-    const [color,setColor]=useState('');
-    const [weight,setWeight]=useState(-1);
+function UpdateDogPage({updateDog}){
+    
+    const {closeModal} = useModal()
+    const [dogName,setDogName]=useState(updateDog.dog_name);
+    const [dogAge,setDogAge]=useState(updateDog.age);
+    const [color,setColor]=useState(updateDog.color);
+    const [weight,setWeight]=useState(updateDog.weight);
     const [birth_date,setBirth_Date] = useState('')
     const [male,setMale]=useState(false);
     const [female,setFemale]=useState(false);
     const [neutered,setNeutered]=useState(false);
     const [spayed,setSpayed]=useState(false);
     const [microchip,setMicrochip]=useState(false);
-    const [breed,setBreed]=useState('')
-    const [description,setDescription]=useState('')
-    const [medical_allergies,setMedical_allergies]=useState('');
-    const [owner_name,setOwner_name] = useState('');
-    const [owner_contact,setOwner_contact]=useState('')
-    const [owner_email,setOwner_email]=useState('')
-    const [owner_address_one,setOwner_address_one]=useState('')
-    const [owner_address_two,setOwner_address_two]=useState('')
-    const [owner_state,setOwner_state]=useState('')
-    const [owner_code,setOwner_code]=useState(0);
-    const [owner_country,setOwner_country]=useState('');
-    const [owner_city,setOwner_city] = useState('')
+    const [breed,setBreed]=useState(updateDog.breed_name)
+    const [description,setDescription]=useState(updateDog.description)
+    const [medical_allergies,setMedical_allergies]=useState(updateDog.medical_allergies);
+    const [owner_name,setOwner_name] = useState(updateDog.owner.username);
+    const [owner_contact,setOwner_contact]=useState(updateDog.owner_phone_number)
+    const [owner_email,setOwner_email]=useState(updateDog.owner_email)
+    const [owner_address_one,setOwner_address_one]=useState(updateDog.owner_address_line_one)
+    const [owner_address_two,setOwner_address_two]=useState(updateDog.owner_address_line_two)
+    const [owner_state,setOwner_state]=useState(updateDog.owner_address_state)
+    const [owner_code,setOwner_code]=useState(updateDog.owner_address_zip_code);
+    const [owner_country,setOwner_country]=useState(updateDog.owner_country);
+    const [owner_city,setOwner_city] = useState(updateDog.owner_address_city)
     const [image,setImage]=useState('');
+    const [image_url,setImage_url]=useState(updateDog.image_url);
     const [error,setError] = useState({
         'dogName':'',
         'dogAge':'',
         'dogWeight':'',
         'dogBreed':'',
+        'dogGender':'',
         'ownerName':"",
         'ownerNumber':'',
         'ownerCity':'',
@@ -41,7 +44,8 @@ function AddNewDogPage(){
         'ownerCode':'',
         'ownerCountry':''
     });
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
 
     const handleAddDogSubmit=(e)=>{
          
@@ -125,7 +129,12 @@ function AddNewDogPage(){
   
           if(male)  gender='male';
           if(female) gender ='female';
-          if (!male&&!female) return ;
+          if (!male&&!female) {
+            const errMes ="dog gender can't be empty";
+            setError({
+                'dogGender':errMes
+            })
+            return ;} 
           if(neutered) neutered_spayed='neutered';
           if(spayed) neutered_spayed='spayed';
           if(!neutered&&!spayed) neutered_spayed='None';
@@ -136,11 +145,12 @@ function AddNewDogPage(){
     formData.append('dog_name',dogName)
     formData.append('age',dogAge)
     formData.append('gender',gender)
-    formData.append('microchip',microchip)
+    formData.append('microchip',updateDog.microchip)
     formData.append('neutered_spayed',neutered_spayed)
     formData.append('color',color)
     formData.append('weight',weight)
-    formData.append('image_url',image)
+    if(image.length !==0)
+         formData.append('image_url',image)
     formData.append('birth_date',birth_date)
     formData.append('breed_name',breed)
     formData.append('description',description)
@@ -153,11 +163,24 @@ function AddNewDogPage(){
     formData.append('owner_address_state',owner_state)
     formData.append('owner_address_zip_code',owner_code)
     formData.append('owner_country',owner_country)
-    formData.append('user_id',1)
+    formData.append('user_id',updateDog.owner.id)
 
-    dispatch(thunkCreateDogs(formData))
+    dispatch(thunkUpdateDogs(formData,updateDog.id))
     closeModal()
   
+    }
+
+    const handleFileChange=(e)=>{
+         e.preventDefault()
+         const file = e.target.files[0];
+         if(file){
+            const reader = new FileReader();
+            reader.onloadend=()=>{
+                setImage_url(reader.result)
+            }
+            reader.readAsDataURL(file);
+         }
+         setImage(e.target.files[0])
     }
 
     return (
@@ -195,7 +218,7 @@ function AddNewDogPage(){
             <input type='date' value ={birth_date} id='birth-date' name='birth_date'  onChange={(e)=>setBirth_Date(e.target.value)} required></input>
             </div>   
 
-            <img src='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-simonakidric-2607544.jpg' style={{width:100,height:100}}></img>
+            <img src={image_url} style={{width:100,height:100}}></img>
 
             <div className='add-input'>  
             <input type='checkbox' checked= {male} id='dog-male' name='dog-male' onChange={()=>setMale(!male)} disabled={female} ></input>
@@ -206,7 +229,7 @@ function AddNewDogPage(){
             <input type='checkbox' checked={female} id='dog-female' name='dog-female' onChange={()=>setFemale(!female)} disabled={male} ></input>
             <label htmlFor ='female' className='add-dog-form-lable'>female</label>
             </div>
-
+            {error.dogGender?<p>{error.dogGender}</p>:null}
             <div className='add-input'>  
             <input type='checkbox' checked={neutered} id='dog-neutered' name='dog-neutered' onChange={()=>setNeutered(!neutered)} disabled={spayed||female} ></input>
             <label htmlFor ='neutered' className='add-dog-form-lable'>neutered</label>
@@ -223,7 +246,7 @@ function AddNewDogPage(){
 
             <div className='add-input'>
             <label htmlFor ='breed_name' className='add-dog-form-lable'  >dog breed</label>
-            <input type='text' pattern="[A-Za-z]*" value={breed}  id='dog-breed' name='dog-breed' onChange={(e)=>setBreed(e.target.value)} required></input>
+            <input type='text' pattern="^[A-Za-z\s]*$" value={breed}  id='dog-breed' name='dog-breed' onChange={(e)=>setBreed(e.target.value)} required></input>
             {error.dogBreed?<p>{error.dogBreed}</p>:null}
             </div>
 
@@ -285,7 +308,10 @@ function AddNewDogPage(){
 
             <div className='add-input'>
                  <label htmlFor ="image_upload" className='add-dog-form-lable'>Upload an image:</label>
-                <input type="file" id="image-upload" name="image_url" accept="image/*"  onChange={(e)=>setImage(e.target.files[0])} required/>
+                <input type="file" id="image-upload" name="image_url" accept="image/*" 
+                onChange={handleFileChange}
+                //  onChange={(e)=>setImage(e.target.files[0])}
+                 />
             </div>
 
             </div>
@@ -294,4 +320,4 @@ function AddNewDogPage(){
         </div>
     )
 }
-export default AddNewDogPage;
+export default UpdateDogPage;

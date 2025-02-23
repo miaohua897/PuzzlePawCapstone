@@ -28,6 +28,7 @@ export const thunkUpdateDogs=(data,dog_id)=>async(dispatch)=>{
     });
     if(res.ok){
         const data = await res.json();
+        console.log('i am from thunk update')
         if(data.errors){
             return;
         }

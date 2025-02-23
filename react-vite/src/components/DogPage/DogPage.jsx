@@ -1,37 +1,27 @@
 import { useEffect, useState,useRef } from "react";
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 import {thunkLoadDogs} from '../../redux/dog';
 import DeleteDogPage from '../DeleteDogPage';
 import OpenModalButton from '../OpenModalButton';
 import AddNewDogPage from '../AddNewDogPage';
+import UpdateDogPage from '../UpdateDogPage';
 import './DogPage.css'
 
 function DogPage(){
-
-    const dogs = useSelector(state=>state.dog.dog);
-    let dogsArr=[];
-    if(dogs) {
-        dogsArr = Object.values(dogs);
-    }
     
-
-  
-
     const dispatch = useDispatch()
     const navigator = useNavigate()
+    const ulRef = useRef();
+
+  
+    const sessionUser = useSelector((state) => state.session.user);
+    const dogs = useSelector(state=>state.dog.dog);
+
+
     const [selectedId,setSelectedId] = useState(1)
     const [showMenu, setShowMenu] = useState(false);
     const [selectedDog,setSelectedDog] = useState(-1)
-    const ulRef = useRef();
-    let existDog;
-    let showDog;
-    if(dogs)  {
-        existDog= dogs[selectedId]
-        showDog =  dogsArr[0];
-    }
-
-  
 
     useEffect(()=>{
             dispatch(thunkLoadDogs())
@@ -51,7 +41,20 @@ function DogPage(){
         return () => document.removeEventListener("click", closeMenu);
       }, [showMenu]);
 
-   
+
+    if(!sessionUser) return <h1>log in, please</h1>;
+
+    let dogsArr=[];
+    if(dogs) {
+        dogsArr = Object.values(dogs);
+    }
+    let existDog;
+    let showDog;
+    if(dogs)  {
+        existDog= dogs[selectedId]
+        showDog =  dogsArr[0];
+    }
+              
     const navToPhotoPage=(e)=>{
         e.preventDefault()
         navigator('/photo') 
@@ -59,12 +62,6 @@ function DogPage(){
 
     const closeMenu = () => setShowMenu(false);
 
-    // const closeMenu = (e) => {
-    //     if (ulRef.current && !ulRef.current.contains(e.target)) {
-    //       setShowMenu(false);
-    //     }
-    //   };
-   
     return (
         <div className="dog-page-container">
             <div className="dog-page-nav-button">
@@ -156,7 +153,12 @@ function DogPage(){
                      className="dog-cards-menu"
                       ref={ulRef}
                      >
-                        <p>hello</p>
+                        <OpenModalButton 
+                        buttonText="Update A Photo"
+                        onButtonClick={closeMenu}
+                        className='photo-cards-delete'
+                        modalComponent={<UpdateDogPage updateDog={dog}  />}
+                                    />
                         <OpenModalButton 
                         buttonText="Delete A Photo"
                         onButtonClick={closeMenu}
