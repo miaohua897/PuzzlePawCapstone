@@ -27,6 +27,8 @@
     margin:10px;
     font-size: 24px;
     font-family: 'Times New Roman', Times, serif;
+    padding:3px;
+    margin:5px;
 }
 .more-tips-home-page{
     position: fixed;
