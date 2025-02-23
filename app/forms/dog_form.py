@@ -9,7 +9,7 @@ class DogForm(FlaskForm):
     age = IntegerField('age', validators=[DataRequired()])
     gender= StringField('gender', validators=[DataRequired()])
     neutered_spayed= StringField('neutered_spayed', validators=[DataRequired()])
-    microchip=BooleanField('microchip',validators=[DataRequired()])
+    microchip=BooleanField('microchip',validators=[Optional()])
     color= StringField('color',validators=[DataRequired()])
     weight= DecimalField('weight', validators=[DataRequired()])
     image_url = FileField("image_url", validators=[Optional(), FileAllowed(list(ALLOWED_EXTENSIONS))])

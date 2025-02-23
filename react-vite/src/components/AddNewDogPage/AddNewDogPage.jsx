@@ -29,6 +29,7 @@ function AddNewDogPage(){
     const [owner_country,setOwner_country]=useState('');
     const [owner_city,setOwner_city] = useState('')
     const [image,setImage]=useState('');
+    const [image_url,setImage_url]=useState('https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-ohshineon-33273.jpg');
     const [error,setError] = useState({
         'dogName':'',
         'dogAge':'',
@@ -46,10 +47,10 @@ function AddNewDogPage(){
     const handleAddDogSubmit=(e)=>{
          
           e.preventDefault();
-          console.log('i am from add new dog',dogName,dogAge,color,weight,birth_date,
-            male,female,neutered,spayed,microchip,breed,description,medical_allergies,
-        owner_name,owner_contact,owner_address_one,owner_address_two,owner_state,
-    owner_country,image);
+    //       console.log('i am from add new dog',dogName,dogAge,color,weight,birth_date,
+    //         male,female,neutered,spayed,microchip,breed,description,medical_allergies,
+    //     owner_name,owner_contact,owner_address_one,owner_address_two,owner_state,
+    // owner_country,image);
     if(dogName.length===0||dogName.length>20) {
         const errMes ='name is too long or empty';
         setError({
@@ -160,6 +161,19 @@ function AddNewDogPage(){
   
     }
 
+    const handleFileChange=(e)=>{
+        e.preventDefault()
+        const file = e.target.files[0];
+        if(file){
+           const reader = new FileReader();
+           reader.onloadend=()=>{
+               setImage_url(reader.result)
+           }
+           reader.readAsDataURL(file);
+        }
+        setImage(e.target.files[0])
+   }
+
     return (
         <div className="add-new-dog-container">
            
@@ -195,7 +209,7 @@ function AddNewDogPage(){
             <input type='date' value ={birth_date} id='birth-date' name='birth_date'  onChange={(e)=>setBirth_Date(e.target.value)} required></input>
             </div>   
 
-            <img src='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-simonakidric-2607544.jpg' style={{width:100,height:100}}></img>
+            <img src={image_url} style={{width:100,height:100}}></img>
 
             <div className='add-input'>  
             <input type='checkbox' checked= {male} id='dog-male' name='dog-male' onChange={()=>setMale(!male)} disabled={female} ></input>
@@ -285,7 +299,10 @@ function AddNewDogPage(){
 
             <div className='add-input'>
                  <label htmlFor ="image_upload" className='add-dog-form-lable'>Upload an image:</label>
-                <input type="file" id="image-upload" name="image_url" accept="image/*"  onChange={(e)=>setImage(e.target.files[0])} required/>
+                <input type="file" id="image-upload" name="image_url" accept="image/*" 
+                //  onChange={(e)=>setImage(e.target.files[0])} 
+                onChange={handleFileChange}
+                 required/>
             </div>
 
             </div>
