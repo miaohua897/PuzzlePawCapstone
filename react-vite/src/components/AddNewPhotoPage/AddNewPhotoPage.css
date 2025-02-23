@@ -1,5 +1,5 @@
 
-.update-form-container{
+.add-form-container{
     border-radius: 20px;
     background-color: rgb(203, 218, 233,0.9);
     height: 300px;
@@ -11,18 +11,18 @@
   
   
 }
-.update-input{
+.add-input{
     margin:5px;
     padding:3px;
     display: flex;
     justify-content: flex-start;
     gap:15px;
 }
-.update-form-lable{
+.add-form-lable{
     font-size: 18px;
     font-weight: bolder;
 }
-.update-form-submit{
+.add-form-submit{
     margin-top: 10px;
     width: 80px;
     height: 30px;
@@ -30,4 +30,18 @@
     color:aliceblue;
     background-color: darkgrey;
     border: 1px solid rgb(83, 90, 98);
+}
+#photo-date{
+    width:240px;
+}
+#photo-title{
+    width:300px;
+}
+#photo-description{
+    width:245px;
+    height:50px;
+    overflow: scroll;
+}
+.add-form-submit{
+    margin-bottom: 10px;
 }

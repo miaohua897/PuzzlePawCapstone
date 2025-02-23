@@ -194,13 +194,13 @@ function DogPage(){
                       ref={ulRef}
                      >
                         <OpenModalButton 
-                        buttonText="Update A Photo"
+                        buttonText="Update A Dog"
                         onButtonClick={closeMenu}
                         className='photo-cards-delete'
                         modalComponent={<UpdateDogPage updateDog={dog}  />}
                                     />
                         <OpenModalButton 
-                        buttonText="Delete A Photo"
+                        buttonText="Delete A Dog"
                         onButtonClick={closeMenu}
                         className='photo-cards-delete'
                         modalComponent={<DeleteDogPage dog_id={dog.id}  />}

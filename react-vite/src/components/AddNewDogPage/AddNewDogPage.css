@@ -28,3 +28,73 @@
     font-size: 18px;
     font-weight: bolder;
 }
+#dog-name{
+    width: 300px;
+}
+#dog-age{
+    width:315px;
+}
+#dog-color{
+    width:300px;
+}
+#dog-weight{
+    width: 290px;
+}
+#birth-date{
+    width:285px;
+}
+.add-input-gender-img-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#dog-breed{
+    width:300px;
+}
+#dog-description{
+    width:255px;
+}
+#dog-medical-allergies{
+    width:210px;
+}
+#owner-name{
+    width:280px;
+}
+#owner-contact-number{
+    width:250px;
+}
+#owner-email{
+    width:335px;
+}
+.ownder-address-lines{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap:5px;
+}
+#owner-address-line-one{
+    width: 315px;
+}
+#owner-address-city{
+    width:350px;
+}
+#owner-address-state{
+    width:345px;
+}
+#owner-zip-code{
+    width:315px;
+}
+#owner-country{
+    width:320px;
+}
+.add-new-form-submit{
+    margin-top: 10px;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    color:aliceblue;
+    background-color: darkgrey;
+    border: 1px solid rgb(83, 90, 98);
+    margin-bottom: 15px;
+}

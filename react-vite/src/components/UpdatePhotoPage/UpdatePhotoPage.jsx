@@ -56,7 +56,6 @@ function UpdatePhotoPage({photo_id}){
                 <input type="file" id="image-upload"  name="image_url" accept="image/*"  onChange={(e)=>setImage(e.target.files[0])} />
             </div>
             </div>
-        
             <button className='update-form-submit'>Submit</button>
             </form>
         </div>

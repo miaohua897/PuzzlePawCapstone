@@ -184,130 +184,136 @@ function UpdateDogPage({updateDog}){
     }
 
     return (
-        <div className="add-new-dog-container">
+        <div className="update-dog-container">
            
-            <form className="add-dog-form-container" onSubmit={handleAddDogSubmit}>
+            <form className="update-dog-form-container" onSubmit={handleAddDogSubmit}>
         
-            <h1>Add a New Dog</h1>
+            <h1>Update a Dog</h1>
             <div>
-            <div className='add-input'>
-            <label htmlFor ='dog_name' className='add-dog-form-lable'>dog name</label>
+            <div className='update-input'>
+            <label htmlFor ='dog_name' className='update-dog-form-lable'>Dog Name</label>
             <input type='text' value={dogName} id='dog-name' name='dog-name' onChange={(e)=>setDogName(e.target.value)} required></input>
             {error.dogName?<p>{error.dogName}</p>:null}
             </div> 
 
-            <div className='add-input'>
-            <label htmlFor ='age' className='add-dog-form-lable'>dog age</label>
-            <input type='number' value={dogAge===-1?null:dogAge} id='dog-age' name='dog-age'  onChange={(e)=>setDogAge(e.target.value)} required ></input>
+            <div className='update-input'>
+            <label htmlFor ='age' className='update-dog-form-lable'>Dog Age</label>
+            <input type='number' value={dogAge===-1?null:dogAge} id='dog-update-age' name='dog-age'  onChange={(e)=>setDogAge(e.target.value)} required ></input>
             {error.dogAge?<p>{error.dogAge}</p>:null}
             </div> 
 
-            <div className='add-input'>
-            <label htmlFor ='color' className='add-dog-form-lable'>dog color</label>
-            <input type='text' pattern="[A-Za-z]*" value={color} id='dog-color' name='dog-color' onChange={(e)=>setColor(e.target.value)} required></input> 
+            <div className='update-input'>
+            <label htmlFor ='color' className='update-dog-form-lable'>Dog Color</label>
+            <input type='text' pattern="[A-Za-z]*" value={color} id='dog-update-color' name='dog-color' onChange={(e)=>setColor(e.target.value)} required></input> 
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='weight' className='add-dog-form-lable'>dog weight</label>
-            <input type='number' value={weight===-1?null:weight} id='dog-weight' name='dog-weight'  onChange={(e)=>setWeight(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='weight' className='update-dog-form-lable'>Dog Weight</label>
+            <input type='number' value={weight===-1?null:weight} id='dog-update-weight' name='dog-weight'  onChange={(e)=>setWeight(e.target.value)} required></input>
             {error.weight?<p>{error.weight}</p>:null}
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='birth_date' className='add-dog-form-lable'>select a date</label>
+            <div className='update-input'>
+            <label htmlFor ='birth_date' className='update-dog-form-lable'>Select a Date</label>
             <input type='date' value ={birth_date} id='birth-date' name='birth_date'  onChange={(e)=>setBirth_Date(e.target.value)} required></input>
             </div>   
-
-            <img src={image_url} style={{width:100,height:100}}></img>
-
-            <div className='add-input'>  
+            <div  className='update-input-gender-img-container' >
+            <img src={image_url} style={{width:150,height:100, borderRadius:10}}></img>
+            <div>
+            <div className='update-input'>  
             <input type='checkbox' checked= {male} id='dog-male' name='dog-male' onChange={()=>setMale(!male)} disabled={female} ></input>
-            <label htmlFor ='male' className='add-dog-form-lable'>male</label>
+            <label htmlFor ='male' className='update-dog-form-lable'>male</label>
             </div>
 
-            <div className='add-input'>  
+            <div className='update-input'>  
             <input type='checkbox' checked={female} id='dog-female' name='dog-female' onChange={()=>setFemale(!female)} disabled={male} ></input>
-            <label htmlFor ='female' className='add-dog-form-lable'>female</label>
+            <label htmlFor ='female' className='update-dog-form-lable'>female</label>
             </div>
             {error.dogGender?<p>{error.dogGender}</p>:null}
-            <div className='add-input'>  
+            <div className='update-input'>  
             <input type='checkbox' checked={neutered} id='dog-neutered' name='dog-neutered' onChange={()=>setNeutered(!neutered)} disabled={spayed||female} ></input>
-            <label htmlFor ='neutered' className='add-dog-form-lable'>neutered</label>
+            <label htmlFor ='neutered' className='update-dog-form-lable'>neutered</label>
             </div>
-            <div className='add-input'>  
+            <div className='update-input'>  
             <input type='checkbox' checked={spayed} id='dog-spayed' name='dog-spayed'  onChange={()=>setSpayed(!spayed)} disabled={neutered||male} ></input>
-            <label htmlFor ='spayed' className='add-dog-form-lable'>spayed</label>
+            <label htmlFor ='spayed' className='update-dog-form-lable'>spayed</label>
             </div>
 
-            <div className='add-input'>  
+            </div>
+
+            </div>
+
+            <div className='update-input'>  
             <input type='checkbox' checked={microchip} id='dog-microchip' name='dog-microchip'  onChange={()=>setMicrochip(!microchip)}></input>
-            <label htmlFor ='microchip' className='add-dog-form-lable'>dog microchip</label>
+            <label htmlFor ='microchip' className='update-dog-form-lable'>dog microchip</label>
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='breed_name' className='add-dog-form-lable'  >dog breed</label>
+            <div className='update-input'>
+            <label htmlFor ='breed_name' className='update-dog-form-lable'  >Dog Breed</label>
             <input type='text' pattern="^[A-Za-z\s]*$" value={breed}  id='dog-breed' name='dog-breed' onChange={(e)=>setBreed(e.target.value)} required></input>
             {error.dogBreed?<p>{error.dogBreed}</p>:null}
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='description' className='add-dog-form-lable'>dog description</label>
-            <input type='text' value={description} id='dog-description' name='dog-description' onChange={e=>setDescription(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='description' className='update-dog-form-lable'>Dog Description</label>
+            <input type='text' value={description} id='dog-update-description' name='dog-description' onChange={e=>setDescription(e.target.value)} required></input>
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='medical_allergies' className='add-dog-form-lable'>dog medical/allergies</label>
-            <input type='text' value={medical_allergies} id='dog-medical-allergies' name='dog-medical-allergies' onChange={e=>setMedical_allergies(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='medical_allergies' className='update-dog-form-lable'>Dog Medical/Allergies</label>
+            <input type='text' value={medical_allergies} id='dog-update-medical-allergies' name='dog-medical-allergies' onChange={e=>setMedical_allergies(e.target.value)} required></input>
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='owner-name' className='add-dog-form-lable'>owner name</label>
-            <input type='text' value={owner_name}  id='owner-name' name='owner-name'  onChange={e=>setOwner_name(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='owner-name' className='update-dog-form-lable'>Owner Name</label>
+            <input type='text' value={owner_name}  id='owner-update-name' name='owner-name'  onChange={e=>setOwner_name(e.target.value)} required></input>
             {error.ownerName?<p>{error.ownerName}</p>:null}
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='owner-contact-number' className='add-dog-form-lable'>contact number</label>
-            <input type='number' value={owner_contact} id='owner-contact-number' name='owner-contact-number'  onChange={e=>setOwner_contact(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='owner-contact-number' className='update-dog-form-lable'>Contact Number</label>
+            <input type='number' value={owner_contact} id='owner-update-contact-number' name='owner-contact-number'  onChange={e=>setOwner_contact(e.target.value)} required></input>
             {error.ownerNumber?<p>{error.ownerNumber}</p>:null}
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='owner-email' className='add-dog-form-lable'>email</label>
-            <input type='email' value={owner_email}  id='owner-email' name='owner-email' onChange={e=>setOwner_email(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='owner-email' className='update-dog-form-lable'>Email</label>
+            <input type='email' value={owner_email}  id='owner-update-email' name='owner-email' onChange={e=>setOwner_email(e.target.value)} required></input>
             </div>
-            <div className='add-input'>
-            <label htmlFor ='owner-address' className='add-dog-form-lable'>address</label>
+            <div className='update-input'>
+            <label htmlFor ='owner-address' className='update-dog-form-lable'>Address</label>
+            <div>
             <input type='text' value={owner_address_one} id='owner-address-line-one' name='owner-address-line-one' onChange={(e)=>setOwner_address_one(e.target.value)} required></input>
-            <input type='text' value={owner_address_two} id='owner-address-line-two' name='owner-address-line-two' onChange={(e)=>setOwner_address_two(e.target.value)} ></input>
+            <input type='text' value={owner_address_two} id='owner-address-line-one' name='owner-address-line-two' onChange={(e)=>setOwner_address_two(e.target.value)} ></input>
+            </div>    
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='owner-city' className='add-dog-form-lable'>city</label>
-            <input type='text' value={owner_city}  id='owner-address-city' name='owner-address-city'   onChange={e=>setOwner_city(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='owner-city' className='update-dog-form-lable'>City</label>
+            <input type='text' value={owner_city}  id='owner-update-address-city' name='owner-address-city'   onChange={e=>setOwner_city(e.target.value)} required></input>
             {error.ownerCity?<p>{error.ownerCity}</p>:null}
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='owner-state' className='add-dog-form-lable'>state</label>
-            <input type='text' value={owner_state}  id='owner-address-state' name='owner-address-state'   onChange={e=>setOwner_state(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='owner-state' className='update-dog-form-lable'>State</label>
+            <input type='text' value={owner_state}  id='owner-update-address-state' name='owner-address-state'   onChange={e=>setOwner_state(e.target.value)} required></input>
             {error.ownerState?<p>{error.ownerState}</p>:null}
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='owner-zip-code' className='add-dog-form-lable'>zip code</label>
-            <input type='number' value={owner_code}  id='owner-zip-code' name='owner-zip-code'  onChange={e=>setOwner_code(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='owner-zip-code' className='update-dog-form-lable'>Zip Code</label>
+            <input type='number' value={owner_code}  id='owner-update-zip-code' name='owner-zip-code'  onChange={e=>setOwner_code(e.target.value)} required></input>
             {error.ownerCode?<p>{error.ownerCode}</p>:null}
             </div>
 
-            <div className='add-input'>
-            <label htmlFor ='owner-country' className='add-dog-form-lable'>country</label>
-            <input type='text' value={owner_country}  id='owner-country' name='owner-country' onChange={e=>setOwner_country(e.target.value)} required></input>
+            <div className='update-input'>
+            <label htmlFor ='owner-country' className='update-dog-form-lable'>Country</label>
+            <input type='text' value={owner_country}  id='owner-update-country' name='owner-country' onChange={e=>setOwner_country(e.target.value)} required></input>
             {error.ownerCountry?<p>{error.ownerCountry}</p>:null}
             </div>
 
-            <div className='add-input'>
-                 <label htmlFor ="image_upload" className='add-dog-form-lable'>Upload an image:</label>
+            <div className='update-input'>
+                 <label htmlFor ="image_upload" className='update-dog-form-lable'>Upload an image:</label>
                 <input type="file" id="image-upload" name="image_url" accept="image/*" 
                 onChange={handleFileChange}
                 //  onChange={(e)=>setImage(e.target.files[0])}
