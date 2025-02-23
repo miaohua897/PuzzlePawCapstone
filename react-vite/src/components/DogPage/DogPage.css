@@ -3,8 +3,8 @@
 }
 
 .dog-cards-image{
-    width: 300px;
-    height:200;
+    width: 80%;
+    height:80%;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -73,15 +73,16 @@
     visibility: hidden;
     opacity: 0; 
     position: absolute; 
-    bottom: 10px;
+    bottom: 20%;
     left: 50%;
     z-index: 10;
     transform: translateX(-50%);
     transition: opacity 0.3s ease, visibility 0.3s ease;  
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
-    font-size: 24px;
-    color: rgb(121, 181, 242);
+    font-size: 32px;
+    color: rgb(72, 147, 222);
+
 }
 .dog-card:hover .dog-cards-text{
     visibility: visible;
@@ -112,11 +113,31 @@
     background-color: transparent;
     font-size: 24px;
     position: absolute;
-    bottom:5px;
+    bottom:20%;
     left:5px;
 }
 .dog-cards-menu{
     position: absolute;
-    bottom:10px;
-    left:-40px;
+    bottom:20%;
+    left:-10%;
+    background-color: rgb(224, 219, 219);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+
+}
+.photo-cards-delete{
+    padding:5px;
+ 
+}
+.dog-add-new-dog{
+    border:none;
+    background-color: rgb(232, 240, 245);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    margin-left: 10px;
+    padding:5px;
+    border-radius: 10px;
+    font-weight: bolder;
+    margin-bottom: 5%;
 }

@@ -20,8 +20,12 @@
     height: auto;
     margin-bottom: 20px;
 }
+#home-page-main-img{
+    border-radius: 10px;
+}
 .home-page-main-article{
-    font-size: 18px;
+    margin:10px;
+    font-size: 24px;
     font-family: 'Times New Roman', Times, serif;
 }
 .more-tips-home-page{
@@ -29,7 +33,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #f1f1f1; /* Optional: You can change this background color */
+    background-color: rgb(232, 240, 245);
     text-align: center;
     padding: 10px 0; 
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); 
@@ -47,6 +51,8 @@
     background-color: darkgrey;
     border-radius: 10px;
     padding:3px;
+    padding-left:5px;
+    padding-right:5px;
     margin:3px;
     color:white;
     cursor: pointer;

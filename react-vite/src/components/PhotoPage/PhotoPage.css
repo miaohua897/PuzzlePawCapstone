@@ -102,6 +102,7 @@
     justify-content: center;
     align-items: center;
     color: aliceblue;
+
 }
 .photo-cards-update{
     border: none;
@@ -119,8 +120,12 @@
 }
 .photo-cards-add{
     border:none;
-    background-color: transparent;
+    background-color: rgb(232, 240, 245);
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
     margin-left: 10px;
+    padding:5px;
+    border-radius: 10px;
+    font-weight: bolder;
+
 }

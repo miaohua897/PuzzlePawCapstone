@@ -6,8 +6,9 @@ function HomePage(){
             <h1></h1>
             <div className='home-page-image-article-container'>
             <div  className='home-page-main-image'>         
-            <img src="https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-lum3n-44775-406014.jpg" />
+            <img id='home-page-main-img' src="https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-lum3n-44775-406014.jpg" />
             </div>
+            <h1>Welcome to PuzzlePaw</h1>
           
             <p className='home-page-main-article'>
 
