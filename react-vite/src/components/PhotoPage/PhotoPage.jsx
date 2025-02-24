@@ -10,13 +10,17 @@ import {MdArrowDropDown} from 'react-icons/md'
 import UpdatePhotoPage from '../UpdatePhotoPage';
 
 function PhotoPage(){
-    
-    const [moreInfo, setMoreInfo]=useState(12);
-    const [showMenu, setShowMenu] = useState(false);
-    const [selectedPhoto,setSelectedPhoto] = useState(-1);
-    const ulRef = useRef();
-    const dispatch = useDispatch()
-    const navigator = useNavigate()
+
+  const dispatch = useDispatch()
+  const navigator = useNavigate()
+  const ulRef = useRef();
+
+  const sessionUser = useSelector((state) => state.session.user);
+  const [moreInfo, setMoreInfo]=useState(12);
+  const [showMenu, setShowMenu] = useState(false);
+  const [selectedPhoto,setSelectedPhoto] = useState(-1);
+  const photos = useSelector(state=>state.photo.photo);
+   
     useEffect(()=>{
           dispatch(thunkLoadPhotos())
     },[dispatch])
@@ -35,7 +39,8 @@ function PhotoPage(){
       return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
-    const photos = useSelector(state=>state.photo.photo)
+  
+    if(!sessionUser) return navigator('/');
     let photos_arr =[]
     if (photos)  photos_arr = Object.values(photos);
 
@@ -53,7 +58,7 @@ function PhotoPage(){
              <div className="dog-page-nav-button">
                 <button onClick ={navToDogPage} >dogs</button>
                 <button>notes</button>
-                <button>photos</button>
+                <button id='photo-page-photo-button' >photos</button>
                 <button>records</button>
 
             </div>

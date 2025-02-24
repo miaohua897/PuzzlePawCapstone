@@ -44,3 +44,29 @@
   font-weight: bolder;
   border-radius: 5px;
 }
+.login-signup-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width:120px; 
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#demo-user-button{
+  border:none;
+  background-color: darkgrey;
+  padding:5px;
+  color:white;
+  font-weight: bolder;
+  border-radius: 5px;
+}
+.login-signup-button{
+  border:none;
+  background-color: darkgrey;
+  padding:5px;
+  color:white;
+  font-weight: bolder;
+  border-radius: 5px;
+}

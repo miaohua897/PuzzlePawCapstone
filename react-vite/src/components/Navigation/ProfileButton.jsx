@@ -6,6 +6,8 @@ import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import * as sessionActions from '../../redux/session';
+import { useModal } from "../../context/Modal";
 import './Navigation.css';
 
 function ProfileButton() {
@@ -14,6 +16,7 @@ function ProfileButton() {
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
+  const {closeModal} = useModal()
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
@@ -47,6 +50,16 @@ function ProfileButton() {
     navigator('/dog')
   }
 
+  const handleDemoUser=(e)=>{
+    e.preventDefault()
+    return dispatch(
+      sessionActions.thunkLogin({
+        email: 'demo@aa.io',
+        password: 'password',
+      })
+    ).then(closeModal);
+  }
+
   return (
     <>
      <div className="profile-button-container">
@@ -72,7 +85,8 @@ function ProfileButton() {
               </li>
             </>
           ) : (
-            <>
+            <div className="login-signup-container">
+              <button id='demo-user-button'  onClick={handleDemoUser}>Demo User</button>
               <OpenModalMenuItem
                 itemText="Log In"
                 onItemClick={closeMenu}
@@ -83,7 +97,7 @@ function ProfileButton() {
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal />}
               />
-            </>
+            </div>
           )}
         </ul>
       )}

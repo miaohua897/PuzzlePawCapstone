@@ -50,10 +50,10 @@ function UpdateDogPage({updateDog}){
     const handleAddDogSubmit=(e)=>{
          
           e.preventDefault();
-          console.log('i am from add new dog',dogName,dogAge,color,weight,birth_date,
-            male,female,neutered,spayed,microchip,breed,description,medical_allergies,
-        owner_name,owner_contact,owner_address_one,owner_address_two,owner_state,
-    owner_country,image);
+    //       console.log('i am from add new dog',dogName,dogAge,color,weight,birth_date,
+    //         male,female,neutered,spayed,microchip,breed,description,medical_allergies,
+    //     owner_name,owner_contact,owner_address_one,owner_address_two,owner_state,
+    // owner_country,image);
     if(dogName.length===0||dogName.length>20) {
         const errMes ='name is too long or empty';
         setError({

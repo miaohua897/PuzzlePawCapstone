@@ -21,7 +21,8 @@ function DogPage(){
 
     const [selectedId,setSelectedId] = useState(1)
     const [showMenu, setShowMenu] = useState(false);
-    const [selectedDog,setSelectedDog] = useState(-1)
+    const [selectedDog,setSelectedDog] = useState(-1);
+   
 
     useEffect(()=>{
             dispatch(thunkLoadDogs())
@@ -42,7 +43,7 @@ function DogPage(){
       }, [showMenu]);
 
 
-    if(!sessionUser) return <h1>log in, please</h1>;
+    if(!sessionUser) return navigator('/');
 
     let dogsArr=[];
     if(dogs) {
@@ -65,10 +66,10 @@ function DogPage(){
     return (
         <div className="dog-page-container">
             <div className="dog-page-nav-button">
-                <button>dogs</button>
-                <button>notes</button>
+                <button id='dog-page-dog-button'>dogs</button>
+                <button >notes</button>
                 <button onClick ={navToPhotoPage}>photos</button>
-                <button>records</button>
+                <button  >records</button>
 
             </div>
              <div>
