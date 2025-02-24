@@ -154,18 +154,58 @@ function DogPage(){
                 <img src={showDog.image_url} className="dog-info-image" />
                 </div>
                 <div className="dog-info">
-                <h3>{showDog.dog_name}</h3>
+                <p id='showcase-info-dog-name'>{showDog.dog_name}</p>   
                 <div className="dog-basic-info">
-                <p>{'age:  '+showDog.age}</p>
-                <p>{'weight:  '+showDog.weight}</p>
-                <p>{'breed:  '+showDog.breed_name}</p>
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    Age: 
+                    </p>
+                    <p id='dog-basic-info-text' >{showDog.age}</p>
                 </div>
-                <p className="showcase-dog-bio">{'bio:  '+showDog.description}</p>
-              
-           
-                {/* <p>{dogsArr[selectId].gender}</p> */}
-                <p>{'medical/allergies:  '+showDog.medical_allergies}</p>
-                <p>{'owner:  '+showDog.owner.username}</p>
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    Weight: 
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {showDog.weight}
+                    </p>
+                </div>
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    Breed:
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {showDog.breed_name}
+                    </p>
+                </div>
+
+                </div>
+
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    Bio:
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {showDog.description}
+                    </p>
+                </div>
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    medical/allergies:
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {showDog.medical_allergies}
+                    </p>
+                </div>
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    owner:
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {showDog.owner.username}
+                    </p>
+                </div>
+            
                 </div>          
                 </div>
                 </div>

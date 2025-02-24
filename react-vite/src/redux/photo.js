@@ -28,10 +28,15 @@ export const thunkUpdatePhotos=(data,photo_id)=>async(dispatch)=>{
     });
     if(res.ok){
         const data = await res.json();
-        if(data.errors){
-            return;
-        }
+        // if(data.errors){
+        //     return;
+        // }
         dispatch(updatePhoto(data))
+    }else if (res.status<500){
+        const errorMessages = await res.json();
+        return errorMessages 
+    }else{
+        return { server: "Something went wrong. Please try again" }
     }
 }
 
@@ -52,10 +57,18 @@ export const thunkCreatePhotos=(data)=>async(dispatch)=>{
     });
     if(res.ok){
         const data = await res.json();
-        if(data.errors){
-            return;
-        }
+        // if(data.errors){
+        //     return;
+        // }
         dispatch(createPhoto(data))
+    }
+    else if (res.status<500){
+        const errorMessages = await res.json();
+        return errorMessages;
+    }else{
+        return {
+            server:'Something went wrong. Please try again'
+        }
     }
 }
 

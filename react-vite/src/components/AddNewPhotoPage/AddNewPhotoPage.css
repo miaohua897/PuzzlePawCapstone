@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
+    overflow: scroll;
   
 }
 .add-input{
@@ -44,4 +44,7 @@
 }
 .add-form-submit{
     margin-bottom: 10px;
+}
+#photo-error{
+    color: red;
 }

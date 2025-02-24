@@ -46,9 +46,9 @@ function UpdateDogPage({updateDog}){
         'ownerCountry':''
     });
     const dispatch = useDispatch();
+    const [errorServer,setErrorServer] = useState({})
 
-
-    const handleAddDogSubmit=(e)=>{
+    const handleAddDogSubmit= async(e)=>{
          
           e.preventDefault();
     //       console.log('i am from add new dog',dogName,dogAge,color,weight,birth_date,
@@ -166,8 +166,15 @@ function UpdateDogPage({updateDog}){
     formData.append('owner_country',owner_country)
     formData.append('user_id',updateDog.owner.id)
 
-    dispatch(thunkUpdateDogs(formData,updateDog.id))
-    closeModal()
+    const serverResponse = await dispatch(thunkUpdateDogs(formData,updateDog.id));
+    if (serverResponse) {
+        const errorKey = Object.keys(serverResponse)[0];
+        const errorValue = Object.values(serverResponse)[0];
+        setErrorServer({'server':`${errorKey}:${errorValue}`});
+        console.log('serverResponse',serverResponse,errorValue,errorKey)
+      } else {
+        closeModal();
+      }
   
     }
 
@@ -190,18 +197,19 @@ function UpdateDogPage({updateDog}){
             <form className="update-dog-form-container" onSubmit={handleAddDogSubmit}>
         
             <h1>Update a Dog</h1>
+            {errorServer.server && <p id='error-dog'>{errorServer.server}</p>}
             <div>
             <div className='update-input'>
             <label htmlFor ='dog_name' className='update-dog-form-lable'>Dog Name</label>
-            <input type='text' value={dogName} id='dog-name' name='dog-name' onChange={(e)=>setDogName(e.target.value)} required></input>
-            {error.dogName?<p id='error-dog' >{error.dogName}</p>:null}
+            <input type='text' value={dogName} id='dog-name' name='dog-name' onChange={(e)=>setDogName(e.target.value)} required></input>          
             </div> 
+            {error.dogName?<p id='error-dog' >{error.dogName}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='age' className='update-dog-form-lable'>Dog Age</label>
-            <input type='number' value={dogAge===-1?null:dogAge} id='dog-update-age' name='dog-age'  onChange={(e)=>setDogAge(e.target.value)} required ></input>
-            {error.dogAge?<p id='error-dog' >{error.dogAge}</p>:null}
+            <input type='number' value={dogAge===-1?null:dogAge} id='dog-update-age' name='dog-age'  onChange={(e)=>setDogAge(e.target.value)} required ></input>          
             </div> 
+            {error.dogAge?<p id='error-dog' >{error.dogAge}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='color' className='update-dog-form-lable'>Dog Color</label>
@@ -210,9 +218,9 @@ function UpdateDogPage({updateDog}){
 
             <div className='update-input'>
             <label htmlFor ='weight' className='update-dog-form-lable'>Dog Weight</label>
-            <input type='number' value={weight===-1?null:weight} id='dog-update-weight' name='dog-weight'  onChange={(e)=>setWeight(e.target.value)} required></input>
-            {error.weight?<p id='error-dog' >{error.weight}</p>:null}
+            <input type='number' value={weight===-1?null:weight} id='dog-update-weight' name='dog-weight'  onChange={(e)=>setWeight(e.target.value)} required></input>           
             </div>
+            {error.weight?<p id='error-dog' >{error.weight}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='birth_date' className='update-dog-form-lable'>Select a Date</label>
@@ -251,9 +259,11 @@ function UpdateDogPage({updateDog}){
 
             <div className='update-input'>
             <label htmlFor ='breed_name' className='update-dog-form-lable'  >Dog Breed</label>
-            <input type='text' pattern="^[A-Za-z\s]*$" value={breed}  id='dog-breed' name='dog-breed' onChange={(e)=>setBreed(e.target.value)} required></input>
-            {error.dogBreed?<p>{error.dogBreed}</p>:null}
+            <input type='text' pattern="^[A-Za-z\s]*$" value={breed}  id='dog-breed' name='dog-breed' 
+            placeholder='input a breed name, please. English alphabet and space only'
+            onChange={(e)=>setBreed(e.target.value)} required></input>
             </div>
+            {error.dogBreed?<p>{error.dogBreed}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='description' className='update-dog-form-lable'>Dog Description</label>
@@ -268,14 +278,14 @@ function UpdateDogPage({updateDog}){
             <div className='update-input'>
             <label htmlFor ='owner-name' className='update-dog-form-lable'>Owner Name</label>
             <input type='text' value={owner_name}  id='owner-update-name' name='owner-name'  onChange={e=>setOwner_name(e.target.value)} required></input>
-            {error.ownerName?<p>{error.ownerName}</p>:null}
             </div>
+            {error.ownerName?<p>{error.ownerName}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='owner-contact-number' className='update-dog-form-lable'>Contact Number</label>
             <input type='number' value={owner_contact} id='owner-update-contact-number' name='owner-contact-number'  onChange={e=>setOwner_contact(e.target.value)} required></input>
-            {error.ownerNumber?<p>{error.ownerNumber}</p>:null}
             </div>
+            {error.ownerNumber?<p>{error.ownerNumber}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='owner-email' className='update-dog-form-lable'>Email</label>
@@ -291,27 +301,33 @@ function UpdateDogPage({updateDog}){
 
             <div className='update-input'>
             <label htmlFor ='owner-city' className='update-dog-form-lable'>City</label>
-            <input type='text' value={owner_city}  id='owner-update-address-city' name='owner-address-city'   onChange={e=>setOwner_city(e.target.value)} required></input>
-            {error.ownerCity?<p>{error.ownerCity}</p>:null}
+            <input type='text'   pattern="^[A-Za-z\s]*$"  value={owner_city}  id='owner-update-address-city' name='owner-address-city' 
+              placeholder='input city name, please. English alphabet and space only'  
+            onChange={e=>setOwner_city(e.target.value)} required></input>
             </div>
+            {error.ownerCity?<p>{error.ownerCity}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='owner-state' className='update-dog-form-lable'>State</label>
-            <input type='text' value={owner_state}  id='owner-update-address-state' name='owner-address-state'   onChange={e=>setOwner_state(e.target.value)} required></input>
-            {error.ownerState?<p>{error.ownerState}</p>:null}
+            <input type='text'  pattern="^[A-Za-z\s]*$"  value={owner_state}  id='owner-update-address-state' name='owner-address-state'  
+            placeholder='input state name, please. English alphabet and space only' 
+            onChange={e=>setOwner_state(e.target.value)} required></input>
             </div>
+            {error.ownerState?<p>{error.ownerState}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='owner-zip-code' className='update-dog-form-lable'>Zip Code</label>
             <input type='number' value={owner_code}  id='owner-update-zip-code' name='owner-zip-code'  onChange={e=>setOwner_code(e.target.value)} required></input>
-            {error.ownerCode?<p>{error.ownerCode}</p>:null}
             </div>
+            {error.ownerCode?<p>{error.ownerCode}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='owner-country' className='update-dog-form-lable'>Country</label>
-            <input type='text' value={owner_country}  id='owner-update-country' name='owner-country' onChange={e=>setOwner_country(e.target.value)} required></input>
-            {error.ownerCountry?<p>{error.ownerCountry}</p>:null}
+            <input type='text' pattern="^[A-Za-z\s]*$" value={owner_country}  id='owner-update-country' name='owner-country' 
+             placeholder='input country name, please. English alphabet and space only' 
+            onChange={e=>setOwner_country(e.target.value)} required></input>
             </div>
+            {error.ownerCountry?<p>{error.ownerCountry}</p>:null}
 
             <div className='update-input'>
                  <label htmlFor ="image_upload" className='update-dog-form-lable'>Upload an image:</label>

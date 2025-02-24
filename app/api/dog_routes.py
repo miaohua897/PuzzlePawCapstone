@@ -54,9 +54,10 @@ def add_dog():
         db.session.add(new_dog)
         db.session.commit()
         return jsonify(new_dog.to_dict()),201
-    
-    if form.errors:
-        print(form.errors)
+    return form.errors,401
+    # if form.errors:
+        # print(form.errors)
+        
   
 
 @dog_routes.route('/<int:dog_id>',methods=['DELETE'])
@@ -112,6 +113,6 @@ def update_dog(dog_id):
       
         db.session.commit()
         return jsonify(dog.to_dict()),201
-    
-    if form.errors:
-        print(form.errors)
+    return form.errors,401
+    # if form.errors:
+    #     print(form.errors)

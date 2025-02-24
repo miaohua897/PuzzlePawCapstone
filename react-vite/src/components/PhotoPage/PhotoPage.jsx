@@ -42,7 +42,7 @@ function PhotoPage(){
   
     if(!sessionUser) return navigator('/');
     let photos_arr =[]
-    if (photos)  photos_arr = Object.values(photos);
+    if (photos)  photos_arr = Object.values(photos).reverse();
 
     // console.log('photos_arr',photos_arr)
 

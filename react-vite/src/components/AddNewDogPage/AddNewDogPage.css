@@ -14,8 +14,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
     margin:5px;
+    overflow: scroll;
 }
 .add-input{
     margin:5px;

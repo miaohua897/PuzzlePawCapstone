@@ -15,11 +15,17 @@ function AddNewPhotoPage(){
     const [description,setDescription] = useState('')
      const {closeModal} = useModal();
     const [image_url,setImage_url]=useState('https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/Screenshot+2025-02-24+at+6.25.29%E2%80%AFAM.png');
+    const [errorServer,setErrorServer] = useState({});
+    const [errorTitle,setErrorTitle]=useState('')
     
-    
-    const handleAddPhotoSubmit= (e)=>{
+    const handleAddPhotoSubmit= async (e)=>{
         e.preventDefault()
-        console.log('i am adding a photo', image,title,description,photo_date)
+        // console.log('i am adding a photo', image,title,description,photo_date)
+        if(title.length>20){
+            const errMes ='title is too long';
+            setErrorTitle(errMes)
+            return ;
+        }
         const formData = new FormData();
         formData.append('image_url',image)
         formData.append('title',title)
@@ -27,12 +33,20 @@ function AddNewPhotoPage(){
         formData.append('photo_date',photo_date)
         formData.append('user_id',sessionUser.id)
         formData.append('dog_id',1)
-        dispatch(thunkCreatePhotos(formData))
+        const serverResponse = await dispatch(thunkCreatePhotos(formData))
+        if (serverResponse) {
+            const errorKey = Object.keys(serverResponse)[0];
+            const errorValue = Object.values(serverResponse)[0];
+            setErrorServer({'server':`${errorKey}:${errorValue}`});
+            console.log('serverResponse',serverResponse,errorValue,errorKey)
+          } else {
+            closeModal();
+          }
         setImage(null)
         setPhoto_date('')
         setTitle('')
         setDescription('')
-        closeModal()
+        // closeModal()
     }
     const handleFileChange=(e)=>{
         e.preventDefault()
@@ -52,6 +66,7 @@ function AddNewPhotoPage(){
            
             <form className="add-form-container" onSubmit={handleAddPhotoSubmit}>
             <h1>Update a New Photo</h1>
+            {errorServer.server && <p id='photo-error'>{errorServer.server}</p>}
             <div>
             <div className='add-input'>
             <label htmlFor ='photo_date' className='add-form-lable'>select a date</label>
@@ -61,6 +76,7 @@ function AddNewPhotoPage(){
                 <label htmlFor ='title' className='add-form-lable'>title</label>
                 <input type='text' id='photo-title' name='title' onChange={(e)=>setTitle(e.target.value)}></input>
             </div>
+            {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null}
             <div className='add-input' >
                 <label htmlFor ='description' className='add-form-lable'>description</label>
                 <input type='text' id='photo-description' name='description'  onChange={(e)=>setDescription(e.target.value)} ></input>

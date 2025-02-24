@@ -28,11 +28,15 @@ export const thunkUpdateDogs=(data,dog_id)=>async(dispatch)=>{
     });
     if(res.ok){
         const data = await res.json();
-        console.log('i am from thunk update')
-        if(data.errors){
-            return;
-        }
+        // if(data.errors){
+        //     return;
+        // }
         dispatch(updateDog(data))
+    }else if( res.status<500){
+        const errorMessages = await res.json();
+        return errorMessages
+    }else{
+        return { server: "Something went wrong. Please try again" }
     }
 }
 
@@ -54,10 +58,18 @@ export const thunkCreateDogs=(data)=>async(dispatch)=>{
     });
     if(res.ok){
         const data = await res.json();
-        if(data.errors){
-            return;
-        }
+        // if(data.errors){
+        //     return;
+        // }
         dispatch(createDog(data))
+    }
+    else if (res.status<500){
+        const errorMessages = await res.json();
+        return errorMessages;
+    }else{
+        return {
+            server:'Something went wrong. Please try again'
+        }
     }
 }
 
