@@ -9,7 +9,7 @@ function UpdatePhotoPage({photo_id}){
         const photos = useSelector(state=>state.photo.photo);
         const photo = photos[photo_id];
         const [image,setImage]=useState(photo.image_url);
-        const [photo_date,setPhoto_date] = useState(photo.photo_date)
+        const [photo_date,setPhoto_date] = useState('')
         const [title,setTitle] = useState(photo.title)
         const [description,setDescription] = useState(photo.description)
          const {closeModal} = useModal();
