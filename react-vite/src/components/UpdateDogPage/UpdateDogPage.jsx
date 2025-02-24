@@ -7,6 +7,7 @@ import { useModal } from '../../context/Modal';
 function UpdateDogPage({updateDog}){
     
     const {closeModal} = useModal()
+    const dispatch = useDispatch();
     const birthDataObj = new Date(updateDog.birth_date);
     const [dogName,setDogName]=useState(updateDog.dog_name);
     const [dogAge,setDogAge]=useState(updateDog.age);
@@ -45,8 +46,8 @@ function UpdateDogPage({updateDog}){
         'ownerCode':'',
         'ownerCountry':''
     });
-    const dispatch = useDispatch();
     const [errorServer,setErrorServer] = useState({})
+    const today = new Date().toISOString().split('T')[0];
 
     const handleAddDogSubmit= async(e)=>{
          
@@ -232,7 +233,8 @@ function UpdateDogPage({updateDog}){
 
             <div className='update-input'>
             <label htmlFor ='birth_date' className='update-dog-form-lable'>Select a Date</label>
-            <input type='date' value ={birth_date} id='birth-date' name='birth_date'  onChange={(e)=>setBirth_Date(e.target.value)} required></input>
+            <input type='date' value ={birth_date} id='birth-date' name='birth_date'  
+            onChange={(e)=>setBirth_Date(e.target.value)} required min='1900-01-01' max={today} ></input>
             </div>   
             <div  className='update-input-gender-img-container' >
             <img src={image_url} style={{width:150,height:100, borderRadius:10}}></img>
