@@ -6,6 +6,9 @@ import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import * as sessionActions from '../../redux/session';
+import { useModal } from "../../context/Modal";
+import './Navigation.css';
 
 function ProfileButton() {
   const dispatch = useDispatch();
@@ -13,6 +16,7 @@ function ProfileButton() {
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
+  const {closeModal} = useModal()
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
@@ -46,26 +50,43 @@ function ProfileButton() {
     navigator('/dog')
   }
 
+  const handleDemoUser=(e)=>{
+    e.preventDefault()
+    return dispatch(
+      sessionActions.thunkLogin({
+        email: 'demo@aa.io',
+        password: 'password',
+      })
+    ).then(closeModal);
+  }
+
   return (
     <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
+     <div className="profile-button-container">
+     <button 
+      className='fa-user-circle-button'
+      onClick={toggleMenu}>
+        <FaUserCircle  />
       </button>
+
+     </div>
+   
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user ? (
             <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
-                <button onClick={logout}>Log Out</button>
+              <li id='profile-dropdown-li'>{user.username}</li>
+              <li id='profile-dropdown-li'>{user.email}</li>
+              <li id='profile-dropdown-li'>
+                <button id='profile-dropdown-li-button'  onClick={logout}>Log Out</button>
               </li>
-              <li> 
-                <button onClick={navToDogPage}>got to dog page</button>
+              <li id='profile-dropdown-li'> 
+                <button id='profile-dropdown-li-button'  onClick={navToDogPage}>got to dog page</button>
               </li>
             </>
           ) : (
-            <>
+            <div className="login-signup-container">
+              <button id='demo-user-button'  onClick={handleDemoUser}>Demo User</button>
               <OpenModalMenuItem
                 itemText="Log In"
                 onItemClick={closeMenu}
@@ -76,7 +97,7 @@ function ProfileButton() {
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal />}
               />
-            </>
+            </div>
           )}
         </ul>
       )}

@@ -46,6 +46,7 @@ class Dog(db.Model):
             'dog_name': self.dog_name,
             'age': self.age,
             'gender':self.gender,
+            'neutered_spayed':self.neutered_spayed,
             'color':self.color,
             'weight':self.weight,
             'image_url':self.image_url,

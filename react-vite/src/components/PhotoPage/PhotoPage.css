@@ -46,22 +46,24 @@
 }
 .photo-card{
     position: relative;
+    background-color: transparent;    
 }
 .photo-info{
     visibility: hidden;
     opacity: 0; 
     position: absolute; 
-    bottom: 10px;
+    bottom: 15px;
     left: 50%;
-    z-index: 10;
     transform: translateX(-50%);
     transition: opacity 0.3s ease, visibility 0.3s ease;  
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
     font-size: 24px;
-    color: rgb(121, 181, 242);
-    height: 80%;
-    width: 80%;
+    color: rgb(127, 176, 228);
+    background-color: rgb(15, 23, 31,0.8);
+    height: 90%;
+    width: 90%;
+    border-radius: 10px;
     overflow: scroll;
 }
 #photo-info-description{
@@ -69,22 +71,64 @@
 }
 .photo-card:hover .photo-info{
     visibility: visible;
-    opacity: 1;  
+    opacity: 1; 
+ 
 
 }
+
 #photo-cards-options{
     border: none;
     background-color: transparent;
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 24px;
     position: absolute;
-    bottom:5px;
+    bottom:3px;
     left:5px;
-    z-index: 20;
+    /* z-index: 20; */
 }
 
 .Photo-cards-menu{
     position: absolute;
     bottom:10px;
     left:5px;
+    background-color: rgb(150, 166, 182);
+    width: 60%;
+    height: 25%;
+    border-radius: 10px;
+    padding: 3px;
+    margin:3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+
+}
+.photo-cards-update{
+    border: none;
+    background-color: transparent;
+    color:aliceblue;
+    font-weight: bold;
+    padding: 3px;
+}
+.photo-cards-delete{
+    border: none;
+    background-color: transparent;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 3px;
+}
+.photo-cards-add{
+    border:none;
+    background-color: rgb(203, 218, 233,0.9);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    margin-left: 10px;
+    padding:5px;
+    border-radius: 10px;
+    font-weight: bolder;
+
+}
+#photo-page-photo-button{
+    background-color: greenyellow;
 }

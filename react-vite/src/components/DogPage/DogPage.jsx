@@ -1,16 +1,29 @@
 import { useEffect, useState,useRef } from "react";
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 import {thunkLoadDogs} from '../../redux/dog';
+import DeleteDogPage from '../DeleteDogPage';
+import OpenModalButton from '../OpenModalButton';
+import AddNewDogPage from '../AddNewDogPage';
+import UpdateDogPage from '../UpdateDogPage';
 import './DogPage.css'
 
 function DogPage(){
+    
     const dispatch = useDispatch()
     const navigator = useNavigate()
-    const [selectId,setSelectId] = useState(0)
-    const [showMenu, setShowMenu] = useState(false);
-    const [selectedDog,setSelectedDog] = useState(-1)
     const ulRef = useRef();
+
+  
+    const sessionUser = useSelector((state) => state.session.user);
+    const dogs = useSelector(state=>state.dog.dog);
+
+
+    const [selectedId,setSelectedId] = useState(1)
+    const [showMenu, setShowMenu] = useState(false);
+    const [selectedDog,setSelectedDog] = useState(-1);
+   
+
     useEffect(()=>{
             dispatch(thunkLoadDogs())
     },[dispatch])
@@ -29,58 +42,136 @@ function DogPage(){
         return () => document.removeEventListener("click", closeMenu);
       }, [showMenu]);
 
-    const dogs = useSelector(state=>state.dog.dog);
+
+    if(!sessionUser) return navigator('/');
+
     let dogsArr=[];
     if(dogs) {
         dogsArr = Object.values(dogs);
-  
     }
+    let existDog;
+    let showDog;
+    if(dogs)  {
+        existDog= dogs[selectedId]
+        showDog =  dogsArr[0];
+    }
+              
     const navToPhotoPage=(e)=>{
         e.preventDefault()
         navigator('/photo') 
     }
 
-    // const closeMenu = (e) => {
-    //     if (ulRef.current && !ulRef.current.contains(e.target)) {
-    //       setShowMenu(false);
-    //     }
-    //   };
-   
+    const closeMenu = () => setShowMenu(false);
+
     return (
         <div className="dog-page-container">
             <div className="dog-page-nav-button">
-                <button>dogs</button>
-                <button>notes</button>
+                <button id='dog-page-dog-button'>dogs</button>
+                <button >notes</button>
                 <button onClick ={navToPhotoPage}>photos</button>
-                <button>records</button>
+                <button  >records</button>
 
             </div>
              <div>
             {
-                dogsArr.length !== 0 ?
+                dogsArr.length !== 0?
+                existDog?
+                <div className="showcase-container">
+                <h1>My Beloved Dogs</h1>
+
+                <OpenModalButton 
+                buttonText="Add a New Dog"
+                onButtonClick={closeMenu}
+                className='dog-add-new-dog'
+                modalComponent={<AddNewDogPage />}
+                />
+                
+                <div className="dog-info-container">
+                <div className="showcase-dog-img-container">
+                <img src={dogs[selectedId].image_url} className="dog-info-image" />
+                </div>
+                <div className="dog-info">
+                <p id='showcase-info-dog-name'>{dogs[selectedId].dog_name}</p>
+                <div className="dog-basic-info">
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    Age: 
+                    </p>
+                    <p id='dog-basic-info-text' >{dogs[selectedId].age}</p>
+                </div>
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    Weight: 
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {dogs[selectedId].weight}
+                    </p>
+                </div>
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    Breed:
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {dogs[selectedId].breed_name}
+                    </p>
+                </div>
+
+                </div>
+          
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    Bio:
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {dogs[selectedId].description}
+                    </p>
+                </div>
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    medical/allergies:
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {dogs[selectedId].medical_allergies}
+                    </p>
+                </div>
+                <div className="dog-basic-text">
+                    <p id='dog-basic-label'>
+                    owner:
+                    </p>
+                    <p id='dog-basic-info-text' >
+                        {dogs[selectedId].owner.username}
+                    </p>
+                </div>
+
+                </div>          
+                </div>
+                </div>
+                :
                 <div className="showcase-container">
                 <h1>My Beloved Dogs</h1>
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
-                <img src={dogsArr[selectId].image_url} className="dog-info-image" />
+                <img src={showDog.image_url} className="dog-info-image" />
                 </div>
                 <div className="dog-info">
-                <h3>{dogsArr[selectId].dog_name}</h3>
+                <h3>{showDog.dog_name}</h3>
                 <div className="dog-basic-info">
-                <p>{'age:  '+dogsArr[selectId].age}</p>
-                <p>{'weight:  '+dogsArr[selectId].weight}</p>
-                <p>{'breed:  '+dogsArr[selectId].breed_name}</p>
+                <p>{'age:  '+showDog.age}</p>
+                <p>{'weight:  '+showDog.weight}</p>
+                <p>{'breed:  '+showDog.breed_name}</p>
                 </div>
-                <p className="showcase-dog-bio">{'bio:  '+dogsArr[selectId].description}</p>
+                <p className="showcase-dog-bio">{'bio:  '+showDog.description}</p>
               
            
                 {/* <p>{dogsArr[selectId].gender}</p> */}
-                <p>{'medical/allergies:  '+dogsArr[selectId].medical_allergies}</p>
-                <p>{'owner:  '+dogsArr[selectId].owner.username}</p>
+                <p>{'medical/allergies:  '+showDog.medical_allergies}</p>
+                <p>{'owner:  '+showDog.owner.username}</p>
                 </div>          
                 </div>
                 </div>
                 :<h2>add your first dog</h2>
+                
+
             }
         </div>
         <p></p>
@@ -88,7 +179,7 @@ function DogPage(){
         {
             dogsArr.length !== 0 ?
             dogsArr.map((dog,index) =>(
-                <div key={index} onClick={()=> setSelectId(dog.id-1)} className="dog-card">
+                <div key={index} onClick={()=> setSelectedId(dog.id)} className="dog-card">
                     <img src={dog.image_url} className="dog-cards-image"></img>
                     <p className="dog-cards-text" >{dog.dog_name}</p>
                     <button onClick={
@@ -103,8 +194,18 @@ function DogPage(){
                      className="dog-cards-menu"
                       ref={ulRef}
                      >
-                        <p>hello</p>
-                        <p>world</p>
+                        <OpenModalButton 
+                        buttonText="Update A Dog"
+                        onButtonClick={closeMenu}
+                        className='photo-cards-delete'
+                        modalComponent={<UpdateDogPage updateDog={dog}  />}
+                                    />
+                        <OpenModalButton 
+                        buttonText="Delete A Dog"
+                        onButtonClick={closeMenu}
+                        className='photo-cards-delete'
+                        modalComponent={<DeleteDogPage dog_id={dog.id}  />}
+                                    />
                      </div>
                      :null
                     }

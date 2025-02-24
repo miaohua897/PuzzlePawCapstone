@@ -6,11 +6,13 @@ function Navigation() {
   return (
     <ul className="nav-container">
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/">
+        <img src="/puzzlePawIcon.png" style={{width:50,height:50}}/>
+        </NavLink>
       </li>
 
       <li>
-        <ProfileButton />
+        <ProfileButton  />
       </li>
     </ul>
   );
