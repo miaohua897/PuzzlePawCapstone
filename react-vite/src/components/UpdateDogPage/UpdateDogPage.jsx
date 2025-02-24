@@ -169,10 +169,13 @@ function UpdateDogPage({updateDog}){
 
     const serverResponse = await dispatch(thunkUpdateDogs(formData,updateDog.id));
     if (serverResponse) {
-        const errorKey = Object.keys(serverResponse)[0];
-        const errorValue = Object.values(serverResponse)[0];
-        setErrorServer({'server':`${errorKey}:${errorValue}`});
-        console.log('serverResponse',serverResponse,errorValue,errorKey)
+      const errorKey = Object.keys(serverResponse);
+      const errorValue = Object.values(serverResponse);
+      const errorArr=[]
+      for (let i=0;i<errorKey.length;i++){
+          errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
+      }
+      setErrorServer({'server':errorArr});
       } else {
         closeModal();
       }
@@ -198,7 +201,12 @@ function UpdateDogPage({updateDog}){
             <form className="update-dog-form-container" onSubmit={handleAddDogSubmit}>
         
             <h1>Update a Dog</h1>
-            {errorServer.server && <p id='error-dog'>{errorServer.server}</p>}
+            {errorServer.server? 
+            errorServer.server.map((error,index)=>{
+                return  <p  key={index}  id='photo-error'>{error}</p>
+            })
+            :null  
+            }
             <div>
             <div className='update-input'>
             <label htmlFor ='dog_name' className='update-dog-form-lable'>Dog Name</label>

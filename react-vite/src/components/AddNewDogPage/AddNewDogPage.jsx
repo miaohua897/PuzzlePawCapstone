@@ -161,9 +161,13 @@ function AddNewDogPage(){
 
     const serverResponse = await dispatch(thunkCreateDogs(formData))
     if (serverResponse) {
-        const errorKey = Object.keys(serverResponse)[0];
-        const errorValue = Object.values(serverResponse)[0];
-        setErrorServer({'server':`${errorKey}:${errorValue}`});
+      const errorKey = Object.keys(serverResponse);
+      const errorValue = Object.values(serverResponse);
+      const errorArr=[]
+      for (let i=0;i<errorKey.length;i++){
+          errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
+      }
+      setErrorServer({'server':errorArr});
         // console.log('serverResponse',serverResponse,errorValue,errorKey)
       } else {
         closeModal();
@@ -191,7 +195,12 @@ function AddNewDogPage(){
         
             <h1>Add a New Dog</h1>
             <p id ='dog-required-message'>Required fields are in red and marked with an *</p>
-            {errorServer.server && <p id='error-dog'>{errorServer.server}</p>}
+            {errorServer.server? 
+            errorServer.server.map((error,index)=>{
+                return  <p  key={index}  id='photo-error'>{error}</p>
+            })
+            :null  
+            }
             <div>
             <div className='add-input'>
             <label htmlFor ='dog_name' className='add-dog-form-lable'>Dog Name *</label>

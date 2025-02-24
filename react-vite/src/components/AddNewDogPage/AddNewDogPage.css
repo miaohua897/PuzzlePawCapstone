@@ -3,7 +3,7 @@
     border: none;
 }
 .add-new-dog-container{
-    height: 550px;
+    height: 600px;
     width: 550px;
     overflow: auto;
 }

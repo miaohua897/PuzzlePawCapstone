@@ -38,9 +38,13 @@ function UpdatePhotoPage({photo_id}){
                  formData.append('dog_id',1)
                  const serverResponse = await  dispatch(thunkUpdatePhotos(formData,photo_id))
                  if (serverResponse) {
-                    const errorKey = Object.keys(serverResponse)[0];
-                    const errorValue = Object.values(serverResponse)[0];
-                    setErrorServer({'server':`${errorKey}:${errorValue}`});
+                    const errorKey = Object.keys(serverResponse);
+                    const errorValue = Object.values(serverResponse);
+                    const errorArr=[]
+                    for (let i=0;i<errorKey.length;i++){
+                        errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
+                    }
+                    setErrorServer({'server':errorArr});
                     // console.log('serverResponse',serverResponse,errorValue,errorKey)
                   } else {
                     closeModal();
@@ -70,7 +74,12 @@ function UpdatePhotoPage({photo_id}){
            
             <form className="update-form-container" onSubmit={handleUpdatePhotoSubmit}>
             <h1>Update a New Photo</h1>
-            {errorServer.server && <p id='photo-error'>{errorServer.server}</p>}
+            {errorServer.server? 
+            errorServer.server.map((error,index)=>{
+                return  <p  key={index}  id='photo-error'>{error}</p>
+            })
+            :null  
+            }
             <div>
             <div className='update-input'>
             <label htmlFor ='photo_date' className='update-form-lable'>select a date</label>
