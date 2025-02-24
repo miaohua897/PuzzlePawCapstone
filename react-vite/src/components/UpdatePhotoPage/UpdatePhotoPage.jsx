@@ -6,7 +6,8 @@ import {thunkUpdatePhotos} from '../../redux/photo';
 
 function UpdatePhotoPage({photo_id}){
 
-        
+        const {closeModal} = useModal();
+        const dispatch = useDispatch()
         const photos = useSelector(state=>state.photo.photo);
         const photo = photos[photo_id];
         const dateObject = new Date(photo.photo_date);
@@ -15,12 +16,18 @@ function UpdatePhotoPage({photo_id}){
         const [title,setTitle] = useState(photo.title)
         const [description,setDescription] = useState(photo.description);
         const [image_url,setImage_url]=useState(photo.image_url);
-         const {closeModal} = useModal();
-        const dispatch = useDispatch()
+      
+        const [errorServer,setErrorServer] = useState({});
+        const [errorTitle,setErrorTitle]=useState('')
 
-        const handleUpdatePhotoSubmit= (e)=>{
+        const handleUpdatePhotoSubmit= async (e)=>{
                  e.preventDefault()
-                 console.log('i am adding a photo', image,title,description,photo_date)
+                //  console.log('i am adding a photo', image,title,description,photo_date)
+                 if(title.length>20){
+                    const errMes ='title is too long';
+                    setErrorTitle(errMes)
+                    return ;
+                }
                  const formData = new FormData();
                  formData.append('image_url',image)
                  formData.append('title',title)
@@ -28,12 +35,20 @@ function UpdatePhotoPage({photo_id}){
                  formData.append('photo_date',photo_date)
                  formData.append('user_id',photo.owner.id)
                  formData.append('dog_id',1)
-                 dispatch(thunkUpdatePhotos(formData,photo_id))
+                 const serverResponse = await  dispatch(thunkUpdatePhotos(formData,photo_id))
+                 if (serverResponse) {
+                    const errorKey = Object.keys(serverResponse)[0];
+                    const errorValue = Object.values(serverResponse)[0];
+                    setErrorServer({'server':`${errorKey}:${errorValue}`});
+                    // console.log('serverResponse',serverResponse,errorValue,errorKey)
+                  } else {
+                    closeModal();
+                  }
                  setImage(null)
                  setPhoto_date('')
                  setTitle('')
                  setDescription('')
-                 closeModal()
+                //  closeModal()
              }
 
              const handleFileChange=(e)=>{
@@ -54,6 +69,7 @@ function UpdatePhotoPage({photo_id}){
            
             <form className="update-form-container" onSubmit={handleUpdatePhotoSubmit}>
             <h1>Update a New Photo</h1>
+            {errorServer.server && <p id='photo-error'>{errorServer.server}</p>}
             <div>
             <div className='update-input'>
             <label htmlFor ='photo_date' className='update-form-lable'>select a date</label>
@@ -63,6 +79,7 @@ function UpdatePhotoPage({photo_id}){
                 <label htmlFor ='title' className='update-form-lable'>title</label>
                 <input type='text' id='photo-title' value={title} name='title' onChange={(e)=>setTitle(e.target.value)}></input>
             </div>
+            {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null}
             <div className='update-input' >
                 <label htmlFor ='description' className='update-form-lable'>description</label>
                 <input type='text' id='photo-description' value={description} name='description'  onChange={(e)=>setDescription(e.target.value)} ></input>
