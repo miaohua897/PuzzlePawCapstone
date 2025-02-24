@@ -1,12 +1,28 @@
+import { useEffect,useState } from 'react';
 import './HomePage.css'
 
 function HomePage(){
+    const newsPhotos =[
+        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/2498ae5db812410784477ebda1d52497.jpg',
+        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-jozef-feher-356581-1633522.jpg',
+        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-edd1egalaxy-3628100.jpg',
+        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-ilargian-faus-763704-1629780.jpg',
+        "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-valeriya-9157299.jpg"
+    ]
+    const [currentIndex, setCurrentIndex]= useState(0);
+    useEffect(()=>{
+        const interval = setInterval(()=>{
+            setCurrentIndex((prev)=>(prev+1)%newsPhotos.length)
+        },3600)
+        return ()=>clearInterval(interval)
+    },[])
     return (
         <div>
             <h1></h1>
             <div className='home-page-image-article-container'>
-            <div  className='home-page-main-image'>         
-            <img id='home-page-main-img' src="https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-lum3n-44775-406014.jpg" />
+            <div  className='home-page-main-image'>    
+            <img id='home-page-main-img' src={newsPhotos[currentIndex]} />      
+            {/* <img id='home-page-main-img' src="https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-lum3n-44775-406014.jpg" /> */}
             </div>
             <h1>Welcome to PuzzlePaw</h1>
           
