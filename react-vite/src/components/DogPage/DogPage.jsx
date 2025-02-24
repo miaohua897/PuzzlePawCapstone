@@ -72,19 +72,19 @@ function DogPage(){
                 <button  >records</button>
 
             </div>
+            <h1>My Beloved Dogs</h1>
+
+            <OpenModalButton 
+            buttonText="Add a New Dog"
+            onButtonClick={closeMenu}
+            className='dog-add-new-dog'
+            modalComponent={<AddNewDogPage />}
+/>
              <div>
             {
                 dogsArr.length !== 0?
                 existDog?
                 <div className="showcase-container">
-                <h1>My Beloved Dogs</h1>
-
-                <OpenModalButton 
-                buttonText="Add a New Dog"
-                onButtonClick={closeMenu}
-                className='dog-add-new-dog'
-                modalComponent={<AddNewDogPage />}
-                />
                 
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">

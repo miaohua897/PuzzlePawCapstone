@@ -194,13 +194,13 @@ function UpdateDogPage({updateDog}){
             <div className='update-input'>
             <label htmlFor ='dog_name' className='update-dog-form-lable'>Dog Name</label>
             <input type='text' value={dogName} id='dog-name' name='dog-name' onChange={(e)=>setDogName(e.target.value)} required></input>
-            {error.dogName?<p>{error.dogName}</p>:null}
+            {error.dogName?<p id='error-dog' >{error.dogName}</p>:null}
             </div> 
 
             <div className='update-input'>
             <label htmlFor ='age' className='update-dog-form-lable'>Dog Age</label>
             <input type='number' value={dogAge===-1?null:dogAge} id='dog-update-age' name='dog-age'  onChange={(e)=>setDogAge(e.target.value)} required ></input>
-            {error.dogAge?<p>{error.dogAge}</p>:null}
+            {error.dogAge?<p id='error-dog' >{error.dogAge}</p>:null}
             </div> 
 
             <div className='update-input'>
@@ -211,7 +211,7 @@ function UpdateDogPage({updateDog}){
             <div className='update-input'>
             <label htmlFor ='weight' className='update-dog-form-lable'>Dog Weight</label>
             <input type='number' value={weight===-1?null:weight} id='dog-update-weight' name='dog-weight'  onChange={(e)=>setWeight(e.target.value)} required></input>
-            {error.weight?<p>{error.weight}</p>:null}
+            {error.weight?<p id='error-dog' >{error.weight}</p>:null}
             </div>
 
             <div className='update-input'>
@@ -230,7 +230,7 @@ function UpdateDogPage({updateDog}){
             <input type='checkbox' checked={female} id='dog-female' name='dog-female' onChange={()=>setFemale(!female)} disabled={male} ></input>
             <label htmlFor ='female' className='update-dog-form-lable'>female</label>
             </div>
-            {error.dogGender?<p>{error.dogGender}</p>:null}
+            {error.dogGender?<p id='error-dog' >{error.dogGender}</p>:null}
             <div className='update-input'>  
             <input type='checkbox' checked={neutered} id='dog-neutered' name='dog-neutered' onChange={()=>setNeutered(!neutered)} disabled={spayed||female} ></input>
             <label htmlFor ='neutered' className='update-dog-form-lable'>neutered</label>

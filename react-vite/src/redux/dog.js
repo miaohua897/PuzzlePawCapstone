@@ -37,7 +37,7 @@ export const thunkUpdateDogs=(data,dog_id)=>async(dispatch)=>{
 }
 
 export const  thunkLoadDogs=()=> async(dispatch)=>{
-    const res = await fetch('/api/dogs/');
+    const res = await fetch('/api/dogs/current');
     if(res.ok){
         const data = await res.json()
         if(data.errors){
