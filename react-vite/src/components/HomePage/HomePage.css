@@ -19,6 +19,10 @@
     width:90%;
     height: auto;
     margin-bottom: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), 
+    -5px 5px 10px rgba(169, 169, 169, 0.5), 
+    -5px -5px 10px rgba(169, 169, 169, 0.5), 
+    5px -5px 10px rgba(0, 0, 0, 0.2);
 }
 #home-page-main-img{
     border-radius: 10px;

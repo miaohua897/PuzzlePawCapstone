@@ -38,7 +38,7 @@ function AddNewPhotoPage(){
             const errorKey = Object.keys(serverResponse)[0];
             const errorValue = Object.values(serverResponse)[0];
             setErrorServer({'server':`${errorKey}:${errorValue}`});
-            console.log('serverResponse',serverResponse,errorValue,errorKey)
+            // console.log('serverResponse',serverResponse,errorValue,errorKey)
           } else {
             closeModal();
           }
