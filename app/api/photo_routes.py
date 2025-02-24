@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request,render_template,redirect
 from flask_login import login_required,current_user
 from app.models import User,Photo,db
+from sqlalchemy import desc
 from app.forms.photo_form import PhotoForm
 from .aws_helpers import (
     upload_file_to_s3, get_unique_filename)
@@ -15,7 +16,9 @@ def get_all_photos():
 @photo_routes.route('/current',methods=['GET'])
 @login_required
 def get_session_photos():
-    photos = Photo.query.filter_by(user_id=current_user.id).all()
+    # photos = Photo.query.filter_by(user_id=current_user.id).all()
+    photos = Photo.query.filter_by(user_id=current_user.id).order_by(Photo.id.desc()).all()
+    # print({photo.id: photo.to_dict() for photo in photos})
     return {photo.id: photo.to_dict() for photo in photos}
 
 @photo_routes.route('/',methods=['POST'])
@@ -39,8 +42,9 @@ def add_photo():
         db.session.commit()
         return jsonify(new_photo.to_dict()),201
     
-    if form.errors:
-        return form.errors
+    return form.errors,401
+    # if form.errors:
+    #     return form.errors
 
 
 @photo_routes.route('/<int:photo_id>',methods=['DELETE'])
@@ -82,7 +86,8 @@ def update_photo(photo_id):
         db.session.commit()
         return jsonify(photo.to_dict()),201
     
-    if form.errors:
-        return form.errors
+    return form.errors,401
+    # if form.errors:
+    #     return form.errors
 
 

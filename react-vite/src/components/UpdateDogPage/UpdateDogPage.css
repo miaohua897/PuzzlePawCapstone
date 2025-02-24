@@ -11,9 +11,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;  
     margin:5px;
+    overflow: scroll;
 }
 .update-input{
 
