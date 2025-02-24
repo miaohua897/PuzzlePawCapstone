@@ -169,10 +169,13 @@ function UpdateDogPage({updateDog}){
 
     const serverResponse = await dispatch(thunkUpdateDogs(formData,updateDog.id));
     if (serverResponse) {
-        const errorKey = Object.keys(serverResponse)[0];
-        const errorValue = Object.values(serverResponse)[0];
-        setErrorServer({'server':`${errorKey}:${errorValue}`});
-        console.log('serverResponse',serverResponse,errorValue,errorKey)
+      const errorKey = Object.keys(serverResponse);
+      const errorValue = Object.values(serverResponse);
+      const errorArr=[]
+      for (let i=0;i<errorKey.length;i++){
+          errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
+      }
+      setErrorServer({'server':errorArr});
       } else {
         closeModal();
       }
@@ -198,7 +201,12 @@ function UpdateDogPage({updateDog}){
             <form className="update-dog-form-container" onSubmit={handleAddDogSubmit}>
         
             <h1>Update a Dog</h1>
-            {errorServer.server && <p id='error-dog'>{errorServer.server}</p>}
+            {errorServer.server? 
+            errorServer.server.map((error,index)=>{
+                return  <p  key={index}  id='photo-error'>{error}</p>
+            })
+            :null  
+            }
             <div>
             <div className='update-input'>
             <label htmlFor ='dog_name' className='update-dog-form-lable'>Dog Name</label>
@@ -298,7 +306,9 @@ function UpdateDogPage({updateDog}){
 
             <div className='update-input'>
             <label htmlFor ='owner-contact-number' className='update-dog-form-lable'>Contact Number</label>
-            <input type='number' value={owner_contact} id='owner-update-contact-number' name='owner-contact-number'  onChange={e=>setOwner_contact(e.target.value)} required></input>
+            <input type='number' value={owner_contact} id='owner-update-contact-number' name='owner-contact-number'  
+             placeholder='Globally phone number applicable' 
+            onChange={e=>setOwner_contact(e.target.value)} required></input>
             </div>
             {error.ownerNumber?<p>{error.ownerNumber}</p>:null}
 
@@ -334,7 +344,9 @@ function UpdateDogPage({updateDog}){
 
             <div className='update-input'>
             <label htmlFor ='owner-zip-code' className='update-dog-form-lable'>Zip Code</label>
-            <input type='number' value={owner_code}  id='owner-update-zip-code' name='owner-zip-code'  onChange={e=>setOwner_code(e.target.value)} required></input>
+            <input type='number' value={owner_code}  id='owner-update-zip-code' name='owner-zip-code'  
+              placeholder='Globally zip code applicable' 
+            onChange={e=>setOwner_code(e.target.value)} required></input>
             </div>
             {error.ownerCode?<p>{error.ownerCode}</p>:null}
 

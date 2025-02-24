@@ -2,7 +2,7 @@
 .add-form-container{
     border-radius: 20px;
     background-color: rgb(203, 218, 233,0.9);
-    height: 450px;
+    height: auto;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -21,6 +21,7 @@
 .add-form-lable{
     font-size: 18px;
     font-weight: bolder;
+    color: brown;
 }
 .add-form-submit{
     margin-top: 10px;
@@ -30,6 +31,7 @@
     color:aliceblue;
     background-color: darkgrey;
     border: 1px solid rgb(83, 90, 98);
+    margin-bottom: 20px;
 }
 #photo-date{
     width:240px;
@@ -42,9 +44,10 @@
     height:50px;
     overflow: scroll;
 }
-.add-form-submit{
-    margin-bottom: 10px;
-}
 #photo-error{
     color: red;
+}
+#photo-required-message{
+    color:brown;
+    font-size: 12px;
 }
