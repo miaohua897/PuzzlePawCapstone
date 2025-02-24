@@ -3,8 +3,8 @@
     border: none;
 }
 .add-new-dog-container{
-    height: 500px;
-    width: 500px;
+    height: 550px;
+    width: 550px;
     overflow: auto;
 }
 .add-dog-form-container{
@@ -27,6 +27,7 @@
 .add-dog-form-lable{
     font-size: 18px;
     font-weight: bolder;
+    color:brown;
 }
 #dog-name{
     width: 300px;
@@ -101,4 +102,7 @@
 }
 #error-dog{
     color:red;
+}
+#dog-required-message{
+    color: brown;
 }

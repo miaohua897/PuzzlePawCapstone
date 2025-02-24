@@ -67,26 +67,27 @@ function AddNewPhotoPage(){
            
             <form className="add-form-container" onSubmit={handleAddPhotoSubmit}>
             <h1>Add a New Photo</h1>
+            <p id ='photo-required-message'>Required fields are in red and marked with an *</p>
             {errorServer.server && <p id='photo-error'>{errorServer.server}</p>}
             <div>
             <div className='add-input'>
-            <label htmlFor ='photo_date' className='add-form-lable'>select a date</label>
+            <label htmlFor ='photo_date' className='add-form-lable'>select a date *</label>
             <input type='date' id='photo-date' name='photo_date' 
             onChange={(e)=>setPhoto_date(e.target.value)} required min='1900-01-01' max={today}></input>
             </div>
             <div className='add-input'>
-                <label htmlFor ='title' className='add-form-lable'>title</label>
+                <label htmlFor ='title' className='add-form-lable'>title *</label>
                 <input type='text' id='photo-title' name='title' 
                 onChange={(e)=>setTitle(e.target.value)} required  minLength="0" maxLength="20"></input>
             </div>
             {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null}
             <div className='add-input' >
-                <label htmlFor ='description' className='add-form-lable'>description</label>
+                <label htmlFor ='description' className='add-form-lable'>description *</label>
                 <input type='text' id='photo-description' name='description'  
                 onChange={(e)=>setDescription(e.target.value)} required  minLength="0" maxLength="500" ></input>
             </div>
             <div className='add-input'>
-                 <label htmlFor ="image_upload" className='add-form-lable'>Upload an image:</label>
+                 <label htmlFor ="image_upload" className='add-form-lable'>Upload an image *:</label>
                 <input type="file" id="image-upload" name="image_url" accept="image/*"  
                  onChange={handleFileChange}
                 // onChange={(e)=>setImage(e.target.files[0])} 

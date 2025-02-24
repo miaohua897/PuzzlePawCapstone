@@ -298,7 +298,9 @@ function UpdateDogPage({updateDog}){
 
             <div className='update-input'>
             <label htmlFor ='owner-contact-number' className='update-dog-form-lable'>Contact Number</label>
-            <input type='number' value={owner_contact} id='owner-update-contact-number' name='owner-contact-number'  onChange={e=>setOwner_contact(e.target.value)} required></input>
+            <input type='number' value={owner_contact} id='owner-update-contact-number' name='owner-contact-number'  
+             placeholder='Globally phone number applicable' 
+            onChange={e=>setOwner_contact(e.target.value)} required></input>
             </div>
             {error.ownerNumber?<p>{error.ownerNumber}</p>:null}
 
@@ -334,7 +336,9 @@ function UpdateDogPage({updateDog}){
 
             <div className='update-input'>
             <label htmlFor ='owner-zip-code' className='update-dog-form-lable'>Zip Code</label>
-            <input type='number' value={owner_code}  id='owner-update-zip-code' name='owner-zip-code'  onChange={e=>setOwner_code(e.target.value)} required></input>
+            <input type='number' value={owner_code}  id='owner-update-zip-code' name='owner-zip-code'  
+              placeholder='Globally zip code applicable' 
+            onChange={e=>setOwner_code(e.target.value)} required></input>
             </div>
             {error.ownerCode?<p>{error.ownerCode}</p>:null}
 
