@@ -77,12 +77,14 @@ function UpdatePhotoPage({photo_id}){
             </div>
             <div className='update-input'>
                 <label htmlFor ='title' className='update-form-lable'>title</label>
-                <input type='text' id='photo-title' value={title} name='title' onChange={(e)=>setTitle(e.target.value)}></input>
+                <input type='text' id='photo-title' value={title} name='title' 
+                onChange={(e)=>setTitle(e.target.value)}  minLength="0" maxLength="20"></input>
             </div>
             {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null}
             <div className='update-input' >
                 <label htmlFor ='description' className='update-form-lable'>description</label>
-                <input type='text' id='photo-description' value={description} name='description'  onChange={(e)=>setDescription(e.target.value)} ></input>
+                <input type='text' id='photo-description' value={description} name='description'  
+                onChange={(e)=>setDescription(e.target.value)}  minLength="0" maxLength="500" ></input>
             </div>
             <div className='update-input'>
                  <label htmlFor ="image_upload" className='update-form-lable'>Upload an image:</label>

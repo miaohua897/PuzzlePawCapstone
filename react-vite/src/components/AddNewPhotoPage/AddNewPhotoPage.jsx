@@ -70,16 +70,18 @@ function AddNewPhotoPage(){
             <div>
             <div className='add-input'>
             <label htmlFor ='photo_date' className='add-form-lable'>select a date</label>
-            <input type='date' id='photo-date' name='photo_date' onChange={(e)=>setPhoto_date(e.target.value)}></input>
+            <input type='date' id='photo-date' name='photo_date' onChange={(e)=>setPhoto_date(e.target.value)} required></input>
             </div>
             <div className='add-input'>
                 <label htmlFor ='title' className='add-form-lable'>title</label>
-                <input type='text' id='photo-title' name='title' onChange={(e)=>setTitle(e.target.value)}></input>
+                <input type='text' id='photo-title' name='title' 
+                onChange={(e)=>setTitle(e.target.value)} required  minLength="0" maxLength="20"></input>
             </div>
             {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null}
             <div className='add-input' >
                 <label htmlFor ='description' className='add-form-lable'>description</label>
-                <input type='text' id='photo-description' name='description'  onChange={(e)=>setDescription(e.target.value)} ></input>
+                <input type='text' id='photo-description' name='description'  
+                onChange={(e)=>setDescription(e.target.value)} required  minLength="0" maxLength="500" ></input>
             </div>
             <div className='add-input'>
                  <label htmlFor ="image_upload" className='add-form-lable'>Upload an image:</label>
