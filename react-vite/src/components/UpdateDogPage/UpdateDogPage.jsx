@@ -201,24 +201,32 @@ function UpdateDogPage({updateDog}){
             <div>
             <div className='update-input'>
             <label htmlFor ='dog_name' className='update-dog-form-lable'>Dog Name</label>
-            <input type='text' value={dogName} id='dog-name' name='dog-name' onChange={(e)=>setDogName(e.target.value)} required></input>          
+            <input type='text' value={dogName} id='dog-name' name='dog-name' 
+            onChange={(e)=>setDogName(e.target.value)} required
+            minLength="0" maxLength="20"
+            ></input>          
             </div> 
             {error.dogName?<p id='error-dog' >{error.dogName}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='age' className='update-dog-form-lable'>Dog Age</label>
-            <input type='number' value={dogAge===-1?null:dogAge} id='dog-update-age' name='dog-age'  onChange={(e)=>setDogAge(e.target.value)} required ></input>          
+            <input type='number' value={dogAge===-1?null:dogAge} id='dog-update-age' name='dog-age'  
+             min='0' max='30'
+            onChange={(e)=>setDogAge(e.target.value)} required ></input>          
             </div> 
             {error.dogAge?<p id='error-dog' >{error.dogAge}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='color' className='update-dog-form-lable'>Dog Color</label>
-            <input type='text' pattern="[A-Za-z]*" value={color} id='dog-update-color' name='dog-color' onChange={(e)=>setColor(e.target.value)} required></input> 
+            <input type='text' pattern="[A-Za-z]*" value={color} id='dog-update-color' name='dog-color' 
+            onChange={(e)=>setColor(e.target.value)} required  minLength="0" maxLength="20" ></input> 
             </div>
 
             <div className='update-input'>
             <label htmlFor ='weight' className='update-dog-form-lable'>Dog Weight</label>
-            <input type='number' value={weight===-1?null:weight} id='dog-update-weight' name='dog-weight'  onChange={(e)=>setWeight(e.target.value)} required></input>           
+            <input type='number' value={weight===-1?null:weight} id='dog-update-weight' name='dog-weight'  
+           
+            onChange={(e)=>setWeight(e.target.value)} required></input>           
             </div>
             {error.weight?<p id='error-dog' >{error.weight}</p>:null}
 
@@ -261,23 +269,28 @@ function UpdateDogPage({updateDog}){
             <label htmlFor ='breed_name' className='update-dog-form-lable'  >Dog Breed</label>
             <input type='text' pattern="^[A-Za-z\s]*$" value={breed}  id='dog-breed' name='dog-breed' 
             placeholder='input a breed name, please. English alphabet and space only'
-            onChange={(e)=>setBreed(e.target.value)} required></input>
+            onChange={(e)=>setBreed(e.target.value)} required  minLength="0" maxLength="20"></input>
             </div>
             {error.dogBreed?<p>{error.dogBreed}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='description' className='update-dog-form-lable'>Dog Description</label>
-            <input type='text' value={description} id='dog-update-description' name='dog-description' onChange={e=>setDescription(e.target.value)} required></input>
+            <input type='text' value={description} id='dog-update-description' name='dog-description' 
+            onChange={e=>setDescription(e.target.value)} required  minLength="0" maxLength="500"></input>
             </div>
 
             <div className='update-input'>
             <label htmlFor ='medical_allergies' className='update-dog-form-lable'>Dog Medical/Allergies</label>
-            <input type='text' value={medical_allergies} id='dog-update-medical-allergies' name='dog-medical-allergies' onChange={e=>setMedical_allergies(e.target.value)} required></input>
+            <input type='text' value={medical_allergies} id='dog-update-medical-allergies' name='dog-medical-allergies' 
+            onChange={e=>setMedical_allergies(e.target.value)} required
+             minLength="0" maxLength="200"
+            ></input>
             </div>
 
             <div className='update-input'>
             <label htmlFor ='owner-name' className='update-dog-form-lable'>Owner Name</label>
-            <input type='text' value={owner_name}  id='owner-update-name' name='owner-name'  onChange={e=>setOwner_name(e.target.value)} required></input>
+            <input type='text' value={owner_name}  id='owner-update-name' name='owner-name'  
+            onChange={e=>setOwner_name(e.target.value)} required  minLength="0" maxLength="20"></input>
             </div>
             {error.ownerName?<p>{error.ownerName}</p>:null}
 
@@ -294,8 +307,10 @@ function UpdateDogPage({updateDog}){
             <div className='update-input'>
             <label htmlFor ='owner-address' className='update-dog-form-lable'>Address</label>
             <div>
-            <input type='text' value={owner_address_one} id='owner-address-line-one' name='owner-address-line-one' onChange={(e)=>setOwner_address_one(e.target.value)} required></input>
-            <input type='text' value={owner_address_two} id='owner-address-line-one' name='owner-address-line-two' onChange={(e)=>setOwner_address_two(e.target.value)} ></input>
+            <input type='text' value={owner_address_one} id='owner-address-line-one' name='owner-address-line-one' 
+            onChange={(e)=>setOwner_address_one(e.target.value)} required  minLength="0" maxLength="50"></input>
+            <input type='text' value={owner_address_two} id='owner-address-line-one' name='owner-address-line-two' 
+            onChange={(e)=>setOwner_address_two(e.target.value)}  minLength="0" maxLength="50" ></input>
             </div>    
             </div>
 
@@ -303,7 +318,7 @@ function UpdateDogPage({updateDog}){
             <label htmlFor ='owner-city' className='update-dog-form-lable'>City</label>
             <input type='text'   pattern="^[A-Za-z\s]*$"  value={owner_city}  id='owner-update-address-city' name='owner-address-city' 
               placeholder='input city name, please. English alphabet and space only'  
-            onChange={e=>setOwner_city(e.target.value)} required></input>
+            onChange={e=>setOwner_city(e.target.value)} required  minLength="0" maxLength="20"></input>
             </div>
             {error.ownerCity?<p>{error.ownerCity}</p>:null}
 
@@ -311,7 +326,7 @@ function UpdateDogPage({updateDog}){
             <label htmlFor ='owner-state' className='update-dog-form-lable'>State</label>
             <input type='text'  pattern="^[A-Za-z\s]*$"  value={owner_state}  id='owner-update-address-state' name='owner-address-state'  
             placeholder='input state name, please. English alphabet and space only' 
-            onChange={e=>setOwner_state(e.target.value)} required></input>
+            onChange={e=>setOwner_state(e.target.value)} required  minLength="0" maxLength="20" ></input>
             </div>
             {error.ownerState?<p>{error.ownerState}</p>:null}
 
@@ -325,7 +340,7 @@ function UpdateDogPage({updateDog}){
             <label htmlFor ='owner-country' className='update-dog-form-lable'>Country</label>
             <input type='text' pattern="^[A-Za-z\s]*$" value={owner_country}  id='owner-update-country' name='owner-country' 
              placeholder='input country name, please. English alphabet and space only' 
-            onChange={e=>setOwner_country(e.target.value)} required></input>
+            onChange={e=>setOwner_country(e.target.value)} required  minLength="0" maxLength="20" ></input>
             </div>
             {error.ownerCountry?<p>{error.ownerCountry}</p>:null}
 
