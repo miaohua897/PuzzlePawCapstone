@@ -7,11 +7,12 @@ import { useModal } from '../../context/Modal';
 function UpdateDogPage({updateDog}){
     
     const {closeModal} = useModal()
+    const birthDataObj = new Date(updateDog.birth_date);
     const [dogName,setDogName]=useState(updateDog.dog_name);
     const [dogAge,setDogAge]=useState(updateDog.age);
     const [color,setColor]=useState(updateDog.color);
     const [weight,setWeight]=useState(updateDog.weight);
-    const [birth_date,setBirth_Date] = useState('')
+    const [birth_date,setBirth_Date] = useState(birthDataObj.toISOString().split('T')[0])
     const [male,setMale]=useState(false);
     const [female,setFemale]=useState(false);
     const [neutered,setNeutered]=useState(false);
