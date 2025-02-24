@@ -24,7 +24,7 @@ def add_photo():
     form = PhotoForm()
     form ['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
-        print('====================>formdata',form.data)
+        # print('====================>formdata',form.data)
         image = form.data["image_url"]
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
@@ -69,13 +69,13 @@ def update_photo(photo_id):
     if form.validate_on_submit():
 
         image = form.data["image_url"]
-        image.filename = get_unique_filename(image.filename)
-        upload = upload_file_to_s3(image)
+        if image is not None:
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+            photo.image_url=upload['url']
         photo.photo_date = form.data['photo_date']
         photo.title = form.data['title']
         photo.description = form.data['description']
-        photo.image_url=upload['url']
-        # photo.image_url='ewe.png'
         photo.dog_id = form.data['dog_id']
         photo.user_id = form.data['user_id']
 

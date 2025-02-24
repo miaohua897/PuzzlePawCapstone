@@ -234,9 +234,6 @@ function AddNewDogPage(){
 
             </div>
   
-
-        
-
             <div className='add-input'>  
             <input type='checkbox' checked={microchip} id='dog-microchip' name='dog-microchip'  onChange={()=>setMicrochip(!microchip)}></input>
             <label htmlFor ='microchip' className='add-dog-form-lable'>dog microchip</label>
