@@ -19,6 +19,7 @@ function UpdatePhotoPage({photo_id}){
       
         const [errorServer,setErrorServer] = useState({});
         const [errorTitle,setErrorTitle]=useState('')
+        const today = new Date().toISOString().split('T')[0];
 
         const handleUpdatePhotoSubmit= async (e)=>{
                  e.preventDefault()
@@ -73,7 +74,8 @@ function UpdatePhotoPage({photo_id}){
             <div>
             <div className='update-input'>
             <label htmlFor ='photo_date' className='update-form-lable'>select a date</label>
-            <input type='date' id='photo-date' value={photo_date} name='photo_date' onChange={(e)=>setPhoto_date(e.target.value)}></input>
+            <input type='date' id='photo-date' value={photo_date} name='photo_date' 
+            onChange={(e)=>setPhoto_date(e.target.value)} min='1900-01-01' max={today} ></input>
             </div>
             <div className='update-input'>
                 <label htmlFor ='title' className='update-form-lable'>title</label>

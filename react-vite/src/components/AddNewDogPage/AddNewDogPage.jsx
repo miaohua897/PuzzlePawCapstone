@@ -6,6 +6,7 @@ import { useModal } from '../../context/Modal';
 
 function AddNewDogPage(){
     const {closeModal}=useModal()
+    const dispatch = useDispatch()
     const sessionUser = useSelector((state) => state.session.user);
     const [dogName,setDogName]=useState('');
     const [dogAge,setDogAge]=useState(-1);
@@ -44,7 +45,7 @@ function AddNewDogPage(){
         'ownerCountry':''
     });
     const [errorServer,setErrorServer] = useState({})
-    const dispatch = useDispatch()
+    const today = new Date().toISOString().split('T')[0];
 
     const handleAddDogSubmit= async (e)=>{
          
@@ -227,7 +228,9 @@ function AddNewDogPage(){
             <div className='add-input'>
             <label htmlFor ='birth_date' className='add-dog-form-lable'>Select a Date</label>
             <input type='date' value ={birth_date} id='birth-date' name='birth_date'  
-            onChange={(e)=>setBirth_Date(e.target.value)} required></input>
+            onChange={(e)=>setBirth_Date(e.target.value)} required
+            min='1900-01-01' max={today}
+            ></input>
             </div>   
              
             <div className='add-input-gender-img-container'>

@@ -17,6 +17,7 @@ function AddNewPhotoPage(){
     const [image_url,setImage_url]=useState('https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/Screenshot+2025-02-24+at+6.25.29%E2%80%AFAM.png');
     const [errorServer,setErrorServer] = useState({});
     const [errorTitle,setErrorTitle]=useState('')
+    const today = new Date().toISOString().split('T')[0];
     
     const handleAddPhotoSubmit= async (e)=>{
         e.preventDefault()
@@ -65,12 +66,13 @@ function AddNewPhotoPage(){
         <div className="update-container">
            
             <form className="add-form-container" onSubmit={handleAddPhotoSubmit}>
-            <h1>Update a New Photo</h1>
+            <h1>Add a New Photo</h1>
             {errorServer.server && <p id='photo-error'>{errorServer.server}</p>}
             <div>
             <div className='add-input'>
             <label htmlFor ='photo_date' className='add-form-lable'>select a date</label>
-            <input type='date' id='photo-date' name='photo_date' onChange={(e)=>setPhoto_date(e.target.value)} required></input>
+            <input type='date' id='photo-date' name='photo_date' 
+            onChange={(e)=>setPhoto_date(e.target.value)} required min='1900-01-01' max={today}></input>
             </div>
             <div className='add-input'>
                 <label htmlFor ='title' className='add-form-lable'>title</label>
