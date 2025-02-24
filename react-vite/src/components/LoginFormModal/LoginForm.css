@@ -1,8 +1,12 @@
-.login-form-container{
+.login-container{
     border-radius: 20px;
     background-color: rgb(203, 218, 233,0.9);
-    height: 200px;
+    height: 250px;
     width: 350px;
+    overflow: scroll;
+}
+.login-form-container{
+ 
     display: flex;
     flex-direction: column;
     justify-content: center;
