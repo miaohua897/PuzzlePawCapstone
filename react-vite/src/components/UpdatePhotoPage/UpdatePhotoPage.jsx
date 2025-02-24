@@ -6,10 +6,12 @@ import {thunkUpdatePhotos} from '../../redux/photo';
 
 function UpdatePhotoPage({photo_id}){
 
+        
         const photos = useSelector(state=>state.photo.photo);
         const photo = photos[photo_id];
+        const dateObject = new Date(photo.photo_date);
         const [image,setImage]=useState(photo.image_url);
-        const [photo_date,setPhoto_date] = useState('')
+        const [photo_date,setPhoto_date] = useState(dateObject.toISOString().split('T')[0])
         const [title,setTitle] = useState(photo.title)
         const [description,setDescription] = useState(photo.description)
          const {closeModal} = useModal();
