@@ -36,7 +36,7 @@ export const thunkUpdatePhotos=(data,photo_id)=>async(dispatch)=>{
 }
 
 export const  thunkLoadPhotos=()=> async(dispatch)=>{
-    const res = await fetch('/api/photos/');
+    const res = await fetch('/api/photos/current');
     if(res.ok){
         const data = await res.json()
         if(data.errors){

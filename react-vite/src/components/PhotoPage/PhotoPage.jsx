@@ -62,16 +62,17 @@ function PhotoPage(){
                 <button>records</button>
 
             </div>
-        {
-            photos_arr !==0?
-            <div>
-                  <h1>Photoes</h1>
+            <h1>Photoes</h1>
                   <OpenModalButton 
                   buttonText="Add A Photo"
                   onButtonClick={closeMenu}
                   className='photo-cards-add'
                   modalComponent={<AddNewPhotoPage />}
                   />
+        {
+            photos_arr !==0?
+            <div>
+               
                   <div className='photoes-container'>
                     <div className="dog-photos-container">
 

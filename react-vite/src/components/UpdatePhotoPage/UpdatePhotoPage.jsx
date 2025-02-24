@@ -13,7 +13,8 @@ function UpdatePhotoPage({photo_id}){
         const [image,setImage]=useState(photo.image_url);
         const [photo_date,setPhoto_date] = useState(dateObject.toISOString().split('T')[0])
         const [title,setTitle] = useState(photo.title)
-        const [description,setDescription] = useState(photo.description)
+        const [description,setDescription] = useState(photo.description);
+        const [image_url,setImage_url]=useState(photo.image_url);
          const {closeModal} = useModal();
         const dispatch = useDispatch()
 
@@ -25,7 +26,7 @@ function UpdatePhotoPage({photo_id}){
                  formData.append('title',title)
                  formData.append('description',description)
                  formData.append('photo_date',photo_date)
-                 formData.append('user_id',1)
+                 formData.append('user_id',photo.owner.id)
                  formData.append('dog_id',1)
                  dispatch(thunkUpdatePhotos(formData,photo_id))
                  setImage(null)
@@ -34,6 +35,19 @@ function UpdatePhotoPage({photo_id}){
                  setDescription('')
                  closeModal()
              }
+
+             const handleFileChange=(e)=>{
+                e.preventDefault()
+                const file = e.target.files[0];
+                if(file){
+                   const reader = new FileReader();
+                   reader.onloadend=()=>{
+                       setImage_url(reader.result)
+                   }
+                   reader.readAsDataURL(file);
+                }
+                setImage(e.target.files[0])
+           }
 
     return (
         <div className="update-container">
@@ -55,9 +69,13 @@ function UpdatePhotoPage({photo_id}){
             </div>
             <div className='update-input'>
                  <label htmlFor ="image_upload" className='update-form-lable'>Upload an image:</label>
-                <input type="file" id="image-upload"  name="image_url" accept="image/*"  onChange={(e)=>setImage(e.target.files[0])} />
+                <input type="file" id="image-upload"  name="image_url" accept="image/*"  
+                // onChange={(e)=>setImage(e.target.files[0])} 
+                onChange={handleFileChange}
+                />
             </div>
             </div>
+            <img src={image_url} style={{width:150,height:100, borderRadius:10,padding:5}}></img>
             <button className='update-form-submit'>Submit</button>
             </form>
         </div>

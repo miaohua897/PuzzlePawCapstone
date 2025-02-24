@@ -1,19 +1,21 @@
 import './AddNewPhotoPage.css';
 import { useState } from 'react';
 import {thunkCreatePhotos} from '../../redux/photo';
-import {useDispatch} from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux'
 import { useModal } from '../../context/Modal';
 
 
 
 function AddNewPhotoPage(){
-
+     const dispatch = useDispatch()
+     const sessionUser = useSelector((state) => state.session.user);
     const [image,setImage]=useState(null);
     const [photo_date,setPhoto_date] = useState('')
     const [title,setTitle] = useState('')
     const [description,setDescription] = useState('')
      const {closeModal} = useModal();
-    const dispatch = useDispatch()
+    const [image_url,setImage_url]=useState('https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/Screenshot+2025-02-24+at+6.25.29%E2%80%AFAM.png');
+    
     
     const handleAddPhotoSubmit= (e)=>{
         e.preventDefault()
@@ -23,7 +25,7 @@ function AddNewPhotoPage(){
         formData.append('title',title)
         formData.append('description',description)
         formData.append('photo_date',photo_date)
-        formData.append('user_id',1)
+        formData.append('user_id',sessionUser.id)
         formData.append('dog_id',1)
         dispatch(thunkCreatePhotos(formData))
         setImage(null)
@@ -32,6 +34,18 @@ function AddNewPhotoPage(){
         setDescription('')
         closeModal()
     }
+    const handleFileChange=(e)=>{
+        e.preventDefault()
+        const file = e.target.files[0];
+        if(file){
+           const reader = new FileReader();
+           reader.onloadend=()=>{
+               setImage_url(reader.result)
+           }
+           reader.readAsDataURL(file);
+        }
+        setImage(e.target.files[0])
+   }
 
     return (
         <div className="update-container">
@@ -53,10 +67,13 @@ function AddNewPhotoPage(){
             </div>
             <div className='add-input'>
                  <label htmlFor ="image_upload" className='add-form-lable'>Upload an image:</label>
-                <input type="file" id="image-upload" name="image_url" accept="image/*"  onChange={(e)=>setImage(e.target.files[0])} />
+                <input type="file" id="image-upload" name="image_url" accept="image/*"  
+                 onChange={handleFileChange}
+                // onChange={(e)=>setImage(e.target.files[0])} 
+                />
             </div>
             </div>
-        
+            <img src={image_url} style={{width:150,height:100, borderRadius:10,padding:5}}></img>
             <button className='add-form-submit'>Submit</button>
             </form>
         </div>

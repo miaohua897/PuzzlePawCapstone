@@ -99,3 +99,6 @@
     border: 1px solid rgb(83, 90, 98);
     margin-bottom: 15px;
 }
+#error-dog{
+    color:red;
+}

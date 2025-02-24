@@ -1,11 +1,12 @@
 import './AddNewDogPage.css';
 import { useState } from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import {thunkCreateDogs} from '../../redux/dog';
 import { useModal } from '../../context/Modal';
 
 function AddNewDogPage(){
     const {closeModal}=useModal()
+    const sessionUser = useSelector((state) => state.session.user);
     const [dogName,setDogName]=useState('');
     const [dogAge,setDogAge]=useState(-1);
     const [color,setColor]=useState('');
@@ -29,7 +30,7 @@ function AddNewDogPage(){
     const [owner_country,setOwner_country]=useState('');
     const [owner_city,setOwner_city] = useState('')
     const [image,setImage]=useState('');
-    const [image_url,setImage_url]=useState('https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-goochie-poochie-3299905.jpg');
+    const [image_url,setImage_url]=useState('https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/Screenshot+2025-02-24+at+6.25.29%E2%80%AFAM.png');
     const [error,setError] = useState({
         'dogName':'',
         'dogAge':'',
@@ -154,7 +155,7 @@ function AddNewDogPage(){
     formData.append('owner_address_state',owner_state)
     formData.append('owner_address_zip_code',owner_code)
     formData.append('owner_country',owner_country)
-    formData.append('user_id',1)
+    formData.append('user_id',sessionUser.id)
 
     dispatch(thunkCreateDogs(formData))
     closeModal()
@@ -184,13 +185,13 @@ function AddNewDogPage(){
             <div className='add-input'>
             <label htmlFor ='dog_name' className='add-dog-form-lable'>Dog Name</label>
             <input type='text' value={dogName} id='dog-name' name='dog-name' onChange={(e)=>setDogName(e.target.value)} required></input>
-            {error.dogName?<p>{error.dogName}</p>:null}
+            {error.dogName?<p id='error-dog' >{error.dogName}</p>:null}
             </div> 
 
             <div className='add-input'>
             <label htmlFor ='age' className='add-dog-form-lable'>Dog Age</label>
             <input type='number' value={dogAge===-1?null:dogAge} id='dog-age' name='dog-age'  onChange={(e)=>setDogAge(e.target.value)} required ></input>
-            {error.dogAge?<p>{error.dogAge}</p>:null}
+            {error.dogAge?<p id='error-dog'>{error.dogAge}</p>:null}
             </div> 
 
             <div className='add-input'>
@@ -201,7 +202,7 @@ function AddNewDogPage(){
             <div className='add-input'>
             <label htmlFor ='weight' className='add-dog-form-lable'>Dog Weight</label>
             <input type='number' value={weight===-1?null:weight} id='dog-weight' name='dog-weight'  onChange={(e)=>setWeight(e.target.value)} required></input>
-            {error.weight?<p>{error.weight}</p>:null}
+            {error.weight?<p id='error-dog' >{error.weight}</p>:null}
             </div>
 
             <div className='add-input'>
@@ -242,7 +243,7 @@ function AddNewDogPage(){
             <div className='add-input'>
             <label htmlFor ='breed_name' className='add-dog-form-lable'  >Dog Breed</label>
             <input type='text' pattern="[A-Za-z]*" value={breed}  id='dog-breed' name='dog-breed' onChange={(e)=>setBreed(e.target.value)} required></input>
-            {error.dogBreed?<p>{error.dogBreed}</p>:null}
+            {error.dogBreed?<p id='error-dog' >{error.dogBreed}</p>:null}
             </div>
 
             <div className='add-input'>
@@ -258,13 +259,13 @@ function AddNewDogPage(){
             <div className='add-input'>
             <label htmlFor ='owner-name' className='add-dog-form-lable'>Owner Name</label>
             <input type='text' value={owner_name}  id='owner-name' name='owner-name'  onChange={e=>setOwner_name(e.target.value)} required></input>
-            {error.ownerName?<p>{error.ownerName}</p>:null}
+            {error.ownerName?<p id='error-dog' >{error.ownerName}</p>:null}
             </div>
 
             <div className='add-input'>
             <label htmlFor ='owner-contact-number' className='add-dog-form-lable'>Contact Number</label>
             <input type='number' value={owner_contact} id='owner-contact-number' name='owner-contact-number'  onChange={e=>setOwner_contact(e.target.value)} required></input>
-            {error.ownerNumber?<p>{error.ownerNumber}</p>:null}
+            {error.ownerNumber?<p id='error-dog' >{error.ownerNumber}</p>:null}
             </div>
 
             <div className='add-input'>
