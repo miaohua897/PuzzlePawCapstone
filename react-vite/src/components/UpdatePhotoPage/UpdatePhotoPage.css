@@ -32,9 +32,12 @@
     border: 1px solid rgb(83, 90, 98);
     margin-bottom: 20px;
 }
-#photo-date{
-    width:240px;
+.update-form-submit:disabled{
+    display: none;
 }
+/* #photo-date{
+    width:240px;
+} */
 #photo-title{
     width:300px;
 }

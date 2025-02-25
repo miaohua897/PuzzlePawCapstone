@@ -16,17 +16,19 @@ function UpdatePhotoPage({photo_id}){
         const [title,setTitle] = useState(photo.title)
         const [description,setDescription] = useState(photo.description);
         const [image_url,setImage_url]=useState(photo.image_url);
-      
         const [errorServer,setErrorServer] = useState({});
         const [errorTitle,setErrorTitle]=useState('')
+        const [disableButton,setDisableButton]=useState(false);
         const today = new Date().toISOString().split('T')[0];
 
         const handleUpdatePhotoSubmit= async (e)=>{
                  e.preventDefault()
                 //  console.log('i am adding a photo', image,title,description,photo_date)
+                setDisableButton(true)
                  if(title.length>20){
                     const errMes ='title is too long';
                     setErrorTitle(errMes)
+                    setDisableButton(false)
                     return ;
                 }
                  const formData = new FormData();
@@ -45,14 +47,17 @@ function UpdatePhotoPage({photo_id}){
                         errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
                     }
                     setErrorServer({'server':errorArr});
+                    setDisableButton(false)
                     // console.log('serverResponse',serverResponse,errorValue,errorKey)
                   } else {
                     closeModal();
+                    setDisableButton(false)
                   }
                  setImage(null)
                  setPhoto_date('')
                  setTitle('')
                  setDescription('')
+                 setDisableButton(false)
                 //  closeModal()
              }
 
@@ -82,7 +87,7 @@ function UpdatePhotoPage({photo_id}){
             }
             <div>
             <div className='update-input'>
-            <label htmlFor ='photo_date' className='update-form-lable'>select a date</label>
+            <label htmlFor ='photo_date' className='update-form-lable'>photo token date</label>
             <input type='date' id='photo-date' value={photo_date} name='photo_date' 
             onChange={(e)=>setPhoto_date(e.target.value)} min='1900-01-01' max={today} ></input>
             </div>
@@ -106,7 +111,7 @@ function UpdatePhotoPage({photo_id}){
             </div>
             </div>
             <img src={image_url} style={{width:150,height:100, borderRadius:10,padding:5}}></img>
-            <button className='update-form-submit'>Submit</button>
+            <button className='update-form-submit' disabled={disableButton}>Submit</button>
             </form>
         </div>
     )

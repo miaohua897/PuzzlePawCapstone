@@ -47,6 +47,7 @@ function UpdateDogPage({updateDog}){
         'ownerCountry':''
     });
     const [errorServer,setErrorServer] = useState({})
+    const [disableButton,setDisableButton]=useState(false);
     const today = new Date().toISOString().split('T')[0];
 
     const handleAddDogSubmit= async(e)=>{
@@ -56,11 +57,13 @@ function UpdateDogPage({updateDog}){
     //         male,female,neutered,spayed,microchip,breed,description,medical_allergies,
     //     owner_name,owner_contact,owner_address_one,owner_address_two,owner_state,
     // owner_country,image);
+    setDisableButton(true)
     if(dogName.length===0||dogName.length>20) {
         const errMes ='name is too long or empty';
         setError({
             'dogName':errMes
         })
+        setDisableButton(false)
         return ;
       }
     if(dogAge<0||dogAge>30){
@@ -68,6 +71,7 @@ function UpdateDogPage({updateDog}){
         setError({
             'dogAge':errMes
         })
+        setDisableButton(false)
         return ;
     }
     if(weight<0||weight>50){
@@ -75,6 +79,7 @@ function UpdateDogPage({updateDog}){
         setError({
             'weight':errMes
         })
+        setDisableButton(false)
         return ;
     }
     if(breed.length===0||breed.length>20) {
@@ -82,6 +87,7 @@ function UpdateDogPage({updateDog}){
         setError({
             'dogBreed':errMes
         })
+        setDisableButton(false)
         return ;
       }
     if(owner_name.length===0||owner_name.length>20) {
@@ -89,6 +95,7 @@ function UpdateDogPage({updateDog}){
         setError({
             'ownerName':errMes
         })
+        setDisableButton(false)
         return ;
       }
       if(owner_contact.length<7||owner_contact.length>15) {
@@ -96,6 +103,7 @@ function UpdateDogPage({updateDog}){
         setError({
             'ownerNumber':errMes
         })
+        setDisableButton(false)
         return ;
       }
       if(owner_city.length===0||owner_city.length>20) {
@@ -103,6 +111,7 @@ function UpdateDogPage({updateDog}){
         setError({
             'ownerCity':errMes
         })
+        setDisableButton(false)
         return ;
       }
       if(owner_state.length===0||owner_state.length>20) {
@@ -110,6 +119,7 @@ function UpdateDogPage({updateDog}){
         setError({
             'ownerState':errMes
         })
+        setDisableButton(false)
         return ;
       }
       if(owner_code.length<4||owner_code.length>20) {
@@ -117,6 +127,7 @@ function UpdateDogPage({updateDog}){
         setError({
             'ownerCode':errMes
         })
+        setDisableButton(false)
         return ;
       }
       if(owner_country.length===0||owner_country.length>20) {
@@ -124,6 +135,7 @@ function UpdateDogPage({updateDog}){
         setError({
             'ownerCountry':errMes
         })
+        setDisableButton(false)
         return ;
       }
     let gender;
@@ -136,6 +148,7 @@ function UpdateDogPage({updateDog}){
             setError({
                 'dogGender':errMes
             })
+            setDisableButton(false)
             return ;} 
           if(neutered) neutered_spayed='neutered';
           if(spayed) neutered_spayed='spayed';
@@ -176,10 +189,12 @@ function UpdateDogPage({updateDog}){
           errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
       }
       setErrorServer({'server':errorArr});
+      setDisableButton(false)
       } else {
         closeModal();
+        setDisableButton(false)
       }
-  
+      setDisableButton(false)
     }
 
     const handleFileChange=(e)=>{
@@ -240,8 +255,8 @@ function UpdateDogPage({updateDog}){
             {error.weight?<p id='error-dog' >{error.weight}</p>:null}
 
             <div className='update-input'>
-            <label htmlFor ='birth_date' className='update-dog-form-lable'>Select a Date</label>
-            <input type='date' value ={birth_date} id='birth-date' name='birth_date'  
+            <label htmlFor ='birth_date' className='update-dog-form-lable'>Brith Date:</label>
+            <input type='date' value ={birth_date} id='update-birth-date' name='birth_date'  
             onChange={(e)=>setBirth_Date(e.target.value)} required min='1900-01-01' max={today} ></input>
             </div>   
             <div  className='update-input-gender-img-container' >
@@ -367,7 +382,7 @@ function UpdateDogPage({updateDog}){
             </div>
 
             </div>
-            <button className='add-new-form-submit'>Submit</button>
+            <button className='add-new-form-submit' disabled={disableButton}>Submit</button>
             </form>
         </div>
     )

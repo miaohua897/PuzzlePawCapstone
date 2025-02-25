@@ -36,7 +36,7 @@
     width: 302px;
 }
 #dog-update-weight{
-    width:292px;
+    width:294px;
 }
 #dog-update-description{
     width:265px;
@@ -46,25 +46,28 @@
     width:225px;
 }
 #owner-update-name{
-    width:286px;
+    width:288px;
 }
 #owner-update-contact-number{
-    width:265px;
+    width:268px;
 }
 #owner-update-email{
-    width: 332px;
+    width: 335px;
 }
 #owner-update-address-city{
-    width:340px;
+    width:344px;
 }
 #owner-update-address-state{
-    width:335px;
+    width:339px;
 }
 #owner-update-zip-code{
-    width:306px;
+    width:311px;
 }
 #owner-update-country{
-    width:314px;
+    width:319px;
+}
+#update-birth-date{
+    width:302px;
 }
 .update-input-gender-img-container{
     display: flex;

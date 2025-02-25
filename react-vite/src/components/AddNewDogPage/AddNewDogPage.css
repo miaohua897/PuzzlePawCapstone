@@ -42,7 +42,7 @@
     width: 290px;
 }
 #birth-date{
-    width:285px;
+    width:296px;
 }
 .add-input-gender-img-container{
     display: flex;
@@ -99,6 +99,9 @@
     background-color: darkgrey;
     border: 1px solid rgb(83, 90, 98);
     margin-bottom: 15px;
+}
+.add-new-form-submit:disabled{
+    display: none;
 }
 #error-dog{
     color:red;
