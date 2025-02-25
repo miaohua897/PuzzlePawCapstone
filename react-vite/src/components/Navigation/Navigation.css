@@ -13,7 +13,7 @@
   flex-direction: row;
   justify-content: space-between;
   list-style-type: none;
-  width: 90%;
+  width: 95%;
 
 }
 .fa-user-circle-button{
@@ -69,4 +69,12 @@
   color:white;
   font-weight: bolder;
   border-radius: 5px;
+}
+.go-see-dog-button{
+  border: none;
+  background-color: darkgrey;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  color:white;
+  border-radius: 10px;
 }
