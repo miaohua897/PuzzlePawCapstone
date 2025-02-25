@@ -104,6 +104,7 @@
     align-items: flex-end;
     margin-bottom: 3px;
     gap:5%;
+  
 }
 .showcase-dog-bio{
     padding:5px;
@@ -153,14 +154,15 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap:20%;
+    
 }
 #dog-basic-label{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bolder;
 }
 #dog-basic-info-text{
     font-size: 16px;
+    padding-left: 3px;
 }
 #showcase-info-dog-name{
     font-size: 32px;
