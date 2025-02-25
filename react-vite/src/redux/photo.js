@@ -36,7 +36,7 @@ export const thunkUpdatePhotos=(data,photo_id)=>async(dispatch)=>{
         const errorMessages = await res.json();
         return errorMessages 
     }else{
-        return { server: "Something went wrong. Please try again" }
+        return { server: "Something went wrong. Close it. Please try again" }
     }
 }
 
@@ -67,7 +67,7 @@ export const thunkCreatePhotos=(data)=>async(dispatch)=>{
         return errorMessages;
     }else{
         return {
-            server:'Something went wrong. Please try again'
+            server:'Something went wrong. Close it. Please try again'
         }
     }
 }

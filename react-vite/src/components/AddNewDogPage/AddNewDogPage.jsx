@@ -37,6 +37,7 @@ function AddNewDogPage(){
         'dogAge':'',
         'dogWeight':'',
         'dogBreed':'',
+        'dogGender':'',
         'ownerName':"",
         'ownerNumber':'',
         'ownerCity':'',
@@ -142,8 +143,12 @@ function AddNewDogPage(){
           if(male)  gender='male';
           if(female) gender ='female';
           if (!male&&!female) {
+            const errMes ="dog gender can't be empty";
+            setError({
+                'dogGender':errMes
+            })
             setDisableButton(false)
-            return ;}
+            return ;} 
           if(neutered) neutered_spayed='neutered';
           if(spayed) neutered_spayed='spayed';
           if(!neutered&&!spayed) neutered_spayed='None';
@@ -271,6 +276,7 @@ function AddNewDogPage(){
             <input type='checkbox' checked={female} id='dog-female' name='dog-female' onChange={()=>setFemale(!female)} disabled={male||neutered} ></input>
             <label htmlFor ='female' className='add-dog-form-lable-not-required'>female </label>
             </div>
+            {error.dogGender?<p id='error-dog' >{error.dogGender}</p>:null}
 
             <div className='add-input'>  
             <input type='checkbox' checked={neutered} id='dog-neutered' name='dog-neutered' onChange={()=>setNeutered(!neutered)} disabled={spayed||female} ></input>
