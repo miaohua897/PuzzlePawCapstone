@@ -264,21 +264,21 @@ function AddNewDogPage(){
             <div>
             <div className='add-input'>  
             <input type='checkbox' checked= {male} id='dog-male' name='dog-male' onChange={()=>setMale(!male)} disabled={female||spayed} ></input>
-            <label htmlFor ='male' className='add-dog-form-lable'>male *</label>
+            <label htmlFor ='male' className='add-dog-form-lable-not-required'>male </label>
             </div>
 
             <div className='add-input'>  
             <input type='checkbox' checked={female} id='dog-female' name='dog-female' onChange={()=>setFemale(!female)} disabled={male||neutered} ></input>
-            <label htmlFor ='female' className='add-dog-form-lable'>female *</label>
+            <label htmlFor ='female' className='add-dog-form-lable-not-required'>female </label>
             </div>
 
             <div className='add-input'>  
             <input type='checkbox' checked={neutered} id='dog-neutered' name='dog-neutered' onChange={()=>setNeutered(!neutered)} disabled={spayed||female} ></input>
-            <label htmlFor ='neutered' className='add-dog-form-lable'>neutered *</label>
+            <label htmlFor ='neutered' className='add-dog-form-lable-not-required'>neutered </label>
             </div>
             <div className='add-input'>  
             <input type='checkbox' checked={spayed} id='dog-spayed' name='dog-spayed'  onChange={()=>setSpayed(!spayed)} disabled={neutered||male} ></input>
-            <label htmlFor ='spayed' className='add-dog-form-lable'>spayed *</label>
+            <label htmlFor ='spayed' className='add-dog-form-lable-not-required'>spayed </label>
             </div>
             </div>
 
