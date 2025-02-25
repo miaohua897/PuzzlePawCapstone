@@ -4,13 +4,17 @@
     height: 250px;
     width: 350px;
     overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .login-form-container{
  
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap:30px;
 }
 .login-submit-button{
@@ -21,4 +25,11 @@
     color:aliceblue;
     background-color: darkgrey;
     border: 1px solid rgb(83, 90, 98);
+    margin-left: 70px;
+}
+#login-email-input{
+    width: 200px;
+}
+#login-password-input{
+    width: 178px;
 }

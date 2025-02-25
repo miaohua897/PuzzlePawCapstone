@@ -44,9 +44,10 @@ function SignupFormModal() {
       {errors.server && <p>{errors.server}</p>}
       <form  className="signup-form-container" onSubmit={handleSubmit}>
         <label>
-          Email
+          Email{'                  '}
           <input
             type="text"
+            id='signup-email-input'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -54,9 +55,10 @@ function SignupFormModal() {
         </label>
         {errors.email && <p>{errors.email}</p>}
         <label>
-          Username
+          Username{'                  '}
           <input
             type="text"
+             id='signup-username-input'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -64,9 +66,10 @@ function SignupFormModal() {
         </label>
         {errors.username && <p>{errors.username}</p>}
         <label>
-          Password
+          Password{'                  '}
           <input
             type="password"
+            id='signup-password-input'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -74,9 +77,10 @@ function SignupFormModal() {
         </label>
         {errors.password && <p>{errors.password}</p>}
         <label>
-          Confirm Password
+          Confirm Password{'                  '}
           <input
             type="password"
+              id='signup-confirm-password-input'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
