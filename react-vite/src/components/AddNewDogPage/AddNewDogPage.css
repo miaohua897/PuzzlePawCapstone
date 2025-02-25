@@ -41,6 +41,7 @@
 #dog-weight{
     width: 290px;
 }
+
 #birth-date{
     width:296px;
 }
@@ -108,4 +109,9 @@
 }
 #dog-required-message{
     color: brown;
+}
+.add-dog-form-lable-not-required{
+    font-size: 18px;
+    font-weight: bolder;
+    color:black;
 }
