@@ -17,14 +17,17 @@ function AddNewPhotoPage(){
     const [image_url,setImage_url]=useState('https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/Screenshot+2025-02-24+at+6.25.29%E2%80%AFAM.png');
     const [errorServer,setErrorServer] = useState({});
     const [errorTitle,setErrorTitle]=useState('')
+    const [disableButton,setDisableButton]=useState(false);
     const today = new Date().toISOString().split('T')[0];
     
     const handleAddPhotoSubmit= async (e)=>{
         e.preventDefault()
         // console.log('i am adding a photo', image,title,description,photo_date)
+        setDisableButton(true)
         if(title.length>20){
             const errMes ='title is too long';
             setErrorTitle(errMes)
+            setDisableButton(false)
             return ;
         }
         const formData = new FormData();
@@ -43,14 +46,17 @@ function AddNewPhotoPage(){
                 errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
             }
             setErrorServer({'server':errorArr});
+            setDisableButton(false)
             // console.log('serverResponse',serverResponse,errorValue,errorKey)
           } else {
             closeModal();
+            setDisableButton(false)
           }
         setImage(null)
         setPhoto_date('')
         setTitle('')
         setDescription('')
+        setDisableButton(false)
         // closeModal()
     }
     const handleFileChange=(e)=>{
@@ -80,7 +86,7 @@ function AddNewPhotoPage(){
             }
             <div>
             <div className='add-input'>
-            <label htmlFor ='photo_date' className='add-form-lable'>select a date *</label>
+            <label htmlFor ='photo_date' className='add-form-lable'>photo token date *</label>
             <input type='date' id='photo-date' name='photo_date' 
             onChange={(e)=>setPhoto_date(e.target.value)} required min='1900-01-01' max={today}></input>
             </div>
@@ -104,7 +110,7 @@ function AddNewPhotoPage(){
             </div>
             </div>
             <img src={image_url} style={{width:150,height:100, borderRadius:10,padding:5}}></img>
-            <button className='add-form-submit'>Submit</button>
+            <button className='add-form-submit' disabled={disableButton}>Submit</button>
             </form>
         </div>
     )
