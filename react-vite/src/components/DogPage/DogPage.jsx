@@ -62,14 +62,18 @@ function DogPage(){
     }
 
     const closeMenu = () => setShowMenu(false);
+   
+    const handleUnfinishedFeatures=()=>{
+            window.alert('The feature coming soon ^.^')
+        }
 
     return (
         <div className="dog-page-container">
             <div className="dog-page-nav-button">
                 <button id='dog-page-dog-button'>dogs</button>
-                <button >notes</button>
+                <button onClick={handleUnfinishedFeatures}>notes</button>
                 <button onClick ={navToPhotoPage}>photos</button>
-                <button  >records</button>
+                <button onClick={handleUnfinishedFeatures} >records</button>
 
             </div>
             <h1>My Beloved Dogs</h1>

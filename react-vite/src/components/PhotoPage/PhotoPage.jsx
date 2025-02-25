@@ -52,14 +52,17 @@ function PhotoPage(){
     }
 
     const closeMenu = () => setShowMenu(false);
+    const handleUnfinishedFeatures=()=>{
+      window.alert('The feature coming soon ^.^')
+  }
 
     return (
         <div className='pictures-container'>
              <div className="dog-page-nav-button">
                 <button onClick ={navToDogPage} >dogs</button>
-                <button>notes</button>
+                <button onClick={handleUnfinishedFeatures}>notes</button>
                 <button id='photo-page-photo-button' >photos</button>
-                <button>records</button>
+                <button onClick={handleUnfinishedFeatures}>records</button>
 
             </div>
             <h1>Photoes</h1>
