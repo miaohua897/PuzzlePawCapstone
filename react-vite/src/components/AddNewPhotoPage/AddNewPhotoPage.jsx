@@ -106,6 +106,7 @@ function AddNewPhotoPage(){
                 <input type="file" id="image-upload" name="image_url" accept="image/*"  
                  onChange={handleFileChange}
                 // onChange={(e)=>setImage(e.target.files[0])} 
+                required
                 />
             </div>
             </div>
