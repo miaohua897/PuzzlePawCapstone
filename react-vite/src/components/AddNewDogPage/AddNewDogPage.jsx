@@ -246,7 +246,7 @@ function AddNewDogPage(){
             <label htmlFor ='weight' className='add-dog-form-lable'>Dog Weight *</label>
             <input type='number' value={weight===-1?null:weight} id='dog-weight' name='dog-weight' 
             //  placeholder='please, input a weight'
-           
+            min='0' max='50'
             onChange={(e)=>setWeight(e.target.value)} required></input>
             </div>
             {error.weight?<p id='error-dog' >{error.weight}</p>:null}
