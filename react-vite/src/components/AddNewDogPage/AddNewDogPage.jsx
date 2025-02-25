@@ -263,12 +263,12 @@ function AddNewDogPage(){
             <img src={image_url} style={{width:150,height:100, borderRadius:10}}></img>
             <div>
             <div className='add-input'>  
-            <input type='checkbox' checked= {male} id='dog-male' name='dog-male' onChange={()=>setMale(!male)} disabled={female} ></input>
+            <input type='checkbox' checked= {male} id='dog-male' name='dog-male' onChange={()=>setMale(!male)} disabled={female||spayed} ></input>
             <label htmlFor ='male' className='add-dog-form-lable'>male *</label>
             </div>
 
             <div className='add-input'>  
-            <input type='checkbox' checked={female} id='dog-female' name='dog-female' onChange={()=>setFemale(!female)} disabled={male} ></input>
+            <input type='checkbox' checked={female} id='dog-female' name='dog-female' onChange={()=>setFemale(!female)} disabled={male||neutered} ></input>
             <label htmlFor ='female' className='add-dog-form-lable'>female *</label>
             </div>
 
