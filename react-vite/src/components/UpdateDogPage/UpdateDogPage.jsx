@@ -249,8 +249,8 @@ function UpdateDogPage({updateDog}){
             <div className='update-input'>
             <label htmlFor ='weight' className='update-dog-form-lable'>Dog Weight</label>
             <input type='number' value={weight===-1?null:weight} id='dog-update-weight' name='dog-weight'  
-           
-            onChange={(e)=>setWeight(e.target.value)} required></input>           
+            
+            onChange={(e)=>setWeight(e.target.value)} required   min='0' max='50'></input>           
             </div>
             {error.weight?<p id='error-dog' >{error.weight}</p>:null}
 
