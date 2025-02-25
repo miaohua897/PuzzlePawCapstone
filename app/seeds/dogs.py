@@ -12,7 +12,7 @@ def seed_dogs():
         image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-ohshineon-33273.jpg',
         birth_date=date(2023, 5, 10),
         breed_name ='Siberian Husky',
-        description='info brief',
+        description='A dog photo typically captures the essence of a dog’s personality and appearancefsdfhhhh',
         medical_allergies='NA',
         owner_phone_number='1234556435',
         owner_email='hello@gmail.com',
