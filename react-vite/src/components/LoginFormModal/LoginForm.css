@@ -1,7 +1,7 @@
 .login-container{
     border-radius: 20px;
     background-color: rgb(203, 218, 233,0.9);
-    height: 250px;
+    height: auto;
     width: 350px;
     overflow: scroll;
     display: flex;
@@ -26,6 +26,7 @@
     background-color: darkgrey;
     border: 1px solid rgb(83, 90, 98);
     margin-left: 90px;
+    margin-bottom: 15px;
 }
 #login-email-input{
     width: 200px;
