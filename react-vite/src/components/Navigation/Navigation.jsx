@@ -13,17 +13,22 @@ function Navigation() {
         <img src="/puzzlePawIcon.png" style={{width:50,height:50}}/>
         </NavLink>
       </li>
+      
+  
       {
         sessionUser?
         <li>
         <button className='go-see-dog-button'  onClick={()=>navigate('/dog')}>go to see your dogs</button>
-      </li>
+        </li>
       :null
       }
     
       <li>
         <ProfileButton  />
       </li>
+
+      
+     
     </ul>
   );
 }

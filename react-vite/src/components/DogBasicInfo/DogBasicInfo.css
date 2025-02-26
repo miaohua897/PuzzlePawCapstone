@@ -1,0 +1,13 @@
+.dog-basic-info-container{
+    height: 300px;
+    width: 400px;
+    overflow: auto;
+    border-radius: 20px;
+    background-color: rgb(203, 218, 233,0.9);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.dog-basic-info-container p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}

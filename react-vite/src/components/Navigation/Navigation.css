@@ -74,6 +74,9 @@
   border-radius: 5px;
 }
 .go-see-dog-button{
+  position: absolute;
+  right:10%;
+  top:3%;
   border: none;
   background-color: darkgrey;
   font-family: 'Times New Roman', Times, serif;
