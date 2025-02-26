@@ -6,7 +6,6 @@ import DeleteDogPage from '../DeleteDogPage';
 import OpenModalButton from '../OpenModalButton';
 import AddNewDogPage from '../AddNewDogPage';
 import UpdateDogPage from '../UpdateDogPage';
-import { FaArrowRight} from 'react-icons/fa'
 import './DogPage.css'
 
 function DogPage(){
@@ -23,7 +22,6 @@ function DogPage(){
     const [selectedId,setSelectedId] = useState(1)
     const [showMenu, setShowMenu] = useState(false);
     const [selectedDog,setSelectedDog] = useState(-1);
-    const [sidebar, setSideBar] = useState(false);
    
 
     useEffect(()=>{
@@ -71,41 +69,21 @@ function DogPage(){
 
     return (
         <div className="dog-page-container">
-           
+            <div className="dog-page-nav-button">
+                <button id='dog-page-dog-button'>dogs</button>
+                <button onClick={handleUnfinishedFeatures}>notes</button>
+                <button onClick ={navToPhotoPage}>photos</button>
+                <button onClick={handleUnfinishedFeatures} >records</button>
+
+            </div>
             <h1>My Beloved Dogs</h1>
 
             <OpenModalButton 
             buttonText="Add a New Dog"
             onButtonClick={closeMenu}
             className='dog-add-new-dog'
-            modalComponent={<AddNewDogPage />}/>
-
-            <div className="sidebar-button-container">
-            <button className='sidebar-button' onClick={()=>setSideBar(true)} >
-            open sidebar
-            </button>
-            </div>        
-            <div className="sidebar"
-            style={sidebar ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }}
-            >
-             <div className="sidebar-header">
-            <button className="arrow-button" onClick={() => setSideBar(false)}>
-               <FaArrowRight />
-            </button>
-            </div>
-            <div className="dog-page-nav-button">
-                <div>
-                <button id='dog-page-dog-button'>dogs</button>
-                <button onClick={handleUnfinishedFeatures}>notes</button>
-                </div>
-                <div>
-                <button onClick ={navToPhotoPage}>photos</button>
-                <button onClick={handleUnfinishedFeatures} >records</button>
-                </div>
-               
-            </div>
-            </div>
-
+            modalComponent={<AddNewDogPage />}
+/>
              <div>
             {
                 dogsArr.length !== 0?

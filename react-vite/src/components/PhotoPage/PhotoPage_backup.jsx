@@ -72,7 +72,6 @@ function PhotoPage(){
                   className='photo-cards-add'
                   modalComponent={<AddNewPhotoPage />}
                   />
-              
         {
             photos_arr !==0?
             <div>
