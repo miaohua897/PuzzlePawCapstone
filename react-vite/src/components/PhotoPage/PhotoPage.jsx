@@ -8,6 +8,7 @@ import AddNewPhotoPage from '../AddNewPhotoPage';
 import DeletePhotoPage from '../DeletePhotoPage';
 import {MdArrowDropDown} from 'react-icons/md'
 import UpdatePhotoPage from '../UpdatePhotoPage';
+import { FaArrowRight} from 'react-icons/fa';
 
 function PhotoPage(){
 
@@ -15,11 +16,14 @@ function PhotoPage(){
   const navigator = useNavigate()
   const ulRef = useRef();
 
+  const photos = useSelector(state=>state.photo.photo);
+
   const sessionUser = useSelector((state) => state.session.user);
   const [moreInfo, setMoreInfo]=useState(12);
   const [showMenu, setShowMenu] = useState(false);
   const [selectedPhoto,setSelectedPhoto] = useState(-1);
-  const photos = useSelector(state=>state.photo.photo);
+  const [sidebar, setSideBar] = useState(false);
+
    
     useEffect(()=>{
           dispatch(thunkLoadPhotos())
@@ -58,13 +62,7 @@ function PhotoPage(){
 
     return (
         <div className='pictures-container'>
-             <div className="dog-page-nav-button">
-                <button onClick ={navToDogPage} >dogs</button>
-                <button onClick={handleUnfinishedFeatures}>notes</button>
-                <button id='photo-page-photo-button' >photos</button>
-                <button onClick={handleUnfinishedFeatures}>records</button>
-
-            </div>
+   
             <h1>Photoes</h1>
                   <OpenModalButton 
                   buttonText="Add A Photo"
@@ -72,6 +70,31 @@ function PhotoPage(){
                   className='photo-cards-add'
                   modalComponent={<AddNewPhotoPage />}
                   />
+            <div className="sidebar-button-container">
+            <button className='sidebar-button' onClick={()=>setSideBar(true)} >
+            open sidebar
+            </button>
+            </div> 
+                   <div className="sidebar"
+                        style={sidebar ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }}
+                        >
+                     <div className="sidebar-header">
+                              <button className="arrow-button" onClick={() => setSideBar(false)}>
+                                 <FaArrowRight />
+                              </button>
+                      </div>  
+                      <div className="dog-page-nav-button">
+                      <div>
+                      <button onClick ={navToDogPage} >dogs</button>
+                      <button onClick={handleUnfinishedFeatures}>notes</button>
+                      </div>
+                      <div>
+                      <button id='photo-page-photo-button' >photos</button>
+                      <button onClick={handleUnfinishedFeatures}>records</button>
+                      </div> 
+                      </div>
+                           
+                   </div>
               
         {
             photos_arr !==0?

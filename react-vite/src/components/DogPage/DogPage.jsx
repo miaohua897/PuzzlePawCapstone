@@ -6,7 +6,7 @@ import DeleteDogPage from '../DeleteDogPage';
 import OpenModalButton from '../OpenModalButton';
 import AddNewDogPage from '../AddNewDogPage';
 import UpdateDogPage from '../UpdateDogPage';
-import { FaArrowRight} from 'react-icons/fa'
+import { FaArrowRight} from 'react-icons/fa';
 import './DogPage.css'
 
 function DogPage(){
@@ -101,8 +101,7 @@ function DogPage(){
                 <div>
                 <button onClick ={navToPhotoPage}>photos</button>
                 <button onClick={handleUnfinishedFeatures} >records</button>
-                </div>
-               
+                </div> 
             </div>
             </div>
 
