@@ -121,7 +121,8 @@
 }
 .photo-cards-add{
     border:none;
-    background-color: rgb(203, 218, 233,0.9);
+    background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
+    /* background-color: rgb(203, 218, 233,0.9); */
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
     margin-left: 10px;
@@ -143,7 +144,9 @@
     cursor: pointer;
 }
 .sidebar-dog-info:hover{
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    border-radius: 10px;
+    background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
 }
 .dog-page-nav-button{
     padding-bottom: 20px;
@@ -166,7 +169,8 @@
     cursor: pointer;
 }
 .sidebar-photo-info:hover{
-    background-color: aliceblue;
+    border-radius: 10px;
+    background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
 }
 #see-large-photos{
     border-top: 1px solid darkgrey;

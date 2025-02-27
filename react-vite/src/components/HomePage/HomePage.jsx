@@ -26,7 +26,7 @@ function HomePage(){
             {/* <img id='home-page-main-img' src="https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-lum3n-44775-406014.jpg" /> */}
             </div>
         
-            <h1 >Welcome to PuzzlePaw</h1>
+            <h1 className='homepage-welcome-title'>Welcome to PuzzlePaw</h1>
             <p className='home-page-main-article'>
             Dogs are loyal and loving companions, often referred to as &quot;mans&apos; 
             best friend.&quot; They are domesticated mammals and belong to the Canidae family.

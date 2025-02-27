@@ -73,7 +73,7 @@ function DogPage(){
     return (
         <div className="dog-page-container" >
            
-            <h1>My Beloved Dogs</h1>
+            <h1 id='beloved-dog-title'>My Beloved Dogs</h1>
 
             <OpenModalButton 
             buttonText="Add a New Dog"
@@ -122,7 +122,7 @@ function DogPage(){
 
                           <div className='sidebar-dog-info-dogpage'  onClick={()=>setSelectedId(dog.id)}  >
                             <img src={dog.image_url} style={{width:50,height:50}}></img>
-                            <p>{dog.dog_name}</p>
+                            <p id='sidebar-dog-info-dog-name'>{dog.dog_name}</p>
                           </div>
                           <div className="sidebar-dog-records">
                           <p>
@@ -199,7 +199,7 @@ function DogPage(){
                 </div>
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
-                    medical/allergies:
+                    Medical/Allergies:
                     </p>
                     <p id='dog-basic-info-text' >
                         {dogs[selectedId].medical_allergies}
@@ -207,7 +207,7 @@ function DogPage(){
                 </div>
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
-                    owner:
+                    Owner:
                     </p>
                     <p id='dog-basic-info-text' >
                         {dogs[selectedId].owner.username}
@@ -265,7 +265,7 @@ function DogPage(){
                 </div>
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
-                    medical/allergies:
+                    Medical/Allergies:
                     </p>
                     <p id='dog-basic-info-text' >
                         {showDog.medical_allergies}
@@ -273,7 +273,7 @@ function DogPage(){
                 </div>
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
-                    owner:
+                    Owner:
                     </p>
                     <p id='dog-basic-info-text' >
                         {showDog.owner.username}
