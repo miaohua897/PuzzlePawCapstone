@@ -19,11 +19,11 @@ const ConveyorBeltNotes = () => {
     const interval = setInterval(() => {
       setScrollPosition(prevPosition => {
         if (prevPosition + containerWidth >= scrollWidth) {
-          return 0; // If we reached the end, reset to 0
+          return 0; 
         }
-        return prevPosition + 2; // Increase step for more visible movement
+        return prevPosition + 2; 
       });
-    }, 20); // Make the interval faster for smoother movement
+    }, 20); 
 
     return () => clearInterval(interval); 
   }, []);
@@ -62,7 +62,7 @@ const ConveyorBeltNotes = () => {
           padding: '15px',
           boxSizing: 'border-box',
           background: 'linear-gradient(135deg, rgb(80, 232, 255), rgb(99, 71, 255), rgb(255, 118, 118), rgb(255, 255, 99))', // 多重渐变色
-          backgroundSize: '400% 400%', // 设置渐变的扩展
+          backgroundSize: '400% 400%', 
           color: 'white',
           fontSize: '18px',
           fontWeight: '600',
@@ -71,7 +71,7 @@ const ConveyorBeltNotes = () => {
           borderRadius: '15px',
           boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)', 
           transition: 'all 0.3s ease-in-out',
-          animation: 'gradientAnimation 5s ease infinite', // 动态渐变动画
+          animation: 'gradientAnimation 5s ease infinite', 
         }}>{note}</p>
 
           </div>
