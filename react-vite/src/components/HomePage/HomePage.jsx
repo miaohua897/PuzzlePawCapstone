@@ -1,5 +1,5 @@
 import { useEffect,useState } from 'react';
-import ConveyorBeltImages from '../ConveyorBeltImages';
+import ConveyorBeltNotes from '../ConveyorBeltNotes';
 import './HomePage.css'
 
 function HomePage(){
@@ -41,7 +41,7 @@ function HomePage(){
              Whether its&apos; a loyal dog greeting you at the door, cuddling on the couch, or playing in the yard, the companionship they offer is truly unmatched. 
             </p>
             </div>
-          <ConveyorBeltImages />
+          <ConveyorBeltNotes />
         </div>
 
     )
