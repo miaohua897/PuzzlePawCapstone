@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     padding: 25px;
-    background: linear-gradient(135deg, rgb(80, 232, 255), rgb(99, 71, 255), rgb(255, 118, 118), rgb(255, 255, 99)); 
+    background-image: linear-gradient(rgba(49, 101, 245, 0.5), rgba(244, 192, 23, 0.5));
     color: white;
     font-size: 18px;
     font-weight: bolder;
