@@ -92,7 +92,9 @@ function DogPage(){
             <div className="sidebar"
             style={sidebar ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }}
             >
-             <div className="sidebar-header">
+                
+                <div className="fixed-top">
+                <div className="sidebar-header">
             <button className="arrow-button" onClick={() => {
                 setSideBar(false)
                 setIsSideBarOpen(false)
@@ -110,18 +112,40 @@ function DogPage(){
                 <button onClick ={navToPhotoPage}>photos</button>
                 <button onClick={handleUnfinishedFeatures} >records</button>
                 </div> 
-            </div>
-            {dogsArr.length !==0?
+            </div>                    
+                </div>
+          <div className="scrollable">
+          {dogsArr.length !==0?
                       dogsArr.map((dog,index)=>{
                         return (
-                          <div className='sidebar-dog-info'  key={index}  onClick={()=>setSelectedId(dog.id)}  >
+                            <div  key={index} >
+
+                          <div className='sidebar-dog-info-dogpage'  onClick={()=>setSelectedId(dog.id)}  >
                             <img src={dog.image_url} style={{width:50,height:50}}></img>
                             <p>{dog.dog_name}</p>
                           </div>
+                          <div className="sidebar-dog-records">
+                          <p>
+                            🧰 this is a note place
+                          </p>
+                          <p>
+                            🧰 this is a training record place
+                          </p>
+                          <p>
+                            🧰 this is a health record place
+                          </p>
+                          <p>
+                            🧰 this is a bahavior record place
+                          </p>
+                          </div>
+                          </div>
+
                         )
                       })
                       :null
                       }
+          </div>
+          
             </div>
 
              <div>

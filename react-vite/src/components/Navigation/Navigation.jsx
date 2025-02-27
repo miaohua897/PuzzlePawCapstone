@@ -23,7 +23,7 @@ function Navigation() {
       {
         sessionUser?
         <li>
-        <button className='go-see-dog-button' style={{marginRight:isSideBarOpen?250:30}}  onClick={()=>navigate('/dog')}>go to see your dogs</button>
+        <button className='go-see-dog-button' style={{marginRight:isSideBarOpen?250:30}}  onClick={()=>navigate('/dog')}>Dog Page</button>
         </li>
       :null
       }
