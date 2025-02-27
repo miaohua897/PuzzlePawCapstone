@@ -6,7 +6,8 @@
     margin-right:3%;
     margin-top: 20px;
     padding: 10px;
- 
+
+
 }
 .home-page-main-image{
     float: left; 
@@ -41,22 +42,22 @@
     margin:5px;
 } */
  .homepage-welcome-title{
-    font-size: 3.5rem; /* 增加字体大小 */
-    font-weight: 800;  /* 更粗的字体 */
+    font-size: 3.5rem; 
+    font-weight: 800;  
     line-height: 1.2;
-    background: linear-gradient(45deg, #4a0072, #0088cc); /* 更深的紫色和蓝色渐变 */
+    background: linear-gradient(45deg, #4a0072, #021e2c); 
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 0 5px 10px rgba(74, 0, 114, 0.4), 0 7px 15px rgba(0, 136, 204, 0.5); /* 更深的阴影 */
+    text-shadow: 0 5px 10px rgba(74, 0, 114, 0.4), 0 7px 15px rgba(0, 136, 204, 0.5); 
     margin-bottom: 20px;
  }
  .home-page-main-article{
-    font-size: 1.4rem; /* 增加段落字体大小 */
+    font-size: 1.4rem; 
     line-height: 1.8;
-    color: #444; /* 深灰色文字 */
-    background: linear-gradient(45deg, #4a0072, #0088cc); /* 同样的渐变色 */
+    color: #444; 
+    background: linear-gradient(45deg, #4a0072, #101112); 
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 0 3px 6px rgba(74, 0, 114, 0.3), 0 6px 12px rgba(0, 136, 204, 0.4); /* 深色阴影效果 */
+    text-shadow: 0 3px 6px rgba(74, 0, 114, 0.3), 0 6px 12px rgba(0, 136, 204, 0.4);
 }
  
