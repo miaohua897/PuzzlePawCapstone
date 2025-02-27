@@ -15,8 +15,8 @@
 .dog-page-nav-button{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    margin:5px;
+    margin-left: 10px;
+    padding-left: 10px;
 }
 .dog-page-nav-button button{
     font-size: 16px;
@@ -179,3 +179,53 @@
 #dog-page-dog-button{
     background-color: greenyellow;
 }
+
+.sidebar {
+    position: fixed;
+    top: 0%;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: white;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -10px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 12;
+    overflow: scroll;
+  }
+  
+  .sidebar-header {
+    padding: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .arrow-button {
+    position: fixed;
+    left:0%;
+    top:19%;
+    background: none;
+    border: none;
+    color: orangered;
+    font-size: 24px;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+  
+ .sidebar-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+ }
+ .sidebar-button{
+    background: orangered;
+    border: none;
+    color: black;
+    font-size: 18px;
+    font-weight: bolder;
+    border-radius: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+ }
+  
+  
