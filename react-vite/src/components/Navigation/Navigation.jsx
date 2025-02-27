@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import { useSelector } from "react-redux";
 import "./Navigation.css";
@@ -7,13 +7,16 @@ import {useSideBarStatus} from '../../context/SideBar';
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
   const navigate = useNavigate()
-  const {isSideBarOpen} = useSideBarStatus();
+  const {isSideBarOpen,setIsSideBarOpen} = useSideBarStatus();
   return (
     <ul className="nav-container" >
       <li>
-        <NavLink to="/">
-        <img src="/puzzlePawIcon.png" style={{width:50,height:50}}/>
-        </NavLink>
+  
+        <img src="/puzzlePawIcon.png" style={{width:50,height:50}} onClick={()=>{
+          navigate('/')
+          setIsSideBarOpen(false)
+        }}/>
+     
       </li>
       
   
