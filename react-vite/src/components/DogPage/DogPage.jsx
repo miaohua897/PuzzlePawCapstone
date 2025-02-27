@@ -114,7 +114,7 @@ function DogPage(){
             {dogsArr.length !==0?
                       dogsArr.map((dog,index)=>{
                         return (
-                          <div className='sidebar-dog-info'  key={index}  onClick={()=>setSelectedId(dog.id)}  >
+                          <div className='sidebar-dog-info-dogpage'  key={index}  onClick={()=>setSelectedId(dog.id)}  >
                             <img src={dog.image_url} style={{width:50,height:50}}></img>
                             <p>{dog.dog_name}</p>
                           </div>
