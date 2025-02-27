@@ -25,7 +25,8 @@
   background-color: white;
   /* border-bottom: 3px solid darkcyan; */
   border-bottom: 3px solid transparent;
-  background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) );
+  background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
+  /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: 100% 3px;
@@ -46,8 +47,8 @@
   padding-bottom: 2px;
   border-radius: 15px;
   /* background-color: rgb(224, 219, 219); */
-  background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) );
- 
+  /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
+  background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
 }
 #profile-dropdown-li{
   padding:3px;
@@ -57,7 +58,8 @@
 #profile-dropdown-li-button{
   border:none;
   /* background-color: darkgrey; */
-  background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) );
+  /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
+  background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
   padding:5px;
   color:white;
   font-weight: bolder;
@@ -78,7 +80,8 @@
 #demo-user-button{
   border:none;
   /* background-color: darkgrey; */
-  background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) );
+  /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
+  background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
   padding:5px;
   color:white;
   font-weight: bolder;
@@ -87,7 +90,8 @@
 .login-signup-button{
   border:none;
   /* background-color: darkgrey; */
-  background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) );
+  /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
+  background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
   padding:5px;
   color:white;
   font-weight: bolder;
@@ -98,7 +102,8 @@
   right:10%;
   top:3%;
   margin-top: 12px;
-  background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) );
+  /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
+  background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
   border: none;
   color: white;
   width: 100px;
