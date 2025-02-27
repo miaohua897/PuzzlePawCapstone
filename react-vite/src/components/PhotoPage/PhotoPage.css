@@ -156,3 +156,24 @@
     font-size: 18px;
     font-weight: bolder;
 }
+.sidebar-photo-info{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin:20px;
+    margin-left: 30px;
+    gap:10px;
+    cursor: pointer;
+}
+.sidebar-photo-info:hover{
+    background-color: aliceblue;
+}
+#see-large-photos{
+    border-top: 1px solid darkgrey;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bolder;
+    padding-top: 10px;
+    padding-left: 5px;
+    color: orange;
+}

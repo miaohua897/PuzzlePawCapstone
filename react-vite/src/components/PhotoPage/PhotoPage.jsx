@@ -116,7 +116,24 @@ function PhotoPage(){
                       })
                       :null
                       }
-                           
+                      <p id='see-large-photos'>to see larger photos</p>
+                      <div >
+                        {
+                          photos_arr !==0 ?
+                          photos_arr.map((photo,index)=>{
+                            return (
+                              <div className="sidebar-photo-info">
+                                 <img src={photo.image_url} style={{width:50,height:50}} />
+                                 <p>{photo.title}</p>
+                              </div>
+                            )
+       
+                          })
+                          : null
+                        }
+                    </div>  
+
+        
                    </div>
               
         {
