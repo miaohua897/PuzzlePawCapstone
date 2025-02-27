@@ -10,6 +10,7 @@ import {MdArrowDropDown} from 'react-icons/md'
 import UpdatePhotoPage from '../UpdatePhotoPage';
 import { FaArrowRight} from 'react-icons/fa';
 import  DogBasicInfo from '../DogBasicInfo';
+import LargePhotoPage from '../LargePhotoPage';
 import './PhotoPage.css'
 
 function PhotoPage(){
@@ -122,9 +123,14 @@ function PhotoPage(){
                           photos_arr !==0 ?
                           photos_arr.map((photo,index)=>{
                             return (
-                              <div className="sidebar-photo-info">
+                              <div key ={index}  className="sidebar-photo-info">
                                  <img src={photo.image_url} style={{width:50,height:50}} />
-                                 <p>{photo.title}</p>
+                                 <OpenModalButton 
+                                buttonText={photo.title}
+                                onButtonClick={closeMenu}
+                                className='sidebar-dog-name-button'
+                                modalComponent={<LargePhotoPage photo={photo}/>}/>
+                             
                               </div>
                             )
        
