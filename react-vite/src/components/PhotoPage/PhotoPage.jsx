@@ -87,13 +87,14 @@ function PhotoPage(){
                         style={sidebar ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }}
                      
                         >
-                       <div className="sidebar-header">
+                      <div className="fixed-top">
+                      <div className="sidebar-header">
                               <button className="arrow-button" onClick={() => setSideBar(false)}>
                                  <FaArrowRight />
                               </button>
-                       </div>  
-                      <h1>Beloved Dogs</h1>
-                      <div className="dog-page-nav-button">
+                       </div>
+                       <h1>Beloved Dogs</h1>
+                       <div className="dog-page-nav-button">
                       <div>
                       <button onClick ={navToDogPage} >dogs</button>
                       <button onClick={handleUnfinishedFeatures}>notes</button>
@@ -103,6 +104,8 @@ function PhotoPage(){
                       <button onClick={handleUnfinishedFeatures}>records</button>
                       </div> 
                       </div>
+                      </div>
+                      <div className="scrollable">
 
                       {dogs_arr.length !==0?
                       dogs_arr.map((dog,index)=>{
@@ -122,8 +125,8 @@ function PhotoPage(){
                       })
                       :null
                       }
-                      <p id='see-large-photos'>to see larger photos</p>
-                      <div >
+                       <p id='see-large-photos'>to see larger photos</p>
+                       <div >
                         {
                           photos_arr !==0 ?
                           photos_arr.map((photo,index)=>{
@@ -143,8 +146,8 @@ function PhotoPage(){
                           : null
                         }
                     </div>  
+                      </div>
 
-        
                    </div>
               
         {
