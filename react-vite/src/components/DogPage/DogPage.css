@@ -201,8 +201,8 @@
   
   .arrow-button {
     position: fixed;
-    left:0%;
-    top:19%;
+    left:0;
+    top:30%;
     background: none;
     border: none;
     color: orangered;

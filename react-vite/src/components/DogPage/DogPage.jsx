@@ -44,7 +44,6 @@ function DogPage(){
         return () => document.removeEventListener("click", closeMenu);
       }, [showMenu]);
 
-
     if(!sessionUser) return navigator('/');
 
     let dogsArr=[];
@@ -70,7 +69,7 @@ function DogPage(){
         }
 
     return (
-        <div className="dog-page-container">
+        <div className="dog-page-container" >
            
             <h1>My Beloved Dogs</h1>
 
@@ -93,6 +92,7 @@ function DogPage(){
                <FaArrowRight />
             </button>
             </div>
+            <h1>Beloved Dogs</h1>
             <div className="dog-page-nav-button">
                 <div>
                 <button id='dog-page-dog-button'>dogs</button>
@@ -120,7 +120,7 @@ function DogPage(){
             {
                 dogsArr.length !== 0?
                 existDog?
-                <div className="showcase-container">
+                <div className="showcase-container" onClick={() => setSideBar(false)}>
                 
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
@@ -183,7 +183,7 @@ function DogPage(){
                 </div>
                 </div>
                 :
-                <div className="showcase-container">
+                <div className="showcase-container" onClick={() => setSideBar(false)}>
                 <h1>My Beloved Dogs</h1>
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
@@ -251,7 +251,7 @@ function DogPage(){
             }
         </div>
         <p></p>
-        <div className="select-dog-container">
+        <div className="select-dog-container" onClick={() => setSideBar(false)}>
         {
             dogsArr.length !== 0 ?
             dogsArr.map((dog,index) =>(

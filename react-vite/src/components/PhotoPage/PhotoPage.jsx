@@ -68,7 +68,7 @@ function PhotoPage(){
   }
 
     return (
-        <div className='pictures-container'>
+        <div className='pictures-container' >
    
             <h1>Photoes</h1>
                   <OpenModalButton 
@@ -82,14 +82,17 @@ function PhotoPage(){
             open sidebar
             </button>
             </div> 
+     
                    <div className="sidebar"
                         style={sidebar ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }}
+                     
                         >
-                     <div className="sidebar-header">
+                       <div className="sidebar-header">
                               <button className="arrow-button" onClick={() => setSideBar(false)}>
                                  <FaArrowRight />
                               </button>
-                      </div>  
+                       </div>  
+                      <h1>Beloved Dogs</h1>
                       <div className="dog-page-nav-button">
                       <div>
                       <button onClick ={navToDogPage} >dogs</button>
@@ -105,7 +108,9 @@ function PhotoPage(){
                       dogs_arr.map((dog,index)=>{
                         return (
                           <div className='sidebar-dog-info'  key={index}    >
-                            <img src={dog.image_url} style={{width:50,height:50}}></img>
+                            <img 
+                          
+                            src={dog.image_url} style={{width:50,height:50}}></img>
                             {/* <p>{dog.dog_name}</p> */}
                             <OpenModalButton 
                             buttonText={dog.dog_name}
@@ -144,9 +149,9 @@ function PhotoPage(){
               
         {
             photos_arr !==0?
-            <div>
+            <div onClick={() => setSideBar(false)}>
                
-                  <div className='photoes-container'>
+                  <div className='photoes-container' >
                     <div className="dog-photos-container">
 
                   {
