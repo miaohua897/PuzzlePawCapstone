@@ -18,3 +18,9 @@
     transition: all 0.3s ease-in-out;
     animation: gradientAnimation 5s ease infinite; 
   }
+  .scroll-container{
+    width: 100%;
+    overflow: hidden;
+    position: relative
+  }
+ 
