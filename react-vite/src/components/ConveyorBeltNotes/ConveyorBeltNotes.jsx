@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import './ConveyorBeltNotes.css';
 
 const ConveyorBeltNotes = () => {
   const [scrollPosition, setScrollPosition] = useState(0); 
@@ -43,7 +44,7 @@ const ConveyorBeltNotes = () => {
           transform: `translateX(-${scrollPosition}px)`, 
         }}
       >
-        {/* Display the notes array */}
+  
         {notes.concat(notes).map((note, index) => (
           <div
             key={index}
@@ -51,29 +52,7 @@ const ConveyorBeltNotes = () => {
             marginBottom:'40px'   
             }}
           >
-       <p style={{
-          width: '400px',
-          height: '100px',
-          marginRight: '10px',
-          border: '1px solid #3498db',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '15px',
-          boxSizing: 'border-box',
-          background: 'linear-gradient(135deg, rgb(80, 232, 255), rgb(99, 71, 255), rgb(255, 118, 118), rgb(255, 255, 99))', // 多重渐变色
-          backgroundSize: '400% 400%', 
-          color: 'white',
-          fontSize: '18px',
-          fontWeight: '600',
-          fontFamily: 'Arial, sans-serif',
-          textShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)', 
-          borderRadius: '15px',
-          boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)', 
-          transition: 'all 0.3s ease-in-out',
-          animation: 'gradientAnimation 5s ease infinite', 
-        }}>{note}</p>
-
+       <p id='note-style'>{note}</p>
           </div>
         ))}
       </div>

@@ -1,0 +1,20 @@
+#note-style{
+    width: 400px;
+    height: 100px;
+    margin-right: 10px;
+    border: 1px solid #3498db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: linear-gradient(135deg, rgb(80, 232, 255), rgb(99, 71, 255), rgb(255, 118, 118), rgb(255, 255, 99)); 
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+    border-radius: 15px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    animation: gradientAnimation 5s ease infinite; 
+  }
