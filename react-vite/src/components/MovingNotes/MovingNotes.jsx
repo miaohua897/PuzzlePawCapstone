@@ -6,11 +6,11 @@ const MovingNotes = () => {
   const containerRef = useRef(null); 
 
   const notes = [
-    'Note 1: This is the first note.',
-    'Note 2: Here is the second note.',
-    'Note 3: The third one is here.',
-    'Note 4: And now, the fourth note.',
-    "Note 5: Finally, the fifth note."
+    'This place for the most liked comment in forum I',
+    'This place for the most liked comment in forum II',
+    'This place for the most liked comment in forum III',
+    'This place for the most liked comment in forum IV',
+    "This place for the most liked comment in forum V"
   ];
 
   useEffect(() => {
