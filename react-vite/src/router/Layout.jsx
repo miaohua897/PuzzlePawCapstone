@@ -5,6 +5,7 @@ import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import Navigation from "../components/Navigation/Navigation";
 import FootPage from "../components/FootPage";
+import SideBarProvider from '../context/SideBar';
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -16,10 +17,12 @@ export default function Layout() {
   return (
     <>
       <ModalProvider>
+        <SideBarProvider >
         <Navigation />
         {isLoaded && <Outlet />}
         <FootPage />
         <Modal />
+        </SideBarProvider>
       </ModalProvider>
     </>
   );

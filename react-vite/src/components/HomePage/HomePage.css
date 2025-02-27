@@ -2,17 +2,21 @@
 .home-page-image-article-container{
     text-align: justify;
     max-width: 94%; 
-    margin-left:3%;
+    margin-left:1%;
     margin-right:3%;
+    margin-top: 20px;
+    padding: 10px;
 }
 .home-page-main-image{
     float: left; 
-    margin:5px;
     width:50%;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 .home-page-main-image img{

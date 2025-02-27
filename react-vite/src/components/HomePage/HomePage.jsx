@@ -1,4 +1,5 @@
 import { useEffect,useState } from 'react';
+import ConveyorBeltImages from '../ConveyorBeltImages';
 import './HomePage.css'
 
 function HomePage(){
@@ -24,33 +25,23 @@ function HomePage(){
             <img id='home-page-main-img' src={newsPhotos[currentIndex]} />      
             {/* <img id='home-page-main-img' src="https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-lum3n-44775-406014.jpg" /> */}
             </div>
-            <h1>Welcome to PuzzlePaw</h1>
-          
+        
+            <h1 >Welcome to PuzzlePaw</h1>
             <p className='home-page-main-article'>
-
-            Dogs are loyal and loving companions, often referred to as &quot;mans&quot; best friend.&quot; They are domesticated mammals and belong to the Canidae family. Dogs come in various shapes, sizes, and breeds, each with its unique traits and characteristics. Some are energetic and playful, while others are calm and protective. Known for their intelligence, dogs can be trained to perform tasks, assist people with disabilities, or work in areas such as law enforcement and search-and-rescue missions. Their keen sense of smell and hearing makes them invaluable in various roles. Regardless of breed, dogs are known for their unconditional love, providing companionship, comfort, and joy to millions of people around the world.
-            Dogs are loyal and loving companions, often referred to as &quot;mans&quot; best friend.&quot; They are domesticated mammals and belong to the Canidae family. Dogs come in various shapes, sizes, and breeds, each with its unique traits and characteristics. Some are energetic and playful, while others are calm and protective. Known for their intelligence, dogs can be trained to perform tasks, assist people with disabilities, or work in areas such as law enforcement and search-and-rescue missions. Their keen sense of smell and hearing makes them invaluable in various roles. Regardless of breed, dogs are known for their unconditional love, providing companionship, comfort, and joy to millions of people around the world.             
+            Dogs are loyal and loving companions, often referred to as &quot;mans&apos; 
+            best friend.&quot; They are domesticated mammals and belong to the Canidae family.
+             Dogs come in various shapes, sizes, and breeds, each with its unique traits and characteristics. 
+             Some are energetic and playful, while others are calm and protective. Known for their intelligence, 
+             dogs can be trained to perform tasks, assist people with disabilities, or work in areas such as law enforcement 
+             and search-and-rescue missions. Their keen sense of smell and hearing makes them invaluable in various roles. 
+             For example, police dogs are often used to detect drugs or explosives, while therapy dogs provide emotional 
+             support to people in hospitals or nursing homes. Service dogs help individuals with physical or mental challenges, 
+             offering independence and assistance in daily activities.
+             Many people consider their dogs not just pets, but family members, and the connection between humans and dogs goes back thousands of years. 
+             Whether its&apos; a loyal dog greeting you at the door, cuddling on the couch, or playing in the yard, the companionship they offer is truly unmatched. 
             </p>
             </div>
-            {/* <div className='more-tips-home-page'>
-                <div className='more-tips-container'>
-                <button id='more-tips-button'>
-                  new parents, what you want to know
-                </button>
-                <button id='more-tips-button'>
-                    training tips
-                </button>
-                <button id='more-tips-button'>
-                    health tips
-                </button>
-                <button id='more-tips-button'>
-                    forum
-                </button>
-
-                </div>
-            </div> */}
-        
-
+          <ConveyorBeltImages />
         </div>
 
     )

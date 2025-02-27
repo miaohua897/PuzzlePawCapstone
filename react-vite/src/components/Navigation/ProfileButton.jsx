@@ -8,6 +8,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import * as sessionActions from '../../redux/session';
 import { useModal } from "../../context/Modal";
+import {useSideBarStatus} from '../../context/SideBar';
 import './Navigation.css';
 
 function ProfileButton() {
@@ -17,6 +18,7 @@ function ProfileButton() {
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
   const {closeModal} = useModal()
+  const {isSideBarOpen,setIsSideBarOpen}=useSideBarStatus();
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
@@ -43,6 +45,7 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout());
     closeMenu();
+    setIsSideBarOpen(false);
   };
 
   const navToDogPage=(e)=>{
@@ -62,7 +65,7 @@ function ProfileButton() {
 
   return (
     <>
-     <div className="profile-button-container">
+     <div className="profile-button-container" style={{marginRight:isSideBarOpen?250:30}}>
      <button 
       className='fa-user-circle-button'
       onClick={toggleMenu}>
@@ -72,7 +75,7 @@ function ProfileButton() {
      </div>
    
       {showMenu && (
-        <ul className={"profile-dropdown"} ref={ulRef}>
+        <ul className={"profile-dropdown"} ref={ulRef} style={{marginRight:isSideBarOpen?250:30}}>
           {user ? (
             <>
               <li id='profile-dropdown-li'>{user.username}</li>
