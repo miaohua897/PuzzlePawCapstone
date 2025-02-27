@@ -8,7 +8,7 @@ function FootPage(){
         <div className='more-tips-home-page'>
                 <div className='more-tips-container'>
                 <button id='more-tips-button' onClick={handleUnfinishedFeatures}>
-                  new parents, what you want to know
+                  new parents
                 </button>
                 <button id='more-tips-button' onClick={handleUnfinishedFeatures}>
                     training tips
