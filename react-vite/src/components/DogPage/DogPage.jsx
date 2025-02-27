@@ -8,13 +8,14 @@ import AddNewDogPage from '../AddNewDogPage';
 import UpdateDogPage from '../UpdateDogPage';
 import { FaArrowRight} from 'react-icons/fa';
 import './DogPage.css'
+import {useSideBarStatus} from '../../context/SideBar';
 
 function DogPage(){
     
     const dispatch = useDispatch()
     const navigator = useNavigate()
     const ulRef = useRef();
-
+    const {setIsSideBarOpen}=useSideBarStatus();
   
     const sessionUser = useSelector((state) => state.session.user);
     const dogs = useSelector(state=>state.dog.dog);
@@ -59,6 +60,7 @@ function DogPage(){
               
     const navToPhotoPage=(e)=>{
         e.preventDefault()
+        setIsSideBarOpen(false)
         navigator('/photo') 
     }
 
@@ -80,7 +82,10 @@ function DogPage(){
             modalComponent={<AddNewDogPage />}/>
 
             <div className="sidebar-button-container">
-            <button className='sidebar-button' onClick={()=>setSideBar(true)} >
+            <button className='sidebar-button' onClick={()=>{
+                setSideBar(true)
+                setIsSideBarOpen(true)
+                }} >
             open sidebar
             </button>
             </div>        
@@ -88,11 +93,14 @@ function DogPage(){
             style={sidebar ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }}
             >
              <div className="sidebar-header">
-            <button className="arrow-button" onClick={() => setSideBar(false)}>
+            <button className="arrow-button" onClick={() => {
+                setSideBar(false)
+                setIsSideBarOpen(false)
+                }}>
                <FaArrowRight />
             </button>
             </div>
-            <h1>Beloved Dogs</h1>
+            <h1 id='beloved-dog-sidebar'>Beloved Dogs</h1>
             <div className="dog-page-nav-button">
                 <div>
                 <button id='dog-page-dog-button'>dogs</button>
@@ -120,7 +128,10 @@ function DogPage(){
             {
                 dogsArr.length !== 0?
                 existDog?
-                <div className="showcase-container" onClick={() => setSideBar(false)}>
+                <div className="showcase-container" onClick={() => {
+                    setSideBar(false)
+                    setIsSideBarOpen(false)
+                }}>
                 
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
@@ -183,7 +194,10 @@ function DogPage(){
                 </div>
                 </div>
                 :
-                <div className="showcase-container" onClick={() => setSideBar(false)}>
+                <div className="showcase-container" onClick={() => {
+                    setSideBar(false)
+                    setIsSideBarOpen(false)
+                    }}>
                 <h1>My Beloved Dogs</h1>
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
@@ -251,7 +265,9 @@ function DogPage(){
             }
         </div>
         <p></p>
-        <div className="select-dog-container" onClick={() => setSideBar(false)}>
+        <div className="select-dog-container" onClick={() =>{ 
+              setIsSideBarOpen(false)
+            setSideBar(false)}}>
         {
             dogsArr.length !== 0 ?
             dogsArr.map((dog,index) =>(

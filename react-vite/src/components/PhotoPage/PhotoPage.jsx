@@ -11,6 +11,7 @@ import UpdatePhotoPage from '../UpdatePhotoPage';
 import { FaArrowRight} from 'react-icons/fa';
 import  DogBasicInfo from '../DogBasicInfo';
 import LargePhotoPage from '../LargePhotoPage';
+import {useSideBarStatus} from '../../context/SideBar';
 import './PhotoPage.css'
 
 function PhotoPage(){
@@ -18,6 +19,7 @@ function PhotoPage(){
   const dispatch = useDispatch()
   const navigator = useNavigate()
   const ulRef = useRef();
+  const {setIsSideBarOpen}=useSideBarStatus();
 
   const photos = useSelector(state=>state.photo.photo);
   const dogs = useSelector(state=>state.dog.dog);
@@ -59,6 +61,7 @@ function PhotoPage(){
 
     const navToDogPage=(e)=>{
         e.preventDefault()
+        setIsSideBarOpen(false)
         navigator('/dog')
     }
 
@@ -78,7 +81,10 @@ function PhotoPage(){
                   modalComponent={<AddNewPhotoPage />}
                   />
             <div className="sidebar-button-container">
-            <button className='sidebar-button' onClick={()=>setSideBar(true)} >
+            <button className='sidebar-button' onClick={()=>{
+                setSideBar(true)
+                setIsSideBarOpen(true)
+                }} >
             open sidebar
             </button>
             </div> 
@@ -89,7 +95,10 @@ function PhotoPage(){
                         >
                       <div className="fixed-top">
                       <div className="sidebar-header">
-                              <button className="arrow-button" onClick={() => setSideBar(false)}>
+                              <button className="arrow-button" onClick={() => {
+                    setSideBar(false)
+                    setIsSideBarOpen(false)
+                    }}>
                                  <FaArrowRight />
                               </button>
                        </div>
@@ -152,7 +161,10 @@ function PhotoPage(){
               
         {
             photos_arr !==0?
-            <div onClick={() => setSideBar(false)}>
+            <div onClick={() => {
+              setSideBar(false)
+              setIsSideBarOpen(false)
+              }}>
                
                   <div className='photoes-container' >
                     <div className="dog-photos-container">
