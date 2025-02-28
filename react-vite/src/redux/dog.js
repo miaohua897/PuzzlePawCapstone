@@ -28,9 +28,6 @@ export const thunkUpdateDogs=(data,dog_id)=>async(dispatch)=>{
     });
     if(res.ok){
         const data = await res.json();
-        // if(data.errors){
-        //     return;
-        // }
         dispatch(updateDog(data))
     }else if( res.status<500){
         const errorMessages = await res.json();
@@ -58,9 +55,6 @@ export const thunkCreateDogs=(data)=>async(dispatch)=>{
     });
     if(res.ok){
         const data = await res.json();
-        // if(data.errors){
-        //     return;
-        // }
         dispatch(createDog(data))
     }
     else if (res.status<500){
@@ -102,27 +96,27 @@ function dogReducer(state=initialState,action){
             }
         case DELETE_DOGS:
                 {
-                    let newObj={}
-                    Object.values(state.dog).map((el)=>{
-                        if( el.id !== action.payload){
-                            newObj[el.id] = el;  
-                        }
-                    })
-                return {...state, dog:newObj} 
+                let newObj={}
+                Object.values(state.dog).map((el)=>{
+                    if( el.id !== action.payload){
+                        newObj[el.id] = el;  
+                    }
+                })
+            return {...state, dog:newObj} 
                 }
         case UPDATE_DOGS:
                     {
-                        let newObj={}
-                        Object.values(state.dog).map((el)=>{
-                            if( el.id !== action.payload.id){
-                                newObj[el.id] = el;  
-                            }
-                            if( el.id === action.payload.id){
-                                newObj[el.id] = action.payload;  
-                            }
-    
-                        })
-                    return {...state, dog:newObj} 
+                let newObj={}
+                Object.values(state.dog).map((el)=>{
+                    if( el.id !== action.payload.id){
+                        newObj[el.id] = el;  
+                    }
+                    if( el.id === action.payload.id){
+                        newObj[el.id] = action.payload;  
+                    }
+
+                })
+            return {...state, dog:newObj} 
                     }
         default:
             return state

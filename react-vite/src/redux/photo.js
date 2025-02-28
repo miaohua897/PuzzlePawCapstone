@@ -28,9 +28,6 @@ export const thunkUpdatePhotos=(data,photo_id)=>async(dispatch)=>{
     });
     if(res.ok){
         const data = await res.json();
-        // if(data.errors){
-        //     return;
-        // }
         dispatch(updatePhoto(data))
     }else if (res.status<500){
         const errorMessages = await res.json();
@@ -57,9 +54,6 @@ export const thunkCreatePhotos=(data)=>async(dispatch)=>{
     });
     if(res.ok){
         const data = await res.json();
-        // if(data.errors){
-        //     return;
-        // }
         dispatch(createPhoto(data))
     }
     else if (res.status<500){
@@ -102,7 +96,6 @@ function photoReducer(state=initialState,action){
         case DELETE_PHOTOS:
             {
                 let newObj={}
-                // console.log('state.photo',state.photo)
                 Object.values(state.photo).map((el)=>{
                     if( el.id !== action.payload){
                         newObj[el.id] = el;  
@@ -112,18 +105,17 @@ function photoReducer(state=initialState,action){
             }
         case UPDATE_PHOTOS:
                 {
-                    let newObj={}
-                    // console.log('state.photo',state.photo)
-                    Object.values(state.photo).map((el)=>{
-                        if( el.id !== action.payload.id){
-                            newObj[el.id] = el;  
-                        }
-                        if( el.id === action.payload.id){
-                            newObj[el.id] = action.payload;  
-                        }
+                let newObj={}                 
+                Object.values(state.photo).map((el)=>{
+                    if( el.id !== action.payload.id){
+                        newObj[el.id] = el;  
+                    }
+                    if( el.id === action.payload.id){
+                        newObj[el.id] = action.payload;  
+                    }
 
-                    })
-                return {...state, photo:newObj} 
+                })
+            return {...state, photo:newObj} 
                 }
         default:
             return state;

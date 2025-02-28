@@ -1,13 +1,39 @@
 .dog-basic-info-container{
     height: 300px;
-    width: 400px;
+    width: 340px;
     overflow: auto;
     border-radius: 20px;
-    background-color: rgb(203, 218, 233,0.9);
+    background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
+    background-color: white;
     padding-left: 20px;
     padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 }
 .dog-basic-info-container p{
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
+}
+.dog-description-container{  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.dog-ma-container{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+.dog-owner-container{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+.dog-title-container{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+    margin-top: 15px;
 }
