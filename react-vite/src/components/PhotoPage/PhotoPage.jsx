@@ -67,10 +67,7 @@ function PhotoPage(){
             </div>
          
             <div className="sidebar-button-container">
-            <button className='sidebar-button' onClick={()=>{
-               
-                setIsSideBarOpen(true)
-                }} >
+            <button className='sidebar-button' onClick={()=>{setIsSideBarOpen(true) }} >
               <FaArrowLeft color='darkblue'/>
             </button>
             </div> 
