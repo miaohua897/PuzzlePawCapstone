@@ -19,7 +19,7 @@ function PhotoPage(){
   const dispatch = useDispatch()
   const navigator = useNavigate()
   const ulRef = useRef();
-  const {setIsSideBarOpen}=useSideBarStatus();
+  const {isSideBarOpen,setIsSideBarOpen} = useSideBarStatus();
 
   const photos = useSelector(state=>state.photo.photo);
   const dogs = useSelector(state=>state.dog.dog);
@@ -28,7 +28,7 @@ function PhotoPage(){
   const [moreInfo, setMoreInfo]=useState(12);
   const [showMenu, setShowMenu] = useState(false);
   const [selectedPhoto,setSelectedPhoto] = useState(-1);
-  const [sidebar, setSideBar] = useState(false);
+  // const [sidebar, setSideBar] = useState(false);
 
    
     useEffect(()=>{
@@ -57,7 +57,6 @@ function PhotoPage(){
     let dogs_arr =[]
     if (dogs) dogs_arr = Object.values(dogs);
 
-    // console.log('photos_arr',photos_arr)
 
     const navToDogPage=(e)=>{
         e.preventDefault()
@@ -82,7 +81,7 @@ function PhotoPage(){
                   />
             <div className="sidebar-button-container">
             <button className='sidebar-button' onClick={()=>{
-                setSideBar(true)
+               
                 setIsSideBarOpen(true)
                 }} >
             open sidebar
@@ -90,13 +89,13 @@ function PhotoPage(){
             </div> 
      
                    <div className="sidebar"
-                        style={sidebar ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }}
+                        style={isSideBarOpen ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }}
                      
                         >
                       <div className="fixed-top">
                       <div className="sidebar-header">
                               <button className="arrow-button" onClick={() => {
-                    setSideBar(false)
+                   
                     setIsSideBarOpen(false)
                     }}>
                                  <FaArrowRight />
@@ -145,7 +144,7 @@ function PhotoPage(){
                                  <OpenModalButton 
                                 buttonText={photo.title}
                                 onButtonClick={closeMenu}
-                                className='sidebar-dog-name-button'
+                                className='sidebar-photo-name-button'
                                 modalComponent={<LargePhotoPage photo={photo}/>}/>
                              
                               </div>
@@ -162,7 +161,7 @@ function PhotoPage(){
         {
             photos_arr !==0?
             <div onClick={() => {
-              setSideBar(false)
+          
               setIsSideBarOpen(false)
               }}>
                
