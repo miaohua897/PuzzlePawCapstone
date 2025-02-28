@@ -1,4 +1,6 @@
-
+.homepage-container{
+    height: 1000px;
+}
 .home-page-image-article-container{
     text-align: justify;
     max-width: 94%; 
@@ -6,8 +8,6 @@
     margin-right:3%;
     margin-top: 20px;
     padding: 10px;
-
-
 }
 .home-page-main-image{
     float: left; 
@@ -30,14 +30,7 @@
 #home-page-main-img{
     border-radius: 10px;
 }
-/* .home-page-main-article{
-    margin:10px;
-    font-size: 24px;
-    font-family: 'Times New Roman', Times, serif;
-    padding:3px;
-    margin:5px;
-} */
- .homepage-welcome-title{
+.homepage-welcome-title{
     font-size: 3.5rem; 
     font-weight: 800;  
     line-height: 1.2;
@@ -45,7 +38,7 @@
     text-shadow: 0 5px 10px rgba(74, 0, 114, 0.4), 0 7px 15px rgba(0, 136, 204, 0.5); 
     margin-bottom: 20px;
  }
- .home-page-main-article{
+.home-page-main-article{
     font-size: 1.4rem; 
     line-height: 1.8;
     color: #444; 

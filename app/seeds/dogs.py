@@ -5,7 +5,7 @@ from datetime import date
 
 def seed_dogs():
     demo = Dog(
-        dog_name='PawPaw',age =1,color='white',weight=7,
+        dog_name='Dog1',age =1,color='white',weight=7,
         gender='male',
         neutered_spayed='spayed',
         microchip=False,
@@ -43,7 +43,7 @@ def seed_dogs():
         owner_country = "UK",
         user_id =1)
     demo_three = Dog(
-        dog_name='Dog2',age =1,color='white',weight=9,
+        dog_name='Dog3',age =1,color='white',weight=9,
         gender='female',
         neutered_spayed='spayed',
         microchip=False,
@@ -62,7 +62,7 @@ def seed_dogs():
         owner_country = "UK",
         user_id =1)
     demo_four = Dog(
-        dog_name='PawPaw',age =1,color='white',weight=10,
+        dog_name='Dog4',age =1,color='white',weight=10,
         gender='male',
         neutered_spayed='spayed',
         microchip=False,

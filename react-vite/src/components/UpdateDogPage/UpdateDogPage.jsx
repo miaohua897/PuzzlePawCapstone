@@ -33,71 +33,17 @@ function UpdateDogPage({updateDog}){
     const [owner_city,setOwner_city] = useState(updateDog.owner_address_city)
     const [image,setImage]=useState('');
     const [image_url,setImage_url]=useState(updateDog.image_url);
-    const [error,setError] = useState({
-        'dogName':'',
-        'dogAge':'',
-        'dogWeight':'',
-        'dogBreed':'',
-        'dogGender':'',
-        'ownerName':"",
-        'ownerNumber':'',
-        'ownerCity':'',
-        'ownerState':'',
-        'ownerCode':'',
-        'ownerCountry':''
-    });
+    const [error,setError] = useState({ 'ownerNumber':'', 'ownerCode':'',});
     const [errorServer,setErrorServer] = useState({})
     const [disableButton,setDisableButton]=useState(false);
     const today = new Date().toISOString().split('T')[0];
 
     const handleAddDogSubmit= async(e)=>{
          
-          e.preventDefault();
-    //       console.log('i am from add new dog',dogName,dogAge,color,weight,birth_date,
-    //         male,female,neutered,spayed,microchip,breed,description,medical_allergies,
-    //     owner_name,owner_contact,owner_address_one,owner_address_two,owner_state,
-    // owner_country,image);
-    setDisableButton(true)
-    if(dogName.length===0||dogName.length>20) {
-        const errMes ='name is too long or empty';
-        setError({
-            'dogName':errMes
-        })
-        setDisableButton(false)
-        return ;
-      }
-    if(dogAge<0||dogAge>30){
-        const errMes ="age can't lower than 0 and max age set is 30 "
-        setError({
-            'dogAge':errMes
-        })
-        setDisableButton(false)
-        return ;
-    }
-    if(weight<0||weight>50){
-        const errMes ="weight can't lower than 0 and max weight set is 50 "
-        setError({
-            'weight':errMes
-        })
-        setDisableButton(false)
-        return ;
-    }
-    if(breed.length===0||breed.length>20) {
-        const errMes ='breed name is too long or empty';
-        setError({
-            'dogBreed':errMes
-        })
-        setDisableButton(false)
-        return ;
-      }
-    if(owner_name.length===0||owner_name.length>20) {
-        const errMes ='name is too long or empty';
-        setError({
-            'ownerName':errMes
-        })
-        setDisableButton(false)
-        return ;
-      }
+     e.preventDefault();
+  
+     setDisableButton(true)
+
       if(owner_contact.length<7||owner_contact.length>15) {
         const errMes ='phone is too long or too short';
         setError({
@@ -106,34 +52,10 @@ function UpdateDogPage({updateDog}){
         setDisableButton(false)
         return ;
       }
-      if(owner_city.length===0||owner_city.length>20) {
-        const errMes ='city name is too long';
-        setError({
-            'ownerCity':errMes
-        })
-        setDisableButton(false)
-        return ;
-      }
-      if(owner_state.length===0||owner_state.length>20) {
-        const errMes ='state name is too long';
-        setError({
-            'ownerState':errMes
-        })
-        setDisableButton(false)
-        return ;
-      }
       if(owner_code.length<4||owner_code.length>20) {
         const errMes ='zip code is too long or too short, it is set between 5 to 20';
         setError({
             'ownerCode':errMes
-        })
-        setDisableButton(false)
-        return ;
-      }
-      if(owner_country.length===0||owner_country.length>20) {
-        const errMes ='country name is too long or empty';
-        setError({
-            'ownerCountry':errMes
         })
         setDisableButton(false)
         return ;
@@ -230,7 +152,6 @@ function UpdateDogPage({updateDog}){
             minLength="0" maxLength="20"
             ></input>          
             </div> 
-            {error.dogName?<p id='error-dog' >{error.dogName}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='age' className='update-dog-form-lable'>Dog Age</label>
@@ -238,7 +159,6 @@ function UpdateDogPage({updateDog}){
              min='0' max='30'
             onChange={(e)=>setDogAge(e.target.value)} required ></input>          
             </div> 
-            {error.dogAge?<p id='error-dog' >{error.dogAge}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='color' className='update-dog-form-lable'>Dog Color</label>
@@ -252,7 +172,6 @@ function UpdateDogPage({updateDog}){
             
             onChange={(e)=>setWeight(e.target.value)} required   min='0' max='50'></input>           
             </div>
-            {error.weight?<p id='error-dog' >{error.weight}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='birth_date' className='update-dog-form-lable'>Brith Date:</label>
@@ -296,7 +215,6 @@ function UpdateDogPage({updateDog}){
             placeholder='input a breed name, please. English alphabet and space only'
             onChange={(e)=>setBreed(e.target.value)} required  minLength="0" maxLength="20"></input>
             </div>
-            {error.dogBreed?<p>{error.dogBreed}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='description' className='update-dog-form-lable'>Dog Description</label>
@@ -317,7 +235,6 @@ function UpdateDogPage({updateDog}){
             <input type='text' value={owner_name}  id='owner-update-name' name='owner-name'  
             onChange={e=>setOwner_name(e.target.value)} required  minLength="0" maxLength="20"></input>
             </div>
-            {error.ownerName?<p>{error.ownerName}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='owner-contact-number' className='update-dog-form-lable'>Contact Number</label>
@@ -347,7 +264,6 @@ function UpdateDogPage({updateDog}){
               placeholder='input city name, please. English alphabet and space only'  
             onChange={e=>setOwner_city(e.target.value)} required  minLength="0" maxLength="20"></input>
             </div>
-            {error.ownerCity?<p>{error.ownerCity}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='owner-state' className='update-dog-form-lable'>State</label>
@@ -355,7 +271,6 @@ function UpdateDogPage({updateDog}){
             placeholder='input state name, please. English alphabet and space only' 
             onChange={e=>setOwner_state(e.target.value)} required  minLength="0" maxLength="20" ></input>
             </div>
-            {error.ownerState?<p>{error.ownerState}</p>:null}
 
             <div className='update-input'>
             <label htmlFor ='owner-zip-code' className='update-dog-form-lable'>Zip Code</label>
@@ -371,14 +286,11 @@ function UpdateDogPage({updateDog}){
              placeholder='input country name, please. English alphabet and space only' 
             onChange={e=>setOwner_country(e.target.value)} required  minLength="0" maxLength="20" ></input>
             </div>
-            {error.ownerCountry?<p>{error.ownerCountry}</p>:null}
 
             <div className='update-input'>
                  <label htmlFor ="image_upload" className='update-dog-form-lable'>Upload an image:</label>
                 <input type="file" id="image-upload" name="image_url" accept="image/*" 
-                onChange={handleFileChange}
-                //  onChange={(e)=>setImage(e.target.files[0])}
-                 />
+                onChange={handleFileChange}/>
             </div>
 
             </div>
