@@ -24,7 +24,7 @@
 .dog-page-nav-button button{
     font-size: 16px;
     border: none;
-    background-color: darkgrey;
+    background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
     border-radius: 10px;
     padding:5px;
     margin:3px;
@@ -142,7 +142,7 @@
     position: absolute;
     bottom:10%;
     left:30%;
-    height: 80px;
+    height: 100px;
     width: 120px;
     background-color: white;
     display: flex;
@@ -161,7 +161,7 @@
     font-weight: bolder;
     padding: 3px;
     width: 96px;
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
 }
 .photo-cards-delete{
@@ -207,7 +207,7 @@
     font-weight: bolder;
 }
 #dog-page-dog-button{
-    background-color: greenyellow;
+    background-color: rgb(78, 2, 2);
 }
 
 .sidebar {

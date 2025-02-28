@@ -1,6 +1,7 @@
 .delete-form-container{
     border-radius: 20px;
-    background-color: rgb(203, 218, 233,0.9);
+    background-image: linear-gradient(rgba(0, 10, 50, 0.95), rgba(23, 3, 243, 0.1));
+    background-color: white;
     height: 200px;
     width: 350px;
     display: flex;
@@ -14,8 +15,10 @@
     height: 30px;
     border-radius: 10px;
     color:aliceblue;
-    background-color: darkgrey;
-    border: 1px solid rgb(83, 90, 98);
+    background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
+    border: 0.5px solid rgba(0, 36, 135);
+    box-shadow: 0 0 10px 1px rgb(51, 62, 94);
+    
 }
 .delete-form-buttons-container{
     width: 60%;
