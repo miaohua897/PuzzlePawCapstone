@@ -27,7 +27,7 @@
   border-bottom: 3px solid transparent;
   /* background-image: linear-gradient(rgba(49, 101, 245, 0.5), rgba(244, 192, 23, 0.5)); */
   /* background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5)); */
-  background-image:  linear-gradient(0.15turn, #4b92b0, #def4cd, #5bcaf2);
+  background-image:  linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: 100% 3px;
@@ -47,7 +47,7 @@
   padding-top:2px;
   padding-bottom: 2px;
   border-radius: 15px;
-  background: linear-gradient(0.15turn, rgba(49, 101, 245, 0.5), #def4cd, rgba(244, 192, 23, 0.5));
+  background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
   /* background-color: rgb(224, 219, 219); */
   /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
   /* background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5)); */
@@ -59,7 +59,7 @@
 }
 #profile-dropdown-li-button{
   border:none;
-  background: linear-gradient(0.15turn, rgba(49, 101, 245, 0.5), #def4cd, rgba(244, 192, 23, 0.5));
+  background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
   /* background-color: darkgrey; */
   /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
   /* background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5)); */
@@ -82,7 +82,7 @@
 }
 #demo-user-button{
   border:none;
-  background: linear-gradient(0.15turn, rgba(49, 101, 245, 0.5), #def4cd, rgba(244, 192, 23, 0.5));
+  background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
   /* background-color: darkgrey; */
   /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
   /* background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5)); */
@@ -93,7 +93,7 @@
 }
 .login-signup-button{
   border:none;
-  background: linear-gradient(0.15turn, rgba(49, 101, 245, 0.5), #def4cd, rgba(244, 192, 23, 0.5));
+  background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
   /* background-color: darkgrey; */
   /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
   /* background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5)); */
@@ -107,7 +107,7 @@
   right:10%;
   top:3%;
   margin-top: 12px;
-  background: linear-gradient(0.15turn, rgba(49, 101, 245, 0.5), #def4cd, rgba(244, 192, 23, 0.5));
+  background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
   /* background-image: linear-gradient(to right,rgb(99, 71, 255), rgb(80, 232, 255) ); */
   /* background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5)); */
   border: none;
