@@ -8,7 +8,7 @@ import AddNewPhotoPage from '../AddNewPhotoPage';
 import DeletePhotoPage from '../DeletePhotoPage';
 import {MdArrowDropDown} from 'react-icons/md'
 import UpdatePhotoPage from '../UpdatePhotoPage';
-import { FaArrowRight} from 'react-icons/fa';
+import { FaArrowRight,FaPhotoVideo,FaArrowLeft} from 'react-icons/fa';
 import  DogBasicInfo from '../DogBasicInfo';
 import LargePhotoPage from '../LargePhotoPage';
 import {useSideBarStatus} from '../../context/SideBar';
@@ -71,20 +71,23 @@ function PhotoPage(){
 
     return (
         <div className='pictures-container' >
-   
+            <div className="photo-cards-title-icon">
             <h1>Photoes</h1>
                   <OpenModalButton 
-                  buttonText="Add A Photo"
+                  buttonText={<FaPhotoVideo  color="blue" />}
                   onButtonClick={closeMenu}
                   className='photo-cards-add'
                   modalComponent={<AddNewPhotoPage />}
                   />
+
+            </div>
+         
             <div className="sidebar-button-container">
             <button className='sidebar-button' onClick={()=>{
                
                 setIsSideBarOpen(true)
                 }} >
-            open sidebar
+              <FaArrowLeft color='blue'/>
             </button>
             </div> 
      
@@ -101,7 +104,7 @@ function PhotoPage(){
                                  <FaArrowRight />
                               </button>
                        </div>
-                       <h1>Beloved Dogs</h1>
+                       <h1 id='beloved-dog-sidebar'>Beloved Dogs</h1>
                        <div className="dog-page-nav-button">
                       <div>
                       <button onClick ={navToDogPage} >dogs</button>

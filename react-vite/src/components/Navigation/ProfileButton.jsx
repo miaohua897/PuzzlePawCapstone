@@ -84,7 +84,7 @@ function ProfileButton() {
                 <button id='profile-dropdown-li-button'  onClick={logout}>Log Out</button>
               </li>
               <li id='profile-dropdown-li'> 
-                <button id='profile-dropdown-li-button'  onClick={navToDogPage}>got to dog page</button>
+                <button id='profile-dropdown-li-button'  onClick={navToDogPage}>Dog page</button>
               </li>
             </>
           ) : (

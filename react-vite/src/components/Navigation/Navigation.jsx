@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import "./Navigation.css";
 import {useSideBarStatus} from '../../context/SideBar';
 
+
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
   const navigate = useNavigate()
@@ -12,7 +13,7 @@ function Navigation() {
     <ul className="nav-container" >
       <li>
   
-        <img src="/puzzlePawIcon.png" style={{width:50,height:50}} onClick={()=>{
+        <img src="/puzzlePawIcon.png" style={{width:50,height:45}} onClick={()=>{
           navigate('/')
           setIsSideBarOpen(false)
         }}/>
@@ -31,8 +32,6 @@ function Navigation() {
       <li >
         <ProfileButton  />
       </li>
-
-      
      
     </ul>
   );

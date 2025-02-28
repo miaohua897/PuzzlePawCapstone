@@ -1,19 +1,19 @@
 .dog-page-container{
     width: 99%;
-    height: 1100px;
-    background-image: repeating-linear-gradient(to bottom, rgba(168, 193, 231, 0.5) 0,   rgba(168, 193, 231, 0.5) 1px, transparent 1px, transparent 60px);
+    height: 800px;
+    /* background-image: repeating-linear-gradient(to bottom, rgba(168, 193, 231, 0.5) 0,   rgba(168, 193, 231, 0.5) 1px, transparent 1px, transparent 60px); */
     background-repeat: repeat; 
     overflow: scroll; 
 }
 
 .dog-cards-image{
-    width: 200px;
+    width: 100px;
     height:80%;
     object-fit: cover;
-   
-    border: 5px solid transparent; 
-    border-image: linear-gradient(to right, rgba(71, 209, 255, 0.5), rgba(255, 71, 255, 0.5)); 
-    border-image-slice: 1;
+    border-radius: 10px;
+    /* border: 5px solid transparent;  */
+    /* border-image: linear-gradient(to right, rgba(71, 209, 255, 0.5), rgba(255, 71, 255, 0.5));  */
+    /* border-image-slice: 1; */
 }
 .dog-page-nav-button{
     display: flex;
@@ -30,8 +30,10 @@
     margin:3px;
     color:white;
     cursor: pointer;
-    padding-left: 8px;
-    padding-right: 8px;
+    width: 80px;
+    height: 30px;
+    /* padding-left: 8px;
+    padding-right: 8px; */
 }
 .showcase-container{
     display: flex;
@@ -49,8 +51,10 @@
 }
 .select-dog-container{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content:flex-start;
+    gap:20px;
+    margin-left: 27%;
     margin-top:10%;
 }
 .showcase-dog-img-container{
@@ -67,7 +71,7 @@
 .dog-info{
     flex:1;
     border-radius: 10px;
-    border: 2px solid  rgba(21, 178, 202, 0.5);
+    /* border: 2px solid  rgba(21, 178, 202, 0.5); */
     padding: 10px;
     background-color: white;
 }
@@ -76,26 +80,27 @@
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
-    border: 2px solid rgba(99, 71, 255, 0.5);
+    /* border: 2px solid rgba(99, 71, 255, 0.5); */
+    box-shadow: 0 0 10px 2px darkgrey;
 }
 .dog-card{
     position: relative;
     cursor: pointer;
-   
+  
 }
 .dog-cards-text {
     visibility: hidden;
     opacity: 0; 
     position: absolute; 
     bottom: 40%;
-    left: 50%;
+    left: 25%;
     z-index: 10;
     transform: translateX(-50%);
     transition: opacity 0.3s ease, visibility 0.3s ease;  
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
-    font-size: 32px;
-    color: rgb(72, 147, 222);
+    font-size: 18px;
+    color: rgb(98, 98, 236);
 
 }
 .dog-card:hover .dog-cards-text{
@@ -130,18 +135,34 @@
     background-color: transparent;
     font-size: 24px;
     position: absolute;
-    bottom:20%;
-    left:5px;
+    bottom:10%;
+    left:0;
 }
 .dog-cards-menu{
     position: absolute;
-    bottom:20%;
-    left:-10%;
-    background-color: rgb(224, 219, 219);
+    bottom:10%;
+    left:30%;
+    height: 80px;
+    width: 120px;
+    background-color: white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
     border-radius: 10px;
+    box-shadow:0 0 10px 2px rgba(88, 121, 125, 0.5);
 
+}
+.dog-cards-delete{
+    border: none;
+    background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
+    color:white;
+    font-weight: bolder;
+    padding: 3px;
+    width: 96px;
+    height: 30px;
+    border-radius: 10px;
 }
 .photo-cards-delete{
     padding:5px;
@@ -150,14 +171,15 @@
 .dog-add-new-dog{
     border:none;
     /* background-color: rgb(203, 218, 233,0.9); */
-    background: linear-gradient(45deg, rgba(99, 71, 255, 0.5), rgba(80, 232, 255, 0.5), rgba(255, 168, 255, 0.5));
+    background: transparent;
+    color: darkblue;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
-    margin-left: 10px;
+    font-size: 24px; 
+    margin-left: 10px; 
     padding:5px;
     border-radius: 10px;
     font-weight: bolder;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
 }
 .dog-basic-text{
     display: flex;
@@ -173,8 +195,8 @@
     font-weight: bolder;
     padding: 3px;
     border-radius: 10px;
-    background-color: rgba(21, 178, 202, 0.5);
-    border: 2px solid  rgba(21, 178, 202, 0.5);
+    /* background-color: rgba(21, 178, 202, 0.5);
+    border: 2px solid  rgba(21, 178, 202, 0.5); */
 }
 #dog-basic-info-text{
     font-size: 16px;
@@ -224,7 +246,7 @@
     top:48%;
     background: none;
     border: none;
-    color: orangered;
+    color: darkblue;
     font-size: 24px;
     font-weight: bolder;
     cursor: pointer;
@@ -233,11 +255,14 @@
  .sidebar-button-container{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 
  }
  .sidebar-button{
-    background: orangered;
+    position: fixed;
+    right:2%;
+    top:45%;
+    background:transparent;
     border: none;
     color: black;
     font-size: 18px;
@@ -271,8 +296,18 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 32px;
     font-weight: bold;
-    background: linear-gradient(45deg, #6b9fff, #ffcc00, #4caf50); 
+    background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
     -webkit-background-clip: text;   
     background-clip: text;          
-    color: transparent;           
+    color: transparent;  
+          
+}
+.dog-cards-title-icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+#beloved-dog-sidebar{
+    text-align: center;
 }
