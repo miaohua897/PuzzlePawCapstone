@@ -1,4 +1,4 @@
-import {useState,useRef} from 'react';
+import {useState,useRef,useEffect} from 'react';
 import DeletePhotoPage from '../DeletePhotoPage';
 import UpdatePhotoPage from '../UpdatePhotoPage';
 import OpenModalButton from '../OpenModalButton';
@@ -11,6 +11,21 @@ function PhotoWall({photos_arr}){
     const [moreInfo, setMoreInfo]=useState(12);
     const [selectedPhoto,setSelectedPhoto] = useState(-1);
     const {setIsSideBarOpen} = useSideBarStatus();
+
+    useEffect(() => {
+      if (!showMenu) return;
+  
+      const closeMenu = (e) => {
+        if (ulRef.current && !ulRef.current.contains(e.target)) {
+          setShowMenu(false);
+        }
+      };
+  
+      document.addEventListener("click", closeMenu);
+  
+      return () => document.removeEventListener("click", closeMenu);
+    }, [showMenu]);
+
     const closeMenu = () => setShowMenu(false);
     return (
             photos_arr !==0?
