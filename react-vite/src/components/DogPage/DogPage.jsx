@@ -2,29 +2,25 @@ import { useEffect, useState,useRef } from "react";
 import {useDispatch,useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 import {thunkLoadDogs} from '../../redux/dog';
-import DeleteDogPage from '../DeleteDogPage';
 import OpenModalButton from '../OpenModalButton';
 import AddNewDogPage from '../AddNewDogPage';
-import UpdateDogPage from '../UpdateDogPage';
-import { FaArrowRight} from 'react-icons/fa';
+import { FaArrowRight,FaArrowLeft} from 'react-icons/fa';
 import './DogPage.css'
 import {useSideBarStatus} from '../../context/SideBar';
+import DogCards from './DogCards';
+import {useSetDogId} from '../../context/SetDogId'; 
 
 function DogPage(){
-    
+    const {setIsSideBarOpen}=useSideBarStatus();
     const dispatch = useDispatch()
     const navigator = useNavigate()
     const ulRef = useRef();
-    const {setIsSideBarOpen}=useSideBarStatus();
-  
     const sessionUser = useSelector((state) => state.session.user);
     const dogs = useSelector(state=>state.dog.dog);
-
-
-    const [selectedId,setSelectedId] = useState(1)
     const [showMenu, setShowMenu] = useState(false);
-    const [selectedDog,setSelectedDog] = useState(-1);
+    // const [selectedDog,setSelectedDog] = useState(-1);
     const [sidebar, setSideBar] = useState(false);
+    const {selectedDogId} =  useSetDogId();
    
 
     useEffect(()=>{
@@ -54,7 +50,7 @@ function DogPage(){
     let existDog;
     let showDog;
     if(dogs)  {
-        existDog= dogs[selectedId]
+        existDog= dogs[selectedDogId]
         showDog =  dogsArr[0];
     }
               
@@ -73,20 +69,22 @@ function DogPage(){
     return (
         <div className="dog-page-container" >
            
-            <h1 id='beloved-dog-title'>My Beloved Dogs</h1>
-
+           <div className="dog-cards-title-icon">
+           <h1 id='beloved-dog-title'>My Beloved Dogs</h1>
             <OpenModalButton 
-            buttonText="Add a New Dog"
+            buttonText="+"
             onButtonClick={closeMenu}
             className='dog-add-new-dog'
             modalComponent={<AddNewDogPage />}/>
+           </div>
+          
 
             <div className="sidebar-button-container">
             <button className='sidebar-button' onClick={()=>{
                 setSideBar(true)
                 setIsSideBarOpen(true)
                 }} >
-            open sidebar
+            <FaArrowLeft color='blue'/>
             </button>
             </div>        
             <div className="sidebar"
@@ -115,12 +113,14 @@ function DogPage(){
             </div>                    
                 </div>
           <div className="scrollable">
-          {dogsArr.length !==0?
+          <DogCards  dogsArr={dogsArr} />
+          {/* {dogsArr.length !==0?
                       dogsArr.map((dog,index)=>{
                         return (
                             <div  key={index} >
 
                           <div className='sidebar-dog-info-dogpage'  onClick={()=>setSelectedId(dog.id)}  >
+                          <DogCards  dogsArr={dogsArr} />
                             <img src={dog.image_url} style={{width:50,height:50}}></img>
                             <p id='sidebar-dog-info-dog-name'>{dog.dog_name}</p>
                           </div>
@@ -143,7 +143,7 @@ function DogPage(){
                         )
                       })
                       :null
-                      }
+                      } */}
           </div>
           
             </div>
@@ -159,23 +159,23 @@ function DogPage(){
                 
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
-                <img src={dogs[selectedId].image_url} className="dog-info-image" />
+                <img src={dogs[selectedDogId].image_url} className="dog-info-image" />
                 </div>
                 <div className="dog-info">
-                <p id='showcase-info-dog-name'>{dogs[selectedId].dog_name}</p>
+                <p id='showcase-info-dog-name'>{dogs[selectedDogId].dog_name}</p>
                 <div className="dog-basic-info">
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
                     Age: 
                     </p>
-                    <p id='dog-basic-info-text' >{dogs[selectedId].age}</p>
+                    <p id='dog-basic-info-text' >{dogs[selectedDogId].age}</p>
                 </div>
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
                     Weight: 
                     </p>
                     <p id='dog-basic-info-text' >
-                        {dogs[selectedId].weight}
+                        {dogs[selectedDogId].weight}
                     </p>
                 </div>
                 <div className="dog-basic-text">
@@ -183,7 +183,7 @@ function DogPage(){
                     Breed:
                     </p>
                     <p id='dog-basic-info-text' >
-                        {dogs[selectedId].breed_name}
+                        {dogs[selectedDogId].breed_name}
                     </p>
                 </div>
 
@@ -194,7 +194,7 @@ function DogPage(){
                     Bio:
                     </p>
                     <p id='dog-basic-info-text' >
-                        {dogs[selectedId].description}
+                        {dogs[selectedDogId].description}
                     </p>
                 </div>
                 <div className="dog-basic-text">
@@ -202,7 +202,7 @@ function DogPage(){
                     Medical/Allergies:
                     </p>
                     <p id='dog-basic-info-text' >
-                        {dogs[selectedId].medical_allergies}
+                        {dogs[selectedDogId].medical_allergies}
                     </p>
                 </div>
                 <div className="dog-basic-text">
@@ -210,7 +210,7 @@ function DogPage(){
                     Owner:
                     </p>
                     <p id='dog-basic-info-text' >
-                        {dogs[selectedId].owner.username}
+                        {dogs[selectedDogId].owner.username}
                     </p>
                 </div>
 
@@ -289,46 +289,8 @@ function DogPage(){
             }
         </div>
         <p></p>
-        <div className="select-dog-container" onClick={() =>{ 
-              setIsSideBarOpen(false)
-            setSideBar(false)}}>
-        {
-            dogsArr.length !== 0 ?
-            dogsArr.map((dog,index) =>(
-                <div key={index} onClick={()=> setSelectedId(dog.id)} className="dog-card">
-                    <img src={dog.image_url} className="dog-cards-image"></img>
-                    <p className="dog-cards-text" >{dog.dog_name}</p>
-                    <button onClick={
-                        (e)=>{
-                            e.stopPropagation(); 
-                            setShowMenu(!showMenu);
-                            setSelectedDog(dog.id)
-                        }
-                    } id='dog-cards-options'>...</button>
-                    {showMenu && selectedDog ===dog.id?
-                     <div
-                     className="dog-cards-menu"
-                      ref={ulRef}
-                     >
-                        <OpenModalButton 
-                        buttonText="Update A Dog"
-                        onButtonClick={closeMenu}
-                        className='photo-cards-delete'
-                        modalComponent={<UpdateDogPage updateDog={dog}  />}
-                                    />
-                        <OpenModalButton 
-                        buttonText="Delete A Dog"
-                        onButtonClick={closeMenu}
-                        className='photo-cards-delete'
-                        modalComponent={<DeleteDogPage dog_id={dog.id}  />}
-                                    />
-                     </div>
-                     :null
-                    }
-                </div>
-            )):null
-        }
-        </div>
+        {/* <DogCards  dogsArr={dogsArr} /> */}
+       
 
         </div>
        

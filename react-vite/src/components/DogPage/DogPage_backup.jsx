@@ -6,14 +6,16 @@ import DeleteDogPage from '../DeleteDogPage';
 import OpenModalButton from '../OpenModalButton';
 import AddNewDogPage from '../AddNewDogPage';
 import UpdateDogPage from '../UpdateDogPage';
+import { FaArrowRight,FaArrowLeft} from 'react-icons/fa';
 import './DogPage.css'
+import {useSideBarStatus} from '../../context/SideBar';
 
 function DogPage(){
     
     const dispatch = useDispatch()
     const navigator = useNavigate()
     const ulRef = useRef();
-
+    const {setIsSideBarOpen}=useSideBarStatus();
   
     const sessionUser = useSelector((state) => state.session.user);
     const dogs = useSelector(state=>state.dog.dog);
@@ -22,6 +24,7 @@ function DogPage(){
     const [selectedId,setSelectedId] = useState(1)
     const [showMenu, setShowMenu] = useState(false);
     const [selectedDog,setSelectedDog] = useState(-1);
+    const [sidebar, setSideBar] = useState(false);
    
 
     useEffect(()=>{
@@ -42,7 +45,6 @@ function DogPage(){
         return () => document.removeEventListener("click", closeMenu);
       }, [showMenu]);
 
-
     if(!sessionUser) return navigator('/');
 
     let dogsArr=[];
@@ -58,6 +60,7 @@ function DogPage(){
               
     const navToPhotoPage=(e)=>{
         e.preventDefault()
+        setIsSideBarOpen(false)
         navigator('/photo') 
     }
 
@@ -68,27 +71,93 @@ function DogPage(){
         }
 
     return (
-        <div className="dog-page-container">
-            <div className="dog-page-nav-button">
-                <button id='dog-page-dog-button'>dogs</button>
-                <button onClick={handleUnfinishedFeatures}>notes</button>
-                <button onClick ={navToPhotoPage}>photos</button>
-                <button onClick={handleUnfinishedFeatures} >records</button>
-
-            </div>
-            <h1>My Beloved Dogs</h1>
-
+        <div className="dog-page-container" >
+           
+           <div className="dog-cards-title-icon">
+           <h1 id='beloved-dog-title'>My Beloved Dogs</h1>
             <OpenModalButton 
-            buttonText="Add a New Dog"
+            buttonText="+"
             onButtonClick={closeMenu}
             className='dog-add-new-dog'
-            modalComponent={<AddNewDogPage />}
-/>
+            modalComponent={<AddNewDogPage />}/>
+           </div>
+          
+
+            <div className="sidebar-button-container">
+            <button className='sidebar-button' onClick={()=>{
+                setSideBar(true)
+                setIsSideBarOpen(true)
+                }} >
+            <FaArrowLeft color='blue'/>
+            </button>
+            </div>        
+            <div className="sidebar"
+            style={sidebar ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }}
+            >
+                
+                <div className="fixed-top">
+                <div className="sidebar-header">
+            <button className="arrow-button" onClick={() => {
+                setSideBar(false)
+                setIsSideBarOpen(false)
+                }}>
+               <FaArrowRight />
+            </button>
+            </div>
+            <h1 id='beloved-dog-sidebar'>Beloved Dogs</h1>
+            <div className="dog-page-nav-button">
+                <div>
+                <button id='dog-page-dog-button'>dogs</button>
+                <button onClick={handleUnfinishedFeatures}>notes</button>
+                </div>
+                <div>
+                <button onClick ={navToPhotoPage}>photos</button>
+                <button onClick={handleUnfinishedFeatures} >records</button>
+                </div> 
+            </div>                    
+                </div>
+          <div className="scrollable">
+          {dogsArr.length !==0?
+                      dogsArr.map((dog,index)=>{
+                        return (
+                            <div  key={index} >
+
+                          <div className='sidebar-dog-info-dogpage'  onClick={()=>setSelectedId(dog.id)}  >
+                            <img src={dog.image_url} style={{width:50,height:50}}></img>
+                            <p id='sidebar-dog-info-dog-name'>{dog.dog_name}</p>
+                          </div>
+                          <div className="sidebar-dog-records">
+                          <p>
+                            🧰 this is a note place
+                          </p>
+                          <p>
+                            🧰 this is a training record place
+                          </p>
+                          <p>
+                            🧰 this is a health record place
+                          </p>
+                          <p>
+                            🧰 this is a bahavior record place
+                          </p>
+                          </div>
+                          </div>
+
+                        )
+                      })
+                      :null
+                      }
+          </div>
+          
+            </div>
+
              <div>
             {
                 dogsArr.length !== 0?
                 existDog?
-                <div className="showcase-container">
+                <div className="showcase-container" onClick={() => {
+                    setSideBar(false)
+                    setIsSideBarOpen(false)
+                }}>
                 
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
@@ -132,7 +201,7 @@ function DogPage(){
                 </div>
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
-                    medical/allergies:
+                    Medical/Allergies:
                     </p>
                     <p id='dog-basic-info-text' >
                         {dogs[selectedId].medical_allergies}
@@ -140,7 +209,7 @@ function DogPage(){
                 </div>
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
-                    owner:
+                    Owner:
                     </p>
                     <p id='dog-basic-info-text' >
                         {dogs[selectedId].owner.username}
@@ -151,7 +220,10 @@ function DogPage(){
                 </div>
                 </div>
                 :
-                <div className="showcase-container">
+                <div className="showcase-container" onClick={() => {
+                    setSideBar(false)
+                    setIsSideBarOpen(false)
+                    }}>
                 <h1>My Beloved Dogs</h1>
                 <div className="dog-info-container">
                 <div className="showcase-dog-img-container">
@@ -195,7 +267,7 @@ function DogPage(){
                 </div>
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
-                    medical/allergies:
+                    Medical/Allergies:
                     </p>
                     <p id='dog-basic-info-text' >
                         {showDog.medical_allergies}
@@ -203,7 +275,7 @@ function DogPage(){
                 </div>
                 <div className="dog-basic-text">
                     <p id='dog-basic-label'>
-                    owner:
+                    Owner:
                     </p>
                     <p id='dog-basic-info-text' >
                         {showDog.owner.username}
@@ -219,7 +291,9 @@ function DogPage(){
             }
         </div>
         <p></p>
-        <div className="select-dog-container">
+        <div className="select-dog-container" onClick={() =>{ 
+              setIsSideBarOpen(false)
+            setSideBar(false)}}>
         {
             dogsArr.length !== 0 ?
             dogsArr.map((dog,index) =>(

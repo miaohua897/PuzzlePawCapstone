@@ -6,6 +6,7 @@ import { thunkAuthenticate } from "../redux/session";
 import Navigation from "../components/Navigation/Navigation";
 import FootPage from "../components/FootPage";
 import SideBarProvider from '../context/SideBar';
+import SetDogIdProvider from '../context/SetDogId';
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -18,10 +19,12 @@ export default function Layout() {
     <>
       <ModalProvider>
         <SideBarProvider >
-        <Navigation />
-        {isLoaded && <Outlet />}
-        <FootPage />
-        <Modal />
+          <SetDogIdProvider >
+           <Navigation />
+            {isLoaded && <Outlet />}
+            <FootPage />
+            <Modal />
+          </SetDogIdProvider>     
         </SideBarProvider>
       </ModalProvider>
     </>
