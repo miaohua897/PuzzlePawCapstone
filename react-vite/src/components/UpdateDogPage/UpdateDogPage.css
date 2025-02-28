@@ -7,7 +7,8 @@
 }
 .update-dog-form-container{
     border-radius: 20px;
-    background-color: rgb(203, 218, 233,0.9);
+    background-image: linear-gradient(rgba(0, 10, 50, 0.95), rgba(23, 3, 243, 0.1));
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;

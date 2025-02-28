@@ -84,7 +84,7 @@ function DogPage(){
                 setSideBar(true)
                 setIsSideBarOpen(true)
                 }} >
-            <FaArrowLeft color='blue'/>
+            <FaArrowLeft color='darkblue'/>
             </button>
             </div>        
             <div className="sidebar"

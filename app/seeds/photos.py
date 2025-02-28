@@ -108,6 +108,13 @@ def seed_photos():
        description='brief introduction15',
        image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-simonakidric-2607544.jpg', 
        user_id =1,
+       dog_id=1),
+       Photo(
+        photo_date = date(2023, 5, 10),
+       title='dog photo sixteen',
+       description='brief introduction16',
+       image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-ohshineon-33273.jpg', 
+       user_id =1,
        dog_id=1)
     ]
     db.session.add_all(demo)

@@ -74,7 +74,7 @@ function PhotoPage(){
             <div className="photo-cards-title-icon">
             <h1>Photoes</h1>
                   <OpenModalButton 
-                  buttonText={<FaPhotoVideo  color="blue" />}
+                  buttonText={<FaPhotoVideo  color="darkblue" />}
                   onButtonClick={closeMenu}
                   className='photo-cards-add'
                   modalComponent={<AddNewPhotoPage />}
@@ -87,7 +87,7 @@ function PhotoPage(){
                
                 setIsSideBarOpen(true)
                 }} >
-              <FaArrowLeft color='blue'/>
+              <FaArrowLeft color='darkblue'/>
             </button>
             </div> 
      
@@ -136,7 +136,7 @@ function PhotoPage(){
                       })
                       :null
                       }
-                       <p id='see-large-photos'>to see larger photos</p>
+                       <p id='see-large-photos'>Larger Photos</p>
                        <div >
                         {
                           photos_arr !==0 ?

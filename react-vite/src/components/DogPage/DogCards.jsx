@@ -49,13 +49,13 @@ function DogCards({dogsArr}){
                 ref={ulRef}
                >
                   <OpenModalButton 
-                  buttonText="Update A Dog"
+                  buttonText="Update Dog Info"
                   onButtonClick={closeMenu}
                   className='dog-cards-delete'
                   modalComponent={<UpdateDogPage updateDog={dog}  />}
                               />
                   <OpenModalButton 
-                  buttonText="Delete A Dog"
+                  buttonText="Delete Dog Info"
                   onButtonClick={closeMenu}
                   className='dog-cards-delete'
                   modalComponent={<DeleteDogPage dog_id={dog.id}  />}
