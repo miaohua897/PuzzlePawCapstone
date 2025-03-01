@@ -64,6 +64,6 @@ class Dog(db.Model):
             "owner_country":self.owner_country,
             "created_at":self.created_at,
             "updated_at":self.updated_at,
-            "owner":self.owner.to_dict()
-
+            "owner":self.owner.to_dict(),
+            'note': [el.to_dict() for el in self.note]
         }

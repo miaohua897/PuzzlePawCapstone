@@ -5,12 +5,20 @@ from datetime import date
 def seed_notes():
     demo=Note(
        note_date = date(2024,1,1),
-       title='helloworld',
-       content='helloworld',
+       title='note1',
+       content='this is first note',
+       user_id =1,
+       dog_id=1 
+    )
+    demo1=Note(
+       note_date = date(2024,1,1),
+       title='note2',
+       content='this is second note',
        user_id =1,
        dog_id=1 
     )
     db.session.add(demo)
+    db.session.add(demo1)
     db.session.commit()
 
 def undo_notes():

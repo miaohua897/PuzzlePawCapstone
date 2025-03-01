@@ -10,6 +10,7 @@ from .api.auth_routes import auth_routes
 from .api.dog_routes import dog_routes
 from .api.photo_routes import photo_routes
 from .api.news_photo_routes import news_photo_routes
+from .api.note_routes import note_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -34,6 +35,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(dog_routes, url_prefix='/api/dogs')
 app.register_blueprint(photo_routes, url_prefix='/api/photos')
 app.register_blueprint(news_photo_routes, url_prefix='/api/news_photos')
+app.register_blueprint(note_routes,url_prefix='/api/notes')
 db.init_app(app)
 Migrate(app, db)
 
