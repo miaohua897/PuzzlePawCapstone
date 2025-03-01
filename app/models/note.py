@@ -18,3 +18,13 @@ class Note(db.Model):
 
     user = db.relationship("User", back_populates='note')
     dog =db.relationship("Dog",back_populates='note')
+
+    def to_dict(self):
+        return {
+            'id':self.id,
+            'note_date':self.note_date,
+            'title':self.title,
+            'content':self.content,
+            'user':self.user.to_dict(),
+            # 'dog':self.dog.to_dict()  cant add this one, otherwise, run into infinite loop
+        }
