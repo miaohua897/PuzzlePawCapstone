@@ -6,6 +6,7 @@ from .photos import seed_photos,undo_photos
 from .health_records import seed_health_records,undo_health_records
 from .behavior_records import seed_behavior_records,undo_behavior_records
 from .training_records import seed_training_records,undo_training_records
+from .news_photos import seed_news_photos,undo_news_photos
 
 from app.models.db import db, environment, SCHEMA
 
@@ -26,6 +27,7 @@ def seed():
         undo_dogs()
         undo_notes()
         undo_photos()
+        undo_news_photos()
         undo_health_records()
         undo_behavior_records()
         undo_training_records()
@@ -33,6 +35,7 @@ def seed():
     seed_dogs()
     seed_notes()
     seed_photos()
+    seed_news_photos()
     seed_health_records()
     seed_behavior_records()
     seed_training_records()
@@ -46,6 +49,7 @@ def undo():
     undo_dogs()
     undo_notes()
     undo_photos()
+    undo_news_photos()
     undo_health_records()
     undo_behavior_records()
     undo_training_records()

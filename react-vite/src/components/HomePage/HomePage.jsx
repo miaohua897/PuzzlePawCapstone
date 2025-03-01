@@ -1,17 +1,12 @@
 import { useEffect,useState } from 'react';
+import { useSelector} from 'react-redux';
 import MovingNotes from '../MovingNotes';
+// import {thunkLoadNewsPhotos} from '../../redux/new_photo';
 import './HomePage.css'
 
 function HomePage(){
 
-    const newsPhotos =[
-        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/2498ae5db812410784477ebda1d52497.jpg',
-        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-jozef-feher-356581-1633522.jpg',
-        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-edd1egalaxy-3628100.jpg',
-        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-ilargian-faus-763704-1629780.jpg',
-        "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-valeriya-9157299.jpg"
-    ]
-
+    const newsPhotosObj = useSelector(state=>state.newsPhoto.newsPhoto);
     const [currentIndex, setCurrentIndex]= useState(0);
 
     useEffect(()=>{
@@ -20,6 +15,16 @@ function HomePage(){
         },3600)
         return ()=>clearInterval(interval)
     },[])
+
+    let newsPhotos = [
+        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg',
+        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-pixabay-65928.jpg',
+        'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1562983.jpg']
+
+    if(newsPhotosObj) {
+        for (let i =0; i < Object.values(newsPhotosObj).length;i++)
+        newsPhotos.push(Object.values(newsPhotosObj)[i].image_url);
+    }
 
     return (
         <div className='homepage-container'>
