@@ -8,11 +8,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import photoReducer from './photo';
 import dogReducer from "./dog";
+import newsPhotoReducer from "./new_photo";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   photo:photoReducer,
-  dog:dogReducer
+  dog:dogReducer,
+  newsPhoto:newsPhotoReducer
 });
 
 let enhancer;

@@ -1,8 +1,8 @@
-"""create-table
+"""adding-table
 
-Revision ID: 25e01e6c8b57
+Revision ID: a43b25c28d58
 Revises: 
-Create Date: 2025-02-19 08:56:45.255034
+Create Date: 2025-02-28 18:32:09.137948
 
 """
 from alembic import op
@@ -13,7 +13,7 @@ environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = '25e01e6c8b57'
+revision = 'a43b25c28d58'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -52,6 +52,18 @@ def upgrade():
     sa.Column('owner_address_state', sa.String(length=30), nullable=False),
     sa.Column('owner_address_zip_code', sa.Integer(), nullable=False),
     sa.Column('owner_country', sa.String(length=30), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.Column('updated_at', sa.DateTime(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('news_photos',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('photo_date', sa.Date(), nullable=False),
+    sa.Column('title', sa.String(length=30), nullable=False),
+    sa.Column('description', sa.Text(), nullable=False),
+    sa.Column('image_url', sa.String(length=2000), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
@@ -107,8 +119,7 @@ def upgrade():
     sa.Column('dog_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['dog_id'], ['dogs.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('description')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('training_records',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -128,6 +139,7 @@ def upgrade():
         op.execute(f"ALTER TABLE dogs SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE notes SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE photos SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE news_photos SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE behavior_records SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE health_records SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE training_records SET SCHEMA {SCHEMA};")
@@ -140,6 +152,7 @@ def downgrade():
     op.drop_table('notes')
     op.drop_table('health_records')
     op.drop_table('behavior_records')
+    op.drop_table('news_photos')
     op.drop_table('dogs')
     op.drop_table('users')
     # ### end Alembic commands ###

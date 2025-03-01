@@ -11,4 +11,4 @@ class PhotoForm(FlaskForm):
     image_url = FileField("image_url", validators=[Optional(), FileAllowed(list(ALLOWED_EXTENSIONS))])
     dog_id = IntegerField('dog_id',validators=[DataRequired()])
     user_id = IntegerField('user_id',validators=[DataRequired()])
-    submit = SubmitField("Create a dog")
+    submit = SubmitField("create a photo")
