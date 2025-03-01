@@ -177,10 +177,16 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;    
+}
+.dog-bio-basic-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    height: 40px;
-    overflow: scroll;
-    
+    width: 400px;
+    height: 40px;  
+    overflow: scroll; 
 }
 #dog-basic-label{
     font-size: 16px;

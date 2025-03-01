@@ -35,9 +35,9 @@ function DogShowCase({dogsArr,existDog,showDog,dogs}){
                                     </div>
                         </div>
             
-                                <div className="dog-basic-text">
+                                <div className="dog-bio-basic-text">
                                     <p id='dog-basic-label'>Bio:</p>
-                                    <p id='dog-basic-info-text' >
+                                    <p id='dog-bio-basic-info-text' >
                                         {dogs[selectedDogId].description}
                                     </p>
                                 </div>
