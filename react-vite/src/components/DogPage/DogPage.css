@@ -333,3 +333,16 @@
     font-weight: bolder;
     padding-left: 5px;
 }
+.newest-health-record-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-bottom: 0.5px dashed rgb(139, 139, 174);
+}
+.newest-health-record-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap:10px;
+}

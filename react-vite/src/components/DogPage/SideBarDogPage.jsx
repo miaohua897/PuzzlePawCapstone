@@ -2,7 +2,7 @@ import DogCards from './DogCards';
 import {useNavigate} from 'react-router-dom';
 import {useSideBarStatus} from '../../context/SideBar';
 import { FaArrowRight} from 'react-icons/fa';
-import NewestDogNote from './NewestDogNote';
+import NewestDogNoteRecord from './NewestDogNoteRecord';
  
 function SideBarDogPage({dogsArr}){
     
@@ -45,7 +45,7 @@ function SideBarDogPage({dogsArr}){
                 </div>
                 <div className="scrollable">
                 <DogCards  dogsArr={dogsArr} />
-                <NewestDogNote dogsArr={dogsArr} />
+                <NewestDogNoteRecord dogsArr={dogsArr} />
                 </div>      
         </div>
     )

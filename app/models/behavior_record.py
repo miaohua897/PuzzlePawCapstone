@@ -16,3 +16,11 @@ class Behavior_Record(db.Model):
 
     dog_id = db.Column(db.Integer,db.ForeignKey(add_prefix_for_prod('dogs.id')))
     dog =db.relationship("Dog",back_populates='behavior_record')
+
+    def to_dict(self):
+        return {
+            'id':self.id,
+            'behavior_record_date':self.behavior_record_date,
+            'behavior_type':self.behavior_type,
+            'description':self.description
+        }

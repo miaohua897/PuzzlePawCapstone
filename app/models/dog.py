@@ -65,5 +65,8 @@ class Dog(db.Model):
             "created_at":self.created_at,
             "updated_at":self.updated_at,
             "owner":self.owner.to_dict(),
-            'note': [el.to_dict() for el in self.note]
+            'note': [el.to_dict() for el in self.note],
+            'health_record':[el.to_dict() for el in self.health_record],
+            'behavior_record':[el.to_dict() for el in self.behavior_record],
+            'training_record':[el.to_dict() for el in self.training_record]
         }
