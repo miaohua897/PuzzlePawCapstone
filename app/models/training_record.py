@@ -17,3 +17,16 @@ class Training_Record(db.Model):
     dog_id = db.Column(db.Integer,db.ForeignKey(add_prefix_for_prod('dogs.id')))
 
     dog =db.relationship("Dog",back_populates='training_record')
+
+    def to_dict(self):
+        return {
+            'id':self.id,
+            'training_date':self.training_date,
+            'training_type':self.training_type,
+            'trainer_name':self.trainer_name,
+            'notes':self.notes,
+        }
+
+
+
+ 

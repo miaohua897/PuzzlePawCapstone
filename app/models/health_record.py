@@ -17,3 +17,13 @@ class Health_Record(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.today, onupdate=datetime.today)
     
     dog =db.relationship("Dog",back_populates='health_record')
+
+    def to_dict(self):
+        return {
+            'id':self.id,
+            'record_date':self.record_date,
+            'description':self.description,
+            'treatment':self.treatment,
+            'vet_name':self.vet_name,
+            'dog_id':self.dog_id
+        }
