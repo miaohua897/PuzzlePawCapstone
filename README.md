@@ -5,10 +5,24 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 ## Live Link
 https://puzzlepawcapstone.onrender.com/
 
+## Index
+[Database-Scheme](https://github.com/miaohua897/PuzzlePawCapstone/wiki/Database-Schema) 
+[Feature List](https://github.com/miaohua897/PuzzlePawCapstone/wiki/MVP's-Feature-List) 
+[User Stores](https://github.com/miaohua897/PuzzlePawCapstone/wiki/User-Stories)
+[WireFrame](https://github.com/miaohua897/PuzzlePawCapstone/wiki/wireframes)
 
 ## Landing Page
 
 https://github.com/user-attachments/assets/548dab2c-65d6-4457-99e5-1885ff85d598
+
+## Dogs' Detail Page
+
+https://github.com/user-attachments/assets/bd7f2388-7d1b-4fcc-ad4d-731a1e663029
+
+## Photos' Page
+
+https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
+
 
 # Flask React Project
 
