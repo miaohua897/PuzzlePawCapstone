@@ -109,7 +109,7 @@ Error Response: HTTP Status 401
 ‘error’: ARRAY_OF_STRINGS  
 }  
 
-## create a new dog
+## Create a new dog
 POST /dogs  
 Description: Creates a new dog record in the database.  
 Request Body : 
@@ -140,29 +140,133 @@ Request Body :
 Response:   
 Status: 201    
 body: {  
-  "dog_name": "Buddy",  
-  "age": 3,  
-  "gender": "Male",  
-  "neutered_spayed": "Neutered",  
-  "microchip": true,
-  "color": "Brown",
-  "weight": 25.5,
-  "image_url": "http://example.com/dog_image.jpg",
-  "birth_date": "2022-03-15",
-  "breed_name": "Labrador Retriever",
-  "description": "Friendly and active dog",
-  "medical_allergies": "None",
-  "owner_name": "John Doe",
-  "owner_phone_number": 1234567890,
-  "owner_email": "johndoe@example.com",
-  "owner_address_line_one": "123 Main St",
-  "owner_address_line_two": "Apt 101",
-  "owner_adress_city": "Somewhere",
-  "owner_address_state": "CA",
-  "owner_address_zip_code": 12345,
-  "owner_country": "USA",
-  "user_id": 1
+  "dog_name": "Buddy",    
+  "age": 3,    
+  "gender": "Male",    
+  "neutered_spayed": "Neutered",    
+  "microchip": true,   
+  "color": "Brown",   
+  "weight": 25.5,   
+  "image_url": "http://example.com/dog_image.jpg",   
+  "birth_date": "2022-03-15",   
+  "breed_name": "Labrador Retriever",    
+  "description": "Friendly and active dog",    
+  "medical_allergies": "None",   
+  "owner_name": "John Doe",   
+  "owner_phone_number": 1234567890,    
+  "owner_email": "johndoe@example.com",   
+  "owner_address_line_one": "123 Main St",   
+  "owner_address_line_two": "Apt 101",   
+  "owner_adress_city": "Somewhere",   
+  "owner_address_state": "CA",   
+  "owner_address_zip_code": 12345,   
+  "owner_country": "USA",   
+  "user_id": 1   
 }
+
+## Get all dogs
+GET /dogs     
+Description: Retrieves a list of all dogs in the database.     
+Response :  
+{  
+  "1": {  
+    "age": 1,  
+    "behavior_record": [  
+      {  
+        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
+        "behavior_type": "behavior record1",  
+        "description": "behavior record1",    
+        "id": 1  
+      },  
+      {  
+        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "behavior_type": "behavior record2",  
+        "description": "behavior record2",  
+        "id": 2  
+      }  
+    ],  
+    "birth_date": "Wed, 10 May 2023 00:00:00 GMT",  
+    "breed_name": "Breed one",  
+    "color": "white",  
+    "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
+    "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh",  
+    "dog_name": "Dog1",  
+    "gender": "male",  
+    "health_record": [  
+      {  
+        "description": "health record1",  
+        "dog_id": 1,  
+        "id": 1,  
+        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "treatment": "health record1",  
+        "vet_name": "hhh"  
+      },  
+      {  
+        "description": "health record2",  
+        "dog_id": 1,  
+        "id": 2,  
+        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "treatment": "health record2",  
+        "vet_name": "hhh"  
+      }  
+    ],  
+    "id": 1,  
+    "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",  
+    "medical_allergies": "NA",  
+    "neutered_spayed": "spayed",  
+    "note": [  
+      {  
+        "content": "this is first note",   
+        "id": 1,  
+        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "title": "note1",  
+        "user": {  
+          "email": "demo@aa.io",   
+          "id": 1,   
+          "username": "Demo"   
+        }  
+      },  
+      {  
+        "content": "this is second note",  
+        "id": 2,  
+        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "title": "note2",  
+        "user": {  
+          "email": "demo@aa.io",   
+          "id": 1,  
+          "username": "Demo"  
+        }  
+      }  
+    ],  
+    "owner": {  
+      "email": "demo@aa.io",  
+      "id": 1,   
+      "username": "Demo"   
+    },   
+    "owner_address_city": "SD",   
+    "owner_address_line_one": "helloworld ln",  
+    "owner_address_line_two": "helloworld two ln",  
+    "owner_address_state": "CA",   
+    "owner_address_zip_code": 92130,   
+    "owner_country": "UK",  
+    "owner_email": "hello@gmail.com",    
+    "owner_phone_number": "1234556435",  
+    "training_record": [     
+      {   
+        "id": 1,   
+        "notes": "helloworld",  
+        "trainer_name": "hi",  
+        "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "training_type": "helloworld"  
+      }   
+    ],   
+    "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",   
+    "weight": "7.00"   
+  },   
+  "2": ...    
+}   
+
+
 
 
 
