@@ -1,6 +1,6 @@
 ## Welcome to PuzzlePaw
 
-PuzzlePaw is a dog website, users can see newest information in the website, create an account, store their dogs' information, photos.
+PuzzlePaw is a dog website, users can see newest information in the website, create an account, store their dogs' information, photos. On the landing page, there is dog article, images auto displaying, scrolling displaying. On the dog information page, users can get their dogs lastest information easily at sidebar. On the photo page, user can see all of their photes and checkout larger version at sidbar.
 
 ## Live Link
 [PuzzlePaw](https://puzzlepawcapstone.onrender.com/)
