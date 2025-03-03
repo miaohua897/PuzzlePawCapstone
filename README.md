@@ -3,7 +3,7 @@
 PuzzlePaw is a dog website, users can see newest information in the website, create an account, store their dogs' information, photos.
 
 ## Live Link
-https://puzzlepawcapstone.onrender.com/
+[!PuzzlePaw](https://puzzlepawcapstone.onrender.com/)
 
 ## Tech Stack
 **Frameworks and Libraries:**     
