@@ -41,6 +41,76 @@ https://github.com/user-attachments/assets/bd7f2388-7d1b-4fcc-ad4d-731a1e663029
 https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
 
+**EndPoints**
+
+## Auth Routes 
+Current User   
+Method: POST   
+URL:/api/auth/   
+Successful Response: HTTP Status Code 200   
+{  
+‘email’: STRING,  
+‘id’:INT,  
+‘username’:STRING  
+}  
+Error Response:HTTP Status Code 401  
+{   
+'errors': 'Unauthorized'   
+}                 
+
+Unauthorized  
+Method POST  
+URL: /api/auth/unauthorized  
+Error Response: HTTP Status Code  
+{  
+‘error’:”unauthorized”  
+}  
+
+## Signup
+
+Method: POST  
+URL: /api/auth/signup  
+Successful Response: HTTP Status 201  
+{  
+‘id’:INT,  
+‘username’:’STRING’,  
+‘email’:’STRING’  
+}  
+error response: HTTP Status 401  
+{  
+‘error’: ARRAY_OF_STRINGS   
+}  
+
+## Login
+
+Method: POST   
+URL: /api/auth/login   
+Successful Response: HTTP Status 200  
+{  
+‘id’: INT,  
+‘username’:STRING,  
+‘email’:STRING  
+}  
+Error Response: HTTP Status 401  
+{  
+‘error’: ARRAY_OF_STRINGS  
+}  
+
+## Logout
+
+Method : POST  
+URL: /api/auth/logout  
+Successful Response: HTTP Status 200  
+{  
+‘message’: ‘User logged out’  
+}  
+Error Response: HTTP Status 401  
+{  
+‘error’: ARRAY_OF_STRINGS  
+}  
+
+
+
 # Flask React Project
 
 This is the starter for the Flask React project.

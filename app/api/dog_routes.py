@@ -13,6 +13,7 @@ def get_all_dogs():
     return {dog.id: dog.to_dict() for dog in dogs}
 
 @dog_routes.route('/current',methods=['GET'])
+@login_required
 def get_session_dogs():
     dogs = Dog.query.filter_by(user_id=current_user.id).all()
     return {dog.id: dog.to_dict() for dog in dogs}
