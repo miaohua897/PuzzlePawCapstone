@@ -1,3 +1,15 @@
+## Welcome to PuzzlePaw
+
+PuzzlePaw is a dog website, users can see newest information in the website, create an account, store their dogs' information, photos.
+
+## Live Link
+https://puzzlepawcapstone.onrender.com/
+
+
+## Landing Page
+
+https://github.com/user-attachments/assets/548dab2c-65d6-4457-99e5-1885ff85d598
+
 # Flask React Project
 
 This is the starter for the Flask React project.
