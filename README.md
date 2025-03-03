@@ -16,11 +16,11 @@ https://puzzlepawcapstone.onrender.com/
 [![CSS3](https://img.shields.io/badge/-CSS3-black?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 **Database:**     
-![PostgressSql](https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white) | 
-![Sqlalchemy](https://img.shields.io/badge/sqlalchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white) |
+[![PostgressSql](https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Sqlalchemy](https://img.shields.io/badge/sqlalchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)]](https://www.sqlalchemy.org/)
 
 **Hosting:**    
-![Render](https://img.shields.io/badge/Render-000000?style=for-the-badge&logo=render&logoColor=white)
+[![Render](https://img.shields.io/badge/Render-000000?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
 
 ## Index
 [Database-Scheme](https://github.com/miaohua897/PuzzlePawCapstone/wiki/Database-Schema) |
