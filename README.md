@@ -5,11 +5,28 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 ## Live Link
 https://puzzlepawcapstone.onrender.com/
 
+## Tech Stack
+#Frameworks and Libraries:#
+https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54 | 
+https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white | 
+https://shields.io/badge/react-black?logo=react&style=for-the-badge | 
+https://img.shields.io/badge/-Redux-black?style=flat-square&logo=redux | 
+https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square | 
+https://img.shields.io/badge/-Html5-black?style=flat-squar | 
+https://img.shields.io/badge/-CSS3-black?style=flat-squar | 
+
+#Database:#
+https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white | 
+https://img.shields.io/badge/sqlalchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white |
+
+#Hosting:#
+https://img.shields.io/badge/Render-000000?style=for-the-badge&logo=render&logoColor=white
+
 ## Index
-[Database-Scheme](https://github.com/miaohua897/PuzzlePawCapstone/wiki/Database-Schema) 
-[Feature List](https://github.com/miaohua897/PuzzlePawCapstone/wiki/MVP's-Feature-List) 
-[User Stores](https://github.com/miaohua897/PuzzlePawCapstone/wiki/User-Stories)
-[WireFrame](https://github.com/miaohua897/PuzzlePawCapstone/wiki/wireframes)
+[Database-Scheme](https://github.com/miaohua897/PuzzlePawCapstone/wiki/Database-Schema) |
+[Feature List](https://github.com/miaohua897/PuzzlePawCapstone/wiki/MVP's-Feature-List) |
+[User Stores](https://github.com/miaohua897/PuzzlePawCapstone/wiki/User-Stories) |
+[WireFrame](https://github.com/miaohua897/PuzzlePawCapstone/wiki/wireframes) |
 
 ## Landing Page
 
