@@ -7,13 +7,13 @@ https://puzzlepawcapstone.onrender.com/
 
 ## Tech Stack
 **Frameworks and Libraries:**     
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) [Python](https://python.org/)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white) [Flask](https://flask.palletsprojects.com/)
-![React](https://img.shields.io/badge/react-black?style=for-the-badge&logo=react)[React](https://reactjs.org/)
-![Redux](https://img.shields.io/badge/-Redux-black?style=for-the-badge&logo=redux)[Redux](https://redux.js.org/)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=for-the-badge)[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-![Html5](https://img.shields.io/badge/-Html5-black?style=for-the-badge)[Html5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
-![CSS3](https://img.shields.io/badge/-CSS3-black?style=for-the-badge)[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://python.org/)
+[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![React](https://img.shields.io/badge/react-black?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/-Redux-black?style=for-the-badge&logo=redux)](https://redux.js.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Html5](https://img.shields.io/badge/-Html5-black?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+[![CSS3](https://img.shields.io/badge/-CSS3-black?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 **Database:**     
 ![PostgressSql](https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white) | 
