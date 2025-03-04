@@ -59,27 +59,17 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Error Response**        | HTTP Status Code 401                                                                                                                                             |
 | **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                                                                                                  |
 
-**Current User** 
-**Method**: POST   
-**URL**:/api/auth/   
-**Successful Response**: HTTP Status Code 200   
-{  
-‘email’: STRING,  
-‘id’:INT,  
-‘username’:STRING  
-}  
-Error Response:HTTP Status Code 401  
-{   
-'errors': 'Unauthorized'   
-}                 
+ 
+| **Field**                | **Details**                                                                                                                                                      |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Unauthorized**         |                                                                                             |
+| **Method**                | POST                                                                                                                                                            |
+| **URL**                   | /api/auth/unauthorized                                                                                                                                                      |
+| **Successful Response**   |                                                                                                                                             |
+| **Response Body**         |                                                                                                            |
+| **Error Response**        | HTTP Status Code 401                                                                                                                                             |
+| **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                                                                                                  |
 
-**Unauthorized**  
-**Method**: POST  
-**URL**: /api/auth/unauthorized  
-**Error Response**: HTTP Status Code  
-{  
-‘error’:”unauthorized”  
-}  
 
 ## Signup
 
