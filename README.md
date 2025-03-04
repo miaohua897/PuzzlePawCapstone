@@ -489,7 +489,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Response Body**  | ```json                                                                                                      |
 |                    | {                                                                                                           |
 |                    |   "1": {                                                                                                     |
-|                    |     "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",  |
+|                    |     "description": "A dog photo typically captures ty and appearance.",  |
 |                    |     "dog": {                                                                                                 |
 |                    |       "age": 1,                                                                                             |
 |                    |       "behavior_record": [                                                                                  |
