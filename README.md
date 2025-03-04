@@ -49,7 +49,7 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 
 
 -----------------------------------------------------------------------------
-#EndPoints
+# EndPoints
 
 ## Auth Routes 
 
