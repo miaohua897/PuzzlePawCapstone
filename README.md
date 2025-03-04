@@ -1353,6 +1353,17 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 1. Dog's Detail Page
 2. Photo's Detail Page
 
+## To-dos/future features
+
+1. Note of dogs features
+2. Health records of dog features
+3. Traning records of dog features
+4. Behavior records of dog features
+5. Comments/forum features
+6. New parents features
+7. Training tips features
+8. Health tips features
+
 ## Contact
 [miaohua](https://github.com/miaohua897)
 [LinkedIn](https://www.linkedin.com/in/haijian-hou-b1b32b344/)   
