@@ -278,59 +278,64 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
 ## Update a dog
 
-**Method**: PUT /dogs/dog_id   
-**Description**: Updates the details of an existing dog record.   
-**Request Body**:  
-{  
-  "dog_name": "Buddy",  
-  "age": 4,  
-  "gender": "Male",  
-  "neutered_spayed": "Neutered",  
-  "microchip": true,  
-  "color": "Brown",  
-  "weight": 27.0,   
-  "image_url": "http://example.com/dog_image_updated.jpg",   
-  "birth_date": "2021-03-15",   
-  "breed_name": "Labrador Retriever",   
-  "description": "Friendly and active dog",  
-  "medical_allergies": "None",  
-  "owner_name": "John Doe",  
-  "owner_phone_number": 1234567890,   
-  "owner_email": "johndoe@example.com",   
-  "owner_address_line_one": "123 Main St",  
-  "owner_address_line_two": "Apt 101",  
-  "owner_adress_city": "Somewhere",   
-  "owner_address_state": "CA",   
-  "owner_address_zip_code": 12345,   
-  "owner_country": "USA",   
-  "user_id": 1   
-}  
 
-**Response** 201:   
-{  
-  "dog_name": "Buddy",  
-  "age": 4,  
-  "gender": "Male",  
-  "neutered_spayed": "Neutered",  
-  "microchip": true,   
-  "color": "Brown",   
-  "weight": 27.0,   
-  "image_url": "http://example.com/dog_image_updated.jpg",   
-  "birth_date": "2021-03-15",   
-  "breed_name": "Labrador Retriever",   
-  "description": "Friendly and active dog",   
-  "medical_allergies": "None",   
-  "owner_name": "John Doe",   
-  "owner_phone_number": 1234567890,  
-  "owner_email": "johndoe@example.com",   
-  "owner_address_line_one": "123 Main St",   
-  "owner_address_line_two": "Apt 101",   
-  "owner_adress_city": "Somewhere",   
-  "owner_address_state": "CA",   
-  "owner_address_zip_code": 12345,   
-  "owner_country": "USA",   
-  "user_id": 1   
-}   
+| **Field**                | **Details**                                                                                                 |
+|--------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Method**                | PUT /dogs/dog_id                                                                                                   |
+| **Description**           | Updates the details of an existing dog record.                                                                   |
+| **Request Body**          | ```json                                                                                                      |
+|                           |   {                                                                                                        | 
+|                           |     "dog_name": "Buddy",                                                                                   | 
+|                           |     "age": 4,                                                                                              |
+|                           |     "gender": "Male",                                                                                      |   
+|                           |     "neutered_spayed": "Neutered",                                                                         |
+|                           |     "microchip": true,                                                                                     | 
+|                           |     "color": "Brown",                                                                                      |
+|                           |     "weight": 27.0,                                                                                        | 
+|                           |     "image_url": "http://example.com/dog_image_updated.jpg",                                               |
+|                           |     "birth_date": "2021-03-15",                                                                            | 
+|                           |     "breed_name": "Labrador Retriever",                                                                    | 
+|                           |     "description": "Friendly and active dog",                                                              | 
+|                           |     "medical_allergies": "None",                                                                           |
+|                           |     "owner_name": "John Doe",                                                                              |  
+|                           |     "owner_phone_number": 1234567890,                                                                      |   
+|                           |     "owner_email": "johndoe@example.com",                                                                  |   
+|                           |     "owner_address_line_one": "123 Main St",                                                               | 
+|                           |     "owner_address_line_two": "Apt 101",                                                                   |
+|                           |     "owner_adress_city": "Somewhere",                                                                      |  
+|                           |     "owner_address_state": "CA",                                                                             |  
+|                           |     "owner_address_zip_code": 12345,                                                                        |  
+|                           |     "owner_country": "USA",                                                                                  |   
+|                           |     "user_id": 1                                                                                           |  
+}                                                                                                                                        |
+| **Response Status**       | 201                                                                                                         |
+| **Response Body**         | ```json                                                                                                      |
+|                           |   {                                                                                                        | 
+|                           |     "dog_name": "Buddy",                                                                                   | 
+|                           |     "age": 4,                                                                                              |
+|                           |     "gender": "Male",                                                                                      |   
+|                           |     "neutered_spayed": "Neutered",                                                                         |
+|                           |     "microchip": true,                                                                                     | 
+|                           |     "color": "Brown",                                                                                      |
+|                           |     "weight": 27.0,                                                                                        | 
+|                           |     "image_url": "http://example.com/dog_image_updated.jpg",                                               |
+|                           |     "birth_date": "2021-03-15",                                                                            | 
+|                           |     "breed_name": "Labrador Retriever",                                                                    | 
+|                           |     "description": "Friendly and active dog",                                                              | 
+|                           |     "medical_allergies": "None",                                                                           |
+|                           |     "owner_name": "John Doe",                                                                              |  
+|                           |     "owner_phone_number": 1234567890,                                                                      |   
+|                           |     "owner_email": "johndoe@example.com",                                                                  |   
+|                           |     "owner_address_line_one": "123 Main St",                                                               | 
+|                           |     "owner_address_line_two": "Apt 101",                                                                   |
+|                           |     "owner_adress_city": "Somewhere",                                                                      |  
+|                           |     "owner_address_state": "CA",                                                                             |  
+|                           |     "owner_address_zip_code": 12345,                                                                        |  
+|                           |     "owner_country": "USA",                                                                                  |   
+|                           |     "user_id": 1                                                                                           |  
+}                                                                                                                                        |
+
+   
 
 ## Delete a dog
 
