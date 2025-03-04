@@ -132,12 +132,12 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |--------------------------|------------------------------------------------------------------------------------------------|
 | **Method**                | GET /dogs/                                                                                    |
 | **Description**           | Retrieves all dogs owned by the current user.                                                 |
-| **Response**              | ```json                                                                                                      |
-|                          | {                                                                                                           |
-|                          |   "1": {                                                                                                     |
-|                          |     "age": 1,                                                                                                 |
-|                          |     "behavior_record": [                                                                                      |
-|                          |       {                                                                                                      |
+| **Response**              | ```json                                                                                      |
+|                          | {                                                                                            |
+|                          |   "1": {                                                                                      |
+|                          |     "age": 1,                                                                                  |
+|                          |     "behavior_record": [                                                                       |
+|                          |       {                                                                                         |
 |                          |         "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                           |
 |                          |         "behavior_type": "behavior record1",                                                                 |
 |                          |         "description": "behavior record1",                                                                   |
