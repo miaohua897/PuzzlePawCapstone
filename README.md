@@ -74,6 +74,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
 ## Signup
 
+
 | **Field**                | **Details**                                                                                                                                                      |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Current User**          |                                                                                             |
@@ -85,47 +86,34 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
 
 
-
-**Method**: POST  
-**URL**: /api/auth/signup  
-**Successful Response**: HTTP Status 201  
-{  
-‘id’:INT,  
-‘username’:’STRING’,  
-‘email’:’STRING’  
-}  
-**error response**: HTTP Status 401  
-{  
-‘error’: ARRAY_OF_STRINGS   
-}  
-
 ## Login
 
-**Method**: POST   
-**URL**: /api/auth/login   
-**Successful Response**: HTTP Status 200  
-{  
-‘id’: INT,  
-‘username’:STRING,  
-‘email’:STRING  
-}  
-**Error Response**: HTTP Status 401  
-{  
-‘error’: ARRAY_OF_STRINGS  
-}  
+
+| **Field**                | **Details**                                                                                                                                                      |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Current User**          |                                                                                             |
+| **Method**                | POST                                                                                                                                                            |
+| **URL**                   | /api/auth/login                                                                                                                                                     |
+| **Successful Response**   | HTTP Status Code 201                                                                                                                                             |
+| **Response Body**         | `{‘id’:INT,‘username’:’STRING’,‘email’:’STRING’ } `                                                                                                            |
+| **Error Response**        | HTTP Status Code 401                                                                                                                                             |
+| **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
+ 
+
 
 ## Logout
 
-**Method**: POST  
-**URL**: /api/auth/logout  
-**Successful Response**: HTTP Status 200  
-{  
-‘message’: ‘User logged out’  
-}  
-**Error Response**: HTTP Status 401  
-{  
-‘error’: ARRAY_OF_STRINGS  
-}  
+
+| **Field**                | **Details**                                                                                                                                                      |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Current User**          |                                                                                             |
+| **Method**                | POST                                                                                                                                                            |
+| **URL**                   | /api/auth/logout                                                                                                                                                     |
+| **Successful Response**   | HTTP Status Code 201                                                                                                                                             |
+| **Response Body**         | `{‘message’: ‘User logged out’ } `                                                                                                            |
+| **Error Response**        | HTTP Status Code 401                                                                                                                                             |
+| **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
+ 
 
 ## Create a new dog
 **Method**: POST /dogs  
