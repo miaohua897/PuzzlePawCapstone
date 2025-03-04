@@ -54,24 +54,25 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Field**                | **Details**                                                                                                                                                      |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Current User**          |                                                                                             |
-| **Method**                | POST                                                                                                                                                            |
-| **URL**                   | /api/auth/                                                                                                                                                      |
-| **Successful Response**   | HTTP Status Code 200                                                                                                                                             |
-| **Response Body**         | `{ 'email': STRING, 'id': INT, 'username': STRING }`                                                                                                            |
-| **Error Response**        | HTTP Status Code 401                                                                                                                                             |
-| **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                                                                                                  |
+| **Method**                | POST                                                                                         |                                                                   |
+| **URL**                   | /api/auth/                                                                                   |                                                                   |
+| **Successful Response**   | HTTP Status Code 200                                                                         |                                                                    |
+| **Response Body**         | `{ 'email': STRING, 'id': INT, 'username': STRING }`                                         |                                                                   |
+| **Error Response**        | HTTP Status Code 401                                                                         |                                                                    |
+| **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                               |                                                                   |
+
 
 
 
 | **Field**                | **Details**                                                                                                                                                      |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Unauthorized**         |                                                                                             |
-| **Method**                | POST                                                                                                                                                            |
-| **URL**                   | /api/auth/unauthorized                                                                                                                                                      |
-| **Successful Response**   |                                                                                                                                             |
+| **Method**                | POST                                                                                       |                                                                     |
+| **URL**                   | /api/auth/unauthorized                                                                     |                                                                                 |
+| **Successful Response**   |                                                                                            |                                                 |
 | **Response Body**         |                                                                                                            |
-| **Error Response**        | HTTP Status Code 401                                                                                                                                             |
-| **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                                                                                                  |
+| **Error Response**        | HTTP Status Code 401                                                                       |                                                                      |
+| **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                             |                                                                     |
 
 
 -----------------------------------------------------------------------------
@@ -82,12 +83,12 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Field**                | **Details**                                                                                                                                                      |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Current User**          |                                                                                             |
-| **Method**                | POST                                                                                                                                                            |
-| **URL**                   | /api/auth/signup                                                                                                                                                     |
-| **Successful Response**   | HTTP Status Code 201                                                                                                                                             |
-| **Response Body**         | `{‘id’:INT,‘username’:’STRING’,‘email’:’STRING’ } `                                                                                                            |
-| **Error Response**        | HTTP Status Code 401                                                                                                                                             |
-| **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
+| **Method**                | POST                                                                                        |                                                                    |
+| **URL**                   | /api/auth/signup                                                                            |                                                                         |
+| **Successful Response**   | HTTP Status Code 201                                                                        |                                                                     |
+| **Response Body**         | `{‘id’:INT,‘username’:’STRING’,‘email’:’STRING’ } `                                         |                                                                   |
+| **Error Response**        | HTTP Status Code 401                                                                        |                                                                     |
+| **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                              |                                                                    |
 
 
 -----------------------------------------------------------------------------
@@ -98,12 +99,12 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Field**                | **Details**                                                                                                                                                      |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Current User**          |                                                                                             |
-| **Method**                | POST                                                                                                                                                            |
-| **URL**                   | /api/auth/login                                                                                                                                                     |
-| **Successful Response**   | HTTP Status Code 201                                                                                                                                             |
-| **Response Body**         | `{‘id’:INT,‘username’:’STRING’,‘email’:’STRING’ } `                                                                                                            |
-| **Error Response**        | HTTP Status Code 401                                                                                                                                             |
-| **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
+| **Method**                | POST                                                                                        |                                                                    |
+| **URL**                   | /api/auth/login                                                                             |                                                                        |
+| **Successful Response**   | HTTP Status Code 201                                                                        |                                                                     |
+| **Response Body**         | `{‘id’:INT,‘username’:’STRING’,‘email’:’STRING’ } `                                         |                                                                   |
+| **Error Response**        | HTTP Status Code 401                                                                        |                                                                     |
+| **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                              |                                                                    |
  
 
 
@@ -115,12 +116,12 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Field**                | **Details**                                                                                                                                                      |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Current User**          |                                                                                             |
-| **Method**                | POST                                                                                                                                                            |
-| **URL**                   | /api/auth/logout                                                                                                                                                     |
-| **Successful Response**   | HTTP Status Code 201                                                                                                                                             |
-| **Response Body**         | `{‘message’: ‘User logged out’ } `                                                                                                            |
-| **Error Response**        | HTTP Status Code 401                                                                                                                                             |
-| **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
+| **Method**                | POST                                                                                        |                                                                    |
+| **URL**                   | /api/auth/logout                                                                            |                                                                         |
+| **Successful Response**   | HTTP Status Code 201                                                                        |                                                                     |
+| **Response Body**         | `{‘message’: ‘User logged out’ } `                                                          |                                                  |
+| **Error Response**        | HTTP Status Code 401                                                                        |                                                                     |
+| **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                              |                                                                    |
  
 
 -----------------------------------------------------------------------------
@@ -358,12 +359,12 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Field**                            | **Details**                                                                                                                                                      |
 |--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Delete a Dog information**         |                                                                                             |
-| **Method**                           | DELETE                                                                                                                                                           |
-| **URL**                              | /dogs/dog_id                                                                                                                                                      |
-| **Successful Response**              | HTTP Status Code 200                                                                                                                                            |
-| **Response Body**                    | `{‘message’:’delete it successfully’} `                                                                                                          |
-| **Error Response**                   | HTTP Status Code 401                                                                                                                                             |
-| **Error Response Body**              | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                   |
+| **Method**                           | DELETE                                                                                      |                                                                     |
+| **URL**                              | /dogs/dog_id                                                                                |                                                                      |
+| **Successful Response**              | HTTP Status Code 200                                                                        |                                                                    |
+| **Response Body**                    | `{‘message’:’delete it successfully’} `                                                     |                                                     |
+| **Error Response**                   | HTTP Status Code 401                                                                        |                                                                     |
+| **Error Response Body**              | `{‘error’: ARRAY_OF_STRINGS} `                                                              |                                                                     |
 
    
 
@@ -478,7 +479,6 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
 ## Get all photos
 
-## Fetch All Photos in the Database
 
 | **Field**          | **Details**                                                                                                 |
 |--------------------|-------------------------------------------------------------------------------------------------------------|
@@ -755,7 +755,6 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
 ## Update a Photo
 
-## Update an Existing Photo Record
 
 | **Field**                | **Details**                                                                                                 |
 |--------------------------|-------------------------------------------------------------------------------------------------------------|
@@ -790,12 +789,12 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Field**                            | **Details**                                                                                                                                                      |
 |--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Delete a Dog information**         |                                                                                             |
-| **Method**                           | DELETE                                                                                                                                                           |
-| **URL**                              | /photos/photo_id                                                                                                                                                        |
-| **Successful Response**              | HTTP Status Code 200                                                                                                                                            |
-| **Response Body**                    | `{‘message’:’delete it successfully’} `                                                                                                          |
-| **Error Response**                   | HTTP Status Code 401                                                                                                                                             |
-| **Error Response Body**              | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
+| **Method**                           | DELETE                                                                                      |                                                                     |
+| **URL**                              | /photos/photo_id                                                                            |                                                                            |
+| **Successful Response**              | HTTP Status Code 200                                                                        |                                                                    |
+| **Response Body**                    | `{‘message’:’delete it successfully’} `                                                     |                                                     |
+| **Error Response**                   | HTTP Status Code 401                                                                        |                                                                     |
+| **Error Response Body**              | `{‘error’: ARRAY_OF_STRINGS} `                                                              |                                                                    |
 
  
 
