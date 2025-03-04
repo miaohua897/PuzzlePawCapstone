@@ -69,51 +69,51 @@ Error Response:HTTP Status Code 401
 
 ## Signup
 
-Method: POST  
-URL: /api/auth/signup  
-Successful Response: HTTP Status 201  
+**Method**: POST  
+**URL**: /api/auth/signup  
+**Successful Response**: HTTP Status 201  
 {  
 ‘id’:INT,  
 ‘username’:’STRING’,  
 ‘email’:’STRING’  
 }  
-error response: HTTP Status 401  
+**error response**: HTTP Status 401  
 {  
 ‘error’: ARRAY_OF_STRINGS   
 }  
 
 ## Login
 
-Method: POST   
-URL: /api/auth/login   
-Successful Response: HTTP Status 200  
+**Method**: POST   
+**URL**: /api/auth/login   
+**Successful Response**: HTTP Status 200  
 {  
 ‘id’: INT,  
 ‘username’:STRING,  
 ‘email’:STRING  
 }  
-Error Response: HTTP Status 401  
+**Error Response**: HTTP Status 401  
 {  
 ‘error’: ARRAY_OF_STRINGS  
 }  
 
 ## Logout
 
-Method : POST  
-URL: /api/auth/logout  
-Successful Response: HTTP Status 200  
+**Method**: POST  
+**URL**: /api/auth/logout  
+**Successful Response**: HTTP Status 200  
 {  
 ‘message’: ‘User logged out’  
 }  
-Error Response: HTTP Status 401  
+**Error Response**: HTTP Status 401  
 {  
 ‘error’: ARRAY_OF_STRINGS  
 }  
 
 ## Create a new dog
-POST /dogs  
-Description: Creates a new dog record in the database.  
-Request Body : 
+**Method**: POST /dogs  
+**Description**: Creates a new dog record in the database.  
+**Request Body**: 
 {  
   "dog_name": "Buddy",  
   "age": 3,  
@@ -138,9 +138,9 @@ Request Body :
   "owner_country": "USA",  
   "user_id": 1  
 }
-Response:   
-Status: 201    
-body: {  
+**Response**:   
+**Status**: 201    
+**body**: {  
   "dog_name": "Buddy",    
   "age": 3,    
   "gender": "Male",    
@@ -166,9 +166,9 @@ body: {
 }
 
 ## Get all dogs
-GET /dogs     
-Description: Retrieves a list of all dogs in the database.     
-Response :  
+**Method**: GET /dogs     
+**Description**: Retrieves a list of all dogs in the database.     
+**Response**:  
 {  
   "1": {  
     "age": 1,  
@@ -269,9 +269,9 @@ Response :
 
 ## Update a dog
 
-PUT /dogs/dog_id   
-Description: Updates the details of an existing dog record.   
-Request Body:  
+**Method**: PUT /dogs/dog_id   
+**Description**: Updates the details of an existing dog record.   
+**Request Body**:  
 {  
   "dog_name": "Buddy",  
   "age": 4,  
@@ -297,7 +297,7 @@ Request Body:
   "user_id": 1   
 }  
 
-Response 201:   
+**Response** 201:   
 {  
   "dog_name": "Buddy",  
   "age": 4,  
@@ -325,17 +325,17 @@ Response 201:
 
 ## Delete a dog
 
-DELETE /dogs/dog_id   
-Description: Deletes a dog record from the database.    
-Response :  
+**Method**: DELETE /dogs/dog_id   
+**Description**: Deletes a dog record from the database.    
+**Response**:  
 {    
 ‘message’:’delete it successfully’   
 }     
 
 ## Get Current User's dog
-GET /dogs/current   
-Description: Retrieves all dogs owned by current user.   
-Response:  
+**Method**: GET /dogs/current   
+**Description**: Retrieves all dogs owned by current user.   
+**Response**:  
 {  
   "1": {  
     "age": 1,  
@@ -435,12 +435,12 @@ Response:
 }   
 
 ## Get all photos
-Method: GET  
-Endpoint: /photos  
-Description: Fetch all photos in the database.  
-Response:  
-Status: 201  
-Body:   
+**Method**: GET  
+**Endpoint**: /photos  
+**Description**: Fetch all photos in the database.  
+**Response**:  
+**Status**: 201  
+**Body**:   
 {  
   "1": {  
     "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",  
@@ -553,10 +553,10 @@ Body:
 
  ## Get Current User's Photo
 
-Method: GET  
-Endpoint: /photos/current  
-Description: Fetch current user’s photos.     
-Response :    
+**Method**: GET  
+**Endpoint**: /photos/current  
+**Description**: Fetch current user’s photos.     
+**Response**:    
 {    
   "1": {      
     "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",     
@@ -668,10 +668,10 @@ Response :
 
  ## Create a New Photo
 
-Method: POST   
-Endpoint: /photos  
-Description: Create a new photo record.   
-Request Body:  
+**Method**: POST   
+**Endpoint**: /photos  
+**Description**: Create a new photo record.   
+**Request Body**:  
 {  
   "photo_date": "2025-03-03",  
   "title": "New Dog Photo",  
@@ -680,7 +680,7 @@ Request Body:
   "dog_id": 6,  
   "user_id": 7  
 }  
-Response:   
+**Response**:   
 {   
   "id": 3,   
   "photo_date": "2025-03-03",   
@@ -695,16 +695,16 @@ Response:
 
 ## Update a Photo
 
-Method: PUT   
-Endpoint: /photos/photo_id    
-Description: Update an existing photo record.   
-Request Body:   
+**Method**: PUT   
+**Endpoint**: /photos/photo_id    
+**Description**: Update an existing photo record.   
+**Request Body**:   
 {   
   "title": "Updated Dog Photo",   
   "description": "An updated description of the dog photo.",   
   "image_url": "http://example.com/updated_dog.jpg"   
 }  
-Response:  
+**Response**:  
 {  
   "id": 1,  
   "photo_date": "2025-03-01",  
@@ -718,10 +718,10 @@ Response:
 }   
 
 ## Delete a Photo
-Method: DELETE   
-Endpoint:  /photos/photo_id   
-Description: Delete a photo by its id.   
-Response:   
+**Method**: DELETE   
+**Endpoint**:  /photos/photo_id   
+**Description**: Delete a photo by its id.   
+**Response**:   
 {    
 ‘message’:’delete it successfully’   
 }   
