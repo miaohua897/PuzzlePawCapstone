@@ -726,6 +726,15 @@ Error Response:HTTP Status Code 401
 ‘message’:’delete it successfully’   
 }   
 
+## Feature List  
+
+1. Dog's Detail Page
+2. Photo's Detail Page
+
+## Contact
+[miaohua](https://github.com/miaohua897)
+[LinkedIn](https://www.linkedin.com/in/haijian-hou-b1b32b344/)
+
 
 # Flask React Project
 
