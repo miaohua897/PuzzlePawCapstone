@@ -18,9 +18,13 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 **Database:**     
 [![PostgressSql](https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Sqlalchemy](https://img.shields.io/badge/sqlalchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)](https://www.sqlalchemy.org/)
+[![SQLite3](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=SQLite&logoColor=white)](https://www.sqlite.org/)
 
 **Hosting:**    
 [![Render](https://img.shields.io/badge/Render-000000?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
+
+**Storage**
+[![AWS S3](https://img.shields.io/badge/AWS_S3-569A31?logo=amazons3&logoColor=fff&style=for-the-badge)](https://aws.amazon.com/s3/)  
 
 ## Index
 [Database-Scheme](https://github.com/miaohua897/PuzzlePawCapstone/wiki/Database-Schema) |
