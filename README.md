@@ -128,10 +128,10 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
 ## Get All Dogs
 
-| **Field**                | **Details**                                                                                                 |
-|--------------------------|-------------------------------------------------------------------------------------------------------------|
-| **Method**                | GET /dogs/                                                                                           |
-| **Description**           | Retrieves all dogs owned by the current user.                                                               |
+| **Field**                | **Details**                                                                                    |
+|--------------------------|------------------------------------------------------------------------------------------------|
+| **Method**                | GET /dogs/                                                                                    |
+| **Description**           | Retrieves all dogs owned by the current user.                                                 |
 | **Response**              | ```json                                                                                                      |
 |                          | {                                                                                                           |
 |                          |   "1": {                                                                                                     |
