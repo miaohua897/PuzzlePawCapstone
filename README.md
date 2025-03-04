@@ -48,7 +48,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 **EndPoints**
 
 ## Auth Routes 
- <center>
+
 | **Field**                | **Details**                                                                                                                                                      |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Current User**          |                                                                                             |
@@ -58,7 +58,9 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Response Body**         | `{ 'email': STRING, 'id': INT, 'username': STRING }`                                                                                                            |
 | **Error Response**        | HTTP Status Code 401                                                                                                                                             |
 | **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                                                                                                  |
- </center>
+
+
+
 | **Field**                | **Details**                                                                                                                                                      |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Unauthorized**         |                                                                                             |
@@ -71,6 +73,18 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
 
 ## Signup
+
+| **Field**                | **Details**                                                                                                                                                      |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Current User**          |                                                                                             |
+| **Method**                | POST                                                                                                                                                            |
+| **URL**                   | /api/auth/signup                                                                                                                                                     |
+| **Successful Response**   | HTTP Status Code 201                                                                                                                                             |
+| **Response Body**         | `{‘id’:INT,‘username’:’STRING’,‘email’:’STRING’ } `                                                                                                            |
+| **Error Response**        | HTTP Status Code 401                                                                                                                                             |
+| **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
+
+
 
 **Method**: POST  
 **URL**: /api/auth/signup  
