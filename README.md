@@ -36,18 +36,20 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 
 <img width="1441" alt="Screenshot 2025-03-04 at 2 32 39 PM" src="https://github.com/user-attachments/assets/120a653a-7605-40f7-a471-cba029bc82cb" />
 
+--------------------------
 ## Dogs' Detail Page
 
 <img width="1438" alt="Screenshot 2025-03-04 at 2 32 58 PM" src="https://github.com/user-attachments/assets/0bc543b5-0113-43b6-a809-72c6826b0f0c" />
 
+--------------------------
 ## Photos' Page
 
 <img width="1445" alt="Screenshot 2025-03-04 at 2 33 14 PM" src="https://github.com/user-attachments/assets/217bc47c-4c25-4812-812a-5c49462eef70" />
 
 
-**EndPoints**
 
 -----------------------------------------------------------------------------
+#EndPoints
 
 ## Auth Routes 
 
