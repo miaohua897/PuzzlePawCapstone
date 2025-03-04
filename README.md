@@ -23,7 +23,7 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 **Hosting:**    
 [![Render](https://img.shields.io/badge/Render-000000?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
 
-**Storage**
+**Storage**   
 [![AWS S3](https://img.shields.io/badge/AWS_S3-569A31?logo=amazons3&logoColor=fff&style=for-the-badge)](https://aws.amazon.com/s3/)  
 
 ## Index
