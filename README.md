@@ -135,8 +135,8 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |--------------------------|------------------------------------------------------------------------------------------------|
 | **Method**                | GET /dogs/                                                                                    |
 | **Description**           | Retrieves all dogs owned by the current user.                                                 |
-| **Response**              | ```json                                                                                      |
-|                          | {                                                                                            |
+| **Response**              |                                                                                      |
+|                          |  {                                                                                            |
 |                          |   "1": {                                                                                      |
 |                          |     "age": 1,                                                                                  |
 |                          |     "behavior_record": [                                                                       |
@@ -233,7 +233,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |   },                                                                                                         |
 |                          |   "2": ...                                                                                                   |
 |                          | }                                                                                                           |
-|                          | ```                                                                                                          |
+|                          |                                                                                                           |
 
 
 ## Create a new dog
