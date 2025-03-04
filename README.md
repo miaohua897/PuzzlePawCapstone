@@ -400,7 +400,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Response Status**       | 201                                                                                                         |
 
 **Response Body**
-
+```json
 {
   "dog_name": "Buddy",
   "age": 3,
@@ -425,7 +425,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
   "owner_country": "USA",
   "user_id": 1
 }
-
+```
 <!-- | **Response Body**         | ```json                                                                                                      |
 |                          | {                                                                                                           |
 |                          |   "dog_name": "Buddy",                                                                                       |
@@ -463,7 +463,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Description**           | Updates the details of an existing dog record.                                                                   |
 
 **Request Body**
-
+```json
 {
   "dog_name": "Buddy",
   "age": 4,
@@ -488,7 +488,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
   "owner_country": "USA",
   "user_id": 1
 }
-
+```
 <!-- | **Request Body**          | ```json                                                                                                      |
 |                           |   {                                                                                                        | 
 |                           |     "dog_name": "Buddy",                                                                                   | 
@@ -517,7 +517,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Response Status**       | 201                                                                                                         |
 
 **Response Body**
-
+```json
 {
   "dog_name": "Buddy",
   "age": 4,
@@ -542,7 +542,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
   "owner_country": "USA",
   "user_id": 1
 }
-
+```
 
 <!-- | **Response Body**         | ```json                                                                                                      |
 |                           |   {                                                                                                        | 
@@ -592,7 +592,110 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |--------------------------|-------------------------------------------------------------------------------------------------------------|
 | **Method**                | GET /dogs/current                                                                                           |
 | **Description**           | Retrieves all dogs owned by the current user.                                                               |
-| **Response**              | ```json                                                                                                      |
+
+**Response**
+
+```json
+{
+  "1": {
+    "age": 1,
+    "behavior_record": [
+      {
+        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+        "behavior_type": "behavior record1",
+        "description": "behavior record1",
+        "id": 1
+      },
+      {
+        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+        "behavior_type": "behavior record2",
+        "description": "behavior record2",
+        "id": 2
+      }
+    ],
+    "birth_date": "Wed, 10 May 2023 00:00:00 GMT",
+    "breed_name": "Breed one",
+    "color": "white",
+    "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",
+    "description": "A dog photo typically captures the essence of appearance",
+    "dog_name": "Dog1",
+    "gender": "male",
+    "health_record": [
+      {
+        "description": "health record1",
+        "dog_id": 1,
+        "id": 1,
+        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+        "treatment": "health record1",
+        "vet_name": "hhh"
+      },
+      {
+        "description": "health record2",
+        "dog_id": 1,
+        "id": 2,
+        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+        "treatment": "health record2",
+        "vet_name": "hhh"
+      }
+    ],
+    "id": 1,
+    "image_url": "https://testburich-64742-230785.jpg",
+    "medical_allergies": "NA",
+    "neutered_spayed": "spayed",
+    "note": [
+      {
+        "content": "this is first note",
+        "id": 1,
+        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+        "title": "note1",
+        "user": {
+          "email": "demo@aa.io",
+          "id": 1,
+          "username": "Demo"
+        }
+      },
+      {
+        "content": "this is second note",
+        "id": 2,
+        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+        "title": "note2",
+        "user": {
+          "email": "demo@aa.io",
+          "id": 1,
+          "username": "Demo"
+        }
+      }
+    ],
+    "owner": {
+      "email": "demo@aa.io",
+      "id": 1,
+      "username": "Demo"
+    },
+    "owner_address_city": "SD",
+    "owner_address_line_one": "helloworld ln",
+    "owner_address_line_two": "helloworld two ln",
+    "owner_address_state": "CA",
+    "owner_address_zip_code": 92130,
+    "owner_country": "UK",
+    "owner_email": "hello@gmail.com",
+    "owner_phone_number": "1234556435",
+    "training_record": [
+      {
+        "id": 1,
+        "notes": "helloworld",
+        "trainer_name": "hi",
+        "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+        "training_type": "helloworld"
+      }
+    ],
+    "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",
+    "weight": "7.00"
+  },
+  "2": "..."
+}
+
+```
+<!-- | **Response**              | ```json                                                                                                      |
 |                          | {                                                                                                           |
 |                          |   "1": {                                                                                                     |
 |                          |     "age": 1,                                                                                                 |
@@ -690,7 +793,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |   },                                                                                                         |
 |                          |   "2": ...                                                                                                   |
 |                          | }                                                                                                           |
-|                          | ```                                                                                                          |
+|                          | ```                                                                                                          | -->
 
  
 -----------------------------------------------------------------------------  
@@ -704,7 +807,121 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Endpoint**       | /photos                                                                                                     |
 | **Description**    | Fetch all photos in the database.                                                                           |
 | **Response Status**| 201                                                                                                         |
-| **Response Body**  | ```json                                                                                                      |
+
+**Response Body**
+```json
+{
+  "1": {
+    "description": "A dog photo typically captures ty and appearance.",
+    "dog": {
+      "age": 1,
+      "behavior_record": [
+        {
+          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "behavior_type": "behavior record1",
+          "description": "behavior record1",
+          "id": 1
+        },
+        {
+          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "behavior_type": "behavior record2",
+          "description": "behavior record2",
+          "id": 2
+        }
+      ],
+      "birth_date": "Wed, 10 May 2023 00:00:00 GMT",
+      "breed_name": "Breed one",
+      "color": "white",
+      "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",
+      "description": "A dog photo typically captures the appearancefsdfhhhh",
+      "dog_name": "Dog1",
+      "gender": "male",
+      "health_record": [
+        {
+          "description": "health record1",
+          "dog_id": 1,
+          "id": 1,
+          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "treatment": "health record1",
+          "vet_name": "hhh"
+        },
+        {
+          "description": "health record2",
+          "dog_id": 1,
+          "id": 2,
+          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "treatment": "health record2",
+          "vet_name": "hhh"
+        }
+      ],
+      "id": 1,
+      "image_url": "https://testrich-64742-230785.jpg",
+      "medical_allergies": "NA",
+      "neutered_spayed": "spayed",
+      "note": [
+        {
+          "content": "this is first note",
+          "id": 1,
+          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "title": "note1",
+          "user": {
+            "email": "demo@aa.io",
+            "id": 1,
+            "username": "Demo"
+          }
+        },
+        {
+          "content": "this is second note",
+          "id": 2,
+          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "title": "note2",
+          "user": {
+            "email": "demo@aa.io",
+            "id": 1,
+            "username": "Demo"
+          }
+        }
+      ],
+      "owner": {
+        "email": "demo@aa.io",
+        "id": 1,
+        "username": "Demo"
+      },
+      "owner_address_city": "SD",
+      "owner_address_line_one": "helloworld ln",
+      "owner_address_line_two": "helloworld two ln",
+      "owner_address_state": "CA",
+      "owner_address_zip_code": 92130,
+      "owner_country": "UK",
+      "owner_email": "hello@gmail.com",
+      "owner_phone_number": "1234556435",
+      "training_record": [
+        {
+          "id": 1,
+          "notes": "helloworld",
+          "trainer_name": "hi",
+          "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "training_type": "helloworld"
+        }
+      ],
+      "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",
+      "weight": "7.00"
+    },
+    "id": 1,
+    "image_url": "https://testbuckesmoubax-1124002.jpg",
+    "owner": {
+      "email": "demo@aa.io",
+      "id": 1,
+      "username": "Demo"
+    },
+    "photo_date": "Wed, 10 May 2023 00:00:00 GMT",
+    "title": "dog photo one"
+  },
+  "2": "..."
+}
+
+```
+<!-- | **Response Body**  | ```json                                                                                                      |
 |                    | {                                                                                                           |
 |                    |   "1": {                                                                                                     |
 |                    |     "description": "A dog photo typically captures ty and appearance.",  |
@@ -814,7 +1031,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                    |   },                                                                                                         |
 |                    |   "2": ...                                                                                                    |
 |                    | }                                                                                                           |
-|                    | ```                                                                                                          |
+|                    | ```                                                                                                          | -->
 
 
 
@@ -826,7 +1043,120 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Endpoint**       | /photos/current                                                                                             |
 | **Description**    | Fetch current user’s photos.                                                                                |
 | **Response Status**| 200                                                                                                         |
-| **Response Body**  | ```json                                                                                                      |
+
+**Response Body**
+```json
+{
+  "1": {
+    "description": "A dog photo typically captality and appearance.",
+    "dog": {
+      "age": 1,
+      "behavior_record": [
+        {
+          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "behavior_type": "behavior record1",
+          "description": "behavior record1",
+          "id": 1
+        },
+        {
+          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "behavior_type": "behavior record2",
+          "description": "behavior record2",
+          "id": 2
+        }
+      ],
+      "birth_date": "Wed, 10 May 2023 00:00:00 GMT",
+      "breed_name": "Breed one",
+      "color": "white",
+      "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",
+      "description": "A dog photo typically cappearancefsdfhhhh",
+      "dog_name": "Dog1",
+      "gender": "male",
+      "health_record": [
+        {
+          "description": "health record1",
+          "dog_id": 1,
+          "id": 1,
+          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "treatment": "health record1",
+          "vet_name": "hhh"
+        },
+        {
+          "description": "health record2",
+          "dog_id": 1,
+          "id": 2,
+          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "treatment": "health record2",
+          "vet_name": "hhh"
+        }
+      ],
+      "id": 1,
+      "image_url": "https://testbucketh-64742-230785.jpg",
+      "medical_allergies": "NA",
+      "neutered_spayed": "spayed",
+      "note": [
+        {
+          "content": "this is first note",
+          "id": 1,
+          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "title": "note1",
+          "user": {
+            "email": "demo@aa.io",
+            "id": 1,
+            "username": "Demo"
+          }
+        },
+        {
+          "content": "this is second note",
+          "id": 2,
+          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "title": "note2",
+          "user": {
+            "email": "demo@aa.io",
+            "id": 1,
+            "username": "Demo"
+          }
+        }
+      ],
+      "owner": {
+        "email": "demo@aa.io",
+        "id": 1,
+        "username": "Demo"
+      },
+      "owner_address_city": "SD",
+      "owner_address_line_one": "helloworld ln",
+      "owner_address_line_two": "helloworld two ln",
+      "owner_address_state": "CA",
+      "owner_address_zip_code": 92130,
+      "owner_country": "UK",
+      "owner_email": "hello@gmail.com",
+      "owner_phone_number": "1234556435",
+      "training_record": [
+        {
+          "id": 1,
+          "notes": "helloworld",
+          "trainer_name": "hi",
+          "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",
+          "training_type": "helloworld"
+        }
+      ],
+      "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",
+      "weight": "7.00"
+    },
+    "id": 1,
+    "image_url": "https://testbucketbymiexels-aloismoubax-1124002.jpg",
+    "owner": {
+      "email": "demo@aa.io",
+      "id": 1,
+      "username": "Demo"
+    },
+    "photo_date": "Wed, 10 May 2023 00:00:00 GMT",
+    "title": "dog photo one"
+  },
+  "2": "..."
+}
+```
+<!-- | **Response Body**  | ```json                                                                                                      |
 |                    | {                                                                                                           |
 |                    |   "1": {                                                                                                     |
 |                    |     "description": "A dog photo typically captality and appearance.",  |
@@ -937,7 +1267,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                    |   "2": ...                                                                                                    |
 |                    | }                                                                                                           |
 |                    | ```                                                                                                          |
-
+ -->
 
 ## Create a New Photo Record
 
