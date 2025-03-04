@@ -49,7 +49,20 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
 ## Auth Routes 
 
-**Current User**  
+**Current User** 
+| Method | URL | Successful Response |
+|  POST  | /api/auth/ | {  
+‘email’: STRING,  
+‘id’:INT,  
+‘username’:STRING  
+}   |
+Error Response:HTTP Status Code 401  
+{   
+'errors': 'Unauthorized'   
+}                 
+
+
+ 
 **Method**: POST   
 **URL**:/api/auth/   
 **Successful Response**: HTTP Status Code 200   
