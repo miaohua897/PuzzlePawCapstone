@@ -57,7 +57,10 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Method**                | POST                                                                                         |                                                                   |
 | **URL**                   | /api/auth/                                                                                   |                                                                   |
 | **Successful Response**   | HTTP Status Code 200                                                                         |                                                                    |
-| **Response Body**         | `{ 'email': STRING, 'id': INT, 'username': STRING }`                                         |                                                                   |
+| **Response Body**         | ```json
+                                 { 'email': STRING, 'id': INT, 'username': STRING }
+                              ```
+                           |                                                                   |
 | **Error Response**        | HTTP Status Code 401                                                                         |                                                                    |
 | **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                               |                                                                   |
 
