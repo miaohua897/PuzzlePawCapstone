@@ -733,8 +733,9 @@ Error Response:HTTP Status Code 401
 
 ## Contact
 [miaohua](https://github.com/miaohua897)
-[LinkedIn](https://www.linkedin.com/in/haijian-hou-b1b32b344/)
+[LinkedIn](https://www.linkedin.com/in/haijian-hou-b1b32b344/)   
 
+---------------------------------------------------------------------------------   
 
 # Flask React Project
 
