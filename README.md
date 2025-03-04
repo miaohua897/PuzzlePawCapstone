@@ -57,10 +57,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Method**                | POST                                                                                         |                                                                   |
 | **URL**                   | /api/auth/                                                                                   |                                                                   |
 | **Successful Response**   | HTTP Status Code 200                                                                         |                                                                    |
-| **Response Body**         | ```json
-                                 { 'email': STRING, 'id': INT, 'username': STRING }
-                              ```
-                           |                                                                   |
+| **Response Body**         | `{ 'email': STRING, 'id': INT, 'username': STRING }`    |                                                                   |
 | **Error Response**        | HTTP Status Code 401                                                                         |                                                                    |
 | **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                               |                                                                   |
 
@@ -135,7 +132,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |--------------------------|------------------------------------------------------------------------------------------------|
 | **Method**                | GET /dogs/                                                                                    |
 | **Description**           | Retrieves all dogs owned by the current user.                                                 |
-| **Response**              |                                                                                      |
+
 <!-- |                          |  {                                                                                            |
 |                          |   "1": {                                                                                      |
 |                          |     "age": 1,                                                                                  |
@@ -233,7 +230,8 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |   },                                                                                                         |
 |                          |   "2": ...                                                                                                   |
 |                          | }                                                                                                           | -->
-|                          |                                                                                                           |
+
+ **Response**     
 
 ```json
 {
@@ -343,7 +341,38 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |--------------------------|-------------------------------------------------------------------------------------------------------------|
 | **Method**                | POST /dogs                                                                                                   |
 | **Description**           | Creates a new dog record in the database.                                                                   |
-| **Request Body**          | ```json                                                                                                      |
+
+**Request Body**
+
+```json
+{
+  "dog_name": "Buddy",
+  "age": 3,
+  "gender": "Male",
+  "neutered_spayed": "Neutered",
+  "microchip": true,
+  "color": "Brown",
+  "weight": 25.5,
+  "image_url": "http://example.com/dog_image.jpg",
+  "birth_date": "2022-03-15",
+  "breed_name": "Labrador Retriever",
+  "description": "Friendly and active dog",
+  "medical_allergies": "None",
+  "owner_name": "John Doe",
+  "owner_phone_number": 1234567890,
+  "owner_email": "johndoe@example.com",
+  "owner_address_line_one": "123 Main St",
+  "owner_address_line_two": "Apt 101",
+  "owner_address_city": "Somewhere",
+  "owner_address_state": "CA",
+  "owner_address_zip_code": 12345,
+  "owner_country": "USA",
+  "user_id": 1
+}
+
+```
+
+<!-- | **Request Body**          | ```json                                                                                                      |
 |                          | {                                                                                                           |
 |                          |   "dog_name": "Buddy",                                                                                       |
 |                          |   "age": 3,                                                                                                  |
@@ -367,9 +396,37 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |   "owner_address_zip_code": 12345,                                                                           |
 |                          |   "owner_country": "USA",                                                                                    |
 |                          |   "user_id": 1                                                                                                |
-|                          | }                                                                                                           |
+|                          | }                                                                                                           | -->
 | **Response Status**       | 201                                                                                                         |
-| **Response Body**         | ```json                                                                                                      |
+
+**Response Body**
+
+{
+  "dog_name": "Buddy",
+  "age": 3,
+  "gender": "Male",
+  "neutered_spayed": "Neutered",
+  "microchip": true,
+  "color": "Brown",
+  "weight": 25.5,
+  "image_url": "http://example.com/dog_image.jpg",
+  "birth_date": "2022-03-15",
+  "breed_name": "Labrador Retriever",
+  "description": "Friendly and active dog",
+  "medical_allergies": "None",
+  "owner_name": "John Doe",
+  "owner_phone_number": 1234567890,
+  "owner_email": "johndoe@example.com",
+  "owner_address_line_one": "123 Main St",
+  "owner_address_line_two": "Apt 101",
+  "owner_address_city": "Somewhere",
+  "owner_address_state": "CA",
+  "owner_address_zip_code": 12345,
+  "owner_country": "USA",
+  "user_id": 1
+}
+
+<!-- | **Response Body**         | ```json                                                                                                      |
 |                          | {                                                                                                           |
 |                          |   "dog_name": "Buddy",                                                                                       |
 |                          |   "age": 3,                                                                                                  |
@@ -393,7 +450,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |   "owner_address_zip_code": 12345,                                                                           |
 |                          |   "owner_country": "USA",                                                                                    |
 |                          |   "user_id": 1                                                                                                |
-|                          | }                                                                                                           |
+|                          | }                                                                                                           | -->
 
  
 
@@ -404,7 +461,35 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |--------------------------|-------------------------------------------------------------------------------------------------------------|
 | **Method**                | PUT /dogs/dog_id                                                                                                   |
 | **Description**           | Updates the details of an existing dog record.                                                                   |
-| **Request Body**          | ```json                                                                                                      |
+
+**Request Body**
+
+{
+  "dog_name": "Buddy",
+  "age": 4,
+  "gender": "Male",
+  "neutered_spayed": "Neutered",
+  "microchip": true,
+  "color": "Brown",
+  "weight": 27.0,
+  "image_url": "http://example.com/dog_image_updated.jpg",
+  "birth_date": "2021-03-15",
+  "breed_name": "Labrador Retriever",
+  "description": "Friendly and active dog",
+  "medical_allergies": "None",
+  "owner_name": "John Doe",
+  "owner_phone_number": 1234567890,
+  "owner_email": "johndoe@example.com",
+  "owner_address_line_one": "123 Main St",
+  "owner_address_line_two": "Apt 101",
+  "owner_address_city": "Somewhere",
+  "owner_address_state": "CA",
+  "owner_address_zip_code": 12345,
+  "owner_country": "USA",
+  "user_id": 1
+}
+
+<!-- | **Request Body**          | ```json                                                                                                      |
 |                           |   {                                                                                                        | 
 |                           |     "dog_name": "Buddy",                                                                                   | 
 |                           |     "age": 4,                                                                                              |
@@ -428,9 +513,38 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                           |     "owner_address_zip_code": 12345,                                                                        |  
 |                           |     "owner_country": "USA",                                                                                  |   
 |                           |     "user_id": 1                                                                                           |  
-}                                                                                                                                        |
+}                                                                                                                                        | -->
 | **Response Status**       | 201                                                                                                         |
-| **Response Body**         | ```json                                                                                                      |
+
+**Response Body**
+
+{
+  "dog_name": "Buddy",
+  "age": 4,
+  "gender": "Male",
+  "neutered_spayed": "Neutered",
+  "microchip": true,
+  "color": "Brown",
+  "weight": 27.0,
+  "image_url": "http://example.com/dog_image_updated.jpg",
+  "birth_date": "2021-03-15",
+  "breed_name": "Labrador Retriever",
+  "description": "Friendly and active dog",
+  "medical_allergies": "None",
+  "owner_name": "John Doe",
+  "owner_phone_number": 1234567890,
+  "owner_email": "johndoe@example.com",
+  "owner_address_line_one": "123 Main St",
+  "owner_address_line_two": "Apt 101",
+  "owner_address_city": "Somewhere",
+  "owner_address_state": "CA",
+  "owner_address_zip_code": 12345,
+  "owner_country": "USA",
+  "user_id": 1
+}
+
+
+<!-- | **Response Body**         | ```json                                                                                                      |
 |                           |   {                                                                                                        | 
 |                           |     "dog_name": "Buddy",                                                                                   | 
 |                           |     "age": 4,                                                                                              |
@@ -454,7 +568,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                           |     "owner_address_zip_code": 12345,                                                                        |  
 |                           |     "owner_country": "USA",                                                                                  |   
 |                           |     "user_id": 1                                                                                           |  
-}                                                                                                                                        |
+}                                                                                                                                        | -->
 
 
 
