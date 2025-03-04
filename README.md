@@ -1,26 +1,30 @@
 ## Welcome to PuzzlePaw
 
-PuzzlePaw is a dog website, users can see newest information in the website, create an account, store their dogs' information, photos.
+PuzzlePaw is a dog website, users can see newest information in the website, create an account, store their dogs' information, photos. On the landing page, there is dog article, images auto displaying, scrolling displaying. On the dog information page, users can get their dogs lastest information easily at sidebar. On the photo page, user can see all of their photes and checkout larger version at sidbar.
 
 ## Live Link
-https://puzzlepawcapstone.onrender.com/
+[PuzzlePaw](https://puzzlepawcapstone.onrender.com/)
 
 ## Tech Stack
 **Frameworks and Libraries:**     
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white)
-![React](https://img.shields.io/badge/react-black?style=for-the-badge&logo=react)
-![Redux](https://img.shields.io/badge/-Redux-black?style=for-the-badge&logo=redux)
-![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=for-the-badge)
-![Html5](https://img.shields.io/badge/-Html5-black?style=for-the-badge)
-![Css3](https://img.shields.io/badge/-CSS3-black?style=for-the-badge)
+[![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://python.org/)
+[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![React](https://img.shields.io/badge/react-black?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/-Redux-black?style=for-the-badge&logo=redux)](https://redux.js.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Html5](https://img.shields.io/badge/-Html5-black?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+[![CSS3](https://img.shields.io/badge/-CSS3-black?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 **Database:**     
-![PostgressSql](https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white) | 
-![Sqlalchemy](https://img.shields.io/badge/sqlalchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white) |
+[![PostgressSql](https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Sqlalchemy](https://img.shields.io/badge/sqlalchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)](https://www.sqlalchemy.org/)
+[![SQLite3](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=SQLite&logoColor=white)](https://www.sqlite.org/)
 
 **Hosting:**    
-![Render](https://img.shields.io/badge/Render-000000?style=for-the-badge&logo=render&logoColor=white)
+[![Render](https://img.shields.io/badge/Render-000000?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
+
+**Storage**   
+[![AWS S3](https://img.shields.io/badge/AWS_S3-569A31?logo=amazons3&logoColor=fff&style=for-the-badge)](https://aws.amazon.com/s3/)  
 
 ## Index
 [Database-Scheme](https://github.com/miaohua897/PuzzlePawCapstone/wiki/Database-Schema) |
@@ -40,6 +44,702 @@ https://github.com/user-attachments/assets/bd7f2388-7d1b-4fcc-ad4d-731a1e663029
 
 https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
+
+**EndPoints**
+
+## Auth Routes 
+
+**Current User**  
+**Method**: POST   
+**URL**:/api/auth/   
+**Successful Response**: HTTP Status Code 200   
+{  
+‘email’: STRING,  
+‘id’:INT,  
+‘username’:STRING  
+}  
+Error Response:HTTP Status Code 401  
+{   
+'errors': 'Unauthorized'   
+}                 
+
+**Unauthorized**  
+**Method**: POST  
+**URL**: /api/auth/unauthorized  
+**Error Response**: HTTP Status Code  
+{  
+‘error’:”unauthorized”  
+}  
+
+## Signup
+
+**Method**: POST  
+**URL**: /api/auth/signup  
+**Successful Response**: HTTP Status 201  
+{  
+‘id’:INT,  
+‘username’:’STRING’,  
+‘email’:’STRING’  
+}  
+**error response**: HTTP Status 401  
+{  
+‘error’: ARRAY_OF_STRINGS   
+}  
+
+## Login
+
+**Method**: POST   
+**URL**: /api/auth/login   
+**Successful Response**: HTTP Status 200  
+{  
+‘id’: INT,  
+‘username’:STRING,  
+‘email’:STRING  
+}  
+**Error Response**: HTTP Status 401  
+{  
+‘error’: ARRAY_OF_STRINGS  
+}  
+
+## Logout
+
+**Method**: POST  
+**URL**: /api/auth/logout  
+**Successful Response**: HTTP Status 200  
+{  
+‘message’: ‘User logged out’  
+}  
+**Error Response**: HTTP Status 401  
+{  
+‘error’: ARRAY_OF_STRINGS  
+}  
+
+## Create a new dog
+**Method**: POST /dogs  
+**Description**: Creates a new dog record in the database.  
+**Request Body**: 
+{  
+  "dog_name": "Buddy",  
+  "age": 3,  
+  "gender": "Male",  
+  "neutered_spayed": "Neutered",  
+  "microchip": true,  
+  "color": "Brown",  
+  "weight": 25.5,  
+  "image_url": "http://example.com/dog_image.jpg",  
+  "birth_date": "2022-03-15",  
+  "breed_name": "Labrador Retriever",  
+  "description": "Friendly and active dog",  
+  "medical_allergies": "None",  
+  "owner_name": "John Doe",  
+  "owner_phone_number": 1234567890,  
+  "owner_email": "johndoe@example.com",  
+  "owner_address_line_one": "123 Main St",  
+  "owner_address_line_two": "Apt 101",   
+  "owner_adress_city": "Somewhere",   
+  "owner_address_state": "CA",  
+  "owner_address_zip_code": 12345,  
+  "owner_country": "USA",  
+  "user_id": 1  
+}
+**Response**:   
+**Status**: 201    
+**body**: {  
+  "dog_name": "Buddy",    
+  "age": 3,    
+  "gender": "Male",    
+  "neutered_spayed": "Neutered",    
+  "microchip": true,   
+  "color": "Brown",   
+  "weight": 25.5,   
+  "image_url": "http://example.com/dog_image.jpg",   
+  "birth_date": "2022-03-15",   
+  "breed_name": "Labrador Retriever",    
+  "description": "Friendly and active dog",    
+  "medical_allergies": "None",   
+  "owner_name": "John Doe",   
+  "owner_phone_number": 1234567890,    
+  "owner_email": "johndoe@example.com",   
+  "owner_address_line_one": "123 Main St",   
+  "owner_address_line_two": "Apt 101",   
+  "owner_adress_city": "Somewhere",   
+  "owner_address_state": "CA",   
+  "owner_address_zip_code": 12345,   
+  "owner_country": "USA",   
+  "user_id": 1   
+}
+
+## Get all dogs
+**Method**: GET /dogs     
+**Description**: Retrieves a list of all dogs in the database.     
+**Response**:  
+{  
+  "1": {  
+    "age": 1,  
+    "behavior_record": [  
+      {  
+        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
+        "behavior_type": "behavior record1",  
+        "description": "behavior record1",    
+        "id": 1  
+      },  
+      {  
+        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "behavior_type": "behavior record2",  
+        "description": "behavior record2",  
+        "id": 2  
+      }  
+    ],  
+    "birth_date": "Wed, 10 May 2023 00:00:00 GMT",  
+    "breed_name": "Breed one",  
+    "color": "white",  
+    "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
+    "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh",  
+    "dog_name": "Dog1",  
+    "gender": "male",  
+    "health_record": [  
+      {  
+        "description": "health record1",  
+        "dog_id": 1,  
+        "id": 1,  
+        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "treatment": "health record1",  
+        "vet_name": "hhh"  
+      },  
+      {  
+        "description": "health record2",  
+        "dog_id": 1,  
+        "id": 2,  
+        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "treatment": "health record2",  
+        "vet_name": "hhh"  
+      }  
+    ],  
+    "id": 1,  
+    "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",  
+    "medical_allergies": "NA",  
+    "neutered_spayed": "spayed",  
+    "note": [  
+      {  
+        "content": "this is first note",   
+        "id": 1,  
+        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "title": "note1",  
+        "user": {  
+          "email": "demo@aa.io",   
+          "id": 1,   
+          "username": "Demo"   
+        }  
+      },  
+      {  
+        "content": "this is second note",  
+        "id": 2,  
+        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "title": "note2",  
+        "user": {  
+          "email": "demo@aa.io",   
+          "id": 1,  
+          "username": "Demo"  
+        }  
+      }  
+    ],  
+    "owner": {  
+      "email": "demo@aa.io",  
+      "id": 1,   
+      "username": "Demo"   
+    },   
+    "owner_address_city": "SD",   
+    "owner_address_line_one": "helloworld ln",  
+    "owner_address_line_two": "helloworld two ln",  
+    "owner_address_state": "CA",   
+    "owner_address_zip_code": 92130,   
+    "owner_country": "UK",  
+    "owner_email": "hello@gmail.com",    
+    "owner_phone_number": "1234556435",  
+    "training_record": [     
+      {   
+        "id": 1,   
+        "notes": "helloworld",  
+        "trainer_name": "hi",  
+        "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "training_type": "helloworld"  
+      }   
+    ],   
+    "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",   
+    "weight": "7.00"   
+  },   
+  "2": ...    
+}   
+
+## Update a dog
+
+**Method**: PUT /dogs/dog_id   
+**Description**: Updates the details of an existing dog record.   
+**Request Body**:  
+{  
+  "dog_name": "Buddy",  
+  "age": 4,  
+  "gender": "Male",  
+  "neutered_spayed": "Neutered",  
+  "microchip": true,  
+  "color": "Brown",  
+  "weight": 27.0,   
+  "image_url": "http://example.com/dog_image_updated.jpg",   
+  "birth_date": "2021-03-15",   
+  "breed_name": "Labrador Retriever",   
+  "description": "Friendly and active dog",  
+  "medical_allergies": "None",  
+  "owner_name": "John Doe",  
+  "owner_phone_number": 1234567890,   
+  "owner_email": "johndoe@example.com",   
+  "owner_address_line_one": "123 Main St",  
+  "owner_address_line_two": "Apt 101",  
+  "owner_adress_city": "Somewhere",   
+  "owner_address_state": "CA",   
+  "owner_address_zip_code": 12345,   
+  "owner_country": "USA",   
+  "user_id": 1   
+}  
+
+**Response** 201:   
+{  
+  "dog_name": "Buddy",  
+  "age": 4,  
+  "gender": "Male",  
+  "neutered_spayed": "Neutered",  
+  "microchip": true,   
+  "color": "Brown",   
+  "weight": 27.0,   
+  "image_url": "http://example.com/dog_image_updated.jpg",   
+  "birth_date": "2021-03-15",   
+  "breed_name": "Labrador Retriever",   
+  "description": "Friendly and active dog",   
+  "medical_allergies": "None",   
+  "owner_name": "John Doe",   
+  "owner_phone_number": 1234567890,  
+  "owner_email": "johndoe@example.com",   
+  "owner_address_line_one": "123 Main St",   
+  "owner_address_line_two": "Apt 101",   
+  "owner_adress_city": "Somewhere",   
+  "owner_address_state": "CA",   
+  "owner_address_zip_code": 12345,   
+  "owner_country": "USA",   
+  "user_id": 1   
+}   
+
+## Delete a dog
+
+**Method**: DELETE /dogs/dog_id   
+**Description**: Deletes a dog record from the database.    
+**Response**:  
+{    
+‘message’:’delete it successfully’   
+}     
+
+## Get Current User's dog
+**Method**: GET /dogs/current   
+**Description**: Retrieves all dogs owned by current user.   
+**Response**:  
+{  
+  "1": {  
+    "age": 1,  
+    "behavior_record": [  
+      {  
+        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "behavior_type": "behavior record1",  
+        "description": "behavior record1",  
+        "id": 1  
+      },  
+      {  
+        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "behavior_type": "behavior record2",  
+        "description": "behavior record2",  
+        "id": 2  
+      }  
+    ],  
+    "birth_date": "Wed, 10 May 2023 00:00:00 GMT",  
+    "breed_name": "Breed one",  
+    "color": "white",  
+    "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
+    "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh",   
+    "dog_name": "Dog1",  
+    "gender": "male",  
+    "health_record": [  
+      {  
+        "description": "health record1",  
+        "dog_id": 1,  
+        "id": 1,  
+        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
+        "treatment": "health record1",  
+        "vet_name": "hhh"  
+      },  
+      {   
+        "description": "health record2",  
+        "dog_id": 1,    
+        "id": 2,  
+        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "treatment": "health record2",   
+        "vet_name": "hhh"  
+      }  
+    ],  
+    "id": 1,  
+    "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",  
+    "medical_allergies": "NA",  
+    "neutered_spayed": "spayed",   
+    "note": [  
+      {  
+        "content": "this is first note",  
+        "id": 1,  
+        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "title": "note1",  
+        "user": {  
+          "email": "demo@aa.io",  
+          "id": 1,  
+          "username": "Demo"  
+        }  
+      },  
+      {  
+        "content": "this is second note",  
+        "id": 2,  
+        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
+        "title": "note2",  
+        "user": {  
+          "email": "demo@aa.io",  
+          "id": 1,   
+          "username": "Demo"  
+        }  
+      }  
+    ],  
+    "owner": {  
+      "email": "demo@aa.io",  
+      "id": 1,  
+      "username": "Demo"  
+    },  
+    "owner_address_city": "SD",  
+    "owner_address_line_one": "helloworld ln",  
+    "owner_address_line_two": "helloworld two ln",   
+    "owner_address_state": "CA",   
+    "owner_address_zip_code": 92130,  
+    "owner_country": "UK",  
+    "owner_email": "hello@gmail.com",   
+    "owner_phone_number": "1234556435",  
+    "training_record": [  
+      {  
+        "id": 1,  
+        "notes": "helloworld",   
+        "trainer_name": "hi",  
+        "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+        "training_type": "helloworld"  
+      }  
+    ],  
+    "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
+    "weight": "7.00"  
+  },   
+  "2": ...   
+}   
+
+## Get all photos
+**Method**: GET  
+**Endpoint**: /photos  
+**Description**: Fetch all photos in the database.  
+**Response**:  
+**Status**: 201  
+**Body**:   
+{  
+  "1": {  
+    "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",  
+    "dog": {  
+      "age": 1,  
+      "behavior_record": [  
+        {  
+          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "behavior_type": "behavior record1",  
+          "description": "behavior record1",  
+          "id": 1  
+        },  
+        {  
+          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "behavior_type": "behavior record2",  
+          "description": "behavior record2",  
+          "id": 2  
+        }  
+      ],  
+      "birth_date": "Wed, 10 May 2023 00:00:00 GMT",  
+      "breed_name": "Breed one",  
+      "color": "white",  
+      "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
+      "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh",  
+      "dog_name": "Dog1",  
+      "gender": "male",  
+      "health_record": [  
+        {  
+          "description": "health record1",  
+          "dog_id": 1,  
+          "id": 1,  
+          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "treatment": "health record1",  
+          "vet_name": "hhh"  
+        },  
+        {  
+          "description": "health record2",   
+          "dog_id": 1,   
+          "id": 2,   
+          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "treatment": "health record2",  
+          "vet_name": "hhh"  
+        }  
+      ],  
+      "id": 1,   
+      "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",  
+      "medical_allergies": "NA",  
+      "neutered_spayed": "spayed",  
+      "note": [   
+        {  
+          "content": "this is first note",  
+          "id": 1,  
+          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "title": "note1",  
+          "user": {  
+            "email": "demo@aa.io",  
+            "id": 1,  
+            "username": "Demo"  
+          }  
+        },  
+        {  
+          "content": "this is second note",  
+          "id": 2,  
+          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "title": "note2",  
+          "user": {  
+            "email": "demo@aa.io",  
+            "id": 1,  
+            "username": "Demo"  
+          }  
+        }  
+      ],  
+      "owner": {  
+        "email": "demo@aa.io",  
+        "id": 1,  
+        "username": "Demo"  
+      },  
+      "owner_address_city": "SD",  
+      "owner_address_line_one": "helloworld ln",  
+      "owner_address_line_two": "helloworld two ln",  
+      "owner_address_state": "CA",  
+      "owner_address_zip_code": 92130,  
+      "owner_country": "UK",  
+      "owner_email": "hello@gmail.com",  
+      "owner_phone_number": "1234556435",  
+      "training_record": [  
+        {  
+          "id": 1,  
+          "notes": "helloworld",  
+          "trainer_name": "hi",  
+          "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "training_type": "helloworld"  
+        }  
+      ],  
+      "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
+      "weight": "7.00"  
+    },  
+    "id": 1,  
+    "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg",  
+    "owner": {  
+      "email": "demo@aa.io",  
+      "id": 1,  
+      "username": "Demo"  
+    },  
+    "photo_date": "Wed, 10 May 2023 00:00:00 GMT",  
+    "title": "dog photo one"  
+  },  
+  "2": ...  
+  }  
+
+ ## Get Current User's Photo
+
+**Method**: GET  
+**Endpoint**: /photos/current  
+**Description**: Fetch current user’s photos.     
+**Response**:    
+{    
+  "1": {      
+    "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",     
+    "dog": {  
+      "age": 1,  
+      "behavior_record": [   
+        {  
+          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "behavior_type": "behavior record1",  
+          "description": "behavior record1",  
+          "id": 1  
+        },  
+        {  
+          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",    
+          "behavior_type": "behavior record2",   
+          "description": "behavior record2",   
+          "id": 2   
+        }   
+      ],    
+      "birth_date": "Wed, 10 May 2023 00:00:00 GMT",  
+      "breed_name": "Breed one",   
+      "color": "white",   
+      "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",   
+      "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh",   
+      "dog_name": "Dog1",   
+      "gender": "male",   
+      "health_record": [   
+        {   
+          "description": "health record1",   
+          "dog_id": 1,   
+          "id": 1,   
+          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
+          "treatment": "health record1",   
+          "vet_name": "hhh"  
+        },   
+        {   
+          "description": "health record2",   
+          "dog_id": 1,   
+          "id": 2,   
+          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
+          "treatment": "health record2",   
+          "vet_name": "hhh"  
+        }   
+      ],   
+      "id": 1,   
+      "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",   
+      "medical_allergies": "NA",   
+      "neutered_spayed": "spayed",   
+      "note": [  
+        {  
+          "content": "this is first note",  
+          "id": 1,  
+          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "title": "note1",  
+          "user": {  
+            "email": "demo@aa.io",  
+            "id": 1,  
+            "username": "Demo"  
+          }  
+        },  
+        {  
+          "content": "this is second note",  
+          "id": 2,  
+          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "title": "note2",  
+          "user": {  
+            "email": "demo@aa.io",  
+            "id": 1,  
+            "username": "Demo"   
+          }  
+        }  
+      ],  
+      "owner": {  
+        "email": "demo@aa.io",  
+        "id": 1,  
+        "username": "Demo"  
+      },  
+      "owner_address_city": "SD",  
+      "owner_address_line_one": "helloworld ln",  
+      "owner_address_line_two": "helloworld two ln",  
+      "owner_address_state": "CA",  
+      "owner_address_zip_code": 92130,  
+      "owner_country": "UK",  
+      "owner_email": "hello@gmail.com",  
+      "owner_phone_number": "1234556435",  
+      "training_record": [  
+        {  
+          "id": 1,  
+          "notes": "helloworld",  
+          "trainer_name": "hi",  
+          "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
+          "training_type": "helloworld"  
+        }  
+      ],  
+      "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
+      "weight": "7.00"  
+    },  
+    "id": 1,   
+    "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg",   
+    "owner": {   
+      "email": "demo@aa.io",   
+      "id": 1,   
+      "username": "Demo"   
+    },   
+    "photo_date": "Wed, 10 May 2023 00:00:00 GMT",   
+    "title": "dog photo one"   
+  },  
+  "2": ...}   
+
+ ## Create a New Photo
+
+**Method**: POST   
+**Endpoint**: /photos  
+**Description**: Create a new photo record.   
+**Request Body**:  
+{  
+  "photo_date": "2025-03-03",  
+  "title": "New Dog Photo",  
+  "description": "A new photo of a dog.",  
+  "image_url": "http://example.com/dog3.jpg",  
+  "dog_id": 6,  
+  "user_id": 7  
+}  
+**Response**:   
+{   
+  "id": 3,   
+  "photo_date": "2025-03-03",   
+  "title": "New Dog Photo",   
+  "description": "A new photo of a dog.",  
+  "image_url": "http://example.com/dog3.jpg",   
+  "dog_id": 6,   
+  "user_id": 7,   
+  "created_at": "2025-03-03T10:00:00",  
+  "updated_at": "2025-03-03T10:00:00"   
+}
+
+## Update a Photo
+
+**Method**: PUT   
+**Endpoint**: /photos/photo_id    
+**Description**: Update an existing photo record.   
+**Request Body**:   
+{   
+  "title": "Updated Dog Photo",   
+  "description": "An updated description of the dog photo.",   
+  "image_url": "http://example.com/updated_dog.jpg"   
+}  
+**Response**:  
+{  
+  "id": 1,  
+  "photo_date": "2025-03-01",  
+  "title": "Updated Dog Photo",  
+  "description": "An updated description of the dog photo.",  
+  "image_url": "http://example.com/updated_dog.jpg",  
+  "dog_id": 2,  
+  "user_id": 3,  
+  "created_at": "2025-03-01T12:00:00",  
+  "updated_at": "2025-03-03T12:00:00"   
+}   
+
+## Delete a Photo
+**Method**: DELETE   
+**Endpoint**:  /photos/photo_id   
+**Description**: Delete a photo by its id.   
+**Response**:   
+{    
+‘message’:’delete it successfully’   
+}   
+
+## Feature List  
+
+1. Dog's Detail Page
+2. Photo's Detail Page
+
+## Contact
+[miaohua](https://github.com/miaohua897)
+[LinkedIn](https://www.linkedin.com/in/haijian-hou-b1b32b344/)   
+
+---------------------------------------------------------------------------------   
 
 # Flask React Project
 
