@@ -47,6 +47,8 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 
 **EndPoints**
 
+-----------------------------------------------------------------------------
+
 ## Auth Routes 
 
 | **Field**                | **Details**                                                                                                                                                      |
@@ -72,6 +74,8 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                                                                                                  |
 
 
+-----------------------------------------------------------------------------
+
 ## Signup
 
 
@@ -85,6 +89,8 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Error Response**        | HTTP Status Code 401                                                                                                                                             |
 | **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
 
+
+-----------------------------------------------------------------------------
 
 ## Login
 
@@ -101,6 +107,8 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
  
 
 
+-----------------------------------------------------------------------------
+
 ## Logout
 
 
@@ -114,6 +122,115 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Error Response**        | HTTP Status Code 401                                                                                                                                             |
 | **Error Response Body**   | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
  
+
+-----------------------------------------------------------------------------
+
+## Get All Dogs
+
+| **Field**                | **Details**                                                                                                 |
+|--------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Method**                | GET /dogs/                                                                                           |
+| **Description**           | Retrieves all dogs owned by the current user.                                                               |
+| **Response**              | ```json                                                                                                      |
+|                          | {                                                                                                           |
+|                          |   "1": {                                                                                                     |
+|                          |     "age": 1,                                                                                                 |
+|                          |     "behavior_record": [                                                                                      |
+|                          |       {                                                                                                      |
+|                          |         "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                           |
+|                          |         "behavior_type": "behavior record1",                                                                 |
+|                          |         "description": "behavior record1",                                                                   |
+|                          |         "id": 1                                                                                                |
+|                          |       },                                                                                                      |
+|                          |       {                                                                                                      |
+|                          |         "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                           |
+|                          |         "behavior_type": "behavior record2",                                                                 |
+|                          |         "description": "behavior record2",                                                                   |
+|                          |         "id": 2                                                                                                |
+|                          |       }                                                                                                      |
+|                          |     ],                                                                                                       |
+|                          |     "birth_date": "Wed, 10 May 2023 00:00:00 GMT",                                                          |
+|                          |     "breed_name": "Breed one",                                                                                |
+|                          |     "color": "white",                                                                                         |
+|                          |     "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                           |
+|                          |     "description": "A dog photo typically captures the essence of a dog’s personality and appearance",       |
+|                          |     "dog_name": "Dog1",                                                                                       |
+|                          |     "gender": "male",                                                                                         |
+|                          |     "health_record": [                                                                                        |
+|                          |       {                                                                                                      |
+|                          |         "description": "health record1",                                                                     |
+|                          |         "dog_id": 1,                                                                                         |
+|                          |         "id": 1,                                                                                             |
+|                          |         "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                     |
+|                          |         "treatment": "health record1",                                                                       |
+|                          |         "vet_name": "hhh"                                                                                     |
+|                          |       },                                                                                                      |
+|                          |       {                                                                                                      |
+|                          |         "description": "health record2",                                                                     |
+|                          |         "dog_id": 1,                                                                                         |
+|                          |         "id": 2,                                                                                             |
+|                          |         "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                     |
+|                          |         "treatment": "health record2",                                                                       |
+|                          |         "vet_name": "hhh"                                                                                     |
+|                          |       }                                                                                                      |
+|                          |     ],                                                                                                       |
+|                          |     "id": 1,                                                                                                 |
+|                          |     "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",|
+|                          |     "medical_allergies": "NA",                                                                                |
+|                          |     "neutered_spayed": "spayed",                                                                             |
+|                          |     "note": [                                                                                                 |
+|                          |       {                                                                                                      |
+|                          |         "content": "this is first note",                                                                     |
+|                          |         "id": 1,                                                                                             |
+|                          |         "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                       |
+|                          |         "title": "note1",                                                                                     |
+|                          |         "user": {                                                                                           |
+|                          |           "email": "demo@aa.io",                                                                             |
+|                          |           "id": 1,                                                                                           |
+|                          |           "username": "Demo"                                                                                  |
+|                          |         }                                                                                                    |
+|                          |       },                                                                                                      |
+|                          |       {                                                                                                      |
+|                          |         "content": "this is second note",                                                                    |
+|                          |         "id": 2,                                                                                             |
+|                          |         "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                       |
+|                          |         "title": "note2",                                                                                     |
+|                          |         "user": {                                                                                           |
+|                          |           "email": "demo@aa.io",                                                                             |
+|                          |           "id": 1,                                                                                           |
+|                          |           "username": "Demo"                                                                                  |
+|                          |         }                                                                                                    |
+|                          |       }                                                                                                      |
+|                          |     ],                                                                                                       |
+|                          |     "owner": {                                                                                                |
+|                          |       "email": "demo@aa.io",                                                                                 |
+|                          |       "id": 1,                                                                                               |
+|                          |       "username": "Demo"                                                                                      |
+|                          |     },                                                                                                       |
+|                          |     "owner_address_city": "SD",                                                                              |
+|                          |     "owner_address_line_one": "helloworld ln",                                                               |
+|                          |     "owner_address_line_two": "helloworld two ln",                                                           |
+|                          |     "owner_address_state": "CA",                                                                             |
+|                          |     "owner_address_zip_code": 92130,                                                                         |
+|                          |     "owner_country": "UK",                                                                                  |
+|                          |     "owner_email": "hello@gmail.com",                                                                       |
+|                          |     "owner_phone_number": "1234556435",                                                                     |
+|                          |     "training_record": [                                                                                     |
+|                          |       {                                                                                                      |
+|                          |         "id": 1,                                                                                             |
+|                          |         "notes": "helloworld",                                                                               |
+|                          |         "trainer_name": "hi",                                                                                 |
+|                          |         "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                   |
+|                          |         "training_type": "helloworld"                                                                         |
+|                          |       }                                                                                                      |
+|                          |     ],                                                                                                       |
+|                          |     "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                           |
+|                          |     "weight": "7.00"                                                                                         |
+|                          |   },                                                                                                         |
+|                          |   "2": ...                                                                                                   |
+|                          | }                                                                                                           |
+|                          | ```                                                                                                          |
+
 
 ## Create a new dog
 
@@ -173,108 +290,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |   "user_id": 1                                                                                                |
 |                          | }                                                                                                           |
 
-
-## Get all dogs
-**Method**: GET /dogs     
-**Description**: Retrieves a list of all dogs in the database.     
-**Response**:  
-{  
-  "1": {  
-    "age": 1,  
-    "behavior_record": [  
-      {  
-        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
-        "behavior_type": "behavior record1",  
-        "description": "behavior record1",    
-        "id": 1  
-      },  
-      {  
-        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "behavior_type": "behavior record2",  
-        "description": "behavior record2",  
-        "id": 2  
-      }  
-    ],  
-    "birth_date": "Wed, 10 May 2023 00:00:00 GMT",  
-    "breed_name": "Breed one",  
-    "color": "white",  
-    "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
-    "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh",  
-    "dog_name": "Dog1",  
-    "gender": "male",  
-    "health_record": [  
-      {  
-        "description": "health record1",  
-        "dog_id": 1,  
-        "id": 1,  
-        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "treatment": "health record1",  
-        "vet_name": "hhh"  
-      },  
-      {  
-        "description": "health record2",  
-        "dog_id": 1,  
-        "id": 2,  
-        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "treatment": "health record2",  
-        "vet_name": "hhh"  
-      }  
-    ],  
-    "id": 1,  
-    "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",  
-    "medical_allergies": "NA",  
-    "neutered_spayed": "spayed",  
-    "note": [  
-      {  
-        "content": "this is first note",   
-        "id": 1,  
-        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "title": "note1",  
-        "user": {  
-          "email": "demo@aa.io",   
-          "id": 1,   
-          "username": "Demo"   
-        }  
-      },  
-      {  
-        "content": "this is second note",  
-        "id": 2,  
-        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "title": "note2",  
-        "user": {  
-          "email": "demo@aa.io",   
-          "id": 1,  
-          "username": "Demo"  
-        }  
-      }  
-    ],  
-    "owner": {  
-      "email": "demo@aa.io",  
-      "id": 1,   
-      "username": "Demo"   
-    },   
-    "owner_address_city": "SD",   
-    "owner_address_line_one": "helloworld ln",  
-    "owner_address_line_two": "helloworld two ln",  
-    "owner_address_state": "CA",   
-    "owner_address_zip_code": 92130,   
-    "owner_country": "UK",  
-    "owner_email": "hello@gmail.com",    
-    "owner_phone_number": "1234556435",  
-    "training_record": [     
-      {   
-        "id": 1,   
-        "notes": "helloworld",  
-        "trainer_name": "hi",  
-        "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "training_type": "helloworld"  
-      }   
-    ],   
-    "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",   
-    "weight": "7.00"   
-  },   
-  "2": ...    
-}   
+ 
 
 ## Update a dog
 
@@ -335,410 +351,453 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                           |     "user_id": 1                                                                                           |  
 }                                                                                                                                        |
 
+
+
+## Delete a dog information
+
+| **Field**                            | **Details**                                                                                                                                                      |
+|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Delete a Dog information**         |                                                                                             |
+| **Method**                           | DELETE                                                                                                                                                           |
+| **URL**                              | /dogs/dog_id                                                                                                                                                      |
+| **Successful Response**              | HTTP Status Code 200                                                                                                                                            |
+| **Response Body**                    | `{‘message’:’delete it successfully’} `                                                                                                          |
+| **Error Response**                   | HTTP Status Code 401                                                                                                                                             |
+| **Error Response Body**              | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                   |
+
    
 
-## Delete a dog
+## Get Current User's Dog
 
-**Method**: DELETE /dogs/dog_id   
-**Description**: Deletes a dog record from the database.    
-**Response**:  
-{    
-‘message’:’delete it successfully’   
-}     
+| **Field**                | **Details**                                                                                                 |
+|--------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Method**                | GET /dogs/current                                                                                           |
+| **Description**           | Retrieves all dogs owned by the current user.                                                               |
+| **Response**              | ```json                                                                                                      |
+|                          | {                                                                                                           |
+|                          |   "1": {                                                                                                     |
+|                          |     "age": 1,                                                                                                 |
+|                          |     "behavior_record": [                                                                                      |
+|                          |       {                                                                                                      |
+|                          |         "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                           |
+|                          |         "behavior_type": "behavior record1",                                                                 |
+|                          |         "description": "behavior record1",                                                                   |
+|                          |         "id": 1                                                                                                |
+|                          |       },                                                                                                      |
+|                          |       {                                                                                                      |
+|                          |         "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                           |
+|                          |         "behavior_type": "behavior record2",                                                                 |
+|                          |         "description": "behavior record2",                                                                   |
+|                          |         "id": 2                                                                                                |
+|                          |       }                                                                                                      |
+|                          |     ],                                                                                                       |
+|                          |     "birth_date": "Wed, 10 May 2023 00:00:00 GMT",                                                          |
+|                          |     "breed_name": "Breed one",                                                                                |
+|                          |     "color": "white",                                                                                         |
+|                          |     "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                           |
+|                          |     "description": "A dog photo typically captures the essence of a dog’s personality and appearance",       |
+|                          |     "dog_name": "Dog1",                                                                                       |
+|                          |     "gender": "male",                                                                                         |
+|                          |     "health_record": [                                                                                        |
+|                          |       {                                                                                                      |
+|                          |         "description": "health record1",                                                                     |
+|                          |         "dog_id": 1,                                                                                         |
+|                          |         "id": 1,                                                                                             |
+|                          |         "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                     |
+|                          |         "treatment": "health record1",                                                                       |
+|                          |         "vet_name": "hhh"                                                                                     |
+|                          |       },                                                                                                      |
+|                          |       {                                                                                                      |
+|                          |         "description": "health record2",                                                                     |
+|                          |         "dog_id": 1,                                                                                         |
+|                          |         "id": 2,                                                                                             |
+|                          |         "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                     |
+|                          |         "treatment": "health record2",                                                                       |
+|                          |         "vet_name": "hhh"                                                                                     |
+|                          |       }                                                                                                      |
+|                          |     ],                                                                                                       |
+|                          |     "id": 1,                                                                                                 |
+|                          |     "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",|
+|                          |     "medical_allergies": "NA",                                                                                |
+|                          |     "neutered_spayed": "spayed",                                                                             |
+|                          |     "note": [                                                                                                 |
+|                          |       {                                                                                                      |
+|                          |         "content": "this is first note",                                                                     |
+|                          |         "id": 1,                                                                                             |
+|                          |         "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                       |
+|                          |         "title": "note1",                                                                                     |
+|                          |         "user": {                                                                                           |
+|                          |           "email": "demo@aa.io",                                                                             |
+|                          |           "id": 1,                                                                                           |
+|                          |           "username": "Demo"                                                                                  |
+|                          |         }                                                                                                    |
+|                          |       },                                                                                                      |
+|                          |       {                                                                                                      |
+|                          |         "content": "this is second note",                                                                    |
+|                          |         "id": 2,                                                                                             |
+|                          |         "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                       |
+|                          |         "title": "note2",                                                                                     |
+|                          |         "user": {                                                                                           |
+|                          |           "email": "demo@aa.io",                                                                             |
+|                          |           "id": 1,                                                                                           |
+|                          |           "username": "Demo"                                                                                  |
+|                          |         }                                                                                                    |
+|                          |       }                                                                                                      |
+|                          |     ],                                                                                                       |
+|                          |     "owner": {                                                                                                |
+|                          |       "email": "demo@aa.io",                                                                                 |
+|                          |       "id": 1,                                                                                               |
+|                          |       "username": "Demo"                                                                                      |
+|                          |     },                                                                                                       |
+|                          |     "owner_address_city": "SD",                                                                              |
+|                          |     "owner_address_line_one": "helloworld ln",                                                               |
+|                          |     "owner_address_line_two": "helloworld two ln",                                                           |
+|                          |     "owner_address_state": "CA",                                                                             |
+|                          |     "owner_address_zip_code": 92130,                                                                         |
+|                          |     "owner_country": "UK",                                                                                  |
+|                          |     "owner_email": "hello@gmail.com",                                                                       |
+|                          |     "owner_phone_number": "1234556435",                                                                     |
+|                          |     "training_record": [                                                                                     |
+|                          |       {                                                                                                      |
+|                          |         "id": 1,                                                                                             |
+|                          |         "notes": "helloworld",                                                                               |
+|                          |         "trainer_name": "hi",                                                                                 |
+|                          |         "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                   |
+|                          |         "training_type": "helloworld"                                                                         |
+|                          |       }                                                                                                      |
+|                          |     ],                                                                                                       |
+|                          |     "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                           |
+|                          |     "weight": "7.00"                                                                                         |
+|                          |   },                                                                                                         |
+|                          |   "2": ...                                                                                                   |
+|                          | }                                                                                                           |
+|                          | ```                                                                                                          |
 
-## Get Current User's dog
-**Method**: GET /dogs/current   
-**Description**: Retrieves all dogs owned by current user.   
-**Response**:  
-{  
-  "1": {  
-    "age": 1,  
-    "behavior_record": [  
-      {  
-        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "behavior_type": "behavior record1",  
-        "description": "behavior record1",  
-        "id": 1  
-      },  
-      {  
-        "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "behavior_type": "behavior record2",  
-        "description": "behavior record2",  
-        "id": 2  
-      }  
-    ],  
-    "birth_date": "Wed, 10 May 2023 00:00:00 GMT",  
-    "breed_name": "Breed one",  
-    "color": "white",  
-    "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
-    "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh",   
-    "dog_name": "Dog1",  
-    "gender": "male",  
-    "health_record": [  
-      {  
-        "description": "health record1",  
-        "dog_id": 1,  
-        "id": 1,  
-        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
-        "treatment": "health record1",  
-        "vet_name": "hhh"  
-      },  
-      {   
-        "description": "health record2",  
-        "dog_id": 1,    
-        "id": 2,  
-        "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "treatment": "health record2",   
-        "vet_name": "hhh"  
-      }  
-    ],  
-    "id": 1,  
-    "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",  
-    "medical_allergies": "NA",  
-    "neutered_spayed": "spayed",   
-    "note": [  
-      {  
-        "content": "this is first note",  
-        "id": 1,  
-        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "title": "note1",  
-        "user": {  
-          "email": "demo@aa.io",  
-          "id": 1,  
-          "username": "Demo"  
-        }  
-      },  
-      {  
-        "content": "this is second note",  
-        "id": 2,  
-        "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
-        "title": "note2",  
-        "user": {  
-          "email": "demo@aa.io",  
-          "id": 1,   
-          "username": "Demo"  
-        }  
-      }  
-    ],  
-    "owner": {  
-      "email": "demo@aa.io",  
-      "id": 1,  
-      "username": "Demo"  
-    },  
-    "owner_address_city": "SD",  
-    "owner_address_line_one": "helloworld ln",  
-    "owner_address_line_two": "helloworld two ln",   
-    "owner_address_state": "CA",   
-    "owner_address_zip_code": 92130,  
-    "owner_country": "UK",  
-    "owner_email": "hello@gmail.com",   
-    "owner_phone_number": "1234556435",  
-    "training_record": [  
-      {  
-        "id": 1,  
-        "notes": "helloworld",   
-        "trainer_name": "hi",  
-        "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-        "training_type": "helloworld"  
-      }  
-    ],  
-    "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
-    "weight": "7.00"  
-  },   
-  "2": ...   
-}   
+ 
+-----------------------------------------------------------------------------  
 
 ## Get all photos
-**Method**: GET  
-**Endpoint**: /photos  
-**Description**: Fetch all photos in the database.  
-**Response**:  
-**Status**: 201  
-**Body**:   
-{  
-  "1": {  
-    "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",  
-    "dog": {  
-      "age": 1,  
-      "behavior_record": [  
-        {  
-          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "behavior_type": "behavior record1",  
-          "description": "behavior record1",  
-          "id": 1  
-        },  
-        {  
-          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "behavior_type": "behavior record2",  
-          "description": "behavior record2",  
-          "id": 2  
-        }  
-      ],  
-      "birth_date": "Wed, 10 May 2023 00:00:00 GMT",  
-      "breed_name": "Breed one",  
-      "color": "white",  
-      "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
-      "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh",  
-      "dog_name": "Dog1",  
-      "gender": "male",  
-      "health_record": [  
-        {  
-          "description": "health record1",  
-          "dog_id": 1,  
-          "id": 1,  
-          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "treatment": "health record1",  
-          "vet_name": "hhh"  
-        },  
-        {  
-          "description": "health record2",   
-          "dog_id": 1,   
-          "id": 2,   
-          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "treatment": "health record2",  
-          "vet_name": "hhh"  
-        }  
-      ],  
-      "id": 1,   
-      "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",  
-      "medical_allergies": "NA",  
-      "neutered_spayed": "spayed",  
-      "note": [   
-        {  
-          "content": "this is first note",  
-          "id": 1,  
-          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "title": "note1",  
-          "user": {  
-            "email": "demo@aa.io",  
-            "id": 1,  
-            "username": "Demo"  
-          }  
-        },  
-        {  
-          "content": "this is second note",  
-          "id": 2,  
-          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "title": "note2",  
-          "user": {  
-            "email": "demo@aa.io",  
-            "id": 1,  
-            "username": "Demo"  
-          }  
-        }  
-      ],  
-      "owner": {  
-        "email": "demo@aa.io",  
-        "id": 1,  
-        "username": "Demo"  
-      },  
-      "owner_address_city": "SD",  
-      "owner_address_line_one": "helloworld ln",  
-      "owner_address_line_two": "helloworld two ln",  
-      "owner_address_state": "CA",  
-      "owner_address_zip_code": 92130,  
-      "owner_country": "UK",  
-      "owner_email": "hello@gmail.com",  
-      "owner_phone_number": "1234556435",  
-      "training_record": [  
-        {  
-          "id": 1,  
-          "notes": "helloworld",  
-          "trainer_name": "hi",  
-          "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "training_type": "helloworld"  
-        }  
-      ],  
-      "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
-      "weight": "7.00"  
-    },  
-    "id": 1,  
-    "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg",  
-    "owner": {  
-      "email": "demo@aa.io",  
-      "id": 1,  
-      "username": "Demo"  
-    },  
-    "photo_date": "Wed, 10 May 2023 00:00:00 GMT",  
-    "title": "dog photo one"  
-  },  
-  "2": ...  
-  }  
 
- ## Get Current User's Photo
+## Fetch All Photos in the Database
 
-**Method**: GET  
-**Endpoint**: /photos/current  
-**Description**: Fetch current user’s photos.     
-**Response**:    
-{    
-  "1": {      
-    "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",     
-    "dog": {  
-      "age": 1,  
-      "behavior_record": [   
-        {  
-          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "behavior_type": "behavior record1",  
-          "description": "behavior record1",  
-          "id": 1  
-        },  
-        {  
-          "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",    
-          "behavior_type": "behavior record2",   
-          "description": "behavior record2",   
-          "id": 2   
-        }   
-      ],    
-      "birth_date": "Wed, 10 May 2023 00:00:00 GMT",  
-      "breed_name": "Breed one",   
-      "color": "white",   
-      "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",   
-      "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh",   
-      "dog_name": "Dog1",   
-      "gender": "male",   
-      "health_record": [   
-        {   
-          "description": "health record1",   
-          "dog_id": 1,   
-          "id": 1,   
-          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
-          "treatment": "health record1",   
-          "vet_name": "hhh"  
-        },   
-        {   
-          "description": "health record2",   
-          "dog_id": 1,   
-          "id": 2,   
-          "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",   
-          "treatment": "health record2",   
-          "vet_name": "hhh"  
-        }   
-      ],   
-      "id": 1,   
-      "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",   
-      "medical_allergies": "NA",   
-      "neutered_spayed": "spayed",   
-      "note": [  
-        {  
-          "content": "this is first note",  
-          "id": 1,  
-          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "title": "note1",  
-          "user": {  
-            "email": "demo@aa.io",  
-            "id": 1,  
-            "username": "Demo"  
-          }  
-        },  
-        {  
-          "content": "this is second note",  
-          "id": 2,  
-          "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "title": "note2",  
-          "user": {  
-            "email": "demo@aa.io",  
-            "id": 1,  
-            "username": "Demo"   
-          }  
-        }  
-      ],  
-      "owner": {  
-        "email": "demo@aa.io",  
-        "id": 1,  
-        "username": "Demo"  
-      },  
-      "owner_address_city": "SD",  
-      "owner_address_line_one": "helloworld ln",  
-      "owner_address_line_two": "helloworld two ln",  
-      "owner_address_state": "CA",  
-      "owner_address_zip_code": 92130,  
-      "owner_country": "UK",  
-      "owner_email": "hello@gmail.com",  
-      "owner_phone_number": "1234556435",  
-      "training_record": [  
-        {  
-          "id": 1,  
-          "notes": "helloworld",  
-          "trainer_name": "hi",  
-          "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",  
-          "training_type": "helloworld"  
-        }  
-      ],  
-      "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",  
-      "weight": "7.00"  
-    },  
-    "id": 1,   
-    "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg",   
-    "owner": {   
-      "email": "demo@aa.io",   
-      "id": 1,   
-      "username": "Demo"   
-    },   
-    "photo_date": "Wed, 10 May 2023 00:00:00 GMT",   
-    "title": "dog photo one"   
-  },  
-  "2": ...}   
+| **Field**          | **Details**                                                                                                 |
+|--------------------|-------------------------------------------------------------------------------------------------------------|
+| **Method**         | GET                                                                                                         |
+| **Endpoint**       | /photos                                                                                                     |
+| **Description**    | Fetch all photos in the database.                                                                           |
+| **Response Status**| 201                                                                                                         |
+| **Response Body**  | ```json                                                                                                      |
+|                    | {                                                                                                           |
+|                    |   "1": {                                                                                                     |
+|                    |     "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",  |
+|                    |     "dog": {                                                                                                 |
+|                    |       "age": 1,                                                                                             |
+|                    |       "behavior_record": [                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                          |
+|                    |           "behavior_type": "behavior record1",                                                              |
+|                    |           "description": "behavior record1",                                                                 |
+|                    |           "id": 1                                                                                           |
+|                    |         },                                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                          |
+|                    |           "behavior_type": "behavior record2",                                                              |
+|                    |           "description": "behavior record2",                                                                 |
+|                    |           "id": 2                                                                                           |
+|                    |         }                                                                                                   |
+|                    |       ],                                                                                                    |
+|                    |       "birth_date": "Wed, 10 May 2023 00:00:00 GMT",                                                        |
+|                    |       "breed_name": "Breed one",                                                                             |
+|                    |       "color": "white",                                                                                      |
+|                    |       "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                         |
+|                    |       "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh", |
+|                    |       "dog_name": "Dog1",                                                                                    |
+|                    |       "gender": "male",                                                                                     |
+|                    |       "health_record": [                                                                                     |
+|                    |         {                                                                                                   |
+|                    |           "description": "health record1",                                                                  |
+|                    |           "dog_id": 1,                                                                                        |
+|                    |           "id": 1,                                                                                           |
+|                    |           "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                   |
+|                    |           "treatment": "health record1",                                                                    |
+|                    |           "vet_name": "hhh"                                                                                  |
+|                    |         },                                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "description": "health record2",                                                                  |
+|                    |           "dog_id": 1,                                                                                        |
+|                    |           "id": 2,                                                                                           |
+|                    |           "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                   |
+|                    |           "treatment": "health record2",                                                                    |
+|                    |           "vet_name": "hhh"                                                                                  |
+|                    |         }                                                                                                   |
+|                    |       ],                                                                                                    |
+|                    |       "id": 1,                                                                                                |
+|                    |       "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg", |
+|                    |       "medical_allergies": "NA",                                                                            |
+|                    |       "neutered_spayed": "spayed",                                                                          |
+|                    |       "note": [                                                                                             |
+|                    |         {                                                                                                   |
+|                    |           "content": "this is first note",                                                                  |
+|                    |           "id": 1,                                                                                           |
+|                    |           "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                    |
+|                    |           "title": "note1",                                                                                 |
+|                    |           "user": {                                                                                          |
+|                    |             "email": "demo@aa.io",                                                                         |
+|                    |             "id": 1,                                                                                        |
+|                    |             "username": "Demo"                                                                               |
+|                    |           }                                                                                                  |
+|                    |         },                                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "content": "this is second note",                                                                 |
+|                    |           "id": 2,                                                                                           |
+|                    |           "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                    |
+|                    |           "title": "note2",                                                                                 |
+|                    |           "user": {                                                                                          |
+|                    |             "email": "demo@aa.io",                                                                         |
+|                    |             "id": 1,                                                                                        |
+|                    |             "username": "Demo"                                                                               |
+|                    |           }                                                                                                  |
+|                    |         }                                                                                                   |
+|                    |       ],                                                                                                    |
+|                    |       "owner": {                                                                                             |
+|                    |         "email": "demo@aa.io",                                                                              |
+|                    |         "id": 1,                                                                                             |
+|                    |         "username": "Demo"                                                                                    |
+|                    |       },                                                                                                    |
+|                    |       "owner_address_city": "SD",                                                                            |
+|                    |       "owner_address_line_one": "helloworld ln",                                                             |
+|                    |       "owner_address_line_two": "helloworld two ln",                                                         |
+|                    |       "owner_address_state": "CA",                                                                           |
+|                    |       "owner_address_zip_code": 92130,                                                                      |
+|                    |       "owner_country": "UK",                                                                                |
+|                    |       "owner_email": "hello@gmail.com",                                                                     |
+|                    |       "owner_phone_number": "1234556435",                                                                   |
+|                    |       "training_record": [                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "id": 1,                                                                                           |
+|                    |           "notes": "helloworld",                                                                             |
+|                    |           "trainer_name": "hi",                                                                              |
+|                    |           "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                |
+|                    |           "training_type": "helloworld"                                                                     |
+|                    |         }                                                                                                   |
+|                    |       ],                                                                                                    |
+|                    |       "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                         |
+|                    |       "weight": "7.00"                                                                                        |
+|                    |     },                                                                                                       |
+|                    |     "id": 1,                                                                                                 |
+|                    |     "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg",    |
+|                    |     "owner": {                                                                                                |
+|                    |       "email": "demo@aa.io",                                                                                 |
+|                    |       "id": 1,                                                                                                |
+|                    |       "username": "Demo"                                                                                      |
+|                    |     },                                                                                                       |
+|                    |     "photo_date": "Wed, 10 May 2023 00:00:00 GMT",                                                           |
+|                    |     "title": "dog photo one"                                                                                 |
+|                    |   },                                                                                                         |
+|                    |   "2": ...                                                                                                    |
+|                    | }                                                                                                           |
+|                    | ```                                                                                                          |
 
- ## Create a New Photo
 
-**Method**: POST   
-**Endpoint**: /photos  
-**Description**: Create a new photo record.   
-**Request Body**:  
-{  
-  "photo_date": "2025-03-03",  
-  "title": "New Dog Photo",  
-  "description": "A new photo of a dog.",  
-  "image_url": "http://example.com/dog3.jpg",  
-  "dog_id": 6,  
-  "user_id": 7  
-}  
-**Response**:   
-{   
-  "id": 3,   
-  "photo_date": "2025-03-03",   
-  "title": "New Dog Photo",   
-  "description": "A new photo of a dog.",  
-  "image_url": "http://example.com/dog3.jpg",   
-  "dog_id": 6,   
-  "user_id": 7,   
-  "created_at": "2025-03-03T10:00:00",  
-  "updated_at": "2025-03-03T10:00:00"   
-}
+
+## Get Current User's Photo
+
+| **Field**          | **Details**                                                                                                 |
+|--------------------|-------------------------------------------------------------------------------------------------------------|
+| **Method**         | GET                                                                                                         |
+| **Endpoint**       | /photos/current                                                                                             |
+| **Description**    | Fetch current user’s photos.                                                                                |
+| **Response Status**| 200                                                                                                         |
+| **Response Body**  | ```json                                                                                                      |
+|                    | {                                                                                                           |
+|                    |   "1": {                                                                                                     |
+|                    |     "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",  |
+|                    |     "dog": {                                                                                                 |
+|                    |       "age": 1,                                                                                             |
+|                    |       "behavior_record": [                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                          |
+|                    |           "behavior_type": "behavior record1",                                                              |
+|                    |           "description": "behavior record1",                                                                 |
+|                    |           "id": 1                                                                                           |
+|                    |         },                                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "behavior_record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                          |
+|                    |           "behavior_type": "behavior record2",                                                              |
+|                    |           "description": "behavior record2",                                                                 |
+|                    |           "id": 2                                                                                           |
+|                    |         }                                                                                                   |
+|                    |       ],                                                                                                    |
+|                    |       "birth_date": "Wed, 10 May 2023 00:00:00 GMT",                                                        |
+|                    |       "breed_name": "Breed one",                                                                             |
+|                    |       "color": "white",                                                                                      |
+|                    |       "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                         |
+|                    |       "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh", |
+|                    |       "dog_name": "Dog1",                                                                                    |
+|                    |       "gender": "male",                                                                                     |
+|                    |       "health_record": [                                                                                     |
+|                    |         {                                                                                                   |
+|                    |           "description": "health record1",                                                                  |
+|                    |           "dog_id": 1,                                                                                        |
+|                    |           "id": 1,                                                                                           |
+|                    |           "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                   |
+|                    |           "treatment": "health record1",                                                                    |
+|                    |           "vet_name": "hhh"                                                                                  |
+|                    |         },                                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "description": "health record2",                                                                  |
+|                    |           "dog_id": 1,                                                                                        |
+|                    |           "id": 2,                                                                                           |
+|                    |           "record_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                   |
+|                    |           "treatment": "health record2",                                                                    |
+|                    |           "vet_name": "hhh"                                                                                  |
+|                    |         }                                                                                                   |
+|                    |       ],                                                                                                    |
+|                    |       "id": 1,                                                                                                |
+|                    |       "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg", |
+|                    |       "medical_allergies": "NA",                                                                            |
+|                    |       "neutered_spayed": "spayed",                                                                          |
+|                    |       "note": [                                                                                             |
+|                    |         {                                                                                                   |
+|                    |           "content": "this is first note",                                                                  |
+|                    |           "id": 1,                                                                                           |
+|                    |           "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                    |
+|                    |           "title": "note1",                                                                                 |
+|                    |           "user": {                                                                                          |
+|                    |             "email": "demo@aa.io",                                                                         |
+|                    |             "id": 1,                                                                                        |
+|                    |             "username": "Demo"                                                                               |
+|                    |           }                                                                                                  |
+|                    |         },                                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "content": "this is second note",                                                                 |
+|                    |           "id": 2,                                                                                           |
+|                    |           "note_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                    |
+|                    |           "title": "note2",                                                                                 |
+|                    |           "user": {                                                                                          |
+|                    |             "email": "demo@aa.io",                                                                         |
+|                    |             "id": 1,                                                                                        |
+|                    |             "username": "Demo"                                                                               |
+|                    |           }                                                                                                  |
+|                    |         }                                                                                                   |
+|                    |       ],                                                                                                    |
+|                    |       "owner": {                                                                                             |
+|                    |         "email": "demo@aa.io",                                                                              |
+|                    |         "id": 1,                                                                                             |
+|                    |         "username": "Demo"                                                                                    |
+|                    |       },                                                                                                    |
+|                    |       "owner_address_city": "SD",                                                                            |
+|                    |       "owner_address_line_one": "helloworld ln",                                                             |
+|                    |       "owner_address_line_two": "helloworld two ln",                                                         |
+|                    |       "owner_address_state": "CA",                                                                           |
+|                    |       "owner_address_zip_code": 92130,                                                                      |
+|                    |       "owner_country": "UK",                                                                                |
+|                    |       "owner_email": "hello@gmail.com",                                                                     |
+|                    |       "owner_phone_number": "1234556435",                                                                   |
+|                    |       "training_record": [                                                                                  |
+|                    |         {                                                                                                   |
+|                    |           "id": 1,                                                                                           |
+|                    |           "notes": "helloworld",                                                                             |
+|                    |           "trainer_name": "hi",                                                                              |
+|                    |           "training_date": "Mon, 01 Jan 2024 00:00:00 GMT",                                                |
+|                    |           "training_type": "helloworld"                                                                     |
+|                    |         }                                                                                                   |
+|                    |       ],                                                                                                    |
+|                    |       "updated_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                         |
+|                    |       "weight": "7.00"                                                                                        |
+|                    |     },                                                                                                       |
+|                    |     "id": 1,                                                                                                 |
+|                    |     "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg",    |
+|                    |     "owner": {                                                                                                |
+|                    |       "email": "demo@aa.io",                                                                                 |
+|                    |       "id": 1,                                                                                                |
+|                    |       "username": "Demo"                                                                                      |
+|                    |     },                                                                                                       |
+|                    |     "photo_date": "Wed, 10 May 2023 00:00:00 GMT",                                                           |
+|                    |     "title": "dog photo one"                                                                                 |
+|                    |   },                                                                                                         |
+|                    |   "2": ...                                                                                                    |
+|                    | }                                                                                                           |
+|                    | ```                                                                                                          |
+
+
+## Create a New Photo Record
+
+| **Field**                | **Details**                                                                                                 |
+|--------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Method**                | POST                                                                                                        |
+| **Endpoint**              | /photos                                                                                                     |
+| **Description**           | Create a new photo record.                                                                                 |
+| **Request Body**          | ```json                                                                                                      |
+|                          | {                                                                                                           |
+|                          |   "photo_date": "2025-03-03",                                                                                |
+|                          |   "title": "New Dog Photo",                                                                                  |
+|                          |   "description": "A new photo of a dog.",                                                                   |
+|                          |   "image_url": "http://example.com/dog3.jpg",                                                                |
+|                          |   "dog_id": 6,                                                                                                |
+|                          |   "user_id": 7                                                                                                |
+|                          | }                                                                                                           |
+|                          | ```                                                                                                          |
+| **Response**              | ```json                                                                                                      |
+|                          | {                                                                                                           |
+|                          |   "id": 3,                                                                                                   |
+|                          |   "photo_date": "2025-03-03",                                                                                |
+|                          |   "title": "New Dog Photo",                                                                                  |
+|                          |   "description": "A new photo of a dog.",                                                                   |
+|                          |   "image_url": "http://example.com/dog3.jpg",                                                                |
+|                          |   "dog_id": 6,                                                                                                |
+|                          |   "user_id": 7,                                                                                                |
+|                          |   "created_at": "2025-03-03T10:00:00",                                                                     |
+|                          |   "updated_at": "2025-03-03T10:00:00"                                                                       |
+|                          | }                                                                                                           |
+|                          | ```                                                                                                          |
+
 
 ## Update a Photo
 
-**Method**: PUT   
-**Endpoint**: /photos/photo_id    
-**Description**: Update an existing photo record.   
-**Request Body**:   
-{   
-  "title": "Updated Dog Photo",   
-  "description": "An updated description of the dog photo.",   
-  "image_url": "http://example.com/updated_dog.jpg"   
-}  
-**Response**:  
-{  
-  "id": 1,  
-  "photo_date": "2025-03-01",  
-  "title": "Updated Dog Photo",  
-  "description": "An updated description of the dog photo.",  
-  "image_url": "http://example.com/updated_dog.jpg",  
-  "dog_id": 2,  
-  "user_id": 3,  
-  "created_at": "2025-03-01T12:00:00",  
-  "updated_at": "2025-03-03T12:00:00"   
-}   
+## Update an Existing Photo Record
 
-## Delete a Photo
-**Method**: DELETE   
-**Endpoint**:  /photos/photo_id   
-**Description**: Delete a photo by its id.   
-**Response**:   
-{    
-‘message’:’delete it successfully’   
-}   
+| **Field**                | **Details**                                                                                                 |
+|--------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Method**                | PUT                                                                                                         |
+| **Endpoint**              | /photos/photo_id                                                                                             |
+| **Description**           | Update an existing photo record.                                                                             |
+| **Request Body**          | ```json                                                                                                      |
+|                          | {                                                                                                           |
+|                          |   "title": "Updated Dog Photo",                                                                              |
+|                          |   "description": "An updated description of the dog photo.",                                                 |
+|                          |   "image_url": "http://example.com/updated_dog.jpg"                                                          |
+|                          | }                                                                                                           |
+|                          | ```                                                                                                          |
+| **Response**              | ```json                                                                                                      |
+|                          | {                                                                                                           |
+|                          |   "id": 1,                                                                                                   |
+|                          |   "photo_date": "2025-03-01",                                                                                |
+|                          |   "title": "Updated Dog Photo",                                                                              |
+|                          |   "description": "An updated description of the dog photo.",                                                 |
+|                          |   "image_url": "http://example.com/updated_dog.jpg",                                                         |
+|                          |   "dog_id": 2,                                                                                                |
+|                          |   "user_id": 3,                                                                                                |
+|                          |   "created_at": "2025-03-01T12:00:00",                                                                       |
+|                          |   "updated_at": "2025-03-03T12:00:00"                                                                         |
+|                          | }                                                                                                           |
+|                          | ```                                                                                                          |
+ 
+
+
+## Delete a Photo Information
+
+| **Field**                            | **Details**                                                                                                                                                      |
+|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Delete a Dog information**         |                                                                                             |
+| **Method**                           | DELETE                                                                                                                                                           |
+| **URL**                              | /photos/photo_id                                                                                                                                                        |
+| **Successful Response**              | HTTP Status Code 200                                                                                                                                            |
+| **Response Body**                    | `{‘message’:’delete it successfully’} `                                                                                                          |
+| **Error Response**                   | HTTP Status Code 401                                                                                                                                             |
+| **Error Response Body**              | `{‘error’: ARRAY_OF_STRINGS} `                                                                                                                                  |
+
+ 
 
 ## Feature List  
 
