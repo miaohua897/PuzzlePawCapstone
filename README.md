@@ -176,7 +176,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |       }                                                                                                      |
 |                          |     ],                                                                                                       |
 |                          |     "id": 1,                                                                                                 |
-|                          |     "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",|
+|                          |     "image_url": "https://testbuckemrich-64742-230785.jpg",|
 |                          |     "medical_allergies": "NA",                                                                                |
 |                          |     "neutered_spayed": "spayed",                                                                             |
 |                          |     "note": [                                                                                                 |
@@ -418,7 +418,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |       }                                                                                                      |
 |                          |     ],                                                                                                       |
 |                          |     "id": 1,                                                                                                 |
-|                          |     "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg",|
+|                          |     "image_url": "https://testburich-64742-230785.jpg",|
 |                          |     "medical_allergies": "NA",                                                                                |
 |                          |     "neutered_spayed": "spayed",                                                                             |
 |                          |     "note": [                                                                                                 |
@@ -532,7 +532,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                    |         }                                                                                                   |
 |                    |       ],                                                                                                    |
 |                    |       "id": 1,                                                                                                |
-|                    |       "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg", |
+|                    |       "image_url": "https://testrich-64742-230785.jpg", |
 |                    |       "medical_allergies": "NA",                                                                            |
 |                    |       "neutered_spayed": "spayed",                                                                          |
 |                    |       "note": [                                                                                             |
@@ -585,7 +585,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                    |       "weight": "7.00"                                                                                        |
 |                    |     },                                                                                                       |
 |                    |     "id": 1,                                                                                                 |
-|                    |     "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg",    |
+|                    |     "image_url": "https://testbuckesmoubax-1124002.jpg",    |
 |                    |     "owner": {                                                                                                |
 |                    |       "email": "demo@aa.io",                                                                                 |
 |                    |       "id": 1,                                                                                                |
@@ -654,7 +654,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                    |         }                                                                                                   |
 |                    |       ],                                                                                                    |
 |                    |       "id": 1,                                                                                                |
-|                    |       "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-bill-emrich-64742-230785.jpg", |
+|                    |       "image_url": "https://testbucketh-64742-230785.jpg", |
 |                    |       "medical_allergies": "NA",                                                                            |
 |                    |       "neutered_spayed": "spayed",                                                                          |
 |                    |       "note": [                                                                                             |
@@ -707,7 +707,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                    |       "weight": "7.00"                                                                                        |
 |                    |     },                                                                                                       |
 |                    |     "id": 1,                                                                                                 |
-|                    |     "image_url": "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg",    |
+|                    |     "image_url": "https://testbucketbymiexels-aloismoubax-1124002.jpg",    |
 |                    |     "owner": {                                                                                                |
 |                    |       "email": "demo@aa.io",                                                                                 |
 |                    |       "id": 1,                                                                                                |
