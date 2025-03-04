@@ -44,10 +44,11 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 **EndPoints**
 
 ## Auth Routes 
-Current User   
-Method: POST   
-URL:/api/auth/   
-Successful Response: HTTP Status Code 200   
+
+**Current User**  
+**Method**: POST   
+**URL**:/api/auth/   
+**Successful Response**: HTTP Status Code 200   
 {  
 ‘email’: STRING,  
 ‘id’:INT,  
@@ -58,10 +59,10 @@ Error Response:HTTP Status Code 401
 'errors': 'Unauthorized'   
 }                 
 
-Unauthorized  
-Method POST  
-URL: /api/auth/unauthorized  
-Error Response: HTTP Status Code  
+**Unauthorized**  
+**Method**: POST  
+**URL**: /api/auth/unauthorized  
+**Error Response**: HTTP Status Code  
 {  
 ‘error’:”unauthorized”  
 }  
@@ -665,17 +666,65 @@ Response :
   },  
   "2": ...}   
 
+ ## Create a New Photo
 
+Method: POST   
+Endpoint: /photos  
+Description: Create a new photo record.   
+Request Body:  
+{  
+  "photo_date": "2025-03-03",  
+  "title": "New Dog Photo",  
+  "description": "A new photo of a dog.",  
+  "image_url": "http://example.com/dog3.jpg",  
+  "dog_id": 6,  
+  "user_id": 7  
+}  
+Response:   
+{   
+  "id": 3,   
+  "photo_date": "2025-03-03",   
+  "title": "New Dog Photo",   
+  "description": "A new photo of a dog.",  
+  "image_url": "http://example.com/dog3.jpg",   
+  "dog_id": 6,   
+  "user_id": 7,   
+  "created_at": "2025-03-03T10:00:00",  
+  "updated_at": "2025-03-03T10:00:00"   
+}
 
+## Update a Photo
 
+Method: PUT   
+Endpoint: /photos/photo_id    
+Description: Update an existing photo record.   
+Request Body:   
+{   
+  "title": "Updated Dog Photo",   
+  "description": "An updated description of the dog photo.",   
+  "image_url": "http://example.com/updated_dog.jpg"   
+}  
+Response:  
+{  
+  "id": 1,  
+  "photo_date": "2025-03-01",  
+  "title": "Updated Dog Photo",  
+  "description": "An updated description of the dog photo.",  
+  "image_url": "http://example.com/updated_dog.jpg",  
+  "dog_id": 2,  
+  "user_id": 3,  
+  "created_at": "2025-03-01T12:00:00",  
+  "updated_at": "2025-03-03T12:00:00"   
+}   
 
-
-
-
-
-
-
-
+## Delete a Photo
+Method: DELETE   
+Endpoint:  /photos/photo_id   
+Description: Delete a photo by its id.   
+Response:   
+{    
+‘message’:’delete it successfully’   
+}   
 
 
 # Flask React Project
