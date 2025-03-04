@@ -154,7 +154,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |     "breed_name": "Breed one",                                                                                |
 |                          |     "color": "white",                                                                                         |
 |                          |     "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                           |
-|                          |     "description": "A dog photo typically captures the essence of a dog’s personality and appearance",       |
+|                          |     "description": "A dog photo typically captures the essence,       |
 |                          |     "dog_name": "Dog1",                                                                                       |
 |                          |     "gender": "male",                                                                                         |
 |                          |     "health_record": [                                                                                        |
@@ -396,7 +396,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                          |     "breed_name": "Breed one",                                                                                |
 |                          |     "color": "white",                                                                                         |
 |                          |     "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                           |
-|                          |     "description": "A dog photo typically captures the essence of a dog’s personality and appearance",       |
+|                          |     "description": "A dog photo typically captures the essence of ppearance",       |
 |                          |     "dog_name": "Dog1",                                                                                       |
 |                          |     "gender": "male",                                                                                         |
 |                          |     "health_record": [                                                                                        |
@@ -510,7 +510,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                    |       "breed_name": "Breed one",                                                                             |
 |                    |       "color": "white",                                                                                      |
 |                    |       "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                         |
-|                    |       "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh", |
+|                    |       "description": "A dog photo typically captures the appearancefsdfhhhh", |
 |                    |       "dog_name": "Dog1",                                                                                    |
 |                    |       "gender": "male",                                                                                     |
 |                    |       "health_record": [                                                                                     |
@@ -611,7 +611,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Response Body**  | ```json                                                                                                      |
 |                    | {                                                                                                           |
 |                    |   "1": {                                                                                                     |
-|                    |     "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearance.",  |
+|                    |     "description": "A dog photo typically captality and appearance.",  |
 |                    |     "dog": {                                                                                                 |
 |                    |       "age": 1,                                                                                             |
 |                    |       "behavior_record": [                                                                                  |
@@ -632,7 +632,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 |                    |       "breed_name": "Breed one",                                                                             |
 |                    |       "color": "white",                                                                                      |
 |                    |       "created_at": "Sat, 01 Mar 2025 16:37:18 GMT",                                                         |
-|                    |       "description": "A dog photo typically captures the essence of a dog\u2019s personality and appearancefsdfhhhh", |
+|                    |       "description": "A dog photo typically cappearancefsdfhhhh", |
 |                    |       "dog_name": "Dog1",                                                                                    |
 |                    |       "gender": "male",                                                                                     |
 |                    |       "health_record": [                                                                                     |
