@@ -48,7 +48,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 **EndPoints**
 
 ## Auth Routes 
-
+ <center>
 | **Field**                | **Details**                                                                                                                                                      |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Current User**          |                                                                                             |
@@ -58,8 +58,7 @@ https://github.com/user-attachments/assets/f18fb383-cd54-4631-820f-cbb983f17d3c
 | **Response Body**         | `{ 'email': STRING, 'id': INT, 'username': STRING }`                                                                                                            |
 | **Error Response**        | HTTP Status Code 401                                                                                                                                             |
 | **Error Response Body**   | `{ 'errors': 'Unauthorized' }`                                                                                                                                  |
-
- 
+ </center>
 | **Field**                | **Details**                                                                                                                                                      |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Unauthorized**         |                                                                                             |
