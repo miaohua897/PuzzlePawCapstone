@@ -34,21 +34,21 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 
 ## Landing Page
 
-#### The landing page will feature an auto-display that automatically updates dogs' photos. A scrolliing display will continue to move most liked comments. 
+The landing page will feature an auto-display that automatically updates dogs' photos. A scrolliing display will continue to move most liked comments.    
 
 <img width="1441" alt="Screenshot 2025-03-04 at 2 32 39 PM" src="https://github.com/user-attachments/assets/120a653a-7605-40f7-a471-cba029bc82cb" />
 
 --------------------------
 ## Dogs' Detail Page
 
-#### Dogs' detail page has a sidebar that controll all owner's dogs' information. By clicking the dogs' name, the information will be shown on page.
+Dogs' detail page has a sidebar that controll all owner's dogs' information. By clicking the dogs' name, the information will be shown on page.   
 
 <img width="1438" alt="Screenshot 2025-03-04 at 2 32 58 PM" src="https://github.com/user-attachments/assets/0bc543b5-0113-43b6-a809-72c6826b0f0c" />
 
 --------------------------
 ## Photos' Page
 
-#### Photos' detail page also has sidebar that control all owner's photos. By clicking on dogs' name, dog's basic information will show up. By clicking on photo, a large version of photo will show up.
+Photos' detail page also has sidebar that control all owner's photos. By clicking on dogs' name, dog's basic information will show up. By clicking on photo, a large version of photo will show up.   
 
 <img width="1445" alt="Screenshot 2025-03-04 at 2 33 14 PM" src="https://github.com/user-attachments/assets/217bc47c-4c25-4812-812a-5c49462eef70" />
 
