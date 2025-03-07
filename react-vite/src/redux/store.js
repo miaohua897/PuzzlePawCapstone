@@ -9,12 +9,14 @@ import sessionReducer from "./session";
 import photoReducer from './photo';
 import dogReducer from "./dog";
 import newsPhotoReducer from "./new_photo";
+import noteReducer from "./note";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   photo:photoReducer,
   dog:dogReducer,
-  newsPhoto:newsPhotoReducer
+  newsPhoto:newsPhotoReducer,
+  note:noteReducer
 });
 
 let enhancer;
