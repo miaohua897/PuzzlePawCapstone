@@ -4,6 +4,7 @@ import SignupFormPage from '../components/SignupFormPage';
 import HomePage from '../components/HomePage';
 import PhotoPage from '../components/PhotoPage';
 import DogPage from '../components/DogPage';
+import NotePage from '../components/NotePage';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
         path: "dog",
         element: <DogPage />,
       },
+      {
+        path:'note',
+        element:<NotePage />
+      }
     ],
   },
 ]);
