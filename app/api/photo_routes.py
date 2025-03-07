@@ -16,9 +16,7 @@ def get_all_photos():
 @photo_routes.route('/current',methods=['GET'])
 @login_required
 def get_session_photos():
-    # photos = Photo.query.filter_by(user_id=current_user.id).all()
     photos = Photo.query.filter_by(user_id=current_user.id).order_by(Photo.id.desc()).all()
-    # print({photo.id: photo.to_dict() for photo in photos})
     return {photo.id: photo.to_dict() for photo in photos}
 
 @photo_routes.route('/',methods=['POST'])
@@ -27,7 +25,6 @@ def add_photo():
     form = PhotoForm()
     form ['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
-        # print('====================>formdata',form.data)
         image = form.data["image_url"]
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
@@ -43,8 +40,7 @@ def add_photo():
         return jsonify(new_photo.to_dict()),201
     
     return form.errors,401
-    # if form.errors:
-    #     return form.errors
+
 
 
 @photo_routes.route('/<int:photo_id>',methods=['DELETE'])
@@ -87,7 +83,6 @@ def update_photo(photo_id):
         return jsonify(photo.to_dict()),201
     
     return form.errors,401
-    # if form.errors:
-    #     return form.errors
+
 
 
