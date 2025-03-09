@@ -95,6 +95,11 @@ function noteReducer(state=initialState,action){
     switch(action.type){
         case LOAD_NOTES:
             return {...state, note:action.payload}
+        case CREATE_NOTES:{
+            let newObj={...state.note}
+            newObj[action.payload.id]=action.payload
+            return {...state, note:newObj}
+        }
         default:
             return state
     }
