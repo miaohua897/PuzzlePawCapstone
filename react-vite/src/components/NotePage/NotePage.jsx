@@ -5,10 +5,12 @@ import {thunkLoadDogs} from '../../redux/dog';
 import { useSetDogId } from "../../context/SetDogId";
 import SideBarNote from './SideBarNote';
 import AddNewNote from '../AddNewNote';
+import UpdateNoteModal from '../UpdateNoteModal';
+import DeleteNoteModal from '../DeleteNoteModal';
 // import { useModal } from "../../context/Modal";
 import OpenModalButton from '../OpenModalButton';
 import { useSideBarStatus } from "../../context/SideBar";
-import {FaArrowLeft} from 'react-icons/fa';
+import {FaArrowLeft,FaEdit,FaTrash} from 'react-icons/fa';
 
 function NotePage(){
     const dispatch = useDispatch()
@@ -59,6 +61,19 @@ function NotePage(){
                 <div key={index} className="dog-note-container">
                       <p id='note-title'>{note.title}</p>
                       <p id='note-content'>{note.content}</p>
+                      <div className="note-update-delete-container">
+                        <OpenModalButton 
+                                buttonText= {< FaEdit/>}
+                                // onButtonClick={closeMenu}
+                                className='note-update-icon'
+                                modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/>
+                        <OpenModalButton 
+                                buttonText={<FaTrash />}
+                                // onButtonClick={closeMenu}
+                                className='note-delete-icon'
+                                modalComponent={<DeleteNoteModal note_id={note.id}  />} />
+            
+                      </div>
                 </div>
             )
           })
