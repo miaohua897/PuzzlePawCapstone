@@ -26,5 +26,6 @@ class Note(db.Model):
             'title':self.title,
             'content':self.content,
             'user':self.user.to_dict(),
+            'dog_id':self.dog_id
             # 'dog':self.dog.to_dict()  cant add this one, otherwise, run into infinite loop
         }

@@ -16,6 +16,11 @@ function SideBarPhoto({dogs_arr,photos_arr,closeMenu}){
         setIsSideBarOpen(false)
         navigator('/dog')
     }
+    const navToNotePage=(e)=>{
+      e.preventDefault()
+      setIsSideBarOpen(false)
+      navigator('/note')
+    }
     const handleUnfinishedFeatures=()=>{
         window.alert('The feature coming soon ^.^')
     }
@@ -33,7 +38,7 @@ function SideBarPhoto({dogs_arr,photos_arr,closeMenu}){
           <div className="dog-page-nav-button">
               <div>
               <button onClick ={navToDogPage} >dogs</button>
-              <button onClick={handleUnfinishedFeatures}>notes</button>
+              <button onClick={navToNotePage}>notes</button>
               </div>
               <div>
               <button id='photo-page-photo-button' >photos</button>
