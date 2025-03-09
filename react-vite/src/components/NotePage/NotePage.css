@@ -19,3 +19,18 @@
     text-align: center;
     padding-top: 10px;
 }
+.note-update-delete-container{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.note-update-icon{
+    border:none;
+    background-color: transparent;
+}
+.note-delete-icon{
+    border:none;
+    background-color: transparent;
+}

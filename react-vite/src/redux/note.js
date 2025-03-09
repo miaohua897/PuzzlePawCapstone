@@ -58,6 +58,9 @@ export const thunkCreateNote=(data)=> async(dispatch)=>{
 export const thunkUpdateNote = (data, note_id)=> async(dispatch)=>{
     const res = await fetch(`/api/notes/${note_id}`,{
         method:'PUT',
+        headers:{
+            'Content-Type':'application/json'
+        },
         body:JSON.stringify(data)
     })
     if(res.ok){
@@ -95,6 +98,32 @@ function noteReducer(state=initialState,action){
     switch(action.type){
         case LOAD_NOTES:
             return {...state, note:action.payload}
+        case CREATE_NOTES:{
+            let newObj={...state.note}
+            newObj[action.payload.id]=action.payload
+            return {...state, note:newObj}
+        }
+        case UPDATE_NOTES:{
+            let newObj={}
+            Object.values(state.note).map(el=>{
+                if(el.id !== action.payload.id){
+                    newObj[el.id]=el;
+                }
+                if(el.id === action.payload.id){
+                    newObj[el.id]=action.payload;
+                }
+            })
+            return {...state, note:newObj}
+        }
+        case DELETE_NOTES:{
+            let newObj={}
+            Object.values(state.note).map(el=>{
+                if(el.id !== action.payload){
+                    newObj[el.id]=el;
+                }
+            })
+            return {...state, note:newObj}
+        }
         default:
             return state
     }
