@@ -2,6 +2,7 @@ import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkCreateNote } from '../../redux/note';
 import { useModal } from '../../context/Modal';
+import './AddNewNote.css';
 
 
 function AddNewNote(){

@@ -1,0 +1,13 @@
+#input-note-date{
+    width:250px;
+}
+#input-note-title{
+    width:348px;
+}
+#input-note-content{
+    width:315px;
+    height: 50px;
+}
+#input-note-dogId{
+    width:328px;
+}
