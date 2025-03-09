@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {thunkLoadNotes} from '../../redux/note';
+import {thunkLoadDogs} from '../../redux/dog';
 import { useSetDogId } from "../../context/SetDogId";
 import SideBarNote from './SideBarNote';
 import { useSideBarStatus } from "../../context/SideBar";
@@ -14,7 +15,8 @@ function NotePage(){
     const {selectedDogId} = useSetDogId(); 
     const {setIsSideBarOpen} = useSideBarStatus();
     useEffect(()=>{
-        dispatch(thunkLoadNotes())    
+        dispatch(thunkLoadNotes())  
+        dispatch(thunkLoadDogs()) 
     },[dispatch])
 
     let notesArr=[];
@@ -37,9 +39,9 @@ function NotePage(){
         {dogNotesArr.length !== 0?
           dogNotesArr.map((note,index)=>{
             return (
-                <div key={index}>
-                      <h4>{note.title}</h4>
-                      <p>{note.content}</p>
+                <div key={index} className="dog-note-container">
+                      <p id='note-title'>{note.title}</p>
+                      <p id='note-content'>{note.content}</p>
                 </div>
             )
           })

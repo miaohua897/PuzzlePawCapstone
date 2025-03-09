@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useSideBarStatus } from "../../context/SideBar";
 import {FaArrowRight} from 'react-icons/fa';
 import { useSetDogId } from "../../context/SetDogId";
+import './NotePage.css';
+
 function SideBarNote({dogsArr}){
     const navigator = useNavigate()
     const {isSideBarOpen, setIsSideBarOpen} = useSideBarStatus();
@@ -53,7 +55,7 @@ function SideBarNote({dogsArr}){
                             </div>
                         )
                     )
-                    :<p>you dont have note yet</p>
+                    :<p>you dont have dog yet</p>
                 }
 
             </div>
