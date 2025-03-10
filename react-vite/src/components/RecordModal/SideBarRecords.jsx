@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useSideBarStatus } from "../../context/SideBar";
 import {FaArrowRight} from 'react-icons/fa';
 import { useSetDogId } from "../../context/SetDogId";
-import './NotePage.css';
+import './RecordModal';
 
-function SideBarNote({dogsArr}){
+function SideBarRecords({dogsArr}){
     const navigator = useNavigate()
     const {isSideBarOpen, setIsSideBarOpen} = useSideBarStatus();
     const {setSelectedDogId} = useSetDogId();
@@ -18,11 +18,12 @@ function SideBarNote({dogsArr}){
         setIsSideBarOpen(false)
         navigator('/photo')
     }
-    const navToRecordPage=(e)=>{
+    const navToNotePage=(e)=>{
         e.preventDefault()
         setIsSideBarOpen(false)
-        navigator('/record')
+        navigator('/note')
     }
+
     
     return (
         <div className="sidebar"
@@ -38,11 +39,11 @@ function SideBarNote({dogsArr}){
                 <div className="dog-page-nav-button">
                     <div>
                         <button onClick={navToDogPage}>dogs</button>
-                        <button id ='photo-page-photo-button'>notes</button>
+                        <button onClick={navToNotePage} >notes</button>
                     </div>
                     <div>
                         <button onClick={navToPhotoPage}>photos</button>
-                        <button onClick={navToRecordPage}>records</button>
+                        <button id ='photo-page-photo-button'>records</button>
                     </div>                
                 </div>
             </div>
@@ -66,4 +67,4 @@ function SideBarNote({dogsArr}){
         </div>
     )
 }
-export default SideBarNote;
+export default SideBarRecords;

@@ -22,5 +22,6 @@ class Behavior_Record(db.Model):
             'id':self.id,
             'behavior_record_date':self.behavior_record_date,
             'behavior_type':self.behavior_type,
-            'description':self.description
+            'description':self.description,
+            'dog_id':self.dog_id
         }

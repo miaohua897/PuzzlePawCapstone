@@ -21,9 +21,12 @@ function SideBarPhoto({dogs_arr,photos_arr,closeMenu}){
       setIsSideBarOpen(false)
       navigator('/note')
     }
-    const handleUnfinishedFeatures=()=>{
-        window.alert('The feature coming soon ^.^')
+    const navToRecordPage=(e)=>{
+      e.preventDefault()
+      setIsSideBarOpen(false)
+      navigator('/record')
     }
+
     
     return (
       <div className="sidebar"
@@ -42,7 +45,7 @@ function SideBarPhoto({dogs_arr,photos_arr,closeMenu}){
               </div>
               <div>
               <button id='photo-page-photo-button' >photos</button>
-              <button onClick={handleUnfinishedFeatures}>records</button>
+              <button onClick={navToRecordPage}>records</button>
               </div> 
           </div>
        </div>

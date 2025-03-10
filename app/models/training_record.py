@@ -25,6 +25,7 @@ class Training_Record(db.Model):
             'training_type':self.training_type,
             'trainer_name':self.trainer_name,
             'notes':self.notes,
+            'dog_id':self.dog_id
         }
 
 

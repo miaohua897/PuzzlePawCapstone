@@ -10,13 +10,19 @@ import photoReducer from './photo';
 import dogReducer from "./dog";
 import newsPhotoReducer from "./new_photo";
 import noteReducer from "./note";
+import healthRecordReducer from "./healthRecord";
+import trainingRecordReducer from "./trainingRecord";
+import behaviorRecordReducer from "./behaviorRecord";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   photo:photoReducer,
   dog:dogReducer,
   newsPhoto:newsPhotoReducer,
-  note:noteReducer
+  note:noteReducer,
+  healthRecord:healthRecordReducer,
+  trainingRecord:trainingRecordReducer,
+  behaviorRecord:behaviorRecordReducer
 });
 
 let enhancer;
