@@ -1,0 +1,2 @@
+import UpdateTrainingRecordModal from './UpdateTrainingRecordModal'
+export default UpdateTrainingRecordModal

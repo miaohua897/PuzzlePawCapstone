@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {thunkLoadNotes} from '../../redux/note';
 import {thunkLoadDogs} from '../../redux/dog';
 import { useSetDogId } from "../../context/SetDogId";
@@ -14,10 +15,10 @@ import {FaArrowLeft,FaEdit,FaTrash} from 'react-icons/fa';
 
 function NotePage(){
     const dispatch = useDispatch()
- 
-
+    const navigator = useNavigate()
     const notes = useSelector(state=>state.note.note);
     const dogs = useSelector(state=>state.dog.dog);
+    const sessionUser = useSelector((state) => state.session.user);
 
     const {selectedDogId} = useSetDogId(); 
     const {setIsSideBarOpen} = useSideBarStatus();
@@ -28,6 +29,7 @@ function NotePage(){
         dispatch(thunkLoadDogs()) 
     },[dispatch])
 
+    if(!sessionUser) return navigator('/');
     let notesArr=[];
     let dogNotesArr=[];
     if(notes) notesArr = Object.values(notes).reverse();

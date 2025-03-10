@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './RecordModal.css';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { thunkLoadHealthRecords } from '../../redux/healthRecord';
 import { useSetDogId } from '../../context/SetDogId';
 import { thunkLoadTrainingRecords } from '../../redux/trainingRecord';
@@ -18,9 +19,12 @@ import AddNewBehaviorRecord from '../AddNewBehaviorRecord';
 import AddNewTrainingRecord from '../AddNewTrainingRecord';
 import UpdateHealthRecordModal from '../UpdateHealthRecordModal';
 import UpdateBehaviorRecordModal from '../UpdateBehaviorRecordModal';
+import UpdateTrainingRecordModal from '../UpdateTrainingRecordModal';
 
 function RecordModal(){
     const dispatch = useDispatch();
+    const navigator = useNavigate();
+    const sessionUser = useSelector((state) => state.session.user);
     const healthRecords = useSelector(state=>state.healthRecord.healthRecords);
     const trainingRecords = useSelector(state=>state.trainingRecord.trainingRecords);
     const behaviorRecords = useSelector(state=> state.behaviorRecord.behaviorRecords);
@@ -35,6 +39,8 @@ function RecordModal(){
         dispatch(thunkLoadBehaviorRecords())
         dispatch(thunkLoadDogs()) 
     },[dispatch])
+
+    if(!sessionUser) return navigator('/');
 
     let healthRecordArr =[];
     if(healthRecords) healthRecordArr = Object.values(healthRecords).reverse();
@@ -122,11 +128,11 @@ function RecordModal(){
                         <p>{trainingRecord.training_date.slice(0,14)}</p>
 
                         <div className="note-update-delete-container">
-                            {/* <OpenModalButton 
+                            <OpenModalButton 
                                     buttonText= {< FaEdit/>}
                                     // onButtonClick={closeMenu}
                                     className='note-update-icon'
-                                    modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/> */}
+                                    modalComponent={<UpdateTrainingRecordModal trainingRecord ={trainingRecord} training_record_id={trainingRecord.id} />}/>
                             <OpenModalButton 
                                     buttonText={<FaTrash />}
                                     // onButtonClick={closeMenu}
