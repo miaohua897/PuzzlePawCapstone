@@ -15,6 +15,7 @@ import DeleteHealthRecordModal from '../DeleteHealthRecordModal';
 import DeleteBehaviorRecordModal from '../DeleteBehaviorRecordModal';
 import AddNewHealthRecord from '../AddNewHealthRecord/AddNewHealthRecord';
 import AddNewBehaviorRecord from '../AddNewBehaviorRecord';
+import AddNewTrainingRecord from '../AddNewTrainingRecord';
 
 function RecordModal(){
     const dispatch = useDispatch();
@@ -104,6 +105,11 @@ function RecordModal(){
             :<p>your dog have no record yet</p>
           }
             <h1>Training Records</h1>
+            <OpenModalButton 
+            buttonText="+"
+            // onButtonClick={closeModal}
+            className='dog-add-new-dog'
+            modalComponent={<AddNewTrainingRecord />}/>
           
           {
             dogTrainingRecord.length !==0 ?
