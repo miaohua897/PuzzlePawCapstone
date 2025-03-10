@@ -12,6 +12,7 @@ import newsPhotoReducer from "./new_photo";
 import noteReducer from "./note";
 import healthRecordReducer from "./healthRecord";
 import trainingRecordReducer from "./trainingRecord";
+import behaviorRecordReducer from "./behaviorRecord";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   newsPhoto:newsPhotoReducer,
   note:noteReducer,
   healthRecord:healthRecordReducer,
-  trainingRecord:trainingRecordReducer
+  trainingRecord:trainingRecordReducer,
+  behaviorRecord:behaviorRecordReducer
 });
 
 let enhancer;
