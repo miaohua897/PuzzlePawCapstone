@@ -43,3 +43,21 @@ def add_behavior_record():
         db.session.commit()
         return jsonify(new_behavior_record.to_dict()),201
     return form.errors,401
+
+@behavior_record_routes.route('/<int:behavior_record_id>',methods=['PUT'])
+@login_required
+def update_behavior_record(behavior_record_id):
+    behavior_record = Behavior_Record.query.get(behavior_record_id)
+    if  behavior_record is None:
+        return jsonify({'error':'the record is not exist'})
+    form = Behavior_Record_Form()
+    form['csrf_token'].data= request.cookies['csrf_token']
+    if form.validate_on_submit(): 
+        behavior_record.behavior_record_date = form.data['behavior_record_date']
+        behavior_record.description= form.data['description']
+        behavior_record.behavior_type= form.data['behavior_type']
+        behavior_record.dog_id = form.data['dog_id']
+        
+        db.session.commit()
+        return jsonify( behavior_record.to_dict()),201
+    return form.errors,401

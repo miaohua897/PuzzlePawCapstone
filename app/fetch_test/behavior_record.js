@@ -1,12 +1,13 @@
-fetch('/api/behavior_records/1',{
+fetch('/api/health_records/2',{
     method:'PUT',
     headers:{
         'Content-Type':'application/json'
     },
     body:JSON.stringify({
-       'behavior_record_date':'2014-01-23',
+       'record_date':'2014-01-23',
        "description":"note updated test",
-       "behavior_type":"this is updated test note",
+       "treatment":"this is updated test note",
+       "vet_name" :'test',
        "dog_id":1 
     })
 }).then(res=>res.json())

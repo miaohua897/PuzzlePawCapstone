@@ -18,7 +18,7 @@ const createTrainingRecord=(data)=>({
     payload:data
 })
 
-const updateTrainiingRecord=(data)=>({
+const updateTrainingRecord=(data)=>({
     type:UPDATE_TRAINING_RECORD,
     payload:data
 })
@@ -54,6 +54,28 @@ export const thunkCreateTrainingRecord=(data)=> async(dispatch)=>{
     }
 }
 
+export const thunkUpdateTrainingRecord=(data,training_record_id)=> async(dispatch)=>{
+    const res = await fetch(`/api/training_records/${training_record_id}`,{
+        method:'PUT',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(data)
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(updateTrainingRecord(data))
+    }else if (res.status<500){
+        const errorMessages = await res.json()
+        return errorMessages
+    }
+    else{
+        return {
+            server:'Something went wrong. Close it. Please try agian'
+        } 
+    }
+}
+
 export const thunkDeleteTrainingRecord=(training_record_id)=>async(dispatch)=>{
     const res = await fetch(`/api/training_records/${training_record_id}`,{
         method:'DELETE',
@@ -79,6 +101,18 @@ function trainingRecordReducer(state=initialState,action){
         case CREATE_TRAINING_RECORD:{
             let newObj ={...state.trainingRecords}
             newObj[action.payload.id]= action.payload
+            return {...state,trainingRecords:newObj}
+        }
+        case UPDATE_TRAINING_RECORD:{
+            let newObj={}
+            Object.values(state.trainingRecords).map(el=>{
+                if(el.id !== action.payload.id){
+                    newObj[el.id]=el
+                }
+                if (el.id === action.payload.id){
+                    newObj[el.id]= action.payload
+                }
+            })
             return {...state,trainingRecords:newObj}
         }
         case DELETE_TRAINING_RECORD:{

@@ -42,3 +42,22 @@ def add_health_record():
         db.session.commit()
         return jsonify(new_training_record.to_dict()),201
     return form.errors,401
+
+@training_record_routes.route('/<int:training_record_id>',methods=['PUT'])
+@login_required
+def update_training_record(training_record_id):
+    training_record = Training_Record.query.get(training_record_id)
+    if  training_record is None:
+        return jsonify({'error':'the record is not exist'})
+    form = Training_Record_Form()
+    form['csrf_token'].data= request.cookies['csrf_token']
+    if form.validate_on_submit(): 
+        training_record.training_date = form.data['training_date']
+        training_record.training_type= form.data['training_type']
+        training_record.trainer_name= form.data['trainer_name']
+        training_record.notes = form.data['notes']
+        training_record.dog_id = form.data['dog_id']
+        
+        db.session.commit()
+        return jsonify( training_record.to_dict()),201
+    return form.errors,401

@@ -1,0 +1,2 @@
+import UpdateBehaviorRecordModal from './UpdateBehaviorRecordModal'
+export default UpdateBehaviorRecordModal;

@@ -18,7 +18,7 @@ const createBehaviorRecord=(data)=>({
     payload:data
 })
 
-const updateBehaviorRecords=(data)=>({
+const updateBehaviorRecord=(data)=>({
     type:UPDATE_BEHAVIOR_RECORD,
     payload:data
 })
@@ -54,6 +54,29 @@ export const thunkCreateBehaviorRecord=(data)=> async(dispatch)=>{
     }
 }
 
+
+export const thunkUpdateBehaviorRecord=(data,behavior_record_id)=> async(dispatch)=>{
+    const res = await fetch(`/api/behavior_records/${behavior_record_id}`,{
+        method:'PUT',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(data)
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(updateBehaviorRecord(data))
+    }else if (res.status<500){
+        const errorMessages = await res.json()
+        return errorMessages
+    }
+    else{
+        return {
+            server:'Something went wrong. Close it. Please try agian'
+        } 
+    }
+}
+
 export const thunkDeleteBehaviorRecord =(behavior_record_id)=>async (dispatch)=>{
     const res = await fetch(`/api/behavior_records/${behavior_record_id}`,{
         method:'DELETE',
@@ -80,6 +103,18 @@ function behaviorRecordReducer(state=initialState,action){
             let newObj ={...state.behaviorRecords}
             newObj[action.payload.id] = action.payload
             return {...state,behaviorRecords:newObj}
+        }
+        case UPDATE_BEHAVIOR_RECORD:{
+            let newObj={}
+            Object.values(state.behaviorRecords).map(el=>{
+                if(el.id !== action.payload.id){
+                    newObj[el.id]=el
+                }
+                if(el.id === action.payload.id){
+                    newObj[el.id] = action.payload
+                }
+            })
+            return {...state, behaviorRecords:newObj}
         }
         case DELETE_BEHAVIOR_RECORD:{
             let newObj={}

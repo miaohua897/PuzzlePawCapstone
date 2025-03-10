@@ -17,6 +17,7 @@ import AddNewHealthRecord from '../AddNewHealthRecord/AddNewHealthRecord';
 import AddNewBehaviorRecord from '../AddNewBehaviorRecord';
 import AddNewTrainingRecord from '../AddNewTrainingRecord';
 import UpdateHealthRecordModal from '../UpdateHealthRecordModal';
+import UpdateBehaviorRecordModal from '../UpdateBehaviorRecordModal';
 
 function RecordModal(){
     const dispatch = useDispatch();
@@ -153,11 +154,11 @@ function RecordModal(){
                         <p>{behaviorRecord.description}</p>
                         <p>{behaviorRecord.behavior_record_date.slice(0,14)}</p>
                           <div className="note-update-delete-container">
-                            {/* <OpenModalButton 
+                            <OpenModalButton 
                                     buttonText= {< FaEdit/>}
                                     // onButtonClick={closeMenu}
                                     className='note-update-icon'
-                                    modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/> */}
+                                    modalComponent={<UpdateBehaviorRecordModal behaviorRecord ={behaviorRecord} behavior_record_id={behaviorRecord.id} />}/>
                             <OpenModalButton 
                                     buttonText={<FaTrash />}
                                     // onButtonClick={closeMenu}
