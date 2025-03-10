@@ -1,4 +1,4 @@
-from flask import Blueprint,jsonify
+from flask import Blueprint,jsonify,request
 from flask_login import login_required
 from app.models import User, Health_Record,db
 from sqlalchemy import desc
@@ -26,3 +26,21 @@ def delete_health_records(health_record_id):
     return jsonify({
         'message':'delete it successfully'
     })
+
+@health_record_routes.route('/',methods=['POST'])
+@login_required
+def add_health_record():
+    form = Health_Record_Form()
+    form['csrf_token'].data= request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_health_record = Health_Record(
+            record_date = form.data['record_date'],
+            description= form.data['description'],
+            treatment= form.data['treatment'],
+            vet_name = form.data['vet_name'],
+            dog_id = form.data['dog_id']
+        )
+        db.session.add(new_health_record)
+        db.session.commit()
+        return jsonify(new_health_record.to_dict()),201
+    return form.errors,401

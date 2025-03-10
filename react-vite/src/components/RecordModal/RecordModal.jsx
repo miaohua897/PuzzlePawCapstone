@@ -13,6 +13,8 @@ import OpenModalButton  from '../OpenModalButton';
 import DeleteTrainingRecordModal from '../DeleteTrainingRecordModal';
 import DeleteHealthRecordModal from '../DeleteHealthRecordModal';
 import DeleteBehaviorRecordModal from '../DeleteBehaviorRecordModal';
+import AddNewHealthRecord from '../AddNewHealthRecord/AddNewHealthRecord';
+import AddNewBehaviorRecord from '../AddNewBehaviorRecord';
 
 function RecordModal(){
     const dispatch = useDispatch();
@@ -50,12 +52,20 @@ function RecordModal(){
 
     return (
         <div className='records-container'>
+            <div>
             {
                 dogsArr.length !==0?
                 <h1 id='beloved-dog-title'>My Beloved {dogsArr[selectedDogId-1].dog_name}&apos;s Records</h1>
                 : <h1>Post your first dog</h1>
 
             }
+              <OpenModalButton 
+            buttonText="+"
+            // onButtonClick={closeModal}
+            className='dog-add-new-dog'
+            modalComponent={<AddNewHealthRecord />}/>
+            </div>
+          
             
             <div className="sidebar-button-container">
                 <button className='sidebar-button' onClick={()=>{
@@ -94,6 +104,7 @@ function RecordModal(){
             :<p>your dog have no record yet</p>
           }
             <h1>Training Records</h1>
+          
           {
             dogTrainingRecord.length !==0 ?
             dogTrainingRecord.map((trainingRecord,index)=>{
@@ -123,6 +134,11 @@ function RecordModal(){
             :<p>your dog have no record yet</p>
           }
           <h1>Behavior Records</h1>
+          <OpenModalButton 
+            buttonText="+"
+            // onButtonClick={closeModal}
+            className='dog-add-new-dog'
+            modalComponent={<AddNewBehaviorRecord />}/>
           {
             dogbehaviorRecords.length !==0 ?
             dogbehaviorRecords.map((behaviorRecord,index)=>{
