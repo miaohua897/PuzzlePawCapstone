@@ -5,17 +5,26 @@ import { thunkLoadHealthRecords } from '../../redux/healthRecord';
 import { useSetDogId } from '../../context/SetDogId';
 import { thunkLoadTrainingRecords } from '../../redux/trainingRecord';
 import { thunkLoadBehaviorRecords } from '../../redux/behaviorRecord';
+import {thunkLoadDogs} from '../../redux/dog';
+import {FaArrowLeft} from 'react-icons/fa';
+import SideBarRecords from './SideBarRecords';
+import { useSideBarStatus } from "../../context/SideBar";
 
 function RecordModal(){
     const dispatch = useDispatch();
     const healthRecords = useSelector(state=>state.healthRecord.healthRecords);
     const trainingRecords = useSelector(state=>state.trainingRecord.trainingRecords);
     const behaviorRecords = useSelector(state=> state.behaviorRecord.behaviorRecords);
+    const dogs = useSelector(state=>state.dog.dog);
+
     const {selectedDogId} = useSetDogId();
+    const {setIsSideBarOpen} = useSideBarStatus();
+
     useEffect(()=>{
         dispatch(thunkLoadHealthRecords())
         dispatch(thunkLoadTrainingRecords())
         dispatch(thunkLoadBehaviorRecords())
+        dispatch(thunkLoadDogs()) 
     },[dispatch])
 
     let healthRecordArr =[];
@@ -32,9 +41,26 @@ function RecordModal(){
     if (behaviorRecords) behaviorRecordArr = Object.values(behaviorRecords).reverse();
     let dogbehaviorRecords =[];
     if(behaviorRecordArr.length !==0) dogbehaviorRecords = behaviorRecordArr.filter(el=>el.dog_id===selectedDogId);
+    let dogsArr =[];
+    if(dogs) dogsArr = Object.values(dogs);
 
     return (
         <div>
+            {
+                dogsArr.length !==0?
+                <h1 id='beloved-dog-title'>My Beloved {dogsArr[selectedDogId-1].dog_name}&apos;s Records</h1>
+                : <h1>Post your first dog</h1>
+
+            }
+            
+            <div className="sidebar-button-container">
+                <button className='sidebar-button' onClick={()=>{
+                    setIsSideBarOpen(true)
+                    }} >
+                <FaArrowLeft color='darkblue'/>
+                </button>
+            </div>  
+            <SideBarRecords  dogsArr={dogsArr} />
             <h1>Health Records</h1>
           {
             dogHealthRecord.length !==0 ?

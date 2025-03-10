@@ -39,12 +39,17 @@ function NotePage(){
     return (
        <div>
          <div className="dog-cards-title-icon">
-                    <h1 id='beloved-dog-title'>My Beloved Dogs&apos; Note</h1>
-                        <OpenModalButton 
-                        buttonText="+"
-                        // onButtonClick={closeModal}
-                        className='dog-add-new-dog'
-                        modalComponent={<AddNewNote />}/>
+            {
+                dogsArr.length !==0?
+                <h1 id='beloved-dog-title'>My Beloved {dogsArr[selectedDogId-1].dog_name}&apos;s Records</h1>
+                : <h1>Post your first dog</h1>
+
+            }
+            <OpenModalButton 
+            buttonText="+"
+            // onButtonClick={closeModal}
+            className='dog-add-new-dog'
+            modalComponent={<AddNewNote />}/>
         </div>
 
         <div className="sidebar-button-container">
