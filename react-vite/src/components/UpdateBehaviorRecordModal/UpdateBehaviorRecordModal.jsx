@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {thunkUpdateBehaviorRecord} from '../../redux/behaviorRecord';
 import { useModal } from '../../context/Modal';
 import './UpdateBehaviorRecordModal.css';
@@ -7,7 +7,6 @@ import './UpdateBehaviorRecordModal.css';
 
 function UpdateBehaviorRecordModal({behaviorRecord, behavior_record_id}){
     const dispatch = useDispatch()
-    const sessionUser = useSelector(state=>state.session.user)
     const recordDateObject = new Date(behaviorRecord.behavior_record_date)
     const formattedDate = recordDateObject.toISOString().split('T')[0];
     

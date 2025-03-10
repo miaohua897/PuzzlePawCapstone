@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {thunkUpdateHealthRecord} from '../../redux/healthRecord';
 import { useModal } from '../../context/Modal';
 import './UpdateHealthRecordModal.css';
@@ -7,7 +7,6 @@ import './UpdateHealthRecordModal.css';
 
 function UpdateHealthRecordModal({healthRecord,health_record_id}){
     const dispatch = useDispatch()
-    const sessionUser = useSelector(state=>state.session.user)
     const recordDateObject = new Date(healthRecord.record_date)
     const formattedDate = recordDateObject.toISOString().split('T')[0];
 

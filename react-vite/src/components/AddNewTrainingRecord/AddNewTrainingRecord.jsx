@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {thunkCreateTrainingRecord} from '../../redux/trainingRecord';
 import { useModal } from '../../context/Modal';
 import './AddNewTrainingRecord.css';
@@ -7,7 +7,6 @@ import './AddNewTrainingRecord.css';
 
 function AddNewTrainingRecord(){
     const dispatch = useDispatch()
-    const sessionUser = useSelector(state=>state.session.user)
     const [recordDate, setRecordDate] = useState('');
     const [trainingType , setTrainingType] = useState('');
     const [notes, setNotes] = useState('');

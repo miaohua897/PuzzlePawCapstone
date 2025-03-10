@@ -77,21 +77,33 @@ function RecordModal(){
                 </button>
             </div>  
             <SideBarRecords  dogsArr={dogsArr} />
-            <h1>Health Records</h1>
-            <OpenModalButton 
-            buttonText="+"
-            // onButtonClick={closeModal}
-            className='dog-add-new-dog'
-            modalComponent={<AddNewHealthRecord />}/>
+            <div className='create-record-container'>
+                <h1>Health Records</h1>
+                <OpenModalButton 
+                buttonText="+"
+                // onButtonClick={closeModal}
+                className='dog-add-new-dog'
+                modalComponent={<AddNewHealthRecord />}/>
+            </div>
+           
           {
             dogHealthRecord.length !==0 ?
             dogHealthRecord.map((healthRecord,index)=>{
                 return (
-                    <div key={index} className="dog-note-container" >
-                        <p>{healthRecord.description}</p>
-                        <p>{healthRecord.treatment}</p>
-                        <p>{healthRecord.vet_name}</p>
-                        <p>{healthRecord.record_date.slice(0,14)}</p>
+                    <div key={index} className="dog-records-container" >
+                        <div className='records-sub-container'>
+                        <strong>Description:  </strong><span>{healthRecord.description}</span> 
+                        </div>
+                        <div className='records-sub-container'>
+                        <strong>Treatment:  </strong><span>{healthRecord.treatment}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Vet Name:  </strong> <span>{healthRecord.vet_name}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Record Date</strong>  <span>{healthRecord.record_date.slice(0,14)}</span>
+                        </div>
+                       
                             <div className="note-update-delete-container">
                             <OpenModalButton 
                                     buttonText= {< FaEdit/>}
@@ -110,23 +122,33 @@ function RecordModal(){
             })
             :<p>your dog have no record yet</p>
           }
-            <h1>Training Records</h1>
-            <OpenModalButton 
-            buttonText="+"
-            // onButtonClick={closeModal}
-            className='dog-add-new-dog'
-            modalComponent={<AddNewTrainingRecord />}/>
+           <div className='create-record-container'>
+                <h1>Training Records</h1>
+                <OpenModalButton 
+                buttonText="+"
+                // onButtonClick={closeModal}
+                className='dog-add-new-dog'
+                modalComponent={<AddNewTrainingRecord />}/>
+           </div>
           
           {
             dogTrainingRecord.length !==0 ?
             dogTrainingRecord.map((trainingRecord,index)=>{
                 return (
-                    <div key={index} className="dog-note-container" >
-                        <p>{trainingRecord.training_type}</p>
-                        <p>{trainingRecord.notes}</p>
-                        <p>{trainingRecord.trainer_name}</p>
-                        <p>{trainingRecord.training_date.slice(0,14)}</p>
-
+                    <div key={index} className="dog-records-container" >
+                        <div className='records-sub-container'>
+                            <strong>Training Type:  </strong> <span>{trainingRecord.training_type}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Notes:  </strong> <span>{trainingRecord.notes}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Trainer Name:  </strong> <span>{trainingRecord.trainer_name}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Training Date</strong> <span>{trainingRecord.training_date.slice(0,14)}</span>
+                        </div>
+                        
                         <div className="note-update-delete-container">
                             <OpenModalButton 
                                     buttonText= {< FaEdit/>}
@@ -145,20 +167,30 @@ function RecordModal(){
             })
             :<p>your dog have no record yet</p>
           }
-          <h1>Behavior Records</h1>
-          <OpenModalButton 
-            buttonText="+"
-            // onButtonClick={closeModal}
-            className='dog-add-new-dog'
-            modalComponent={<AddNewBehaviorRecord />}/>
+          <div className='create-record-container'>
+            <h1>Behavior Records</h1>
+            <OpenModalButton 
+                buttonText="+"
+                // onButtonClick={closeModal}
+                className='dog-add-new-dog'
+                modalComponent={<AddNewBehaviorRecord />}/>
+          </div>
+        
           {
             dogbehaviorRecords.length !==0 ?
             dogbehaviorRecords.map((behaviorRecord,index)=>{
                 return (
-                    <div key={index} className="dog-note-container" >
-                        <p>{behaviorRecord.behavior_type}</p>
-                        <p>{behaviorRecord.description}</p>
-                        <p>{behaviorRecord.behavior_record_date.slice(0,14)}</p>
+                    <div key={index} className="dog-records-container" >
+                        <div className='records-sub-container'>
+                            <strong>Behavior Type:  </strong><span>{behaviorRecord.behavior_type}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Description:  </strong><span>{behaviorRecord.description}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Behavior Record:  </strong>  <span>{behaviorRecord.behavior_record_date.slice(0,14)}</span>
+                        </div>
+                       
                           <div className="note-update-delete-container">
                             <OpenModalButton 
                                     buttonText= {< FaEdit/>}

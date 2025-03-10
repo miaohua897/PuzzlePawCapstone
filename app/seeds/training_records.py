@@ -4,11 +4,11 @@ from datetime import date
 
 def seed_training_records():
     demo= Training_Record(
-       training_date = date(2024,1,1),
-       notes='helloworld',
-       training_type='helloworld',
-       trainer_name='hi',
-       dog_id=1 
+        training_date=date(2024, 1, 5),
+        notes='Worked on leash training, still pulling a bit.',
+        training_type='Leash Training',
+        trainer_name='Jane Smith',
+        dog_id=1 
     )
     db.session.add(demo)
     db.session.commit()

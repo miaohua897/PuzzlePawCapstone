@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {thunkCreateHealthRecord} from '../../redux/healthRecord';
 import { useModal } from '../../context/Modal';
 import './AddNewHealthRecord.css';
@@ -7,7 +7,7 @@ import './AddNewHealthRecord.css';
 
 function AddNewHealthRecord(){
     const dispatch = useDispatch()
-    const sessionUser = useSelector(state=>state.session.user)
+
     const [recordDate, setRecordDate] = useState('');
     const [description, setDescription] = useState('');
     const [treatment, setTreatment] = useState('');

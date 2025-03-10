@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {thunkCreateBehaviorRecord} from '../../redux/behaviorRecord';
 import { useModal } from '../../context/Modal';
 import './AddNewBehaviorRecord.css';
@@ -7,7 +7,6 @@ import './AddNewBehaviorRecord.css';
 
 function AddNewBehaviorRecord(){
     const dispatch = useDispatch()
-    const sessionUser = useSelector(state=>state.session.user)
     const [recordDate, setRecordDate] = useState('');
     const [description, setDescription] = useState('');
     const [behaviorType, setBehaviorType] = useState('');
