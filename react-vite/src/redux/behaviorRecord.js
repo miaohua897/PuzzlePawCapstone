@@ -13,6 +13,16 @@ const deleteBehaviorRecord =(behavior_record_id)=>({
     payload:behavior_record_id
 })
 
+const createBehaviorRecord=(data)=>({
+    type:CREATE_BEHAVIOR_RECORD,
+    payload:data
+})
+
+const updateBehaviorRecord=(data)=>({
+    type:UPDATE_BEHAVIOR_RECORD,
+    payload:data
+})
+
 export const thunkLoadBehaviorRecords=()=> async(dispatch)=>{
     const res = await fetch('/api/behavior_records/')
     if(res.ok){
@@ -21,6 +31,49 @@ export const thunkLoadBehaviorRecords=()=> async(dispatch)=>{
             return ;
         }
         dispatch(loadBehaviorRecords(data))
+    }
+}
+
+export const thunkCreateBehaviorRecord=(data)=> async(dispatch)=>{
+    const res = await fetch('/api/behavior_records/',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(data)
+    })
+    if(res.ok){
+        const data = await res.json();
+        dispatch(createBehaviorRecord(data))
+    }
+    else if (res.status<500){
+        const errorMessages = await res.json()
+        return errorMessages;
+    }else{
+        return {
+            server:'Something went wrong, Close it. Please try again'
+        }
+    }
+}
+
+
+export const thunkUpdateBehaviorRecord=(data,behavior_record_id)=> async(dispatch)=>{
+    const res = await fetch(`/api/behavior_records/${behavior_record_id}`,{
+        method:'PUT',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(data)
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(updateBehaviorRecord(data))
+    }else if (res.status<500){
+        const errorMessages = await res.json()
+        return errorMessages
+    }
+    else{
+        return {
+            server:'Something went wrong. Close it. Please try agian'
+        } 
     }
 }
 
@@ -46,6 +99,23 @@ function behaviorRecordReducer(state=initialState,action){
     switch(action.type){
         case LOAD_BEHAVIOR_RECORD:
             return {...state, behaviorRecords:action.payload}
+        case CREATE_BEHAVIOR_RECORD:{
+            let newObj ={...state.behaviorRecords}
+            newObj[action.payload.id] = action.payload
+            return {...state,behaviorRecords:newObj}
+        }
+        case UPDATE_BEHAVIOR_RECORD:{
+            let newObj={}
+            Object.values(state.behaviorRecords).map(el=>{
+                if(el.id !== action.payload.id){
+                    newObj[el.id]=el
+                }
+                if(el.id === action.payload.id){
+                    newObj[el.id] = action.payload
+                }
+            })
+            return {...state, behaviorRecords:newObj}
+        }
         case DELETE_BEHAVIOR_RECORD:{
             let newObj={}
             Object.values(state.behaviorRecords).map(el=>{

@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 from datetime import datetime
 
 class Health_Record_Form(FlaskForm):
-    record_date = DateField('note_date',validators=[DataRequired()])
+    record_date = DateField('record_date',validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])
     treatment = StringField('treatment', validators=[DataRequired()])
     vet_name = StringField('vet_name', validators=[DataRequired()])

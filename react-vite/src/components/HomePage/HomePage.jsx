@@ -11,7 +11,7 @@ function HomePage(){
 
     useEffect(()=>{
         const interval = setInterval(()=>{
-            setCurrentIndex((prev)=>(prev+1)%newsPhotos.length)
+            setCurrentIndex((prev)=>(prev+1)% newsPhotos.length)
         },3600)
         return ()=>clearInterval(interval)
     },[])

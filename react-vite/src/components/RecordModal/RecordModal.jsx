@@ -1,21 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './RecordModal.css';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { thunkLoadHealthRecords } from '../../redux/healthRecord';
 import { useSetDogId } from '../../context/SetDogId';
 import { thunkLoadTrainingRecords } from '../../redux/trainingRecord';
 import { thunkLoadBehaviorRecords } from '../../redux/behaviorRecord';
 import {thunkLoadDogs} from '../../redux/dog';
-import {FaArrowLeft, FaTrash} from 'react-icons/fa';
+import {FaArrowLeft, FaTrash, FaEdit} from 'react-icons/fa';
 import SideBarRecords from './SideBarRecords';
 import { useSideBarStatus } from "../../context/SideBar";
 import OpenModalButton  from '../OpenModalButton';
 import DeleteTrainingRecordModal from '../DeleteTrainingRecordModal';
 import DeleteHealthRecordModal from '../DeleteHealthRecordModal';
 import DeleteBehaviorRecordModal from '../DeleteBehaviorRecordModal';
+import AddNewHealthRecord from '../AddNewHealthRecord/AddNewHealthRecord';
+import AddNewBehaviorRecord from '../AddNewBehaviorRecord';
+import AddNewTrainingRecord from '../AddNewTrainingRecord';
+import UpdateHealthRecordModal from '../UpdateHealthRecordModal';
+import UpdateBehaviorRecordModal from '../UpdateBehaviorRecordModal';
+import UpdateTrainingRecordModal from '../UpdateTrainingRecordModal';
 
 function RecordModal(){
     const dispatch = useDispatch();
+    const navigator = useNavigate();
+    const sessionUser = useSelector((state) => state.session.user);
     const healthRecords = useSelector(state=>state.healthRecord.healthRecords);
     const trainingRecords = useSelector(state=>state.trainingRecord.trainingRecords);
     const behaviorRecords = useSelector(state=> state.behaviorRecord.behaviorRecords);
@@ -30,6 +39,8 @@ function RecordModal(){
         dispatch(thunkLoadBehaviorRecords())
         dispatch(thunkLoadDogs()) 
     },[dispatch])
+
+    if(!sessionUser) return navigator('/');
 
     let healthRecordArr =[];
     if(healthRecords) healthRecordArr = Object.values(healthRecords).reverse();
@@ -50,13 +61,14 @@ function RecordModal(){
 
     return (
         <div className='records-container'>
+            <div>
             {
                 dogsArr.length !==0?
                 <h1 id='beloved-dog-title'>My Beloved {dogsArr[selectedDogId-1].dog_name}&apos;s Records</h1>
                 : <h1>Post your first dog</h1>
 
             }
-            
+            </div>        
             <div className="sidebar-button-container">
                 <button className='sidebar-button' onClick={()=>{
                     setIsSideBarOpen(true)
@@ -65,22 +77,39 @@ function RecordModal(){
                 </button>
             </div>  
             <SideBarRecords  dogsArr={dogsArr} />
-            <h1>Health Records</h1>
+            <div className='create-record-container'>
+                <h1>Health Records</h1>
+                <OpenModalButton 
+                buttonText="+"
+                // onButtonClick={closeModal}
+                className='dog-add-new-dog'
+                modalComponent={<AddNewHealthRecord />}/>
+            </div>
+           
           {
             dogHealthRecord.length !==0 ?
             dogHealthRecord.map((healthRecord,index)=>{
                 return (
-                    <div key={index} className="dog-note-container" >
-                        <p>{healthRecord.description}</p>
-                        <p>{healthRecord.treatment}</p>
-                        <p>{healthRecord.vet_name}</p>
-                        <p>{healthRecord.record_date.slice(0,14)}</p>
+                    <div key={index} className="dog-records-container" >
+                        <div className='records-sub-container'>
+                        <strong>Description:  </strong><span>{healthRecord.description}</span> 
+                        </div>
+                        <div className='records-sub-container'>
+                        <strong>Treatment:  </strong><span>{healthRecord.treatment}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Vet Name:  </strong> <span>{healthRecord.vet_name}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Record Date</strong>  <span>{healthRecord.record_date.slice(0,14)}</span>
+                        </div>
+                       
                             <div className="note-update-delete-container">
-                            {/* <OpenModalButton 
+                            <OpenModalButton 
                                     buttonText= {< FaEdit/>}
                                     // onButtonClick={closeMenu}
                                     className='note-update-icon'
-                                    modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/> */}
+                                    modalComponent={<UpdateHealthRecordModal healthRecord={healthRecord} health_record_id={healthRecord.id} />}/>
                             <OpenModalButton 
                                     buttonText={<FaTrash />}
                                     // onButtonClick={closeMenu}
@@ -93,23 +122,39 @@ function RecordModal(){
             })
             :<p>your dog have no record yet</p>
           }
-            <h1>Training Records</h1>
+           <div className='create-record-container'>
+                <h1>Training Records</h1>
+                <OpenModalButton 
+                buttonText="+"
+                // onButtonClick={closeModal}
+                className='dog-add-new-dog'
+                modalComponent={<AddNewTrainingRecord />}/>
+           </div>
+          
           {
             dogTrainingRecord.length !==0 ?
             dogTrainingRecord.map((trainingRecord,index)=>{
                 return (
-                    <div key={index} className="dog-note-container" >
-                        <p>{trainingRecord.training_type}</p>
-                        <p>{trainingRecord.notes}</p>
-                        <p>{trainingRecord.trainer_name}</p>
-                        <p>{trainingRecord.training_date.slice(0,14)}</p>
-
+                    <div key={index} className="dog-records-container" >
+                        <div className='records-sub-container'>
+                            <strong>Training Type:  </strong> <span>{trainingRecord.training_type}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Notes:  </strong> <span>{trainingRecord.notes}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Trainer Name:  </strong> <span>{trainingRecord.trainer_name}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Training Date</strong> <span>{trainingRecord.training_date.slice(0,14)}</span>
+                        </div>
+                        
                         <div className="note-update-delete-container">
-                            {/* <OpenModalButton 
+                            <OpenModalButton 
                                     buttonText= {< FaEdit/>}
                                     // onButtonClick={closeMenu}
                                     className='note-update-icon'
-                                    modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/> */}
+                                    modalComponent={<UpdateTrainingRecordModal trainingRecord ={trainingRecord} training_record_id={trainingRecord.id} />}/>
                             <OpenModalButton 
                                     buttonText={<FaTrash />}
                                     // onButtonClick={closeMenu}
@@ -122,21 +167,36 @@ function RecordModal(){
             })
             :<p>your dog have no record yet</p>
           }
-          <h1>Behavior Records</h1>
+          <div className='create-record-container'>
+            <h1>Behavior Records</h1>
+            <OpenModalButton 
+                buttonText="+"
+                // onButtonClick={closeModal}
+                className='dog-add-new-dog'
+                modalComponent={<AddNewBehaviorRecord />}/>
+          </div>
+        
           {
             dogbehaviorRecords.length !==0 ?
             dogbehaviorRecords.map((behaviorRecord,index)=>{
                 return (
-                    <div key={index} className="dog-note-container" >
-                        <p>{behaviorRecord.behavior_type}</p>
-                        <p>{behaviorRecord.description}</p>
-                        <p>{behaviorRecord.behavior_record_date.slice(0,14)}</p>
+                    <div key={index} className="dog-records-container" >
+                        <div className='records-sub-container'>
+                            <strong>Behavior Type:  </strong><span>{behaviorRecord.behavior_type}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Description:  </strong><span>{behaviorRecord.description}</span>
+                        </div>
+                        <div className='records-sub-container'>
+                            <strong>Behavior Record:  </strong>  <span>{behaviorRecord.behavior_record_date.slice(0,14)}</span>
+                        </div>
+                       
                           <div className="note-update-delete-container">
-                            {/* <OpenModalButton 
+                            <OpenModalButton 
                                     buttonText= {< FaEdit/>}
                                     // onButtonClick={closeMenu}
                                     className='note-update-icon'
-                                    modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/> */}
+                                    modalComponent={<UpdateBehaviorRecordModal behaviorRecord ={behaviorRecord} behavior_record_id={behaviorRecord.id} />}/>
                             <OpenModalButton 
                                     buttonText={<FaTrash />}
                                     // onButtonClick={closeMenu}

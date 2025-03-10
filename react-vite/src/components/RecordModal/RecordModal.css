@@ -1,3 +1,23 @@
 .records-container{
     margin-bottom: 60px;
 }
+.create-record-container{
+    display: flex;
+    flex-direction: row;
+}
+.dog-records-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    border: 0.5px solid rgba(0, 36, 135, 0.9);
+    border-radius: 10px;
+    margin: 3px;
+    padding:10px;
+    gap:5px;
+}
+.records-sub-container{
+    width: 80%;
+    position: relative;
+    left:15%;
+}

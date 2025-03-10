@@ -4,18 +4,18 @@ from datetime import date
 
 def seed_health_records():
     demo=Health_Record(
-       record_date = date(2024,1,1),
-       description='health record1',
-       vet_name='hhh',
-       treatment='health record1',
-       dog_id=1 
+        record_date=date(2024, 1, 1),
+        description='Routine checkup, healthy weight and vital signs.',
+        vet_name='Dr. HHH',
+        treatment='General Health Checkup',
+        dog_id=1
     )
     demo1=Health_Record(
-       record_date = date(2024,1,1),
-       description='health record2',
-       vet_name='hhh',
-       treatment='health record2',
-       dog_id=1 
+        record_date=date(2024, 2, 15),
+        description='Vaccination booster for rabies and distemper.',
+        vet_name='Dr. HHH',
+        treatment='Vaccination Booster',
+        dog_id=2
     )
     
     db.session.add(demo)
