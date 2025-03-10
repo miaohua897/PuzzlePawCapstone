@@ -5,6 +5,7 @@ import HomePage from '../components/HomePage';
 import PhotoPage from '../components/PhotoPage';
 import DogPage from '../components/DogPage';
 import NotePage from '../components/NotePage';
+import RecordModal from '../components/RecordModal';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path:'note',
         element:<NotePage />
+      },
+      {
+        path:'record',
+        element:<RecordModal />
       }
     ],
   },

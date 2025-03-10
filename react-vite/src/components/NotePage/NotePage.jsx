@@ -77,7 +77,7 @@ function NotePage(){
                 </div>
             )
           })
-         :<p>your dog have note yet</p> 
+         :<p>your dog have no note yet</p> 
           }
 
        </div>
