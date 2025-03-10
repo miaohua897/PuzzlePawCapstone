@@ -6,9 +6,13 @@ import { useSetDogId } from '../../context/SetDogId';
 import { thunkLoadTrainingRecords } from '../../redux/trainingRecord';
 import { thunkLoadBehaviorRecords } from '../../redux/behaviorRecord';
 import {thunkLoadDogs} from '../../redux/dog';
-import {FaArrowLeft} from 'react-icons/fa';
+import {FaArrowLeft, FaTrash} from 'react-icons/fa';
 import SideBarRecords from './SideBarRecords';
 import { useSideBarStatus } from "../../context/SideBar";
+import OpenModalButton  from '../OpenModalButton';
+import DeleteTrainingRecordModal from '../DeleteTrainingRecordModal';
+import DeleteHealthRecordModal from '../DeleteHealthRecordModal';
+import DeleteBehaviorRecordModal from '../DeleteBehaviorRecordModal';
 
 function RecordModal(){
     const dispatch = useDispatch();
@@ -45,7 +49,7 @@ function RecordModal(){
     if(dogs) dogsArr = Object.values(dogs);
 
     return (
-        <div>
+        <div className='records-container'>
             {
                 dogsArr.length !==0?
                 <h1 id='beloved-dog-title'>My Beloved {dogsArr[selectedDogId-1].dog_name}&apos;s Records</h1>
@@ -71,6 +75,19 @@ function RecordModal(){
                         <p>{healthRecord.treatment}</p>
                         <p>{healthRecord.vet_name}</p>
                         <p>{healthRecord.record_date.slice(0,14)}</p>
+                            <div className="note-update-delete-container">
+                            {/* <OpenModalButton 
+                                    buttonText= {< FaEdit/>}
+                                    // onButtonClick={closeMenu}
+                                    className='note-update-icon'
+                                    modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/> */}
+                            <OpenModalButton 
+                                    buttonText={<FaTrash />}
+                                    // onButtonClick={closeMenu}
+                                    className='note-delete-icon'
+                                    modalComponent={<DeleteHealthRecordModal health_record_id={healthRecord.id}  />} />
+                
+                            </div>
                     </div>
                 )
             })
@@ -86,6 +103,20 @@ function RecordModal(){
                         <p>{trainingRecord.notes}</p>
                         <p>{trainingRecord.trainer_name}</p>
                         <p>{trainingRecord.training_date.slice(0,14)}</p>
+
+                        <div className="note-update-delete-container">
+                            {/* <OpenModalButton 
+                                    buttonText= {< FaEdit/>}
+                                    // onButtonClick={closeMenu}
+                                    className='note-update-icon'
+                                    modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/> */}
+                            <OpenModalButton 
+                                    buttonText={<FaTrash />}
+                                    // onButtonClick={closeMenu}
+                                    className='note-delete-icon'
+                                    modalComponent={<DeleteTrainingRecordModal training_record_id={trainingRecord.id}  />} />
+                
+                            </div>
                     </div>
                 )
             })
@@ -100,6 +131,19 @@ function RecordModal(){
                         <p>{behaviorRecord.behavior_type}</p>
                         <p>{behaviorRecord.description}</p>
                         <p>{behaviorRecord.behavior_record_date.slice(0,14)}</p>
+                          <div className="note-update-delete-container">
+                            {/* <OpenModalButton 
+                                    buttonText= {< FaEdit/>}
+                                    // onButtonClick={closeMenu}
+                                    className='note-update-icon'
+                                    modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/> */}
+                            <OpenModalButton 
+                                    buttonText={<FaTrash />}
+                                    // onButtonClick={closeMenu}
+                                    className='note-delete-icon'
+                                    modalComponent={<DeleteBehaviorRecordModal behavior_record_id={behaviorRecord.id}  />} />
+                
+                            </div>
                     </div>
                 )
             })

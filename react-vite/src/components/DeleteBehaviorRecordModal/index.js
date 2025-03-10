@@ -1,0 +1,2 @@
+import DeleteBehaviorRecordModal from './DeleteBehaviorRecordModal'
+export default DeleteBehaviorRecordModal;

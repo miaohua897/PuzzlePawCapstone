@@ -1,0 +1,2 @@
+import DeleteTrainingRecordModal from './DeleteTrainingRecordModal'
+export default DeleteTrainingRecordModal

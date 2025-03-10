@@ -1,4 +1,3 @@
-
 const LOAD_NOTES ='note/loadNotes';
 const DELETE_NOTES='note/deleteNotes';
 const UPDATE_NOTES ='note/updateNotes';
