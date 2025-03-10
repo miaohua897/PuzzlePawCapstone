@@ -6,7 +6,7 @@ import { useSetDogId } from '../../context/SetDogId';
 import { thunkLoadTrainingRecords } from '../../redux/trainingRecord';
 import { thunkLoadBehaviorRecords } from '../../redux/behaviorRecord';
 import {thunkLoadDogs} from '../../redux/dog';
-import {FaArrowLeft, FaTrash} from 'react-icons/fa';
+import {FaArrowLeft, FaTrash, FaEdit} from 'react-icons/fa';
 import SideBarRecords from './SideBarRecords';
 import { useSideBarStatus } from "../../context/SideBar";
 import OpenModalButton  from '../OpenModalButton';
@@ -16,6 +16,7 @@ import DeleteBehaviorRecordModal from '../DeleteBehaviorRecordModal';
 import AddNewHealthRecord from '../AddNewHealthRecord/AddNewHealthRecord';
 import AddNewBehaviorRecord from '../AddNewBehaviorRecord';
 import AddNewTrainingRecord from '../AddNewTrainingRecord';
+import UpdateHealthRecordModal from '../UpdateHealthRecordModal';
 
 function RecordModal(){
     const dispatch = useDispatch();
@@ -60,14 +61,7 @@ function RecordModal(){
                 : <h1>Post your first dog</h1>
 
             }
-              <OpenModalButton 
-            buttonText="+"
-            // onButtonClick={closeModal}
-            className='dog-add-new-dog'
-            modalComponent={<AddNewHealthRecord />}/>
-            </div>
-          
-            
+            </div>        
             <div className="sidebar-button-container">
                 <button className='sidebar-button' onClick={()=>{
                     setIsSideBarOpen(true)
@@ -77,6 +71,11 @@ function RecordModal(){
             </div>  
             <SideBarRecords  dogsArr={dogsArr} />
             <h1>Health Records</h1>
+            <OpenModalButton 
+            buttonText="+"
+            // onButtonClick={closeModal}
+            className='dog-add-new-dog'
+            modalComponent={<AddNewHealthRecord />}/>
           {
             dogHealthRecord.length !==0 ?
             dogHealthRecord.map((healthRecord,index)=>{
@@ -87,11 +86,11 @@ function RecordModal(){
                         <p>{healthRecord.vet_name}</p>
                         <p>{healthRecord.record_date.slice(0,14)}</p>
                             <div className="note-update-delete-container">
-                            {/* <OpenModalButton 
+                            <OpenModalButton 
                                     buttonText= {< FaEdit/>}
                                     // onButtonClick={closeMenu}
                                     className='note-update-icon'
-                                    modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/> */}
+                                    modalComponent={<UpdateHealthRecordModal healthRecord={healthRecord} health_record_id={healthRecord.id} />}/>
                             <OpenModalButton 
                                     buttonText={<FaTrash />}
                                     // onButtonClick={closeMenu}
