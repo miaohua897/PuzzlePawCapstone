@@ -17,7 +17,7 @@ function FriendList(){
             sessionUser.friends.length !==0?
             sessionUser.friends.map((friend,index)=>{
                 return (
-                    <div key={index}>
+                    <div key={index} className="friendship-delete-container" >
                         <p id='friend-name'>●  {friend.username}</p>
                         <OpenModalButton 
                                 buttonText={<FaTrash />}
