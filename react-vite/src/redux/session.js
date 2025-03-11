@@ -1,6 +1,7 @@
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 const DELETE_FRIENDSHIP = 'friendship/deleteFriendship';
+const CREATE_FRIENDSHIP = 'friendship/addFriendship';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -17,6 +18,12 @@ const deleteFriendship =(data)=>(
       payload:data
   }
 )
+
+const createFriendship = (data)=>({
+  type:CREATE_FRIENDSHIP,
+  payload:data
+})
+
 
 export const thunkAuthenticate = () => async (dispatch) => {
 	const response = await fetch("/api/auth/");
@@ -89,6 +96,28 @@ export const thunkDeleteFriendship=(user_id,friend_id)=>async(dispatch)=>{
        'friend_id':friend_id}))
 }
 
+export const thunkCreateFriendship = (data)=> async(dispatch)=>{
+  const res = await fetch('api/friendships/',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  if(res.ok){
+    const newData= await res.json()
+    dispatch(createFriendship(newData))
+  }
+  else if(res.status<500){
+    const errorMessages = await res.json()
+    return errorMessages;
+  }else{
+    return {
+      server:'Something went wrong, Close it. Please try again'
+  }
+  }
+}
+
 const initialState = { user: null };
 
 function sessionReducer(state = initialState, action) {
@@ -97,6 +126,11 @@ function sessionReducer(state = initialState, action) {
       return { ...state, user: action.payload };
     case REMOVE_USER:
       return { ...state, user: null };
+    case CREATE_FRIENDSHIP:{
+      let newObj ={...state.user}
+      newObj.friends.push(action.payload)
+      return {...state,user:newObj}
+    }
     case DELETE_FRIENDSHIP:{
       let newObj={...state.
         user
