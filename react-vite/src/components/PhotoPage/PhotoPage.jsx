@@ -9,6 +9,7 @@ import {FaPhotoVideo,FaArrowLeft} from 'react-icons/fa';
 import {useSideBarStatus} from '../../context/SideBar';
 import SideBarPhoto from './SideBarPhoto';
 import PhotoWall from './PhotoWall';
+import FriendList from '../FriendList';
 import './PhotoPage.css'
 
 function PhotoPage(){
@@ -65,7 +66,7 @@ function PhotoPage(){
                   />
 
             </div>
-         
+            <FriendList />
             <div className="sidebar-button-container">
             <button className='sidebar-button' onClick={()=>{setIsSideBarOpen(true) }} >
               <FaArrowLeft color='darkblue'/>

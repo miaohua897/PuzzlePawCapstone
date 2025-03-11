@@ -1,8 +1,8 @@
-"""adding-table
+"""add-tables
 
-Revision ID: a43b25c28d58
+Revision ID: 1a3235cc27b0
 Revises: 
-Create Date: 2025-02-28 18:32:09.137948
+Create Date: 2025-03-10 20:10:40.847918
 
 """
 from alembic import op
@@ -11,9 +11,8 @@ import sqlalchemy as sa
 import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
-
 # revision identifiers, used by Alembic.
-revision = 'a43b25c28d58'
+revision = '1a3235cc27b0'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -57,6 +56,17 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('friendships',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('friend_id', sa.Integer(), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.Column('updated_at', sa.DateTime(), nullable=True),
+    sa.ForeignKeyConstraint(['friend_id'], ['users.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('user_id', 'friend_id', name='_user_friend_uc')
     )
     op.create_table('news_photos',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -143,6 +153,7 @@ def upgrade():
         op.execute(f"ALTER TABLE behavior_records SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE health_records SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE training_records SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE friendships SET SCHEMA {SCHEMA};")
 
 
 def downgrade():
@@ -153,6 +164,7 @@ def downgrade():
     op.drop_table('health_records')
     op.drop_table('behavior_records')
     op.drop_table('news_photos')
+    op.drop_table('friendships')
     op.drop_table('dogs')
     op.drop_table('users')
     # ### end Alembic commands ###

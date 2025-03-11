@@ -1,0 +1,13 @@
+.friend-list-container{
+    position: fixed;
+    left: 1.5%;
+    top:25%;
+  
+}
+#friend-name{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bolder;
+    position: relative;
+    left:50px;
+}
