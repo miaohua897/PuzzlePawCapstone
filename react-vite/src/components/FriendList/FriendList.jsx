@@ -1,5 +1,8 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import {FaTrash} from 'react-icons/fa';
+import DeleteFriendshipModal from '../DeleteFriendshipModal';
+import OpenModalButton from '../OpenModalButton';
 import './FriendList.css'
 
 function FriendList(){
@@ -15,7 +18,12 @@ function FriendList(){
             sessionUser.friends.map((friend,index)=>{
                 return (
                     <div key={index}>
-                        <p id='friend-name'>●  {friend}</p>
+                        <p id='friend-name'>●  {friend.username}</p>
+                        <OpenModalButton 
+                                buttonText={<FaTrash />}
+                                // onButtonClick={closeMenu}
+                                className='friendship-delete-icon'
+                                modalComponent={<DeleteFriendshipModal  user_id={sessionUser.id}  friend_id={friend.id}/>} />
                     </div>
                 )
             })

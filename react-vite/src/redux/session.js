@@ -1,5 +1,6 @@
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
+const DELETE_FRIENDSHIP = 'friendship/deleteFriendship';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -9,6 +10,13 @@ const setUser = (user) => ({
 const removeUser = () => ({
   type: REMOVE_USER
 });
+
+const deleteFriendship =(data)=>(
+  {
+      type:DELETE_FRIENDSHIP,
+      payload:data
+  }
+)
 
 export const thunkAuthenticate = () => async (dispatch) => {
 	const response = await fetch("/api/auth/");
@@ -63,6 +71,24 @@ export const thunkLogout = () => async (dispatch) => {
   dispatch(removeUser());
 };
 
+export const thunkDeleteFriendship=(user_id,friend_id)=>async(dispatch)=>{
+    const res = await fetch(`/api/friendships/${friend_id}`,{
+        method:'DELETE',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    if(res.ok){
+        await res.json()
+        if(res.errors){
+            return ;
+        }
+    }
+    dispatch(deleteFriendship({
+      'user_id': user_id,
+       'friend_id':friend_id}))
+}
+
 const initialState = { user: null };
 
 function sessionReducer(state = initialState, action) {
@@ -71,6 +97,19 @@ function sessionReducer(state = initialState, action) {
       return { ...state, user: action.payload };
     case REMOVE_USER:
       return { ...state, user: null };
+    case DELETE_FRIENDSHIP:{
+      let newObj={...state.
+        user
+        }
+
+      let newFriend =[];
+      newObj.friends.map(friend=>{
+            if (friend.id !== action.payload.friend_id)
+              newFriend.push(friend)
+      })
+      newObj.friends = newFriend;
+      return {...state, user:newObj}
+    }
     default:
       return state;
   }

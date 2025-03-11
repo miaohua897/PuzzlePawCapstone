@@ -42,6 +42,5 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            # 'training_record':[el.to_dict() for el in self.training_record]
-            'friends':[el.username for el in self.friends]
+            'friends':[el.to_dict() for el in self.friends]
         }

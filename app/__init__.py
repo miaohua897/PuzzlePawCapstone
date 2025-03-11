@@ -14,6 +14,7 @@ from .api.note_routes import note_routes
 from .api.health_record_routes import health_record_routes
 from .api.training_record_routes import training_record_routes
 from .api.behavior_record_routes import behavior_record_routes
+from .api.friendship_routes import friendship_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -42,6 +43,7 @@ app.register_blueprint(note_routes,url_prefix='/api/notes')
 app.register_blueprint(health_record_routes, url_prefix='/api/health_records')
 app.register_blueprint(training_record_routes,url_prefix='/api/training_records')
 app.register_blueprint(behavior_record_routes,url_prefix='/api/behavior_records')
+app.register_blueprint(friendship_routes,url_prefix=('/api/friendships'))
 db.init_app(app)
 Migrate(app, db)
 

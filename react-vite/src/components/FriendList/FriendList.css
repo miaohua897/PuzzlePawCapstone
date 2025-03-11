@@ -11,3 +11,7 @@
     position: relative;
     left:50px;
 }
+.friendship-delete-icon{
+    background-color: transparent;
+    border: none;
+}
