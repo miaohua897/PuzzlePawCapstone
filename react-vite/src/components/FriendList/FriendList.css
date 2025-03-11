@@ -1,17 +1,23 @@
 .friend-list-container{
-    position: fixed;
+    /* position: fixed;
     left: 1.5%;
-    top:25%;
-  
+    top:25%; */
+  border-bottom: 1px solid darkgray;
 }
 #friend-name{
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     font-weight: bolder;
-    position: relative;
-    left:50px;
+
 }
 .friendship-delete-icon{
     background-color: transparent;
     border: none;
+}
+.friendship-delete-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
 }

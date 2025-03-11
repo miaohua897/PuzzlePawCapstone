@@ -4,6 +4,7 @@ import  DogBasicInfo from '../DogBasicInfo';
 import LargePhotoPage from './LargePhotoPage';
 import OpenModalButton from '../OpenModalButton';
 import { useNavigate } from 'react-router-dom';
+import FriendList from '../FriendList';
 
 function SideBarPhoto({dogs_arr,photos_arr,closeMenu}){
 
@@ -50,7 +51,7 @@ function SideBarPhoto({dogs_arr,photos_arr,closeMenu}){
           </div>
        </div>
       <div className="scrollable">
-
+       < FriendList />
       {dogs_arr.length !==0?
       dogs_arr.map((dog,index)=>{
         return (
