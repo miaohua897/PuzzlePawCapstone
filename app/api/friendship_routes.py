@@ -42,13 +42,15 @@ def delete_friendship(friend_id):
         'message':'delete if successfully'
     })
 
-@friendship_routes.route('/search',methods=['GET'])
+@friendship_routes.route('/search',methods=['POST'])
 @login_required
 def search_friend():
-    search_name = request.args.get('search_name')
-    exist_user = User.query.filter_by(username =search_name)
+    search_data = request.get_json()
+    search_name =search_data.get('search_name')
+    
+    exist_user = User.query.filter_by(username=search_name).first()
     if exist_user is None:
         return {
             'error':'the user is not exist'
-        }
+        },400
     return jsonify(exist_user.to_dict()),201
