@@ -24,7 +24,8 @@ def add_connetion():
             return jsonify({'error':'there users are already friends'}),400
         db.session.execute(friendship.insert().values(user_id=form.data['user_id'],friend_id=form.data['friend_id']))
         db.session.commit()
-        return jsonify({"message": "Friendship added successfully!"}),201
+        friend_user = User.query.get(friend_id)
+        return jsonify(friend_user.to_dict()),201
     return form.errors,401
 
 @friendship_routes.route('/<int:friend_id>',methods =['DELETE'])

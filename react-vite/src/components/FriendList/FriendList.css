@@ -21,3 +21,7 @@
     align-items: center;
     
 }
+.add-friends-icon-container{
+    display: flex;
+    flex-direction: row;
+}

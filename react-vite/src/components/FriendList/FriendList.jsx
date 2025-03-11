@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {FaTrash} from 'react-icons/fa';
 import DeleteFriendshipModal from '../DeleteFriendshipModal';
 import OpenModalButton from '../OpenModalButton';
+import AddNewFriendModal from '../AddNewFriendModal';
 import './FriendList.css'
 
 function FriendList(){
@@ -12,7 +13,15 @@ function FriendList(){
      if(!sessionUser) return navigator('/');
     return (
         <div className="friend-list-container">
+            <div className="add-friends-icon-container">
             <h3>My friends:</h3>
+            <OpenModalButton 
+                        buttonText="+"
+                        // onButtonClick={closeMenu}
+                        className='dog-add-new-dog'
+                        modalComponent={<AddNewFriendModal />}/>
+            </div>
+
          {
             sessionUser.friends.length !==0?
             sessionUser.friends.map((friend,index)=>{
