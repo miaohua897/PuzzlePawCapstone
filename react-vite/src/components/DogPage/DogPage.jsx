@@ -9,6 +9,7 @@ import {thunkLoadDogs} from '../../redux/dog';
 import {useSetDogId} from '../../context/SetDogId'; 
 import {useSideBarStatus} from '../../context/SideBar';
 import {FaArrowLeft} from 'react-icons/fa';
+import SearchBar from '../SearchBar';
 // import  FriendList from '../FriendList';
 import './DogPage.css'
 
@@ -66,6 +67,7 @@ function DogPage(){
                         modalComponent={<AddNewDogPage />}/>
             </div>
             {/* <  FriendList /> */}
+            <SearchBar />
         
             <div className="sidebar-button-container">
                 <button className='sidebar-button' onClick={()=>{
