@@ -3,7 +3,7 @@ import ProfileButton from "./ProfileButton";
 import { useSelector } from "react-redux";
 import "./Navigation.css";
 import {useSideBarStatus} from '../../context/SideBar';
-// import SearchBar from "../SearchBar/SearchBar";
+
 
 
 function Navigation() {
