@@ -43,15 +43,25 @@ The landing page will feature an auto-display that automatically updates dogs' p
 
 Dogs' detail page has a sidebar that controll all owner's dogs' information. By clicking the dogs' name, the information will be shown on page.   
 
-<img width="1438" alt="Screenshot 2025-03-04 at 2 32 58 PM" src="https://github.com/user-attachments/assets/0bc543b5-0113-43b6-a809-72c6826b0f0c" />
+<img width="1438" alt="Screenshot 2025-03-12 at 9 56 51 AM" src="https://github.com/user-attachments/assets/3539a8fd-b3c2-4c77-ac1b-a167ac827465" />
+
 
 --------------------------
 ## Photos' Page
 
 Photos' detail page also has sidebar that control all owner's photos. By clicking on dogs' name, dog's basic information will show up. By clicking on photo, a large version of photo will show up.   
 
-<img width="1445" alt="Screenshot 2025-03-04 at 2 33 14 PM" src="https://github.com/user-attachments/assets/217bc47c-4c25-4812-812a-5c49462eef70" />
+<img width="1299" alt="Screenshot 2025-03-12 at 10 01 35 AM" src="https://github.com/user-attachments/assets/bede2266-6a3c-49f1-b1ea-9fc33da34c71" />
 
+--------------------------
+## Notes' Page
+
+<img width="1295" alt="Screenshot 2025-03-12 at 10 01 51 AM" src="https://github.com/user-attachments/assets/01128b92-56fe-47cb-a14e-f06fcdf446c1" />
+
+--------------------------
+## Records' Page
+
+<img width="1294" alt="Screenshot 2025-03-12 at 10 02 09 AM" src="https://github.com/user-attachments/assets/e798a9e2-8547-4081-a500-bffa4fdf9327" />
 
 
 -----------------------------------------------------------------------------
