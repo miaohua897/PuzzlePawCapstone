@@ -12,6 +12,7 @@ import DeleteNoteModal from '../DeleteNoteModal';
 import OpenModalButton from '../OpenModalButton';
 import { useSideBarStatus } from "../../context/SideBar";
 import {FaArrowLeft,FaEdit,FaTrash} from 'react-icons/fa';
+import SearchBar from "../SearchBar/SearchBar";
 
 function NotePage(){
     const dispatch = useDispatch()
@@ -53,7 +54,7 @@ function NotePage(){
             className='dog-add-new-dog'
             modalComponent={<AddNewNote />}/>
         </div>
-
+        <SearchBar />
         <div className="sidebar-button-container">
             <button className='sidebar-button' onClick={()=>{
                 setIsSideBarOpen(true)

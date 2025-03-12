@@ -20,6 +20,7 @@ import AddNewTrainingRecord from '../AddNewTrainingRecord';
 import UpdateHealthRecordModal from '../UpdateHealthRecordModal';
 import UpdateBehaviorRecordModal from '../UpdateBehaviorRecordModal';
 import UpdateTrainingRecordModal from '../UpdateTrainingRecordModal';
+import SearchBar from "../SearchBar/SearchBar"; 
 
 function RecordModal(){
     const dispatch = useDispatch();
@@ -68,7 +69,8 @@ function RecordModal(){
                 : <h1>Post your first dog</h1>
 
             }
-            </div>        
+            </div>   
+             <SearchBar />   
             <div className="sidebar-button-container">
                 <button className='sidebar-button' onClick={()=>{
                     setIsSideBarOpen(true)

@@ -39,7 +39,8 @@ function AddNewFriendModal(){
     return (
         <div>
             <form className="add-form-container"  onSubmit={handleAddNewFriendSubmit}>
-                <h1>add a new friend</h1>
+                <h1>Add a new friend</h1>
+               
                     {errorServer.server? 
                     errorServer.server.map((error,index)=>{
                         return  <p  key={index}  id='photo-error'>{error}</p>
@@ -51,6 +52,7 @@ function AddNewFriendModal(){
                 <input type='number' id='add-friend' onChange={(e)=>setFriendId(e.target.value)}  required></input>
                 </div>
                 <button className='add-form-submit'>Submit</button>
+                <p>add a friend by username in search bar</p>
             </form>
         </div>
     )

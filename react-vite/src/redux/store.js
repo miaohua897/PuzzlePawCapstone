@@ -13,6 +13,7 @@ import noteReducer from "./note";
 import healthRecordReducer from "./healthRecord";
 import trainingRecordReducer from "./trainingRecord";
 import behaviorRecordReducer from "./behaviorRecord";
+import friendReducer from "./friendship";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   note:noteReducer,
   healthRecord:healthRecordReducer,
   trainingRecord:trainingRecordReducer,
-  behaviorRecord:behaviorRecordReducer
+  behaviorRecord:behaviorRecordReducer,
+  friend:friendReducer
 });
 
 let enhancer;

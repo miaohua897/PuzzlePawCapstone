@@ -3,6 +3,7 @@ import ProfileButton from "./ProfileButton";
 import { useSelector } from "react-redux";
 import "./Navigation.css";
 import {useSideBarStatus} from '../../context/SideBar';
+// import SearchBar from "../SearchBar/SearchBar";
 
 
 function Navigation() {
@@ -23,9 +24,14 @@ function Navigation() {
   
       {
         sessionUser?
+        <div>
+       {/* <SearchBar /> */}
         <li>
-        <button className='go-see-dog-button' style={{marginRight:isSideBarOpen?250:30}}  onClick={()=>navigate('/dog')}>Dog Page</button>
-        </li>
+        
+        <button className='go-see-dog-button' style={{marginRight:isSideBarOpen?250:30}}  onClick={()=>navigate('/dog')}>Dog Page</button> 
+         </li> 
+        </div>
+      
       :null
       }
     
