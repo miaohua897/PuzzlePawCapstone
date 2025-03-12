@@ -5,10 +5,23 @@
    align-items: center;
    gap:10px;
    margin-left: 20px;
-   
+  
 }
 #close-search-button{
     border:none;
     background-color: transparent;
     color: darkblue;
+}
+.search-input{
+    width:300px;
+}
+.search-form{
+    margin:10px;
+    padding-bottom: 10px;
+}
+#add-friend-button-searchbar{
+    border:none;
+    background-color: transparent;
+    font-size: 24px;
+    font-weight: bolder;
 }

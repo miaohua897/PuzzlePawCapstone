@@ -1,9 +1,18 @@
-const SEARCH_FRIEND = 'friendship/searchFriendship'
+const SEARCH_FRIEND = 'friendship/searchFriendship';
+// const REMOVE_SEARCH ='REMOVE_SEARCH';
 
 const searchFriend = (data)=>({
     type:SEARCH_FRIEND,
     payload:data
 })
+
+// const removeFriend =()=>({
+//     type:REMOVE_SEARCH
+// })
+
+// export const thunkDeleteSearchFriend =() => async (dispatch)=>{
+//     dispatch(removeFriend())
+// }
 
 export const thunkSearchFriend =(data) => async (dispatch) =>{
     const res = await fetch('/api/friendships/search',{
@@ -33,6 +42,8 @@ function friendReducer(state = initialState, action){
     switch(action.type){
         case SEARCH_FRIEND:
             return {...state,search:action.payload}
+        // case REMOVE_SEARCH:
+        //     return {...state,search:null}
         default:
             return state
     }
