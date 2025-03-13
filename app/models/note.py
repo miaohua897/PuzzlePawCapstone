@@ -11,6 +11,7 @@ class Note(db.Model):
     note_date = db.Column(db.Date,nullable=False)
     title = db.Column(db.String(30),nullable=False)
     content = db.Column(db.Text, nullable=False, unique=True)
+    share = db.Column(db.Boolean, default = False)
     created_at = db.Column(db.DateTime, default=datetime.today)
     updated_at = db.Column(db.DateTime, default=datetime.today, onupdate=datetime.today)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
@@ -25,6 +26,7 @@ class Note(db.Model):
             'note_date':self.note_date,
             'title':self.title,
             'content':self.content,
+            'share':self.share,
             'user':self.user.to_dict(),
             'dog_id':self.dog_id
             # 'dog':self.dog.to_dict()  cant add this one, otherwise, run into infinite loop

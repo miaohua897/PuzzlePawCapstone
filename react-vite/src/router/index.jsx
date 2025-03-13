@@ -7,6 +7,7 @@ import DogPage from '../components/DogPage';
 import NotePage from '../components/NotePage';
 import RecordModal from '../components/RecordModal';
 import Layout from './Layout';
+import ForumShareNote from '../components/ForumShareNote/ForumShareNote';
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
       {
         path:'record',
         element:<RecordModal />
+      }
+      ,
+      {
+        path:'forum',
+        element:<ForumShareNote />
       }
     ],
   },

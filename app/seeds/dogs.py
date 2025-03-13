@@ -80,11 +80,51 @@ def seed_dogs():
         owner_address_zip_code = 92130,
         owner_country = "UK",
         user_id =1)
+    demo_five = Dog(
+        dog_name='Dog1user2',age =1,color='white',weight=10,
+        gender='male',
+        neutered_spayed='spayed',
+        microchip=False,
+        image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-ohshineon-33273.jpg',
+        birth_date=date(2023, 5, 10),
+        breed_name ='Breed four',
+        description='A dog photo typically captures the essence of a dog’s personality and appearancefsdfhhhh',
+        medical_allergies='NA',
+        owner_phone_number='1234556435',
+        owner_email='hello@gmail.com',
+        owner_address_line_one='helloworld ln',
+        owner_address_line_two='helloworld two ln',
+        owner_address_city ='SD',
+        owner_address_state='CA',
+        owner_address_zip_code = 92130,
+        owner_country = "UK",
+        user_id =2)
+    demo_six = Dog(
+        dog_name='Dog1user3',age =1,color='white',weight=10,
+        gender='male',
+        neutered_spayed='spayed',
+        microchip=False,
+        image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-ohshineon-33273.jpg',
+        birth_date=date(2023, 5, 10),
+        breed_name ='Breed four',
+        description='A dog photo typically captures the essence of a dog’s personality and appearancefsdfhhhh',
+        medical_allergies='NA',
+        owner_phone_number='1234556435',
+        owner_email='hello@gmail.com',
+        owner_address_line_one='helloworld ln',
+        owner_address_line_two='helloworld two ln',
+        owner_address_city ='SD',
+        owner_address_state='CA',
+        owner_address_zip_code = 92130,
+        owner_country = "UK",
+        user_id =3)
        
     db.session.add(demo)
     db.session.add(demo_two)
     db.session.add(demo_three)
     db.session.add(demo_four)
+    db.session.add(demo_six)
+    db.session.add(demo_five)
     db.session.commit()
 
 def undo_dogs():

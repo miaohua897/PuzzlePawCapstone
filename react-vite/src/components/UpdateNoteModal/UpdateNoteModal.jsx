@@ -15,6 +15,7 @@ function UpdateNoteModal({note,note_id}){
     const [noteDate, setNoteDate] = useState(formattedDate);
     const [title, setTitle] = useState(note.title);
     const [content, setContent] = useState(note.content);
+    const [share,setShare] = useState(false)
     const [dogId, setDogId] = useState(note.dog_id);
     const [errorServer,setErrorServer] = useState({});
     const {closeModal} = useModal();
@@ -28,10 +29,10 @@ function UpdateNoteModal({note,note_id}){
             "note_date":noteDate,
             "title":title,
             'content':content,
+            'share':share,
             'dog_id':dogId,
             'user_id':sessionUser.id
         }
-        console.log(data,note_id)
         const serverResponse = await dispatch(thunkUpdateNote(data,note_id))
         if (serverResponse) {
             const errorKey = Object.keys(serverResponse);
@@ -66,12 +67,19 @@ function UpdateNoteModal({note,note_id}){
         }
         <div>
         <div className='add-input'>
-        <label htmlFor ='note_date' className='add-form-lable'>note written date *</label>
+        <label htmlFor ='note_date' className='add-form-lable'>Note written date *</label>
         <input type='date' id='input-note-date' name='photo_date' value={noteDate}
         onChange={(e)=>setNoteDate(e.target.value)}  min='1900-01-01' max={today}></input>
         </div>
+
+        <div>
+            <input type ='checkbox' checked={share}  name='share-note' onChange={()=>setShare(!share)}></input>
+            <label htmlFor='share' className='share-note' >Do you want to share the note ?</label>
+            <p id='share-checkbox-warning'> ** Check to share, Default value is private</p>
+        </div>
+
         <div className='add-input'>
-            <label htmlFor ='title' className='add-form-lable'>title *</label>
+            <label htmlFor ='title' className='add-form-lable'>Title *</label>
             <input type='text' id='input-note-title' name='title' value={title}
             onChange={(e)=>setTitle(e.target.value)}  minLength="0" maxLength="20"></input>
         </div>
