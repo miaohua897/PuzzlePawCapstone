@@ -4,6 +4,9 @@ from sqlalchemy.sql import text
 def seed_friendship():
     db.session.execute(friendship.insert().values(user_id=1, friend_id=2))
     db.session.execute(friendship.insert().values(user_id=1,friend_id=3))
+    db.session.execute(friendship.insert().values(user_id=1, friend_id=4))
+    db.session.execute(friendship.insert().values(user_id=1,friend_id=5))
+    db.session.execute(friendship.insert().values(user_id=1,friend_id=6))
     db.session.commit()
 
 def undo_friendship():

@@ -11,6 +11,7 @@ function AddNewNote(){
     const [noteDate, setNoteDate] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [share,setShare] = useState(false)
     const [dogId, setDogId] = useState(0);
     const [errorServer,setErrorServer] = useState({});
     const {closeModal} = useModal();
@@ -23,9 +24,11 @@ function AddNewNote(){
             "note_date":noteDate,
             "title":title,
             'content':content,
+            'share':share,
             'dog_id':dogId,
             'user_id':sessionUser.id
         }
+      
         const serverResponse = await dispatch(thunkCreateNote(data))
         if (serverResponse) {
             const errorKey = Object.keys(serverResponse);
@@ -63,6 +66,10 @@ function AddNewNote(){
         <label htmlFor ='note_date' className='add-form-lable'>note written date *</label>
         <input type='date' id='input-note-date' name='photo_date' 
         onChange={(e)=>setNoteDate(e.target.value)} required min='1900-01-01' max={today}></input>
+        </div>
+        <div>
+            <input type ='checkbox' checked={share}  name='share-note' onChange={()=>setShare(!share)}></input>
+            <label htmlFor='share' className='share-note' >Do you want to share the note ?</label>
         </div>
         <div className='add-input'>
             <label htmlFor ='title' className='add-form-lable'>title *</label>

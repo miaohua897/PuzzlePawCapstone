@@ -1,8 +1,15 @@
+import {useNavigate}  from 'react-router-dom';
 import './FootPage.css';
 
 function FootPage(){
+     const navigator = useNavigate()
     const handleUnfinishedFeatures=()=>{
         window.alert('The feature coming soon ^.^')
+    }
+    const handleNavForm =(e)=>{
+        e.preventDefault()
+        navigator('/forum')
+
     }
     return (
         <div className='more-tips-home-page'>
@@ -16,7 +23,7 @@ function FootPage(){
                     <button id='more-tips-button' onClick={handleUnfinishedFeatures} >
                         health tips
                     </button>
-                    <button id='more-tips-button' onClick={handleUnfinishedFeatures}>
+                    <button id='more-tips-button' onClick={handleNavForm}>
                         forum
                     </button>
                 </div>

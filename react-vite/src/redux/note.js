@@ -2,9 +2,15 @@ const LOAD_NOTES ='note/loadNotes';
 const DELETE_NOTES='note/deleteNotes';
 const UPDATE_NOTES ='note/updateNotes';
 const CREATE_NOTES='note/createNotes';
+const LOAD_ALL_USER_NOTES ='note/loadAllNotes'
 
 const loadNotes = (data)=>({
     type:LOAD_NOTES,
+    payload:data
+})
+
+const loadAllNotes =(data)=>({
+    type:LOAD_ALL_USER_NOTES,
     payload:data
 })
 
@@ -32,6 +38,17 @@ export const thunkLoadNotes=()=>async(dispatch)=>{
         }
         dispatch(loadNotes(data))
      }
+}
+
+export const thunkLoadAllNotes=()=>async(dispatch)=>{
+    const res = await fetch('/api/notes/')
+    if(res.ok){
+       const data = await res.json()
+       if(data.errors){
+           return ;
+       }
+       dispatch(loadAllNotes(data))
+    }
 }
 
 export const thunkCreateNote=(data)=> async(dispatch)=>{
@@ -91,12 +108,14 @@ export const thunkDeleteNote=(note_id)=>async(dispatch)=>{
     }
 }
 
-const initialState={note:null}
+const initialState={note:null,allUserNote:null}
 
 function noteReducer(state=initialState,action){
     switch(action.type){
         case LOAD_NOTES:
             return {...state, note:action.payload}
+        case LOAD_ALL_USER_NOTES:
+            return {...state,allUserNote:action.payload}
         case CREATE_NOTES:{
             let newObj={...state.note}
             newObj[action.payload.id]=action.payload

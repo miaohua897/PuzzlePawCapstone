@@ -28,6 +28,7 @@ def add_note():
             note_date=form.data['note_date'],
             title =form.data['title'],
             content=form.data['content'],
+            share = form.data['share'],
             user_id=form.data['user_id'],
             dog_id=form.data['dog_id']
         )
@@ -47,6 +48,7 @@ def update_note(note_id):
     if form.validate_on_submit():
         note.note_date = form.data['note_date']
         note.title = form.data['title']
+        note.share = form.data['share']
         note.content = form.data['content']
         note.dog_id = form.data['dog_id']
         note.user_id = form.data['user_id']

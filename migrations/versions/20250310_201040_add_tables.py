@@ -108,6 +108,7 @@ def upgrade():
     sa.Column('note_date', sa.Date(), nullable=False),
     sa.Column('title', sa.String(length=30), nullable=False),
     sa.Column('content', sa.Text(), nullable=False),
+    sa.Column('share', sa.Boolean(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
