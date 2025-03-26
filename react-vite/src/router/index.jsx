@@ -8,6 +8,7 @@ import NotePage from '../components/NotePage';
 import RecordModal from '../components/RecordModal';
 import Layout from './Layout';
 import ForumShareNote from '../components/ForumShareNote/ForumShareNote';
+import FriendsLastNote from '../components/FriendsLastNote';
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,9 @@ export const router = createBrowserRouter([
       {
         path:'forum',
         element:<ForumShareNote />
+      },{
+        path:'friendsnote',
+        element:<FriendsLastNote />
       }
     ],
   },
