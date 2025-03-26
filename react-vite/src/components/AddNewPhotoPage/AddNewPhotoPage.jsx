@@ -18,6 +18,7 @@ function AddNewPhotoPage(){
     const [errorServer,setErrorServer] = useState({});
     const [errorTitle,setErrorTitle]=useState('')
     const [disableButton,setDisableButton]=useState(false);
+    const [share,setShare] = useState(false)
     const today = new Date().toISOString().split('T')[0];
     
     const handleAddPhotoSubmit= async (e)=>{
@@ -35,6 +36,7 @@ function AddNewPhotoPage(){
         formData.append('title',title)
         formData.append('description',description)
         formData.append('photo_date',photo_date)
+        formData.append('share',share)
         formData.append('user_id',sessionUser.id)
         formData.append('dog_id',1)
         const serverResponse = await dispatch(thunkCreatePhotos(formData))
@@ -57,6 +59,7 @@ function AddNewPhotoPage(){
         setTitle('')
         setDescription('')
         setDisableButton(false)
+        setShare(false)
         // closeModal()
     }
     const handleFileChange=(e)=>{
@@ -100,6 +103,10 @@ function AddNewPhotoPage(){
                 <label htmlFor ='description' className='add-form-lable'>description *</label>
                 <input type='text' id='photo-description' name='description'  
                 onChange={(e)=>setDescription(e.target.value)} required  minLength="0" maxLength="500" ></input>
+            </div>
+            <div>
+            <input type ='checkbox' checked={share}  name='share-photo' onChange={()=>setShare(!share)}></input>
+            <label htmlFor='share' className='share-photo' >Do you want to share the photo ?</label>
             </div>
             <div className='add-input'>
                  <label htmlFor ="image_upload" className='add-form-lable'>Upload an image *:</label>

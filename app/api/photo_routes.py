@@ -33,6 +33,7 @@ def add_photo():
              title=form.data['title'],
              description= form.data['description'],
              image_url=upload['url'],
+             share = form.data['share'],
              dog_id= form.data['dog_id'],
              user_id= form.data['user_id'])
         db.session.add(new_photo)
@@ -75,6 +76,7 @@ def update_photo(photo_id):
             photo.image_url=upload['url']
         photo.photo_date = form.data['photo_date']
         photo.title = form.data['title']
+        photo.share = form.data['share']
         photo.description = form.data['description']
         photo.dog_id = form.data['dog_id']
         photo.user_id = form.data['user_id']

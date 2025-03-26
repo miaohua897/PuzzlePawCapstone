@@ -12,6 +12,7 @@ class Photo(db.Model):
     title = db.Column(db.String(30),nullable=False)
     description = db.Column(db.Text, nullable=False)
     image_url = db.Column(db.String(2000), nullable=False)
+    share = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.today)
     updated_at = db.Column(db.DateTime, default=datetime.today, onupdate=datetime.today)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
@@ -27,6 +28,7 @@ class Photo(db.Model):
             'title':self.title,
             'description':self.description,
             'image_url':self.image_url,
+            'share':self.share,
             'owner':self.owner.to_dict(),
             'dog':self.dog.to_dict()
         }

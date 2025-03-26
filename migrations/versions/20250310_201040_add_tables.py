@@ -124,6 +124,7 @@ def upgrade():
     sa.Column('title', sa.String(length=30), nullable=False),
     sa.Column('description', sa.Text(), nullable=False),
     sa.Column('image_url', sa.String(length=2000), nullable=False),
+    sa.Column('share', sa.Boolean(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),

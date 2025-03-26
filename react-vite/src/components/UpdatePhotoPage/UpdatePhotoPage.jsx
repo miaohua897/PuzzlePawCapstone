@@ -19,6 +19,7 @@ function UpdatePhotoPage({photo_id}){
         const [errorServer,setErrorServer] = useState({});
         const [errorTitle,setErrorTitle]=useState('')
         const [disableButton,setDisableButton]=useState(false);
+        const [share,setShare] = useState(false)
         const today = new Date().toISOString().split('T')[0];
 
         const handleUpdatePhotoSubmit= async (e)=>{
@@ -36,6 +37,7 @@ function UpdatePhotoPage({photo_id}){
                  formData.append('title',title)
                  formData.append('description',description)
                  formData.append('photo_date',photo_date)
+                 formData.append('share',share)
                  formData.append('user_id',photo.owner.id)
                  formData.append('dog_id',1)
                  const serverResponse = await  dispatch(thunkUpdatePhotos(formData,photo_id))
@@ -58,6 +60,7 @@ function UpdatePhotoPage({photo_id}){
                  setTitle('')
                  setDescription('')
                  setDisableButton(false)
+                 setShare(false)
                 //  closeModal()
              }
 
@@ -102,6 +105,11 @@ function UpdatePhotoPage({photo_id}){
                 <input type='text' id='photo-description' value={description} name='description'  
                 onChange={(e)=>setDescription(e.target.value)}  minLength="0" maxLength="500" ></input>
             </div>
+            <div>
+            <input type ='checkbox' checked={share}  name='share-photo' onChange={()=>setShare(!share)}></input>
+            <label htmlFor='share' className='share-photo' >Do you want to share the photo ?</label>
+            <p id='share-checkbox-warning'> ** Check to share, Default value is private</p>
+             </div>
             <div className='update-input'>
                  <label htmlFor ="image_upload" className='update-form-lable'>Upload an image:</label>
                 <input type="file" id="image-upload"  name="image_url" accept="image/*"  
