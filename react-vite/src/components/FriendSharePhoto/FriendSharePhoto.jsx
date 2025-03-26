@@ -38,9 +38,7 @@ function FriendSharePhoto (){
                                 <p id='photo-description'>{'Photo Description: '+photo.description}</p>
                                 <p id='photo-author'>{"by "+ photo.owner.username}</p>
                             </div>
-                         
-                        </div>
-                    )
+                        </div>)
                 })
                 : <p>your friends dont have any shared photo</p>
 
