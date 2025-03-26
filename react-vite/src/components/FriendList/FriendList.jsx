@@ -15,8 +15,11 @@ function FriendList(){
      if(!sessionUser) return navigator('/');
     return (
         <div className="friend-list-container">
-             <div>
+             <div className="friend-note-button-container">
                 <button id ='friend-note-button' onClick={()=>{navigator('/friendsnote'); setIsSideBarOpen(false)}}>friends notes</button>
+            </div>
+            <div className="friend-photo-button-container">
+                <button id ='friend-photo-button' onClick={()=>{navigator('/friendsphoto'); setIsSideBarOpen(false)}}>friends photos</button>
             </div>
             <div className="add-friends-icon-container">
            

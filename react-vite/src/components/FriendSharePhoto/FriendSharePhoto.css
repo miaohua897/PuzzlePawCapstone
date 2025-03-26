@@ -1,0 +1,42 @@
+.share-photoes{
+    width:400px;
+    height: 300px;
+    border-radius: 10px;
+}
+.share-photo-container{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap:10px;
+}
+.friend-photo-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 290px;
+    border: 0.5px solid rgba(0, 36, 135, 0.9);
+    border-radius: 10px;
+    margin: 5px;
+}
+#photo-title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 32px;
+    padding-top: 5px;
+    margin:5px;
+}
+#photo-description{
+    width: 90%;
+    border-top: 0.5px dashed rgba(0, 36, 135, 0.9);
+    text-align: center;
+    padding-top: 10px;
+}
+#photo-author{
+    width: 90%;
+    border-top: 0.5px dashed rgba(0, 36, 135, 0.9);
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bolder;
+}
