@@ -35,9 +35,9 @@ function FriendsLastNote (){
               friendsnote.length !==0?
               friendsnote.map((note,index)=>{
                 return (
-                    <div key={index}>
-                        <p>{note.title}</p>
-                        <p>{note.content}</p>
+                    <div key={index} className='friend-notes-container'>
+                        <p id='note-title'>{note.title}</p>
+                        <p id='note-content'>{note.content}</p>
                         <p>{"by "+ note.user.username}</p>
                     </div>    
                 )
