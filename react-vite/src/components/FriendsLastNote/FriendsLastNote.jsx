@@ -28,7 +28,7 @@ function FriendsLastNote (){
             }
         })
     }
-   console.log(friendsnote)
+
     return (
         <div>
             {
