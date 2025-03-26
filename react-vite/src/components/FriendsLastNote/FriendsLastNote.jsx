@@ -2,6 +2,7 @@ import {useEffect}  from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkLoadAllNotes } from '../../redux/note';
 import { useNavigate } from 'react-router-dom';
+import './FriendsLastNote.css';
 
 function FriendsLastNote (){
     const dispatch =useDispatch()
