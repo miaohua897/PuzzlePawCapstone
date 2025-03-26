@@ -53,6 +53,7 @@ function SideBarDogPage({dogsArr}){
                             <button onClick ={navToPhotoPage}>photos</button>
                             <button onClick={navToRecordPage} >records</button>
                         </div> 
+                        
                     </div>                    
                 </div>
                 <div className="scrollable">

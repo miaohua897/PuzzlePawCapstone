@@ -68,7 +68,7 @@ function DogPage(){
             </div>
             {/* <  FriendList /> */}
             <SearchBar />
-            <button onClick={()=>navigator('/friendsnote')}>friends notes</button>
+            {/* <button onClick={()=>navigator('/friendsnote')}>friends notes</button> */}
         
             <div className="sidebar-button-container">
                 <button className='sidebar-button' onClick={()=>{

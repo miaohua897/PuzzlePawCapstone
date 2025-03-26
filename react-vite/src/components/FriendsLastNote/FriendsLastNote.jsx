@@ -38,7 +38,7 @@ function FriendsLastNote (){
                     <div key={index} className='friend-notes-container'>
                         <p id='note-title'>{note.title}</p>
                         <p id='note-content'>{note.content}</p>
-                        <p>{"by "+ note.user.username}</p>
+                        <p id='note-author'>{"by "+ note.user.username}</p>
                     </div>    
                 )
               })
