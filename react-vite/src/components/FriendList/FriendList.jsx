@@ -4,16 +4,22 @@ import {FaTrash} from 'react-icons/fa';
 import DeleteFriendshipModal from '../DeleteFriendshipModal';
 import OpenModalButton from '../OpenModalButton';
 import AddNewFriendModal from '../AddNewFriendModal';
+import {useSideBarStatus} from '../../context/SideBar';
 import './FriendList.css'
 
 function FriendList(){
     const navigator = useNavigate();
+    const {setIsSideBarOpen}=useSideBarStatus();
      const sessionUser = useSelector((state) => state.session.user);
 
      if(!sessionUser) return navigator('/');
     return (
         <div className="friend-list-container">
+             <div>
+                <button id ='friend-note-button' onClick={()=>{navigator('/friendsnote'); setIsSideBarOpen(false)}}>friends notes</button>
+            </div>
             <div className="add-friends-icon-container">
+           
             <h3>My friends:</h3>
             <OpenModalButton 
                         buttonText="+"

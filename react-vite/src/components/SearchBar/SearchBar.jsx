@@ -75,7 +75,9 @@ function SearchBar(){
     return (
         <div>
             <form onSubmit={handleSearchNameSubmit} className='search-form'>
-            <input type='text' value={searchUser} onChange={(e)=>setSearchUser(e.target.value)} className='search-input'></input>
+            <input type='text' value={searchUser} onChange={(e)=>setSearchUser(e.target.value)} 
+            placeholder='search and add your friends by their ID'
+            className='search-input'></input>
             <button id='close-search-button'><FaSearch/></button>
             {errorServer.server? 
                     errorServer.server.map((error,index)=>{

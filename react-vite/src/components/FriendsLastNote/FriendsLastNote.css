@@ -5,5 +5,12 @@
     align-items: center;
     border: 0.5px solid rgba(0, 36, 135, 0.9);
     border-radius: 10px;
-    margin: 3px;
+    margin: 5px;
+}
+#note-author{
+    width: 90%;
+    border-top: 0.5px dashed rgba(0, 36, 135, 0.9);
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bolder;
 }
