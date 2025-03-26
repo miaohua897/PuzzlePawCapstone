@@ -13,6 +13,18 @@ def get_all_photos():
     photos = Photo.query.all()
     return {photo.id: photo.to_dict() for photo in photos}
 
+@photo_routes.route('/share', methods=['GET'])
+def get_all_share_photos():
+    photos = Photo.query.filter_by(share=True).order_by(Photo.id.desc()).all()
+    return {photo.id:{
+          'id': photo.id,
+          'title':photo.title,
+          'description':photo.description,
+          'image_url':photo.image_url,
+          'share':photo.share,
+          'owner':photo.owner.to_dict()
+        } for photo in photos}
+
 @photo_routes.route('/current',methods=['GET'])
 @login_required
 def get_session_photos():
