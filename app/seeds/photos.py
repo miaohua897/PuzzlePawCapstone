@@ -9,6 +9,7 @@ def seed_photos():
        title='dog photo one',
        description='A dog photo typically captures the essence of a dog’s personality and appearance.',
        image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1124002.jpg', 
+       share=True,
        user_id =1,
        dog_id=1),
        Photo(
@@ -65,6 +66,7 @@ def seed_photos():
        title='dog photo nine',
        description='A dog photo typically captures the essence of a dog’s personality and appearance9.',
        image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-aloismoubax-1562983.jpg', 
+       share=True,
        user_id =1,
        dog_id=1),
          Photo(
@@ -86,6 +88,7 @@ def seed_photos():
        title='dog photo twelve',
        description='A dog photo typically captures the essence of a dog’s personality and appearance12.',
        image_url='https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-nietjuhart-612813.jpg', 
+       share=True,
        user_id =1,
        dog_id=1),
                Photo(
