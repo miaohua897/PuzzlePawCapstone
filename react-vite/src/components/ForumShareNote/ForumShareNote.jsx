@@ -1,6 +1,5 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import './ForumShareNote.css';
 import { useEffect } from 'react';
 import { thunkLoadAllNotes } from '../../redux/note';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +10,7 @@ import {FaArrowLeft} from 'react-icons/fa';
 import { useSideBarStatus } from "../../context/SideBar";
 import {thunkLoadDogs} from '../../redux/dog';
 import SearchBar  from '../SearchBar';
+import './ForumShareNote.css';
 
 function ForumShareNote(){
     const dispatch = useDispatch()
