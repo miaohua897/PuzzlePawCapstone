@@ -11,6 +11,7 @@ import ForumShareNote from '../components/ForumShareNote/ForumShareNote';
 import FriendsLastNote from '../components/FriendsLastNote';
 import FriendSharePhoto from '../components/FriendSharePhoto';
 import NewParentsTips from '../components/NewParentsTips';
+import TrainingTips from '../components/TrainingTips';
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
       {
         path:'parents-tips',
         element:<NewParentsTips />
+      },
+      {
+        path:'training-tips',
+        element: <TrainingTips />
       }
     ],
   },
