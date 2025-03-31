@@ -10,6 +10,7 @@ import Layout from './Layout';
 import ForumShareNote from '../components/ForumShareNote/ForumShareNote';
 import FriendsLastNote from '../components/FriendsLastNote';
 import FriendSharePhoto from '../components/FriendSharePhoto';
+import ParentsTips from '../components/ParentsTips/ParentsTips';
 
 export const router = createBrowserRouter([
   {
@@ -48,12 +49,18 @@ export const router = createBrowserRouter([
       {
         path:'forum',
         element:<ForumShareNote />
-      },{
+      },
+      {
         path:'friendsnote',
         element:<FriendsLastNote />
-      },{
+      },
+      {
         path:'friendsphoto',
         element:<FriendSharePhoto />
+      },
+      {
+        path:'parents-tips',
+        element:<ParentsTips />
       }
     ],
   },

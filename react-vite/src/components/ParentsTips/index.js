@@ -1,0 +1,2 @@
+import ParentsTips from ParentsTips
+export default ParentsTips
