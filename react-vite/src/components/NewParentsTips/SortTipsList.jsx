@@ -1,5 +1,5 @@
 import {useSortable} from '@dnd-kit/sortable';
-import { useState } from 'react';
+// import { useState } from 'react';
 import {CSS}  from '@dnd-kit/utilities';
 
 const SortTipsList =({id, tip})=>{
@@ -9,16 +9,16 @@ const SortTipsList =({id, tip})=>{
     return (
         <div  ref ={setNodeRef}
                 style ={{
-                    color:isDragging? 'red':'black',
-                    backgroundColor:isDragging? 'grey':'white',
+                    color:isDragging? 'brown':'black',
+                    backgroundColor:isDragging? 'lightblue':'white',
                     transition,
                     transform:CSS.Transform.toString(transform)
-                 
                 }}
                 {...attributes}
                 {...listeners} 
+                 className='drag-drop-card'
                 >
-             {tip}
+            <p id='tip'>{tip}</p> 
         </div>
     )
 }
