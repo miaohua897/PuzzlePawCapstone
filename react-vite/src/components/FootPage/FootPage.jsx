@@ -14,7 +14,7 @@ function FootPage(){
     return (
         <div className='more-tips-home-page'>
                 <div className='more-tips-container'>
-                    <button id='more-tips-button' onClick={handleUnfinishedFeatures}>
+                    <button id='more-tips-button' onClick={()=>navigator('/parents-tips')}>
                     new parents
                     </button>
                     <button id='more-tips-button' onClick={handleUnfinishedFeatures}>
