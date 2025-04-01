@@ -1,17 +1,11 @@
 import {useState}  from 'react';
 import {useSelector} from 'react-redux'
-import { DndContext,KeyboardSensor, PointerSensor, useSensor,useSensors, closestCorners} from "@dnd-kit/core";
-import { SortableContext, verticalListSortingStrategy,horizontalListSortingStrategy} from '@dnd-kit/sortable';
-import {arrayMove, sortableKeyboardCoordinates} from '@dnd-kit/sortable';
-
-import SortTipsList from '../SortTipsList/SortTipsList'
 import './NewParentsTips.css'
+import DndItems from '../DndItems/DndItems';
 
 function NewParentsTips(){
     const [newTip,setNewTip] = useState('');
-    const [isVertical,setIsvertical] = useState(true)
     const sessionUser = useSelector(state=>state.session.user)
-    // console.log(sessionUser)
     const [tips, setTips] = useState([
         {id:1,tip:'No. 1 : Dogs thrive on routine, so try to keep feeding times, potty breaks, and walks consistent. This helps them feel secure and understand what to expect throughout the day.'},
         {id:2,tip:'No. 2 : Set up a designated area in your home where your dog can relax, such as a crate or a cozy bed. This gives them a place to retreat when they need some downtime.'},
@@ -23,23 +17,6 @@ function NewParentsTips(){
     const addTip =(tip)=>{
         setTips(tips=>[...tips,{id:tips.length+1,tip}])
     }
-    const sensors = useSensors(
-        useSensor(PointerSensor),
-        useSensor(KeyboardSensor,{
-            coordinateGetter:sortableKeyboardCoordinates
-        })
-    )
-    const getTipPos =(id)=>tips.findIndex(el=>el.id ===id);
-
-    const handleDragEnd = (event)=>{
-        const {active, over} = event;
-        if (active.id === over.id) return ;
-        setTips(tips=>{
-            const originalPosition = getTipPos(active.id)
-            const newPosition = getTipPos(over.id)
-            return arrayMove(tips,originalPosition,newPosition)
-        })
-    }
     const handleSubmit=()=>{
         if(!newTip) return ;
         addTip(newTip)
@@ -48,9 +25,7 @@ function NewParentsTips(){
     return (
         <div>
             <h1>Parents&apos; Tips</h1>
-            <button className='vertical-horizontal-button' onClick={()=>setIsvertical(true)}>Vertical</button>
-            <button className='vertical-horizontal-button' onClick={()=>setIsvertical(false)}>Horizontal</button>
-            {/* <Input onSubmit ={addTip}></Input> */}
+    
             {
                 sessionUser?
                 <div className='new-tip-container'>
@@ -64,36 +39,8 @@ function NewParentsTips(){
                 </div>
                 : <h2>log in, and add share your tips</h2>
             }
-            <h3>Drag N Drop, its&apos; fun</h3>
-            <DndContext 
-               sensors ={sensors}
-               collisionDetection ={closestCorners}
-               onDragEnd={handleDragEnd} >
-                {/* < Column tips ={tips} /> */}
-                {
-                    isVertical?
-                    <div className='drag-drop-container'>
-                    <SortableContext items ={tips} strategy={verticalListSortingStrategy} >
-                        {
-                            tips.map((tip,index)=>
-                                <SortTipsList key={index} id ={tip.id} tip ={tip.tip} isVertical={isVertical}/>
-                            )
-                        }
-                    </SortableContext>
-                </div>
-                : <div className='drag-drop-horizontal-container'>
-                <SortableContext items ={tips} strategy={horizontalListSortingStrategy} >
-                    {
-                        tips.map((tip,index)=>
-                            <SortTipsList key={index} id ={tip.id} tip ={tip.tip} isVertical={isVertical}/>
-                        )
-                    }
-                </SortableContext>
-                </div>
-
-                }
-               
-               </DndContext>
+        
+               <DndItems tips={tips} setTips={setTips}/>
         </div>
     )
 }
