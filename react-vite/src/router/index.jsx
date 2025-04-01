@@ -12,6 +12,7 @@ import FriendsLastNote from '../components/FriendsLastNote';
 import FriendSharePhoto from '../components/FriendSharePhoto';
 import NewParentsTips from '../components/NewParentsTips';
 import TrainingTips from '../components/TrainingTips';
+import HealthTips from '../components/HealthTips/HealthTips';
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path:'training-tips',
         element: <TrainingTips />
+      },
+      {
+        path:'health-tips',
+        element:<HealthTips />
       }
     ],
   },

@@ -4,19 +4,18 @@ import { DndContext,KeyboardSensor, PointerSensor, useSensor,useSensors, closest
 import { SortableContext,verticalListSortingStrategy, horizontalListSortingStrategy} from '@dnd-kit/sortable';
 import {arrayMove, sortableKeyboardCoordinates} from '@dnd-kit/sortable';
 import SortTipsList from '../SortTipsList';
-import './TrainingTips.css'
+import './HealthTips.css';
 
-function TrainingTips(){
+function HealthTips(){
     const [newTip,setNewTip] = useState('');
     const [isVertical,setIsVertical] = useState(true);
     const sessionUser = useSelector(state=>state.session.user)
-    // console.log(sessionUser)
     const [tips, setTips] = useState([
-        {id:1,tip:'No. 1 Start with Basic Commands'},
-        {id:2,tip:'No. 2 Use Positive Reinforcement'},
-        {id:3,tip:'No. 3 Consistency is Key Consistency is Key  Consistency is Key  Consistency is Key  Consistency is Key  Consistency is Key' },
-        {id:4,tip:"No. 4 Keep Training Sessions Short and Fun"},
-        {id:5,tip:'No. 5 Crate training is a great way to help your dog feel secure and establish boundaries. It can also aid with housebreaking.'}
+        {id:1,tip:'No. 1 '},
+        {id:2,tip:'No. 2 '},
+        {id:3,tip:'No. 3 ' },
+        {id:4,tip:"No. 4 "},
+        {id:5,tip:'No. 5  '}
     ])
 
     const addTip =(tip)=>{
@@ -44,9 +43,10 @@ function TrainingTips(){
         addTip(newTip)
         setNewTip("")
     }
+
     return (
         <div>
-            <h1>Training Tips</h1>
+            <h1>Health Tips</h1>
             <button className='vertical-horizontal-button' onClick={()=>setIsVertical(true)}>Vertical</button>
             <button className='vertical-horizontal-button' onClick={()=>setIsVertical(false)}>Horizontal</button>
             {/* <Input onSubmit ={addTip}></Input> */}
@@ -80,5 +80,7 @@ function TrainingTips(){
                </DndContext>
         </div>
     )
+
+
 }
-export default TrainingTips;
+export default HealthTips;

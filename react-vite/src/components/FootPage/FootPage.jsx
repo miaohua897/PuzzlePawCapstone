@@ -3,9 +3,7 @@ import './FootPage.css';
 
 function FootPage(){
      const navigator = useNavigate()
-    const handleUnfinishedFeatures=()=>{
-        window.alert('The feature coming soon ^.^')
-    }
+   
     const handleNavForm =(e)=>{
         e.preventDefault()
         navigator('/forum')
@@ -17,10 +15,10 @@ function FootPage(){
                     <button id='more-tips-button' onClick={()=>navigator('/parents-tips')}>
                     new parents
                     </button>
-                    <button id='more-tips-button' onClick={handleUnfinishedFeatures}>
+                    <button id='more-tips-button' onClick={()=>navigator('/training-tips')}>
                         training tips
                     </button>
-                    <button id='more-tips-button' onClick={handleUnfinishedFeatures} >
+                    <button id='more-tips-button' onClick={()=>navigator('/health-tips')} >
                         health tips
                     </button>
                     <button id='more-tips-button' onClick={handleNavForm}>
