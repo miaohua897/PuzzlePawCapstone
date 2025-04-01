@@ -1,14 +1,15 @@
 import {useState}  from 'react';
 import {useSelector} from 'react-redux'
 import { DndContext,KeyboardSensor, PointerSensor, useSensor,useSensors, closestCorners} from "@dnd-kit/core";
-import { SortableContext, verticalListSortingStrategy,} from '@dnd-kit/sortable';
+import { SortableContext, verticalListSortingStrategy,horizontalListSortingStrategy} from '@dnd-kit/sortable';
 import {arrayMove, sortableKeyboardCoordinates} from '@dnd-kit/sortable';
 
 import SortTipsList from './SortTipsList'
 import './NewParentsTips.css'
 
 function NewParentsTips(){
-    const [newTip,setNewTip] = useState('')
+    const [newTip,setNewTip] = useState('');
+    const [isVertical,setIsvertical] = useState(true)
     const sessionUser = useSelector(state=>state.session.user)
     // console.log(sessionUser)
     const [tips, setTips] = useState([
@@ -47,6 +48,8 @@ function NewParentsTips(){
     return (
         <div>
             <h1>Parents&apos; Tips</h1>
+            <button className='vertical-horizontal-button' onClick={()=>setIsvertical(true)}>Vertical</button>
+            <button className='vertical-horizontal-button' onClick={()=>setIsvertical(false)}>Horizontal</button>
             {/* <Input onSubmit ={addTip}></Input> */}
             {
                 sessionUser?
@@ -54,6 +57,7 @@ function NewParentsTips(){
                 <input 
                     type='text'
                     value={newTip}
+                    className='new-tip-input'
                     onChange={(e=>setNewTip(e.target.value)) } />
                     
                 <button onClick={handleSubmit} id='add-new-tip'>Add A New Tip for New Parent</button>
@@ -66,15 +70,29 @@ function NewParentsTips(){
                collisionDetection ={closestCorners}
                onDragEnd={handleDragEnd} >
                 {/* < Column tips ={tips} /> */}
-                <div className='drag-drop-container'>
+                {
+                    isVertical?
+                    <div className='drag-drop-container'>
                     <SortableContext items ={tips} strategy={verticalListSortingStrategy} >
                         {
                             tips.map((tip,index)=>
-                                <SortTipsList key={index} id ={tip.id} tip ={tip.tip} />
+                                <SortTipsList key={index} id ={tip.id} tip ={tip.tip} isVertical={isVertical}/>
                             )
                         }
                     </SortableContext>
                 </div>
+                : <div className='drag-drop-horizontal-container'>
+                <SortableContext items ={tips} strategy={horizontalListSortingStrategy} >
+                    {
+                        tips.map((tip,index)=>
+                            <SortTipsList key={index} id ={tip.id} tip ={tip.tip} isVertical={isVertical}/>
+                        )
+                    }
+                </SortableContext>
+                </div>
+
+                }
+               
                </DndContext>
         </div>
     )
