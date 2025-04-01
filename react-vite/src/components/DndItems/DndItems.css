@@ -1,9 +1,4 @@
-
-#tip{
-    font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
-}
-#add-new-tip{
+.vertical-horizontal-button{
     border:none;
     background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
     margin:10px;
@@ -11,17 +6,20 @@
     color:white;
     font-weight: bolder;
     border-radius: 5px;
-    width: 200px;
+    width: 100px;
+    height: 30px;
 }
-
-.new-tip-container{
-    display: flex;
+.drag-drop-container{
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px dashed lightblue;
+    margin-bottom: 50px;
 }
-.new-tip-input{
-    width:600px;
-    height:100px;
+.drag-drop-horizontal-container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }

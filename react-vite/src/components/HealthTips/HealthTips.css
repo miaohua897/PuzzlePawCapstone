@@ -1,0 +1,10 @@
+.new-training-tip-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.new-training-tip-container input{
+    width:600px;
+    height:100px;
+}
