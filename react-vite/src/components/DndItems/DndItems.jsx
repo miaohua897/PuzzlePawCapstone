@@ -15,29 +15,26 @@ function DndItems({tips,setTips}){
             coordinateGetter:sortableKeyboardCoordinates
         })
     )
-    const getTipPos =(id)=>tips.findIndex(el=>el.id ===id);
+    const getTipPosition =(id)=>tips.findIndex(el=>el.id ===id);
 
-    const handleDragEnd = (event)=>{
+    const handleDragEndFunc = (event)=>{
         const {active, over} = event;
         if (active.id === over.id) return ;
         setTips(tips=>{
-            const originalPosition = getTipPos(active.id)
-            const newPosition = getTipPos(over.id)
+            const originalPosition = getTipPosition(active.id)
+            const newPosition = getTipPosition(over.id)
             return arrayMove(tips,originalPosition,newPosition)
         })
     }
-
     return (
         <div>
-  
             <h3>Drag N Drop, its&apos; fun</h3>
             <button className='vertical-horizontal-button' onClick={()=>setIsVertical(true)}>Vertical</button>
             <button className='vertical-horizontal-button' onClick={()=>setIsVertical(false)}>Horizontal</button>
             <DndContext 
                sensors ={sensors}
                collisionDetection ={closestCorners}
-               onDragEnd={handleDragEnd} >
-                {/* < Column tips ={tips} /> */}
+               onDragEnd={handleDragEndFunc} >
                 <div className={isVertical?'drag-drop-container':'training-tips-drag-drop-container'}>
                     <SortableContext items ={tips} strategy={isVertical?verticalListSortingStrategy:horizontalListSortingStrategy} >
                         {

@@ -29,17 +29,15 @@ function NewParentsTips(){
             {
                 sessionUser?
                 <div className='new-tip-container'>
-                <input 
-                    type='text'
-                    value={newTip}
-                    className='new-tip-input'
-                    onChange={(e=>setNewTip(e.target.value)) } />
-                    
-                <button onClick={handleSubmit} id='add-new-tip'>Add A New Tip for New Parent</button>
+                    <input 
+                        type='text'
+                        value={newTip}
+                        className='new-tip-input'
+                        onChange={(e=>setNewTip(e.target.value)) } />
+                    <button onClick={handleSubmit} id='add-new-tip'>Add A New Tip for New Parent</button>
                 </div>
                 : <h2>log in, and add share your tips</h2>
             }
-        
                <DndItems tips={tips} setTips={setTips}/>
         </div>
     )

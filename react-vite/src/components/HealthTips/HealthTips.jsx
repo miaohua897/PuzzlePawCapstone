@@ -1,6 +1,5 @@
 import {useState}  from 'react';
 import {useSelector} from 'react-redux'
-
 import './HealthTips.css';
 import DndItems from '../DndItems';
 
@@ -30,12 +29,11 @@ function HealthTips(){
             {
                 sessionUser?
                 <div className='new-training-tip-container'>
-                <input 
-                    type='text'
-                    value={newTip}
-                    onChange={(e=>setNewTip(e.target.value)) } />
-                    
-                <button onClick={handleSubmit} id='add-new-training-tip'>Add A New Training Tip </button>
+                    <input 
+                        type='text'
+                        value={newTip}
+                        onChange={(e=>setNewTip(e.target.value)) } />  
+                    <button onClick={handleSubmit} id='add-new-training-tip'>Add A New Training Tip </button>
                 </div>
                 : <h2>log in, and add share your tips</h2>
             }
