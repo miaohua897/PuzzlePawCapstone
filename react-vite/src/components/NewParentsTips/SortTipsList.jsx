@@ -2,7 +2,7 @@ import {useSortable} from '@dnd-kit/sortable';
 // import { useState } from 'react';
 import {CSS}  from '@dnd-kit/utilities';
 
-const SortTipsList =({id, tip})=>{
+const SortTipsList =({id, tip,isVertical})=>{
 
     const {attributes, listeners, setNodeRef, transform, transition,isDragging} = useSortable({id})
 
@@ -16,7 +16,7 @@ const SortTipsList =({id, tip})=>{
                 }}
                 {...attributes}
                 {...listeners} 
-                 className='drag-drop-card'
+                 className={isVertical?'drag-drop-card':'horizontal-drag-drop-card'}
                 >
             <p id='tip'>{tip}</p> 
         </div>
