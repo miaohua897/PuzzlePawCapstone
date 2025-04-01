@@ -1,13 +1,14 @@
 import {useState}  from 'react';
 import {useSelector} from 'react-redux'
 import { DndContext,KeyboardSensor, PointerSensor, useSensor,useSensors, closestCorners} from "@dnd-kit/core";
-import { SortableContext, horizontalListSortingStrategy} from '@dnd-kit/sortable';
+import { SortableContext,verticalListSortingStrategy, horizontalListSortingStrategy} from '@dnd-kit/sortable';
 import {arrayMove, sortableKeyboardCoordinates} from '@dnd-kit/sortable';
-import SortTipsList from './SortTipsList'
+import SortTipsList from '../SortTipsList';
 import './TrainingTips.css'
 
 function TrainingTips(){
-    const [newTip,setNewTip] = useState('')
+    const [newTip,setNewTip] = useState('');
+    const [isVertical,setIsVertical] = useState(true);
     const sessionUser = useSelector(state=>state.session.user)
     // console.log(sessionUser)
     const [tips, setTips] = useState([
@@ -45,7 +46,9 @@ function TrainingTips(){
     }
     return (
         <div>
-            <h1>Parents&apos; Tips</h1>
+            <h1>Training Tips</h1>
+            <button className='vertical-horizontal-button' onClick={()=>setIsVertical(true)}>Vertical</button>
+            <button className='vertical-horizontal-button' onClick={()=>setIsVertical(false)}>Horizontal</button>
             {/* <Input onSubmit ={addTip}></Input> */}
             {
                 sessionUser?
@@ -65,11 +68,11 @@ function TrainingTips(){
                collisionDetection ={closestCorners}
                onDragEnd={handleDragEnd} >
                 {/* < Column tips ={tips} /> */}
-                <div className='training-tips-drag-drop-container'>
-                    <SortableContext items ={tips} strategy={horizontalListSortingStrategy} >
+                <div className={isVertical?'drag-drop-container':'training-tips-drag-drop-container'}>
+                    <SortableContext items ={tips} strategy={isVertical?verticalListSortingStrategy:horizontalListSortingStrategy} >
                         {
                             tips.map((tip,index)=>
-                                <SortTipsList key={index} id ={tip.id} tip ={tip.tip} />
+                                <SortTipsList key={index} id ={tip.id} tip ={tip.tip} isVertical={isVertical} />
                             )
                         }
                     </SortableContext>
