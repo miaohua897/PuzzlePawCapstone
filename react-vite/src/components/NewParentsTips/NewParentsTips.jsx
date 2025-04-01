@@ -4,7 +4,7 @@ import { DndContext,KeyboardSensor, PointerSensor, useSensor,useSensors, closest
 import { SortableContext, verticalListSortingStrategy,horizontalListSortingStrategy} from '@dnd-kit/sortable';
 import {arrayMove, sortableKeyboardCoordinates} from '@dnd-kit/sortable';
 
-import SortTipsList from './SortTipsList'
+import SortTipsList from '../SortTipsList/SortTipsList'
 import './NewParentsTips.css'
 
 function NewParentsTips(){
