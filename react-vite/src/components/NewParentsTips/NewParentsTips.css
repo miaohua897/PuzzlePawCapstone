@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px dashed lightblue;
+    border-bottom: 1px dashed  rgba(3, 68, 100, 0.8);
 }
 .new-tip-input{
     width:600px;

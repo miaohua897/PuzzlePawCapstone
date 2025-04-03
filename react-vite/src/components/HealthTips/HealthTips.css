@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px dashed  rgba(3, 68, 100, 0.8);
 }
 .new-training-tip-container input{
     width:600px;
