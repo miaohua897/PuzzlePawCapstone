@@ -40,9 +40,23 @@
     margin-bottom: 20px;
  }
 .home-page-main-article{
-    font-size: 1.4rem; 
-    line-height: 1.8;
+    font-size: 20px; 
     color: #444; 
+    line-height: 1.5;
     text-shadow: 0 3px 6px rgba(74, 0, 114, 0.3), 0 6px 12px rgba(0, 136, 204, 0.4);
+    /* transition: font-size 0.5s ease; */
+}
+/* .home-page-main-article:hover{
+    font-size:32px;
+  
+} */
+.home-page-main-article-large-size{
+    font-size:32px;
+    color: #444; 
+}
+#article-tip{
+    color:brown;
+    font-size: 18px;
+    padding:10px;
 }
  
