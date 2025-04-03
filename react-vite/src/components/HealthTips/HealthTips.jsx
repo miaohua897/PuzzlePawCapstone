@@ -7,11 +7,11 @@ function HealthTips(){
     const [newTip,setNewTip] = useState('');
     const sessionUser = useSelector(state=>state.session.user)
     const [tips, setTips] = useState([
-        {id:1,tip:'No. 1 '},
-        {id:2,tip:'No. 2 '},
-        {id:3,tip:'No. 3 ' },
-        {id:4,tip:"No. 4 "},
-        {id:5,tip:'No. 5  '}
+        {id:1,tip:'Try daily walks, fetch, or even puzzle games to keep them active.'},
+        {id:2,tip:'Avoid giving your dog table scraps or foods that are toxic to dogs (e.g., chocolate, grapes, onions)'},
+        {id:3,tip:"If you're out in hot weather, be sure to bring water for your dog during walks or playtime." },
+        {id:4,tip:"Schedule annual check-ups or as recommended by your vet."},
+        {id:5,tip:"Teach your dog new tricks or rotate their toys to keep them engaged."}
     ])
 
     const addTip =(tip)=>{
