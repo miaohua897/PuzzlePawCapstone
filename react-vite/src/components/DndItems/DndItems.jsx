@@ -1,5 +1,4 @@
 import {useState}  from 'react';
-// import {useSelector} from 'react-redux'
 import { DndContext,KeyboardSensor, PointerSensor, useSensor,useSensors, closestCorners} from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy,horizontalListSortingStrategy} from '@dnd-kit/sortable';
 import {arrayMove, sortableKeyboardCoordinates} from '@dnd-kit/sortable';
