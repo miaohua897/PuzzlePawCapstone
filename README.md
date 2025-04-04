@@ -36,7 +36,8 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 
 The landing page will feature an auto-display that automatically updates dogs' photos. A scrolliing display will continue to move most liked comments.    
 
-<img width="1441" alt="Screenshot 2025-03-04 at 2 32 39 PM" src="https://github.com/user-attachments/assets/120a653a-7605-40f7-a471-cba029bc82cb" />
+<img width="1352" alt="Screenshot 2025-04-03 at 5 07 29 PM" src="https://github.com/user-attachments/assets/16e08230-3999-41e5-940d-b889c338d42b" />
+
 
 --------------------------
 ## Dogs' Detail Page
@@ -53,15 +54,30 @@ Photos' detail page also has sidebar that control all owner's photos. By clickin
 
 <img width="1299" alt="Screenshot 2025-03-12 at 10 01 35 AM" src="https://github.com/user-attachments/assets/bede2266-6a3c-49f1-b1ea-9fc33da34c71" />
 
---------------------------
+--------------------------  
 ## Notes' Page
 
 <img width="1295" alt="Screenshot 2025-03-12 at 10 01 51 AM" src="https://github.com/user-attachments/assets/01128b92-56fe-47cb-a14e-f06fcdf446c1" />
 
---------------------------
+--------------------------      
 ## Records' Page
 
-<img width="1294" alt="Screenshot 2025-03-12 at 10 02 09 AM" src="https://github.com/user-attachments/assets/e798a9e2-8547-4081-a500-bffa4fdf9327" />
+<img width="1294" alt="Screenshot 2025-03-12 at 10 02 09 AM" src="https://github.com/user-attachments/assets/e798a9e2-8547-4081-a500-bffa4fdf9327" />   
+
+--------------------------   
+## New parents' tips Page  
+
+<img width="1363" alt="Screenshot 2025-04-03 at 5 07 47 PM" src="https://github.com/user-attachments/assets/dbc7cf0f-ebb8-403f-969d-d19d4026ec28" />  
+
+--------------------------   
+## Training's tips Page   
+
+<img width="1345" alt="Screenshot 2025-04-03 at 5 08 28 PM" src="https://github.com/user-attachments/assets/097ad248-b1ef-4589-bf62-d49c1db68ac1" />   
+
+--------------------------   
+## Training's tips Page    
+
+<img width="1352" alt="Screenshot 2025-04-03 at 5 08 41 PM" src="https://github.com/user-attachments/assets/20817bf6-4c95-446d-81d9-0eb03711de98" />   
 
 
 -----------------------------------------------------------------------------
