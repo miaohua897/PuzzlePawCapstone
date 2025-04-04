@@ -34,7 +34,7 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 
 ## Landing Page
 
-The landing page will feature an auto-display that automatically updates dogs' photos. A scrolliing display will continue to move most liked comments.    
+The landing page will feature an auto-display that automatically updates dogs' photos. A scrolliing display will continue to move most liked comments. When the mouse hover on the word, the word will become larger.     
 
 <img width="1352" alt="Screenshot 2025-04-03 at 5 07 29 PM" src="https://github.com/user-attachments/assets/16e08230-3999-41e5-940d-b889c338d42b" />
 
