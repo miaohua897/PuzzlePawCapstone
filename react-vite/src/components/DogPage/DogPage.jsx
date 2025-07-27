@@ -58,16 +58,21 @@ function DogPage(){
    
     return (
         <div className="dog-page-container" > 
-            <div className="dog-cards-title-icon">
-                    <h1 id='beloved-dog-title'>My Beloved Dogs</h1>
+            <div className="dog-page-title-wrapper">
+                  <div className="dog-cards-title-icon">
+                          <h1 id='beloved-dog-title'>My Beloved Dogs</h1>
                         <OpenModalButton 
                         buttonText="+"
                         onButtonClick={closeMenu}
                         className='dog-add-new-dog'
                         modalComponent={<AddNewDogPage />}/>
+
+                  </div>
+              
+                    <SearchBar />
             </div>
             {/* <  FriendList /> */}
-            <SearchBar />
+         
             {/* <button onClick={()=>navigator('/friendsnote')}>friends notes</button> */}
         
             {/* <div className="sidebar-button-container">

@@ -6,9 +6,9 @@ import {useSetDogId} from '../../context/SetDogId';
 import {useSideBarStatus} from '../../context/SideBar';
 
 function DogCards({dogsArr}){
-    const ulRef = useRef();
-    const {setSelectedDogId} =  useSetDogId();
-    const {setIsSideBarOpen}=useSideBarStatus();
+      const ulRef = useRef();
+      const {setSelectedDogId} =  useSetDogId();
+      const {setIsSideBarOpen}=useSideBarStatus();
       const [showMenu, setShowMenu] = useState(false);
       const [selectedDog,setSelectedDog] = useState(-1);
   
