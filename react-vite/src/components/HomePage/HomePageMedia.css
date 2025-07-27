@@ -1,0 +1,11 @@
+@media(max-width:1024px){
+    .home-page-image-article-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-page-main-image{
+        width: 90%;
+    }
+}
