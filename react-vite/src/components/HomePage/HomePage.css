@@ -41,14 +41,14 @@
  }
 .home-page-main-article{
     font-size: 20px; 
-    color: #444; 
+    color:rgb(8, 15, 67); 
     line-height: 1.5;
-    text-shadow: 0 3px 6px rgba(74, 0, 114, 0.3), 0 6px 12px rgba(0, 136, 204, 0.4);
+    /* text-shadow: 0 3px 6px rgba(74, 0, 114, 0.3), 0 6px 12px rgba(0, 136, 204, 0.4); */
 }
 .home-page-main-article-large-size{
     font-size:32px;
-    color: #444; 
-    text-shadow: 0 3px 6px rgba(74, 0, 114, 0.3), 0 6px 12px rgba(0, 136, 204, 0.4);
+    color:rgb(8, 15, 67); 
+    /* text-shadow: 0 3px 6px rgba(74, 0, 114, 0.3), 0 6px 12px rgba(0, 136, 204, 0.4); */
 }
 #article-tip{
     color:brown;
