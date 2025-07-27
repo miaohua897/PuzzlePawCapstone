@@ -8,7 +8,7 @@ import DogShowCase from './DogShowCase';
 import {thunkLoadDogs} from '../../redux/dog';
 import {useSetDogId} from '../../context/SetDogId'; 
 import {useSideBarStatus} from '../../context/SideBar';
-import {FaArrowLeft} from 'react-icons/fa';
+// import {FaArrowLeft} from 'react-icons/fa';
 import SearchBar from '../SearchBar';
 // import  FriendList from '../FriendList';
 import './DogPage.css'
@@ -70,13 +70,13 @@ function DogPage(){
             <SearchBar />
             {/* <button onClick={()=>navigator('/friendsnote')}>friends notes</button> */}
         
-            <div className="sidebar-button-container">
+            {/* <div className="sidebar-button-container">
                 <button className='sidebar-button' onClick={()=>{
                     setIsSideBarOpen(true)
                     }} >
                 <FaArrowLeft color='darkblue'/>
                 </button>
-            </div>   
+            </div>    */}
             <SideBarDogPage dogsArr ={dogsArr} />       
             <DogShowCase dogsArr ={dogsArr}  existDog={existDog} showDog={showDog} dogs={dogs} />
         </div>
