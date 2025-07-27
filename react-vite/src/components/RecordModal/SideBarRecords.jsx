@@ -1,12 +1,28 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSideBarStatus } from "../../context/SideBar";
-import {FaArrowRight} from 'react-icons/fa';
+// import {FaArrowRight} from 'react-icons/fa';
 import { useSetDogId } from "../../context/SetDogId";
 import './RecordModal';
 
 function SideBarRecords({dogsArr}){
     const navigator = useNavigate()
     const {isSideBarOpen, setIsSideBarOpen} = useSideBarStatus();
+
+    useEffect(()=>{
+        const handleMouseMove =(e)=>{
+            if(e.clientX > window.innerWidth - 200){
+                setIsSideBarOpen(true)
+            }else{
+                setIsSideBarOpen(false)
+            }
+        }
+        window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+    };
+    },[])
+
     const {setSelectedDogId} = useSetDogId();
     const navToDogPage=(e)=>{
         e.preventDefault()
@@ -30,11 +46,11 @@ function SideBarRecords({dogsArr}){
         style={isSideBarOpen?{transform:'translateX(0)'}:{transform:'translateX(100%)'}}
         >
             <div className="fixed-top">
-                <div className="sidebar-header">
+                {/* <div className="sidebar-header">
                     <button className="arrow-button" onClick={()=>setIsSideBarOpen(false)}>
                         <FaArrowRight />
                     </button>
-                </div>
+                </div> */}
                 <h1 id='beloved-dog-sidebar'>Beloved Dogs</h1>
                 <div className="dog-page-nav-button">
                     <div>

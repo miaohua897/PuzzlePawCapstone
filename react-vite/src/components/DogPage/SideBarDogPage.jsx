@@ -13,7 +13,7 @@ function SideBarDogPage({dogsArr}){
 
     useEffect(()=>{
         const handleMouseMove =(e)=>{
-            if(e.clientX > window.innerWidth - 30){
+            if(e.clientX > window.innerWidth - 200){
                 setIsSideBarOpen(true)
             }else{
                 setIsSideBarOpen(false)

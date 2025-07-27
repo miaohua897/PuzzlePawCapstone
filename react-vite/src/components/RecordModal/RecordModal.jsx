@@ -7,9 +7,9 @@ import { useSetDogId } from '../../context/SetDogId';
 import { thunkLoadTrainingRecords } from '../../redux/trainingRecord';
 import { thunkLoadBehaviorRecords } from '../../redux/behaviorRecord';
 import {thunkLoadDogs} from '../../redux/dog';
-import {FaArrowLeft, FaTrash, FaEdit} from 'react-icons/fa';
+import { FaTrash, FaEdit} from 'react-icons/fa';
 import SideBarRecords from './SideBarRecords';
-import { useSideBarStatus } from "../../context/SideBar";
+// import { useSideBarStatus } from "../../context/SideBar";
 import OpenModalButton  from '../OpenModalButton';
 import DeleteTrainingRecordModal from '../DeleteTrainingRecordModal';
 import DeleteHealthRecordModal from '../DeleteHealthRecordModal';
@@ -32,7 +32,7 @@ function RecordModal(){
     const dogs = useSelector(state=>state.dog.dog);
 
     const {selectedDogId} = useSetDogId();
-    const {setIsSideBarOpen} = useSideBarStatus();
+    // const {setIsSideBarOpen} = useSideBarStatus();
 
     useEffect(()=>{
         dispatch(thunkLoadHealthRecords())
@@ -71,13 +71,13 @@ function RecordModal(){
             }
             </div>   
              <SearchBar />   
-            <div className="sidebar-button-container">
+            {/* <div className="sidebar-button-container">
                 <button className='sidebar-button' onClick={()=>{
                     setIsSideBarOpen(true)
                     }} >
                 <FaArrowLeft color='darkblue'/>
                 </button>
-            </div>  
+            </div>   */}
             <SideBarRecords  dogsArr={dogsArr} />
             <div className='create-record-container'>
                 <h1>Health Records</h1>

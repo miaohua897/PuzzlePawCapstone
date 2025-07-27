@@ -7,7 +7,7 @@ import SideBarDogPage from './SideBarDogPage';
 import DogShowCase from './DogShowCase';
 import {thunkLoadDogs} from '../../redux/dog';
 import {useSetDogId} from '../../context/SetDogId'; 
-import {useSideBarStatus} from '../../context/SideBar';
+// import {useSideBarStatus} from '../../context/SideBar';
 // import {FaArrowLeft} from 'react-icons/fa';
 import SearchBar from '../SearchBar';
 // import  FriendList from '../FriendList';
@@ -24,7 +24,7 @@ function DogPage(){
 
     const [showMenu, setShowMenu] = useState(false);
     const {selectedDogId} =  useSetDogId();
-    const {setIsSideBarOpen}=useSideBarStatus();
+    // const {setIsSideBarOpen}=useSideBarStatus();
    
     useEffect(()=>{
             dispatch(thunkLoadDogs())

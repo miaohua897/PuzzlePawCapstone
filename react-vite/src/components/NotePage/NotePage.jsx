@@ -10,8 +10,8 @@ import UpdateNoteModal from '../UpdateNoteModal';
 import DeleteNoteModal from '../DeleteNoteModal';
 // import { useModal } from "../../context/Modal";
 import OpenModalButton from '../OpenModalButton';
-import { useSideBarStatus } from "../../context/SideBar";
-import {FaArrowLeft,FaEdit,FaTrash} from 'react-icons/fa';
+// import { useSideBarStatus } from "../../context/SideBar";
+import {FaEdit,FaTrash} from 'react-icons/fa';
 import SearchBar from "../SearchBar/SearchBar";
 
 function NotePage(){
@@ -22,7 +22,7 @@ function NotePage(){
     const sessionUser = useSelector((state) => state.session.user);
 
     const {selectedDogId} = useSetDogId(); 
-    const {setIsSideBarOpen} = useSideBarStatus();
+    // const {setIsSideBarOpen} = useSideBarStatus();
     // const {closeModal} = useModal()
 
     useEffect(()=>{
@@ -55,13 +55,13 @@ function NotePage(){
             modalComponent={<AddNewNote />}/>
         </div>
         <SearchBar />
-        <div className="sidebar-button-container">
+        {/* <div className="sidebar-button-container">
             <button className='sidebar-button' onClick={()=>{
                 setIsSideBarOpen(true)
                 }} >
             <FaArrowLeft color='darkblue'/>
             </button>
-        </div>  
+        </div>   */}
         <SideBarNote dogsArr={dogsArr}/>
         {  dogNotesArr.length !== 0?
           dogNotesArr.map((note,index)=>{

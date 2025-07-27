@@ -5,8 +5,8 @@ import {thunkLoadDogs} from '../../redux/dog';
 import { useNavigate } from "react-router-dom";
 import OpenModalButton from '../OpenModalButton';
 import AddNewPhotoPage from '../AddNewPhotoPage';
-import {FaPhotoVideo,FaArrowLeft} from 'react-icons/fa';
-import {useSideBarStatus} from '../../context/SideBar';
+import {FaPhotoVideo} from 'react-icons/fa';
+// import {useSideBarStatus} from '../../context/SideBar';
 import SideBarPhoto from './SideBarPhoto';
 import PhotoWall from './PhotoWall';
 import SearchBar from "../SearchBar/SearchBar";
@@ -18,7 +18,7 @@ function PhotoPage(){
   const dispatch = useDispatch()
   const navigator = useNavigate()
   const ulRef = useRef();
-  const {setIsSideBarOpen} = useSideBarStatus();
+  // const {setIsSideBarOpen} = useSideBarStatus();
 
   const photos = useSelector(state=>state.photo.photo);
   const dogs = useSelector(state=>state.dog.dog);
@@ -69,11 +69,11 @@ function PhotoPage(){
             </div>
              <SearchBar />
             {/* <FriendList /> */}
-            <div className="sidebar-button-container">
+            {/* <div className="sidebar-button-container">
             <button className='sidebar-button' onClick={()=>{setIsSideBarOpen(true) }} >
               <FaArrowLeft color='darkblue'/>
             </button>
-            </div> 
+            </div>  */}
      
             <SideBarPhoto dogs_arr={dogs_arr} photos_arr={photos_arr}  closeMenu={closeMenu} />
               

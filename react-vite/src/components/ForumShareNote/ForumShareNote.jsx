@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import AddNewFriendModal from '../AddNewFriendModal';
 import OpenModalButton from '../OpenModalButton';
 import SideBarFriend from './SideBarFriend';
-import {FaArrowLeft} from 'react-icons/fa';
-import { useSideBarStatus } from "../../context/SideBar";
+// import {FaArrowLeft} from 'react-icons/fa';
+// import { useSideBarStatus } from "../../context/SideBar";
 import {thunkLoadDogs} from '../../redux/dog';
 import SearchBar  from '../SearchBar';
 import './ForumShareNote.css';
@@ -19,7 +19,7 @@ function ForumShareNote(){
     const sessionUser= useSelector(state=>state.session.user)
     const dogs = useSelector(state=>state.dog.dog);
 
-    const {setIsSideBarOpen} = useSideBarStatus();
+    // const {setIsSideBarOpen} = useSideBarStatus();
 
     useEffect(()=>{
            dispatch(thunkLoadAllNotes())
@@ -59,13 +59,13 @@ function ForumShareNote(){
                 })
                 :null
             }
-               <div className="sidebar-button-container">
+               {/* <div className="sidebar-button-container">
                         <button className='sidebar-button' onClick={()=>{
                             setIsSideBarOpen(true)
                             }} >
                         <FaArrowLeft color='darkblue'/>
                         </button>
-                    </div> 
+                    </div>  */}
             <SideBarFriend dogs_arr={dogs_arr} />
         </div>
     )
