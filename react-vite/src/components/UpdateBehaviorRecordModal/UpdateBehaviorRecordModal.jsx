@@ -8,8 +8,7 @@ import './UpdateBehaviorRecordModal.css';
 function UpdateBehaviorRecordModal({behaviorRecord, behavior_record_id}){
     const dispatch = useDispatch()
     const recordDateObject = new Date(behaviorRecord.behavior_record_date)
-    const formattedDate = recordDateObject.toISOString().split('T')[0];
-    
+    const formattedDate = recordDateObject.toISOString().split('T')[0];   
     const [recordDate, setRecordDate] = useState(formattedDate);
     const [description, setDescription] = useState(behaviorRecord.description);
     const [behaviorType, setBehaviorType] = useState(behaviorRecord.behavior_type);
@@ -70,7 +69,6 @@ function UpdateBehaviorRecordModal({behaviorRecord, behavior_record_id}){
             <input type='text' id='input-behavior-record-description' name='description'  value={description}
             onChange={(e)=>setDescription(e.target.value)} required  minLength="0" maxLength="20"></input>
         </div>
-        {/* {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null} */}
         <div className='add-input' >
             <label htmlFor ='behavior-type' className='add-form-lable'>Behavior Type *</label>
             <input type='text' id='input-behavior-record-treatment' name='behavior-type'  value={behaviorType}

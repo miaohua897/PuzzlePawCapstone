@@ -11,17 +11,20 @@
     border:none;
     background-color: transparent;
     color: darkblue;
+    font-size: larger;
 }
 .search-input{
-    width:300px;
+    width:500px;
+    height: 25px;
 }
 .search-form{
-    margin:10px;
+    margin: 30px 10px;
     padding-bottom: 10px;
+
 }
 #add-friend-button-searchbar{
     border:none;
     background-color: transparent;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bolder;
 }

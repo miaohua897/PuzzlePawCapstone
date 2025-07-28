@@ -2,8 +2,7 @@ import {useNavigate}  from 'react-router-dom';
 import './FootPage.css';
 
 function FootPage(){
-     const navigator = useNavigate()
-   
+    const navigator = useNavigate()
     const handleNavForm =(e)=>{
         e.preventDefault()
         navigator('/forum')

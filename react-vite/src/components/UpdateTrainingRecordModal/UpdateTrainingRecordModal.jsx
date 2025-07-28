@@ -10,10 +10,8 @@ function UpdateTrainingRecordModal({trainingRecord, training_record_id}){
     const dispatch = useDispatch()
     const navigator = useNavigate();
     const sessionUser = useSelector(state=>state.session.user)
-
     const recordDateObject = new Date(trainingRecord.training_date)
     const formattedDate = recordDateObject.toISOString().split('T')[0];
-
     const [recordDate, setRecordDate] = useState(formattedDate);
     const [trainingType , setTrainingType] = useState(trainingRecord.training_type);
     const [notes, setNotes] = useState(trainingRecord.notes);
@@ -77,7 +75,7 @@ function UpdateTrainingRecordModal({trainingRecord, training_record_id}){
             <input type='text' id='input-health-record-training-type' name='training-type'  value={trainingType}
             onChange={(e)=>setTrainingType(e.target.value)} required  minLength="0" maxLength="20"></input>
         </div>
-        {/* {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null} */}
+ 
         <div className='add-input' >
             <label htmlFor ='notes' className='add-form-lable'>Notes *</label>
             <input type='text' id='input-training-record-notes' name='notes'   value={notes}

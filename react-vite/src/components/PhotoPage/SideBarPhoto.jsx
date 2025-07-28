@@ -1,5 +1,5 @@
+import { useEffect } from 'react';
 import {useSideBarStatus} from '../../context/SideBar';
-import { FaArrowRight} from 'react-icons/fa';
 import  DogBasicInfo from '../DogBasicInfo';
 import LargePhotoPage from './LargePhotoPage';
 import OpenModalButton from '../OpenModalButton';
@@ -9,8 +9,21 @@ import FriendList from '../FriendList';
 function SideBarPhoto({dogs_arr,photos_arr,closeMenu}){
 
     const navigator = useNavigate();
-
     const {isSideBarOpen,setIsSideBarOpen} = useSideBarStatus();
+
+    useEffect(()=>{
+          const handleMouseMove =(e)=>{
+              if(e.clientX > window.innerWidth - 200){
+                  setIsSideBarOpen(true)
+              }else{
+                  setIsSideBarOpen(false)
+              }
+          }
+          window.addEventListener('mousemove', handleMouseMove);
+      return () => {
+          window.removeEventListener('mousemove', handleMouseMove);
+      };
+      },[])
      
     const navToDogPage=(e)=>{
         e.preventDefault()
@@ -33,11 +46,6 @@ function SideBarPhoto({dogs_arr,photos_arr,closeMenu}){
       <div className="sidebar"
         style={isSideBarOpen ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }} >
       <div className="fixed-top">
-          <div className="sidebar-header">
-              <button className="arrow-button" onClick={() => {setIsSideBarOpen(false)}}>
-                 <FaArrowRight />
-              </button>
-         </div>
            <h1 id='beloved-dog-sidebar'>Beloved Dogs</h1>
           <div className="dog-page-nav-button">
               <div>
@@ -56,10 +64,8 @@ function SideBarPhoto({dogs_arr,photos_arr,closeMenu}){
       dogs_arr.map((dog,index)=>{
         return (
           <div className='sidebar-dog-info'  key={index}    >
-            <img 
-          
+            <img       
             src={dog.image_url} style={{width:50,height:50}}></img>
-            {/* <p>{dog.dog_name}</p> */}
             <OpenModalButton 
             buttonText={dog.dog_name}
             onButtonClick={closeMenu}

@@ -1,8 +1,8 @@
-import './AddNewDogPage.css';
 import { useState } from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import {thunkCreateDogs} from '../../redux/dog';
 import { useModal } from '../../context/Modal';
+import './AddNewDogPage.css';
 
 function AddNewDogPage(){
     const {closeModal}=useModal()
@@ -61,18 +61,18 @@ function AddNewDogPage(){
     let gender;
     let neutered_spayed;
   
-          if(male)  gender='male';
-          if(female) gender ='female';
-          if (!male&&!female) {
-            const errMes ="dog gender can't be empty";
-            setError({
-                'dogGender':errMes
-            })
-            setDisableButton(false)
-            return ;} 
-          if(neutered) neutered_spayed='neutered';
-          if(spayed) neutered_spayed='spayed';
-          if(!neutered&&!spayed) neutered_spayed='None';
+    if(male)  gender='male';
+    if(female) gender ='female';
+    if (!male&&!female) {
+      const errMes ="dog gender can't be empty";
+      setError({
+          'dogGender':errMes
+      })
+      setDisableButton(false)
+      return ;} 
+    if(neutered) neutered_spayed='neutered';
+    if(spayed) neutered_spayed='spayed';
+    if(!neutered&&!spayed) neutered_spayed='None';
           
        
     const formData = new FormData();

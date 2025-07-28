@@ -13,33 +13,25 @@ function Navigation() {
   return (
     <ul className="nav-container" >
       <li>
-  
         <img src="/puzzlePawIcon.png" style={{width:50,height:45}} onClick={()=>{
           navigate('/')
           setIsSideBarOpen(false)
         }}/>
-     
       </li>
-      
   
-      {
-        sessionUser?
-        <div>
-       {/* <SearchBar /> */}
-        <li>
-        
-        <button className='go-see-dog-button' style={{marginRight:isSideBarOpen?250:30}}  onClick={()=>navigate('/dog')}>Dog Page</button> 
-         </li> 
-        </div>
-      
-      :null
-      }
-    
-      <li >
-        <ProfileButton  />
-      </li>
-     
-    </ul>
+        {
+          sessionUser?
+          <div>
+              <li>
+                  <button className='go-see-dog-button' style={{marginRight:isSideBarOpen?250:30}}  onClick={()=>navigate('/dog')}>Dog Page</button> 
+              </li> 
+          </div>  
+        :null
+        }  
+        <li >
+          <ProfileButton  />
+        </li>   
+  </ul>
   );
 }
 

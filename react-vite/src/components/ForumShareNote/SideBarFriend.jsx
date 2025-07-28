@@ -1,5 +1,5 @@
+import { useEffect } from 'react';
 import {useSideBarStatus} from '../../context/SideBar';
-import { FaArrowRight} from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import FriendList from '../FriendList';
 import OpenModalButton from '../OpenModalButton';
@@ -8,8 +8,21 @@ import DogBasicInfo  from '../DogBasicInfo';
 function SideBarFriend({dogs_arr}){
 
     const navigator = useNavigate();
-
     const {isSideBarOpen,setIsSideBarOpen} = useSideBarStatus();
+
+    useEffect(()=>{
+        const handleMouseMove =(e)=>{
+            if(e.clientX > window.innerWidth - 200){
+                setIsSideBarOpen(true)
+            }else{
+                setIsSideBarOpen(false)
+            }
+        }
+        window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+    };
+    },[])
      
     const navToDogPage=(e)=>{
         e.preventDefault()
@@ -38,11 +51,6 @@ function SideBarFriend({dogs_arr}){
       <div className="sidebar"
         style={isSideBarOpen ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }} >
       <div className="fixed-top">
-          <div className="sidebar-header">
-              <button className="arrow-button" onClick={() => {setIsSideBarOpen(false)}}>
-                 <FaArrowRight />
-              </button>
-         </div>
            <h1 id='beloved-dog-sidebar'>Beloved Dogs</h1>
           <div className="dog-page-nav-button">
               <div>
@@ -63,10 +71,8 @@ function SideBarFriend({dogs_arr}){
           <div className='sidebar-dog-info'  key={index}    >
             <img 
             src={dog.image_url} style={{width:50,height:50}}></img>
-            {/* <p>{dog.dog_name}</p> */}
             <OpenModalButton 
             buttonText={dog.dog_name}
-            // onButtonClick={closeMenu}
             className='sidebar-dog-name-button'
             modalComponent={<DogBasicInfo dog={dog}/>}/>
           </div>
@@ -74,7 +80,6 @@ function SideBarFriend({dogs_arr}){
       })
       :null
       }
-  
     </div>
    </div>
     )

@@ -1,7 +1,4 @@
 .friend-list-container{
-    /* position: fixed;
-    left: 1.5%;
-    top:25%; */
   border-bottom: 1px solid darkgray;
 }
 #friend-name{
@@ -18,8 +15,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
-    
+    align-items: center; 
 }
 .add-friends-icon-container{
     display: flex;
@@ -31,9 +27,12 @@
     align-items: center;
 }
 #friend-note-button{
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bolder;
     border: none;
     background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     border-radius: 10px;
     padding:5px;
     margin:3px;
@@ -41,6 +40,9 @@
     cursor: pointer;
     width: 160px;
     height: 30px;
+}
+#friend-note-button:hover{
+    background-color: brown;
 }
 .friend-photo-button-container{
     display: flex;
@@ -48,9 +50,12 @@
     align-items: center;
 }
 #friend-photo-button{
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bolder;
     border: none;
     background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     border-radius: 10px;
     padding:5px;
     margin:3px;
@@ -58,4 +63,7 @@
     cursor: pointer;
     width: 160px;
     height: 30px;
+}
+#friend-photo-button:hover{
+    background-color: brown;
 }

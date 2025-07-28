@@ -1,9 +1,7 @@
-
 .update-dog-container{
     height: 600px;
     width: 500px;
     overflow: auto;
-
 }
 .update-dog-form-container{
     border-radius: 20px;
@@ -17,14 +15,12 @@
     overflow: scroll;
 }
 .update-input{
-
     margin:5px;
     padding:3px;
     display: flex;
     justify-content: flex-start;
     gap:15px;
-    margin-left: 30px;
-   
+    margin-left: 30px;  
 }
 .add-dog-form-lable{
     font-size: 18px;

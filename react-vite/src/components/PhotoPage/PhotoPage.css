@@ -140,7 +140,6 @@
     
 }
 .sidebar-dog-info:hover{
-    /* background-color: aliceblue; */
     border-radius: 3px;
     background: linear-gradient(rgba(0, 36, 135, 0.9), rgba(23, 3, 243, 0.1));
 }

@@ -1,5 +1,4 @@
 import {useSortable} from '@dnd-kit/sortable';
-// import { useState } from 'react';
 import {CSS}  from '@dnd-kit/utilities';
 import './SortTipsList.css'
 

@@ -26,7 +26,6 @@ function FriendList(){
             <h3>My friends:</h3>
             <OpenModalButton 
                         buttonText="+"
-                        // onButtonClick={closeMenu}
                         className='dog-add-new-dog'
                         modalComponent={<AddNewFriendModal />}/>
             </div>
@@ -39,7 +38,6 @@ function FriendList(){
                         <p id='friend-name'>●  {friend.username}</p>
                         <OpenModalButton 
                                 buttonText={<FaTrash />}
-                                // onButtonClick={closeMenu}
                                 className='friendship-delete-icon'
                                 modalComponent={<DeleteFriendshipModal  user_id={sessionUser.id}  friend_id={friend.id}/>} />
                     </div>

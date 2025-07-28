@@ -1,8 +1,8 @@
 import { useEffect,useState } from 'react';
 import { useSelector} from 'react-redux';
 import MovingNotes from '../MovingNotes';
-// import {thunkLoadNewsPhotos} from '../../redux/new_photo';
 import './HomePage.css'
+import './HomePageMedia.css'
 
 function HomePage(){
 
@@ -32,29 +32,29 @@ function HomePage(){
     return (
         <div className='homepage-container'>
                 <div className='home-page-image-article-container'>
+                     <h1 className='homepage-welcome-title'>Welcome to PuzzlePaw</h1>
                     <div  className='home-page-main-image'>    
                     <img id='home-page-main-img' src={newsPhotos[currentIndex]} />      
                     </div>
             
-                    <h1 className='homepage-welcome-title'>Welcome to PuzzlePaw</h1>
+
                     <p id ='article-tip'>hover the article, it is fun</p>
-                    {
+                    <div>
+                                          {
                         mainArticleArr.map((word,index)=>{
                             return (
                              
                                     <a key={index} 
                                     onMouseEnter={()=>setIsWord(index)}
                                     onMouseLeave={()=>setIsWord(null)}
-                                    className={isWord===index?'home-page-main-article-large-size':'home-page-main-article'}>{word+' '}</a>
-                               
+                                    className={isWord===index?'home-page-main-article-large-size':'home-page-main-article'}>{word+' '}</a>                          
                             )
                         })
                     }
-                    
+                    </div>                   
                 </div>
             <MovingNotes />
         </div>
-
     )
 }
 export default HomePage;

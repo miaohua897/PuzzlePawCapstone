@@ -37,12 +37,9 @@ function AddNewNote(){
             for (let i=0;i<errorKey.length;i++){
                 errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
             }
-            setErrorServer({'server':errorArr});
-           
-          
+            setErrorServer({'server':errorArr});    
           } else {
-            closeModal();
-       
+            closeModal(); 
           }
     }
 
@@ -76,7 +73,6 @@ function AddNewNote(){
             <input type='text' id='input-note-title' name='title' 
             onChange={(e)=>setTitle(e.target.value)} required  minLength="0" maxLength="20"></input>
         </div>
-        {/* {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null} */}
         <div className='add-input' >
             <label htmlFor ='content' className='add-form-lable'>Content *</label>
             <input type='text' id='input-note-content' name='content'  

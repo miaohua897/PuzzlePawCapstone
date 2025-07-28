@@ -1,4 +1,3 @@
-
 .update-form-container{
     border-radius: 20px;
     background-image: linear-gradient(rgba(0, 10, 50, 0.95), rgba(23, 3, 243, 0.1));
@@ -8,9 +7,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-  
-  
+    align-items: center; 
 }
 .update-input{
     margin:5px;
@@ -37,9 +34,6 @@
 .update-form-submit:disabled{
     display: none;
 }
-/* #photo-date{
-    width:240px;
-} */
 #photo-title{
     width:300px;
 }
