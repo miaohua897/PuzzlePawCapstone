@@ -32,12 +32,9 @@ function AddNewBehaviorRecord(){
             for (let i=0;i<errorKey.length;i++){
                 errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
             }
-            setErrorServer({'server':errorArr});
-           
-          
+            setErrorServer({'server':errorArr}); 
           } else {
-            closeModal();
-       
+            closeModal();    
           }
     }
 
@@ -67,7 +64,6 @@ function AddNewBehaviorRecord(){
             <input type='text' id='input-behavior-record-description' name='description' 
             onChange={(e)=>setDescription(e.target.value)} required  minLength="0" maxLength="20"></input>
         </div>
-        {/* {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null} */}
         <div className='add-input' >
             <label htmlFor ='behavior-type' className='add-form-lable'>Behavior Type *</label>
             <input type='text' id='input-behavior-record-treatment' name='behavior-type'  

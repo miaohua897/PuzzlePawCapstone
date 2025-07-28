@@ -1,7 +1,4 @@
 .friend-list-container{
-    /* position: fixed;
-    left: 1.5%;
-    top:25%; */
   border-bottom: 1px solid darkgray;
 }
 #friend-name{
@@ -18,8 +15,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
-    
+    align-items: center; 
 }
 .add-friends-icon-container{
     display: flex;

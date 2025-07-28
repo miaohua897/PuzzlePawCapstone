@@ -4,12 +4,9 @@ import { thunkUpdateNote } from '../../redux/note';
 import { useModal } from '../../context/Modal';
 import './UpdateNoteModal.css';
 
-
 function UpdateNoteModal({note,note_id}){
     const dispatch = useDispatch()
     const sessionUser = useSelector(state=>state.session.user)
-    // const notes = useSelector(state=>state.note.note);
-    // const note = notes[note_id];
     const noteDateObject = new Date(note.note_date);
     const formattedDate = noteDateObject.toISOString().split('T')[0];
     const [noteDate, setNoteDate] = useState(formattedDate);
@@ -21,7 +18,6 @@ function UpdateNoteModal({note,note_id}){
     const {closeModal} = useModal();
 
     const today = new Date().toISOString().split('T')[0];
-
 
     const handleAddNoteSubmit=async(e)=>{
         e.preventDefault()
@@ -83,7 +79,6 @@ function UpdateNoteModal({note,note_id}){
             <input type='text' id='input-note-title' name='title' value={title}
             onChange={(e)=>setTitle(e.target.value)}  minLength="0" maxLength="20"></input>
         </div>
-        {/* {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null} */}
         <div className='add-input' >
             <label htmlFor ='content' className='add-form-lable'>Content *</label>
             <input type='text' id='input-note-content' name='content'  value={content}

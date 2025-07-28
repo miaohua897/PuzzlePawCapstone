@@ -23,8 +23,7 @@ function UpdatePhotoPage({photo_id}){
         const today = new Date().toISOString().split('T')[0];
 
         const handleUpdatePhotoSubmit= async (e)=>{
-                 e.preventDefault()
-                //  console.log('i am adding a photo', image,title,description,photo_date)
+                e.preventDefault()
                 setDisableButton(true)
                  if(title.length>20){
                     const errMes ='title is too long';
@@ -50,7 +49,6 @@ function UpdatePhotoPage({photo_id}){
                     }
                     setErrorServer({'server':errorArr});
                     setDisableButton(false)
-                    // console.log('serverResponse',serverResponse,errorValue,errorKey)
                   } else {
                     closeModal();
                     setDisableButton(false)
@@ -61,7 +59,6 @@ function UpdatePhotoPage({photo_id}){
                  setDescription('')
                  setDisableButton(false)
                  setShare(false)
-                //  closeModal()
              }
 
              const handleFileChange=(e)=>{
@@ -113,7 +110,6 @@ function UpdatePhotoPage({photo_id}){
             <div className='update-input'>
                  <label htmlFor ="image_upload" className='update-form-lable'>Upload an image:</label>
                 <input type="file" id="image-upload"  name="image_url" accept="image/*"  
-                // onChange={(e)=>setImage(e.target.files[0])} 
                 onChange={handleFileChange}
                 />
             </div>

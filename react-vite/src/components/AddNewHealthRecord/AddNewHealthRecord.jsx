@@ -70,7 +70,6 @@ function AddNewHealthRecord(){
             <input type='text' id='input-health-record-description' name='description' 
             onChange={(e)=>setDescription(e.target.value)} required  minLength="0" maxLength="20"></input>
         </div>
-        {/* {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null} */}
         <div className='add-input' >
             <label htmlFor ='treatment' className='add-form-lable'>Treatment *</label>
             <input type='text' id='input-health-record-treatment' name='treatment'  

@@ -7,24 +7,19 @@ import SideBarDogPage from './SideBarDogPage';
 import DogShowCase from './DogShowCase';
 import {thunkLoadDogs} from '../../redux/dog';
 import {useSetDogId} from '../../context/SetDogId'; 
-// import {useSideBarStatus} from '../../context/SideBar';
-// import {FaArrowLeft} from 'react-icons/fa';
 import SearchBar from '../SearchBar';
-// import  FriendList from '../FriendList';
 import './DogPage.css'
+import './DogPageMedia.css'
 
 function DogPage(){
   
     const dispatch = useDispatch()
     const navigator = useNavigate()
     const ulRef = useRef();
-
     const sessionUser = useSelector((state) => state.session.user);
     const dogs = useSelector(state=>state.dog.dog);
-
     const [showMenu, setShowMenu] = useState(false);
     const {selectedDogId} =  useSetDogId();
-    // const {setIsSideBarOpen}=useSideBarStatus();
    
     useEffect(()=>{
             dispatch(thunkLoadDogs())
@@ -71,17 +66,6 @@ function DogPage(){
               
                     <SearchBar />
             </div>
-            {/* <  FriendList /> */}
-         
-            {/* <button onClick={()=>navigator('/friendsnote')}>friends notes</button> */}
-        
-            {/* <div className="sidebar-button-container">
-                <button className='sidebar-button' onClick={()=>{
-                    setIsSideBarOpen(true)
-                    }} >
-                <FaArrowLeft color='darkblue'/>
-                </button>
-            </div>    */}
             <SideBarDogPage dogsArr ={dogsArr} />       
             <DogShowCase dogsArr ={dogsArr}  existDog={existDog} showDog={showDog} dogs={dogs} />
         </div>

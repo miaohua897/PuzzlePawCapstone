@@ -1,7 +1,7 @@
 import {useState}  from 'react';
 import {useSelector} from 'react-redux'
-import './TrainingTips.css'
 import DndItems from '../DndItems';
+import './TrainingTips.css'
 
 function TrainingTips(){
     const [newTip,setNewTip] = useState('');

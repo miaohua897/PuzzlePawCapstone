@@ -8,9 +8,7 @@ import SideBarNote from './SideBarNote';
 import AddNewNote from '../AddNewNote';
 import UpdateNoteModal from '../UpdateNoteModal';
 import DeleteNoteModal from '../DeleteNoteModal';
-// import { useModal } from "../../context/Modal";
 import OpenModalButton from '../OpenModalButton';
-// import { useSideBarStatus } from "../../context/SideBar";
 import {FaEdit,FaTrash} from 'react-icons/fa';
 import SearchBar from "../SearchBar/SearchBar";
 
@@ -20,10 +18,7 @@ function NotePage(){
     const notes = useSelector(state=>state.note.note);
     const dogs = useSelector(state=>state.dog.dog);
     const sessionUser = useSelector((state) => state.session.user);
-
     const {selectedDogId} = useSetDogId(); 
-    // const {setIsSideBarOpen} = useSideBarStatus();
-    // const {closeModal} = useModal()
 
     useEffect(()=>{
         dispatch(thunkLoadNotes())  
@@ -50,18 +45,10 @@ function NotePage(){
             }
             <OpenModalButton 
             buttonText="+"
-            // onButtonClick={closeModal}
             className='dog-add-new-dog'
             modalComponent={<AddNewNote />}/>
         </div>
         <SearchBar />
-        {/* <div className="sidebar-button-container">
-            <button className='sidebar-button' onClick={()=>{
-                setIsSideBarOpen(true)
-                }} >
-            <FaArrowLeft color='darkblue'/>
-            </button>
-        </div>   */}
         <SideBarNote dogsArr={dogsArr}/>
         {  dogNotesArr.length !== 0?
           dogNotesArr.map((note,index)=>{
@@ -72,12 +59,10 @@ function NotePage(){
                       <div className="note-update-delete-container">
                         <OpenModalButton 
                                 buttonText= {< FaEdit/>}
-                                // onButtonClick={closeMenu}
                                 className='note-update-icon'
                                 modalComponent={<UpdateNoteModal note ={note} note_id={note.id} />}/>
                         <OpenModalButton 
                                 buttonText={<FaTrash />}
-                                // onButtonClick={closeMenu}
                                 className='note-delete-icon'
                                 modalComponent={<DeleteNoteModal note_id={note.id}  />} />
             

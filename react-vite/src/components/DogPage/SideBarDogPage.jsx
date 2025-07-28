@@ -1,7 +1,6 @@
 import DogCards from './DogCards';
 import {useNavigate} from 'react-router-dom';
 import {useSideBarStatus} from '../../context/SideBar';
-// import { FaArrowRight} from 'react-icons/fa';
 import NewestDogNoteRecord from './NewestDogNoteRecord';
 import FriendList from '../FriendList';
 import { useEffect } from 'react';
@@ -48,11 +47,6 @@ function SideBarDogPage({dogsArr}){
             
                 <div className="fixed-top">
                     <div className="sidebar-header">
-                        {/* <button className="arrow-button" onClick={() => {
-                        setIsSideBarOpen(false)
-                        }}>
-                        <FaArrowRight />
-                        </button> */}
                     </div>
                     <h1 id='beloved-dog-sidebar'>Beloved Dogs</h1>
                     <div className="dog-page-nav-button">

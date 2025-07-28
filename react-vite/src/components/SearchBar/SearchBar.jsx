@@ -1,23 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import './SearchBar.css';
 import {useState} from 'react';
 import {thunkSearchFriend} from '../../redux/friendship';
 import {thunkCreateFriendship} from '../../redux/session';
-// import { useModal } from '../../context/Modal';
 import { FaSearch ,FaTimes} from 'react-icons/fa';
-// import AddNewFriendModal from '../AddNewFriendModal';
-// import OpenModalButton from '../OpenModalButton';
-// import thunkDeleteSearchFriend  from '../../redux/friendship';
+import './SearchBar.css';
 
 function SearchBar(){
     const dispatch= useDispatch()
-    // const {closeModal} = useModal();
     const  searchFriend= useSelector(state=>state.friend.search);
     const sessionUser = useSelector((state) => state.session.user);
-
     const [searchUser, setSearchUser] = useState('')
     const [errorServer,setErrorServer] = useState({});
-    const [showSearch,setShowSearch] = useState(false)
+    const [showSearch,setShowSearch] = useState(false);
 
     const handleSearchNameSubmit = async(e)=>{
         e.preventDefault()
@@ -33,10 +27,7 @@ function SearchBar(){
                 errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
             }
             setErrorServer({'server':errorArr});
-         
-          
           } else {
-            // closeModal();
             setShowSearch(true)
           }
     }
@@ -44,7 +35,6 @@ function SearchBar(){
     const handleCloseSearch= async(e)=>{
         e.preventDefault()
         setShowSearch(false)
-        // await dispatch(thunkDeleteSearchFriend())
     }
 
     const handleAddFriend= async(e)=>{
@@ -61,11 +51,8 @@ function SearchBar(){
                    for (let i=0;i<errorKey.length;i++){
                        errorArr.push(`${errorKey[i]}:${errorValue[i]}`)
                    }
-                   setErrorServer({'server':errorArr});
-                  
-                 
+                   setErrorServer({'server':errorArr});                
                  } else {
-                //    closeModal();
                 setShowSearch(false)
                 setSearchUser('')
                  }
@@ -92,10 +79,6 @@ function SearchBar(){
                      
                     <p>{searchFriend.username} </p>
                     <button id='add-friend-button-searchbar' onClick={handleAddFriend}>+</button>
-                    {/* <OpenModalButton 
-                        buttonText="+"
-                        className='dog-add-new-dog'
-                        modalComponent={<AddNewFriendModal />}/> */}
                     <button onClick={handleCloseSearch} id='close-search-button'><FaTimes /></button>
                 </div>
                 :null

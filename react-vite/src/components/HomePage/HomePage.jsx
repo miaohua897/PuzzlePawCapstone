@@ -1,7 +1,6 @@
 import { useEffect,useState } from 'react';
 import { useSelector} from 'react-redux';
 import MovingNotes from '../MovingNotes';
-// import {thunkLoadNewsPhotos} from '../../redux/new_photo';
 import './HomePage.css'
 import './HomePageMedia.css'
 
@@ -48,19 +47,14 @@ function HomePage(){
                                     <a key={index} 
                                     onMouseEnter={()=>setIsWord(index)}
                                     onMouseLeave={()=>setIsWord(null)}
-                                    className={isWord===index?'home-page-main-article-large-size':'home-page-main-article'}>{word+' '}</a>
-                               
+                                    className={isWord===index?'home-page-main-article-large-size':'home-page-main-article'}>{word+' '}</a>                          
                             )
                         })
                     }
-
-                    </div>
-  
-                    
+                    </div>                   
                 </div>
             <MovingNotes />
         </div>
-
     )
 }
 export default HomePage;

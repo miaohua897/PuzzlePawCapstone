@@ -11,22 +11,20 @@ function DogCards({dogsArr}){
       const {setIsSideBarOpen}=useSideBarStatus();
       const [showMenu, setShowMenu] = useState(false);
       const [selectedDog,setSelectedDog] = useState(-1);
-  
-
-         useEffect(() => {
-              if (!showMenu) return;
-          
-              const closeMenu = (e) => {
-                if (ulRef.current && !ulRef.current.contains(e.target)) {
-                  setShowMenu(false);
-                }
-              };
-          
-              document.addEventListener("click", closeMenu);
-          
-              return () => document.removeEventListener("click", closeMenu);
-            }, [showMenu]);
-    const closeMenu = () => setShowMenu(false);
+      useEffect(() => {
+          if (!showMenu) return;
+      
+          const closeMenu = (e) => {
+            if (ulRef.current && !ulRef.current.contains(e.target)) {
+              setShowMenu(false);
+            }
+          };
+      
+          document.addEventListener("click", closeMenu);
+      
+          return () => document.removeEventListener("click", closeMenu);
+        }, [showMenu]);
+      const closeMenu = () => setShowMenu(false);
 
   return (
     <div className="select-dog-container" onClick={() =>setIsSideBarOpen(false)}>

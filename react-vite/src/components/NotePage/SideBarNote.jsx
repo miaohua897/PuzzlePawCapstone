@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSideBarStatus } from "../../context/SideBar";
-// import {FaArrowRight} from 'react-icons/fa';
 import { useSetDogId } from "../../context/SetDogId";
 import './NotePage.css';
 
@@ -45,11 +44,6 @@ function SideBarNote({dogsArr}){
         style={isSideBarOpen?{transform:'translateX(0)'}:{transform:'translateX(100%)'}}
         >
             <div className="fixed-top">
-                {/* <div className="sidebar-header">
-                    <button className="arrow-button" onClick={()=>setIsSideBarOpen(false)}>
-                        <FaArrowRight />
-                    </button>
-                </div> */}
                 <h1 id='beloved-dog-sidebar'>Beloved Dogs</h1>
                 <div className="dog-page-nav-button">
                     <div>
@@ -75,10 +69,7 @@ function SideBarNote({dogsArr}){
                     )
                     :<p>you dont have dog yet</p>
                 }
-
             </div>
-
-
         </div>
     )
 }

@@ -1,11 +1,11 @@
-import './UpdateDogPage.css';
 import { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import {thunkUpdateDogs} from '../../redux/dog';
 import { useModal } from '../../context/Modal';
+import './UpdateDogPage.css';
 
 function UpdateDogPage({updateDog}){
-    
+
     const {closeModal} = useModal()
     const dispatch = useDispatch();
     const birthDataObj = new Date(updateDog.birth_date);
@@ -37,12 +37,10 @@ function UpdateDogPage({updateDog}){
     const [errorServer,setErrorServer] = useState({})
     const [disableButton,setDisableButton]=useState(false);
     const today = new Date().toISOString().split('T')[0];
-
     const handleAddDogSubmit= async(e)=>{
          
-     e.preventDefault();
-  
-     setDisableButton(true)
+      e.preventDefault();
+      setDisableButton(true)
 
       if(owner_contact.length<7||owner_contact.length>15) {
         const errMes ='phone is too long or too short';

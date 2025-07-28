@@ -6,28 +6,22 @@ import { useNavigate } from "react-router-dom";
 import OpenModalButton from '../OpenModalButton';
 import AddNewPhotoPage from '../AddNewPhotoPage';
 import {FaPhotoVideo} from 'react-icons/fa';
-// import {useSideBarStatus} from '../../context/SideBar';
 import SideBarPhoto from './SideBarPhoto';
 import PhotoWall from './PhotoWall';
 import SearchBar from "../SearchBar/SearchBar";
-// import FriendList from '../FriendList';
 import './PhotoPage.css'
+import './PhotoPageMedia.css'
 
 function PhotoPage(){
 
   const dispatch = useDispatch()
   const navigator = useNavigate()
   const ulRef = useRef();
-  // const {setIsSideBarOpen} = useSideBarStatus();
-
   const photos = useSelector(state=>state.photo.photo);
   const dogs = useSelector(state=>state.dog.dog);
-
   const sessionUser = useSelector((state) => state.session.user);
-
   const [showMenu, setShowMenu] = useState(false);
 
-   
     useEffect(()=>{
           dispatch(thunkLoadPhotos())
           dispatch(thunkLoadDogs())
@@ -65,18 +59,9 @@ function PhotoPage(){
                   className='photo-cards-add'
                   modalComponent={<AddNewPhotoPage />}
                   />
-
             </div>
-             <SearchBar />
-            {/* <FriendList /> */}
-            {/* <div className="sidebar-button-container">
-            <button className='sidebar-button' onClick={()=>{setIsSideBarOpen(true) }} >
-              <FaArrowLeft color='darkblue'/>
-            </button>
-            </div>  */}
-     
-            <SideBarPhoto dogs_arr={dogs_arr} photos_arr={photos_arr}  closeMenu={closeMenu} />
-              
+             <SearchBar />  
+            <SideBarPhoto dogs_arr={dogs_arr} photos_arr={photos_arr}  closeMenu={closeMenu} />             
             <PhotoWall photos_arr={photos_arr} />
       
     </div>

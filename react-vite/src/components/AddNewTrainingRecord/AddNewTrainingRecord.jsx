@@ -69,7 +69,7 @@ function AddNewTrainingRecord(){
             <input type='text' id='input-health-record-training-type' name='training-type' 
             onChange={(e)=>setTrainingType(e.target.value)} required  minLength="0" maxLength="20"></input>
         </div>
-        {/* {errorTitle.length !==0 ? <p id='photo-error' >{errorTitle}</p> : null} */}
+       
         <div className='add-input' >
             <label htmlFor ='notes' className='add-form-lable'>Notes *</label>
             <input type='text' id='input-training-record-notes' name='notes'  

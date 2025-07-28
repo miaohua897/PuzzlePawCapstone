@@ -4,8 +4,6 @@ import {thunkCreatePhotos} from '../../redux/photo';
 import {useDispatch,useSelector} from 'react-redux'
 import { useModal } from '../../context/Modal';
 
-
-
 function AddNewPhotoPage(){
      const dispatch = useDispatch()
      const sessionUser = useSelector((state) => state.session.user);
@@ -23,7 +21,6 @@ function AddNewPhotoPage(){
     
     const handleAddPhotoSubmit= async (e)=>{
         e.preventDefault()
-        // console.log('i am adding a photo', image,title,description,photo_date)
         setDisableButton(true)
         if(title.length>20){
             const errMes ='title is too long';
@@ -49,7 +46,6 @@ function AddNewPhotoPage(){
             }
             setErrorServer({'server':errorArr});
             setDisableButton(false)
-            // console.log('serverResponse',serverResponse,errorValue,errorKey)
           } else {
             closeModal();
             setDisableButton(false)
@@ -60,7 +56,6 @@ function AddNewPhotoPage(){
         setDescription('')
         setDisableButton(false)
         setShare(false)
-        // closeModal()
     }
     const handleFileChange=(e)=>{
         e.preventDefault()
@@ -112,7 +107,6 @@ function AddNewPhotoPage(){
                  <label htmlFor ="image_upload" className='add-form-lable'>Upload an image *:</label>
                 <input type="file" id="image-upload" name="image_url" accept="image/*"  
                  onChange={handleFileChange}
-                // onChange={(e)=>setImage(e.target.files[0])} 
                 required
                 />
             </div>
