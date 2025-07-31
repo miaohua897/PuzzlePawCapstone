@@ -18,22 +18,23 @@ function DogShowCase({dogsArr,existDog,showDog,dogs}){
                         </div>
                 <div className="dog-info">
                         <p id='showcase-info-dog-name'>{dogs[selectedDogId].dog_name}</p>
-                        <div className="dog-basic-info">
-                                    <div className="dog-basic-text">
-                                        <p id='dog-basic-label'>Age: </p>
-                                        <p id='dog-basic-info-text' >{dogs[selectedDogId].age}</p>
-                                    </div>
-                                    <div className="dog-basic-text">
-                                        <p id='dog-basic-label'>Weight: </p>
-                                        <p id='dog-basic-info-text' > {dogs[selectedDogId].weight}</p>
-                                    </div>
-                                    <div className="dog-basic-text">
-                                        <p id='dog-basic-label'>Breed:</p>
-                                        <p id='dog-basic-info-text' >
-                                            {dogs[selectedDogId].breed_name}
-                                        </p>
-                                    </div>
-                        </div>
+                        <div>
+                                <div className="dog-basic-info">
+                                            <div className="dog-basic-text">
+                                                <p id='dog-basic-label'>Age: </p>
+                                                <p id='dog-basic-info-text' >{dogs[selectedDogId].age}</p>
+                                            </div>
+                                            <div className="dog-basic-text">
+                                                <p id='dog-basic-label'>Weight: </p>
+                                                <p id='dog-basic-info-text' > {dogs[selectedDogId].weight}</p>
+                                            </div>
+                                            <div className="dog-basic-text">
+                                                <p id='dog-basic-label'>Breed:</p>
+                                                <p id='dog-basic-info-text' >
+                                                    {dogs[selectedDogId].breed_name}
+                                                </p>
+                                            </div>
+                                </div>
             
                                 <div className="dog-bio-basic-text">
                                     <p id='dog-basic-label'>Bio:</p>
@@ -53,6 +54,7 @@ function DogShowCase({dogsArr,existDog,showDog,dogs}){
                                         {dogs[selectedDogId].owner.username}
                                     </p>
                                 </div>
+                        </div>
                     </div>          
                 </div>
              </div>

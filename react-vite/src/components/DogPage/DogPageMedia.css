@@ -1,6 +1,6 @@
 @media(max-width:1024px){
-    .dog-page-container{
-        height: 1000px;
+    .dog-page-wrapper{
+        height: 1600px;
     }
     .dog-info-container{
         display: flex;
@@ -11,5 +11,9 @@
     .showcase-dog-img-container{
         width: 100%;
         margin:20px 0;
+    }
+    .dog-info{
+        width: 100%;
+
     }
 }
