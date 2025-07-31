@@ -1,7 +1,8 @@
 import {useState}  from 'react';
 import {useSelector} from 'react-redux'
-import './NewParentsTips.css'
 import DndItems from '../DndItems/DndItems';
+import MovingImages from '../MovingImages';
+import './NewParentsTips.css'
 
 function NewParentsTips(){
     const [newTip,setNewTip] = useState('');
@@ -23,7 +24,7 @@ function NewParentsTips(){
         setNewTip("")
     }
     return (
-        <div>
+        <div className='parent-tips-wrapper'>
             <h1>Parents&apos; Tips</h1>
     
             {
@@ -39,6 +40,7 @@ function NewParentsTips(){
                 : <h2>log in, and add share your tips</h2>
             }
                <DndItems tips={tips} setTips={setTips}/>
+               <MovingImages />
         </div>
     )
 }

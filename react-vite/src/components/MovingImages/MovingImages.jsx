@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
-import './MovingNotes.css';
+import './MovingImages.css';
 
-const MovingNotes = () => {
+const MovingImages = () => {
   const [position, setPosition] = useState(0); 
   const containerRef = useRef(null); 
 
-  const notes = [
-    'This place for the most liked comment in forum I',
-    'This place for the most liked comment in forum II',
-    'This place for the most liked comment in forum III',
-    'This place for the most liked comment in forum IV',
-    "This place for the most liked comment in forum V"
+  const imageUrl = [
+    'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-freestockpro-20659445.jpg',
+    'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-ilargian-faus-763704-1629781.jpg',
+    'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-nishizuka-25426-485294.jpg',
+    'https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-nord6-7324407.jpg',
+    "https://testbucketbymiaohua.s3.us-west-1.amazonaws.com/pexels-sam-lion-5732460.jpg"
   ];
 
   useEffect(() => {
@@ -43,9 +43,9 @@ const MovingNotes = () => {
         }}
       >
   
-        {notes.concat(notes).map((note, index) => (
+        {imageUrl.concat(imageUrl).map((url, index) => (
           <div key={index} >
-           <p id='note-style'>{note}</p>
+           <img id='note-style' src={url}></img>
           </div>
         ))}
       </div>
@@ -53,7 +53,7 @@ const MovingNotes = () => {
   );
 };
 
-export default MovingNotes;
+export default MovingImages;
 
 
 

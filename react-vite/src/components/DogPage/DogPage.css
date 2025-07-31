@@ -1,9 +1,15 @@
 /* dogpage */
+.dog-page-wrapper{
+   height: 1200px;
+   overflow: scroll;
+   display: flex;
+   flex-direction: column;
+   gap:30px;
+}
 .dog-page-container{
     width: 99%;
-    height: 800px;
+    height: auto;
     background-repeat: repeat; 
-    overflow: scroll; 
 }
 
 .dog-cards-image{
@@ -116,18 +122,14 @@
     align-items: flex-end;
     margin-bottom: 3px;
     gap:5%;
-
-  
 }
 .showcase-dog-bio{
     padding:5px;
     margin:5px;
     margin-left: 0;
     padding-left: 0;
-    height: 50px;
+    height: auto;
     width: 50%;
-    overflow: scroll;
-
 }
 #dog-cards-options{
     border:none;
@@ -190,8 +192,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 400px;
-    height: 40px;  
-    overflow: scroll; 
+    height: autopx;  
 }
 #dog-basic-label{
     font-size: 16px;

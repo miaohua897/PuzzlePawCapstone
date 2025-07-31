@@ -1,13 +1,13 @@
 #note-style{
     width: 400px;
-    height: 100px;
+    height: 250px;
     margin-right: 10px;
-    border: 1px solid #3498db;
+    border: 1px solid #a9d2f4;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 25px;
-    background-image: linear-gradient(rgba(0, 36, 135, 0.9), rgba(24, 4, 242, 0.1));
+    padding: 15px;
+    /* background-image: linear-gradient(rgba(0, 36, 135, 0.9), rgba(24, 4, 242, 0.1)); */
     color: white;
     font-size: 18px;
     font-weight: bolder;

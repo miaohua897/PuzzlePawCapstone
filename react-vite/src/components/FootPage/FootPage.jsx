@@ -9,7 +9,8 @@ function FootPage(){
 
     }
     return (
-        <div className='more-tips-home-page'>
+     
+     <div className='more-tips-home-page'>
                 <div className='more-tips-container'>
                     <button id='more-tips-button' onClick={()=>navigator('/parents-tips')}>
                     new parents
@@ -25,6 +26,7 @@ function FootPage(){
                     </button>
                 </div>
         </div>
+    
     )
 }
 export default FootPage;

@@ -8,6 +8,7 @@ import DogShowCase from './DogShowCase';
 import {thunkLoadDogs} from '../../redux/dog';
 import {useSetDogId} from '../../context/SetDogId'; 
 import SearchBar from '../SearchBar';
+import MovingImages from "../MovingImages";
 import './DogPage.css'
 import './DogPageMedia.css'
 
@@ -52,7 +53,8 @@ function DogPage(){
     const closeMenu = () => setShowMenu(false);
    
     return (
-        <div className="dog-page-container" > 
+      <div  className="dog-page-wrapper">
+         <div className="dog-page-container" > 
             <div className="dog-page-title-wrapper">
                   <div className="dog-cards-title-icon">
                           <h1 id='beloved-dog-title'>My Beloved Dogs</h1>
@@ -69,7 +71,8 @@ function DogPage(){
             <SideBarDogPage dogsArr ={dogsArr} />       
             <DogShowCase dogsArr ={dogsArr}  existDog={existDog} showDog={showDog} dogs={dogs} />
         </div>
-       
+            <MovingImages  />
+      </div>      
     )
 }
 export default DogPage;
