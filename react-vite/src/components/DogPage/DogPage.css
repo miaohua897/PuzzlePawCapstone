@@ -1,9 +1,15 @@
 /* dogpage */
+.dog-page-wrapper{
+   height: 1000px;
+   overflow: scroll;
+   display: flex;
+   flex-direction: column;
+   gap:30px;
+}
 .dog-page-container{
     width: 99%;
-    height: 800px;
+    height: auto;
     background-repeat: repeat; 
-    overflow: scroll; 
 }
 
 .dog-cards-image{
@@ -41,43 +47,42 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
 }
 .dog-info-container{
-    width: 90%;
+    width: 94%;
+    height: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start; 
     align-items: flex-end;
+    gap:2%;
 }
 .select-dog-container{
     display: flex;
     flex-direction: column;
-    justify-content:flex-start;
-    gap:20px;
+    justify-content:flex-start; 
     margin-left: 27%;
     margin-top:10%;
 }
 .showcase-dog-img-container{
-    flex:2;
     background-color: transparent;
     width: 50%;
-    height: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
+    height: 100%;
     border-radius: 10px;
 }
 .dog-info{
-    flex:1;
+    width: 40%;
     border-radius: 10px;
     padding: 10px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .dog-info-image{
-    width: 80%;
-    height: 100%;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 0 10px 2px darkgrey;
@@ -92,7 +97,7 @@
     opacity: 0; 
     position: absolute; 
     bottom: 40%;
-    left: 25%;
+    /* left: 25%; */
     z-index: 10;
     transform: translateX(-50%);
     transition: opacity 0.3s ease, visibility 0.3s ease;  
@@ -108,26 +113,22 @@
 
 }
 .dog-basic-info{
-    width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: flex-end;
     margin-bottom: 3px;
-    gap:5%;
-
-  
+    gap:2%;
+    background-color: rgb(175, 200, 244);
+    
 }
 .showcase-dog-bio{
     padding:5px;
     margin:5px;
     margin-left: 0;
     padding-left: 0;
-    height: 50px;
+    height: auto;
     width: 50%;
-    overflow: scroll;
-
 }
 #dog-cards-options{
     border:none;
@@ -182,29 +183,32 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;    
+    align-items: center;   
+    background-color: rgb(175, 200, 244);
+    margin-bottom: 3px;
 }
 .dog-bio-basic-text{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    width: 400px;
-    height: 40px;  
-    overflow: scroll; 
+    background-color: rgb(175, 200, 244);
+    margin-bottom: 3px;
 }
 #dog-basic-label{
     font-size: 16px;
     font-weight: bolder;
     padding: 3px;
     border-radius: 10px;
+   
 }
 #dog-basic-info-text{
     font-size: 16px;
-    padding-left: 10px;
+    padding: 10px;
+
 }
 #showcase-info-dog-name{
-    font-size: 16px;
+    font-size: 32px;
     font-weight: bolder;
 }
 #dog-page-dog-button{

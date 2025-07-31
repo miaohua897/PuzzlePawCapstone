@@ -1,4 +1,7 @@
-
+.parent-tips-wrapper{
+    height: 1100px;
+    overflow: scroll;
+}
 #tip{
     font-size: 16px;
     font-family: 'Times New Roman', Times, serif;

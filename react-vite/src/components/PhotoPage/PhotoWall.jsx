@@ -72,15 +72,16 @@ function PhotoWall({photos_arr}){
                         )
                     })
                   }
-                   {
+             
+                  </div>      
+                        {
                     photos_arr.length !==0?                    
                       moreInfo===12?
                       <button className='showmore' onClick={()=>setMoreInfo(photos_arr.length)}> ... show more</button>
                       :
                       <button className='showmore' onClick={()=>setMoreInfo(12)}>show less</button>                   
                     :null
-                   }
-                  </div>           
+                   }     
                 </div>        
             </div>
             :<h1>Photoes</h1>

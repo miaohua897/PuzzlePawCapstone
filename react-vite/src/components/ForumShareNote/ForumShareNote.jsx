@@ -8,6 +8,7 @@ import OpenModalButton from '../OpenModalButton';
 import SideBarFriend from './SideBarFriend';
 import {thunkLoadDogs} from '../../redux/dog';
 import SearchBar  from '../SearchBar';
+import MovingImages from '../MovingImages';
 import './ForumShareNote.css';
 
 function ForumShareNote(){
@@ -31,7 +32,8 @@ function ForumShareNote(){
     if (dogs) dogs_arr = Object.values(dogs);
 
     return (
-        <div className='forum-container'>
+     <div className='forum-wrapper'>
+              <div className='forum-container'>
             <h1 id='beloved-dog-title'>Welcome to Forum</h1>
             <SearchBar />
             {
@@ -55,6 +57,8 @@ function ForumShareNote(){
             }
             <SideBarFriend dogs_arr={dogs_arr} />
         </div>
+            <MovingImages/>
+     </div>
     )
 }
 export default ForumShareNote

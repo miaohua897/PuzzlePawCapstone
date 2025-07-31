@@ -1,6 +1,6 @@
 import { useEffect,useState } from 'react';
 import { useSelector} from 'react-redux';
-import MovingNotes from '../MovingNotes';
+import MovingImages from '../MovingImages'
 import './HomePage.css'
 import './HomePageMedia.css'
 
@@ -53,7 +53,7 @@ function HomePage(){
                     }
                     </div>                   
                 </div>
-            <MovingNotes />
+            < MovingImages />
         </div>
     )
 }

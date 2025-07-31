@@ -1,6 +1,7 @@
 import {useState}  from 'react';
 import {useSelector} from 'react-redux'
 import DndItems from '../DndItems';
+import MovingImages  from '../MovingImages';
 import './TrainingTips.css'
 
 function TrainingTips(){
@@ -24,7 +25,7 @@ function TrainingTips(){
         setNewTip("")
     }
     return (
-        <div>
+        <div className='training-tips-wrapper'>
             <h1>Training Tips</h1>
             {
                 sessionUser?
@@ -38,6 +39,7 @@ function TrainingTips(){
                 : <h2>log in, and add share your tips</h2>
             }
                <DndItems tips={tips} setTips={setTips}/>
+               <MovingImages  />
         </div>
     )
 }

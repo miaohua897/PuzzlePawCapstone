@@ -10,7 +10,7 @@ const SortTipsList =({id, tip,isVertical})=>{
         <div  ref ={setNodeRef}
                 style ={{
                     color:isDragging? 'brown':'black',
-                    backgroundColor:isDragging? 'lightblue':'white',
+                    backgroundColor:isDragging? 'white':'white',
                     transition,
                     transform:CSS.Transform.toString(transform)
                 }}
