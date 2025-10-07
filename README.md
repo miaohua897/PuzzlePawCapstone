@@ -32,51 +32,7 @@ PuzzlePaw is a dog website, users can see newest information in the website, cre
 [User Stores](https://github.com/miaohua897/PuzzlePawCapstone/wiki/User-Stories) |
 [WireFrame](https://github.com/miaohua897/PuzzlePawCapstone/wiki/wireframes) |
 
-## Landing Page
-
-The landing page will feature an auto-display that automatically updates dogs' photos. A scrolliing display will continue to move most liked comments. When the mouse hover on the word, the word will become larger.     
-
-<img width="1452" height="756" alt="Screenshot 2025-10-06 at 9 36 46 PM" src="https://github.com/user-attachments/assets/4ffd8c70-625a-44c6-badb-a508c4126819" />      
-
-
-
---------------------------
-## Dogs' Detail Page
-
-Dogs' detail page has a sidebar that controll all owner's dogs' information. By clicking the dogs' name, the information will be shown on page.   
-
-<img width="1460" height="748" alt="Screenshot 2025-10-06 at 9 36 22 PM" src="https://github.com/user-attachments/assets/c748e0e7-eb29-429f-bb7d-a680b9fa5b70" />        
-
-
-
---------------------------
-## Photos' Page
-
-Photos' detail page also has sidebar that control all owner's photos. By clicking on dogs' name, dog's basic information will show up. By clicking on photo, a large version of photo will show up.   
-
-<img width="1453" height="751" alt="Screenshot 2025-10-06 at 9 37 22 PM" src="https://github.com/user-attachments/assets/b7038e0f-60cd-428f-9dfe-09d12a005c3e" />         
-
-
---------------------------      
-## Records' Page
-
- <img width="1452" height="747" alt="Screenshot 2025-10-06 at 9 40 01 PM" src="https://github.com/user-attachments/assets/e61dd2c3-9c4f-47b0-b3de-3030eedcd75c" />       
-
-
---------------------------   
-## New parents' tips Page  
-
-<img width="1363" alt="Screenshot 2025-04-03 at 5 07 47 PM" src="https://github.com/user-attachments/assets/dbc7cf0f-ebb8-403f-969d-d19d4026ec28" />  
-
---------------------------   
-## Training's tips Page   
-
-<img width="1345" alt="Screenshot 2025-04-03 at 5 08 28 PM" src="https://github.com/user-attachments/assets/097ad248-b1ef-4589-bf62-d49c1db68ac1" />   
-
---------------------------   
-## Training's tips Page    
-
-<img width="1352" alt="Screenshot 2025-04-03 at 5 08 41 PM" src="https://github.com/user-attachments/assets/20817bf6-4c95-446d-81d9-0eb03711de98" />   
+  
 
 
 -----------------------------------------------------------------------------
